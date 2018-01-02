@@ -1,0 +1,109 @@
+NET "clk" TNM_NET = "clk";
+TIMESPEC TS_clk = PERIOD "clk" 50 MHz HIGH 50 %;
+
+NET "clk" LOC = P56;
+NET "clk" IOSTANDARD = LVTTL;
+NET "rst_n" LOC = P38;
+NET "rst_n" IOSTANDARD = LVTTL;
+
+NET "cclk" LOC = P70;
+NET "cclk" IOSTANDARD = LVTTL;
+
+//NET "led<0>" LOC = P134 | IOSTANDARD = LVTTL;
+//NET "led<1>" LOC = P133 | IOSTANDARD = LVTTL;
+//NET "led<2>" LOC = P132 | IOSTANDARD = LVTTL;
+//NET "led<3>" LOC = P131 | IOSTANDARD = LVTTL;
+//NET "led<4>" LOC = P127 | IOSTANDARD = LVTTL;
+//NET "led<5>" LOC = P126 | IOSTANDARD = LVTTL;
+//NET "led<6>" LOC = P124 | IOSTANDARD = LVTTL;
+//NET "led<7>" LOC = P123 | IOSTANDARD = LVTTL;
+
+NET "spi_mosi" LOC = P44;
+NET "spi_mosi" IOSTANDARD = LVTTL;
+NET "spi_miso" LOC = P45;
+NET "spi_miso" IOSTANDARD = LVTTL;
+NET "spi_ss" LOC = P48;
+NET "spi_ss" IOSTANDARD = LVTTL;
+NET "spi_sck" LOC = P43;
+NET "spi_sck" IOSTANDARD = LVTTL;
+NET "spi_channel[0]" LOC = P46;
+NET "spi_channel[0]" IOSTANDARD = LVTTL;
+NET "spi_channel[1]" LOC = P61;
+NET "spi_channel[1]" IOSTANDARD = LVTTL;
+NET "spi_channel[2]" LOC = P62;
+NET "spi_channel[2]" IOSTANDARD = LVTTL;
+NET "spi_channel[3]" LOC = P65;
+NET "spi_channel[3]" IOSTANDARD = LVTTL;
+
+NET "avr_tx" LOC = P55;
+NET "avr_tx" IOSTANDARD = LVTTL;
+NET "avr_rx" LOC = P59;
+NET "avr_rx" IOSTANDARD = LVTTL;
+NET "avr_rx_busy" LOC = P39;
+NET "avr_rx_busy" IOSTANDARD = LVTTL;
+
+
+//NET "probe_mosi" LOC = P78 | IOSTANDARD = LVTTL;
+//NET "probe_new_data" LOC = P79 | IOSTANDARD = LVTTL;
+//NET "probe_FCLK" LOC = P80 | IOSTANDARD = LVTTL;
+//NET "probe_spi_clock" LOC = P81 | IOSTANDARD = LVTTL;
+//NET "probe_CS" LOC = P82 | IOSTANDARD = LVTTL;
+
+
+
+//NET "mojo_clk" LOC = P94 | IOSTANDARD = LVTTL;
+
+NET "tdc_mosi" LOC = P78;
+NET "tdc_mosi" IOSTANDARD = LVTTL;
+NET "tdc_spi_clock" LOC = P79;
+NET "tdc_spi_clock" IOSTANDARD = LVTTL;
+NET "tdc_CS" LOC = P80;
+NET "tdc_CS" IOSTANDARD = LVTTL;
+NET "tdc_new_data" LOC = P81;
+NET "tdc_new_data" IOSTANDARD = LVTTL;
+//NET "tdc_start" LOC = P82 | IOSTANDARD = LVTTL;
+NET "tdc_busy" LOC = P82;
+NET "tdc_busy" IOSTANDARD = LVTTL;
+NET "tdc_enable" LOC = P83;
+NET "tdc_enable" IOSTANDARD = LVTTL;
+NET "TDC_REF_CLOCK" LOC = P84;
+NET "TDC_REF_CLOCK" IOSTANDARD = LVTTL;
+NET "TDC_TRIG" LOC = P92;
+NET "TDC_TRIG" IOSTANDARD = LVTTL;
+NET "TDC_START_SIGNAL" LOC = P87;
+NET "TDC_START_SIGNAL" IOSTANDARD = LVTTL;
+NET "TDC_STOP_SIGNAL" LOC = P93;
+NET "TDC_STOP_SIGNAL" IOSTANDARD = LVTTL;
+NET "TDC_INTB" LOC = P94;
+NET "TDC_INTB" IOSTANDARD = LVTTL;
+NET "laser_trig" LOC = P99;
+NET "laser_trig" IOSTANDARD = LVTTL;
+
+NET "w_TDC_DOUT" LOC = P97;
+NET "w_TDC_DOUT" IOSTANDARD = LVTTL;
+// FIFO
+NET "w_rd_en" LOC = P112;
+NET "w_rd_en" IOSTANDARD = LVTTL;
+NET "w_wr_en" LOC = P105;
+NET "w_wr_en" IOSTANDARD = LVTTL;
+NET "FIFO_FULL" LOC = P101;
+NET "FIFO_FULL" IOSTANDARD = LVTTL;
+NET "FIFO_EMPTY" LOC = P104;
+NET "FIFO_EMPTY" IOSTANDARD = LVTTL;
+// END FIFO
+
+// SERIAL
+NET "w_tx_OUT_TDC" LOC = P57;
+NET "w_tx_OUT_TDC" IOSTANDARD = LVTTL;
+NET "play" LOC = P117;
+NET "play" IOSTANDARD = LVTTL;
+NET "pause" LOC = P116;
+NET "pause" IOSTANDARD = LVTTL;
+
+//NET "tx_busy_TDC" LOC = P111 | IOSTANDARD = LVTTL;
+//NET "t_new_data_FROM_FIFO_TO_SERIAL" LOC = P117 | IOSTANDARD = LVTTL;
+
+// END SERIAL
+
+//NET "CS_BEGIN" LOC = P97 | IOSTANDARD = LVTTL;
+//NET "CS_END" LOC = P98 | IOSTANDARD = LVTTL;
