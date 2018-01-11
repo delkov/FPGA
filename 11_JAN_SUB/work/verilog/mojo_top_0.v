@@ -10,59 +10,55 @@ module mojo_top_0(
     input spi_mosi,
     input spi_sck,
     output [3:0] spi_channel,
+    input avr_tx, // AVR Tx => FPGA Rx
+    output avr_rx, // AVR Rx => FPGA Tx
+    input avr_rx_busy, // AVR Rx buffer full
 
     // TDC
-    output tdc_mosi,
-    output tdc_spi_clock,
-    output tdc_CS,
+    output TDC_MOSI,
+    output TDC_SPI_CLOCK,
+    output TDC_CS,
     output TDC_ENABLE,
     output TDC_REF_CLOCK,
     output TDC_START_SIGNAL,
-    input TDC_TRIG,
-    input TDC_INTB,
-    input w_TDC_DOUT,
-    output w_tx_OUT_TDC,
-    output play,
-    output pause,
-    // END TDC
+    output SERIAL_OUT_TDC,
 
-    // input fake_SERIAL,
+    input TDC_INTB,
+    input TDC_DOUT,
+
     // FIFO
     output FIFO_FULL,
     output FIFO_EMPTY,
     output w_rd_en,
     output w_wr_en,
-    // END FIFO
 
+
+    // DEBUGGING
+    // input TDC_TRIG,
     // SERIAL
     output tx_busy_TDC,
-    output t_new_data_FROM_FIFO_TO_SERIAL,
-    // END SERIAL
-
-    input avr_tx, // AVR Tx => FPGA Rx
-    output avr_rx, // AVR Rx => FPGA Tx
-    input avr_rx_busy // AVR Rx buffer full
+    output t_new_data_FROM_FIFO_TO_SERIAL
+    // output play,
+    // output pause,
   );
  
+  // GLOBAL
   wire rst = ~rst_n; // make reset active high
 
-  assign w_rd_en = t_rd_en;
-  assign w_wr_en = s1_wr_en;
-
+  // AVR
   wire [7:0] tx_data;
   wire new_tx_data;
   wire tx_busy;
   wire [7:0] rx_data;
   wire new_rx_data;
   
-
+  // TDC-SPI
   wire tdc_busy;
-
-
   wire [7:0] tdc_data_in;
   wire [7:0] tdc_data_out;
 
-  wire w_CS_END;
+  assign w_rd_en = t_rd_en;
+  assign w_wr_en = s1_wr_en;
 
   avr_interface_1 avr_interface (
     .clk(clk),
@@ -95,8 +91,8 @@ module mojo_top_0(
   wire w_soft_reset;
   wire TDC_ENABLE; 
   wire play, pause;
-
   wire tdc_SPI_start, tdc_SPI_new_data;
+  wire CS_END;
 
   main_control_2 main_control (
     .clk(clk),
@@ -122,8 +118,8 @@ module mojo_top_0(
     .tdc_MOSI(tdc_data_in),
     .tdc_MISO(tdc_data_out),
     .start_signal(TDC_START_SIGNAL),
-    .w_TDC_INTB(TDC_INTB),
-    .CS_END(w_CS_END),
+    .TDC_INTB(TDC_INTB),
+    .CS_END(CS_END),
     .w_wr_en(s1_wr_en),
     // .w_wr_en2(s2_wr_en),
     .data_TO_FIFO(s1_din),
@@ -148,7 +144,7 @@ module mojo_top_0(
     // output
     .tx_busy_TDC(tx_busy_TDC),
     .new_data_FROM_FIFO_TO_SERIAL(t_new_data_FROM_FIFO_TO_SERIAL),
-    .w_tx_OUT_TDC(w_tx_OUT_TDC),
+    .w_tx_OUT_TDC(SERIAL_OUT_TDC),
     .w_empty(FIFO_EMPTY),
     .w_full(FIFO_FULL),
     .t_rd_en(t_rd_en)
@@ -159,16 +155,16 @@ module mojo_top_0(
   tdc_spi_master2_5 #(.CLK_DIV(3)) tdc_spi_master(
     .clk(clk),
     .rst(rst),
-    .miso(w_TDC_DOUT),
-    .mosi(tdc_mosi),
-    .sck(tdc_spi_clock),
+    .miso(TDC_DOUT),
+    .mosi(TDC_MOSI),
+    .sck(TDC_SPI_CLOCK),
     .start(tdc_SPI_start), // for SPI
     .data_in(tdc_data_in),
     .data_out(tdc_data_out),
     .busy(tdc_busy),
     .new_data(tdc_SPI_new_data),
-    .CS(tdc_CS),
-    .CS_END(w_CS_END)
+    .CS(TDC_CS),
+    .CS_END(CS_END)
   );
    
 

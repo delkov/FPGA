@@ -1,33 +1,33 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Jan 11 23:49:01 2018
+// Written by: Map P.20131013 on Fri Jan 12 00:42:12 2018
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "P56" LEVEL 1;
 COMP "cclk" LOCATE = SITE "P70" LEVEL 1;
+COMP "TDC_SPI_CLOCK" LOCATE = SITE "P120" LEVEL 1;
 COMP "TDC_START_SIGNAL" LOCATE = SITE "P116" LEVEL 1;
-COMP "w_tx_OUT_TDC" LOCATE = SITE "P124" LEVEL 1;
 COMP "rst_n" LOCATE = SITE "P38" LEVEL 1;
 COMP "spi_sck" LOCATE = SITE "P43" LEVEL 1;
 COMP "w_wr_en" LOCATE = SITE "P105" LEVEL 1;
-COMP "w_TDC_DOUT" LOCATE = SITE "P117" LEVEL 1;
+COMP "TDC_CS" LOCATE = SITE "P119" LEVEL 1;
 COMP "avr_rx_busy" LOCATE = SITE "P39" LEVEL 1;
 COMP "spi_channel[0]" LOCATE = SITE "P46" LEVEL 1;
 COMP "spi_channel[1]" LOCATE = SITE "P61" LEVEL 1;
 COMP "spi_channel[2]" LOCATE = SITE "P62" LEVEL 1;
 COMP "spi_channel[3]" LOCATE = SITE "P65" LEVEL 1;
-COMP "tdc_spi_clock" LOCATE = SITE "P120" LEVEL 1;
 COMP "avr_rx" LOCATE = SITE "P59" LEVEL 1;
 COMP "avr_tx" LOCATE = SITE "P55" LEVEL 1;
-COMP "tdc_CS" LOCATE = SITE "P119" LEVEL 1;
 COMP "FIFO_FULL" LOCATE = SITE "P101" LEVEL 1;
 COMP "spi_ss" LOCATE = SITE "P48" LEVEL 1;
-COMP "tdc_mosi" LOCATE = SITE "P118" LEVEL 1;
 COMP "spi_miso" LOCATE = SITE "P45" LEVEL 1;
 COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
 COMP "TDC_ENABLE" LOCATE = SITE "P104" LEVEL 1;
+COMP "SERIAL_OUT_TDC" LOCATE = SITE "P124" LEVEL 1;
 COMP "TDC_REF_CLOCK" LOCATE = SITE "P112" LEVEL 1;
-COMP "TDC_INTB" LOCATE = SITE "P94" LEVEL 1;
+COMP "TDC_DOUT" LOCATE = SITE "P117" LEVEL 1;
+COMP "TDC_INTB" LOCATE = SITE "P111" LEVEL 1;
+COMP "TDC_MOSI" LOCATE = SITE "P118" LEVEL 1;
 TIMEGRP clk = BEL "tdc_control/start_signal_q" BEL
         "tdc_control/Byte_countr_q_0" BEL "tdc_control/Byte_countr_q_1" BEL
         "tdc_control/calib1_q_0" BEL "tdc_control/calib1_q_1" BEL

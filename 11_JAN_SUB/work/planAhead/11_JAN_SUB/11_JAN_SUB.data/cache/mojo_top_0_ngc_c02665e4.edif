@@ -4,7 +4,7 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timestamp 2018 1 11 23 48 38)
+      (timestamp 2018 1 12 0 41 29)
       (program "Xilinx ngc2edif" (version "P.20131013"))
       (author "Xilinx. Inc ")
       (comment "This EDIF netlist is to be used within supported synthesis tools")
@@ -792,7 +792,7 @@
             (port rst
               (direction INPUT)
             )
-            (port w_TDC_INTB
+            (port TDC_INTB
               (direction INPUT)
             )
             (port pause
@@ -5212,9 +5212,9 @@
                 (portRef O (instanceRef Mmux_addr_d21))
               )
             )
-            (net w_TDC_INTB
+            (net TDC_INTB
               (joined
-                (portRef w_TDC_INTB)
+                (portRef TDC_INTB)
                 (portRef I3 (instanceRef &_n0415_inv2_SW0))
                 (portRef I3 (instanceRef &_n0415_inv2_SW2))
                 (portRef I0 (instanceRef &_n0613_inv1))
@@ -17530,31 +17530,31 @@
             (port spi_sck
               (direction INPUT)
             )
-            (port TDC_TRIG
-              (direction INPUT)
-            )
-            (port TDC_INTB
-              (direction INPUT)
-            )
-            (port w_TDC_DOUT
-              (direction INPUT)
-            )
             (port avr_tx
               (direction INPUT)
             )
             (port avr_rx_busy
               (direction INPUT)
             )
+            (port TDC_INTB
+              (direction INPUT)
+            )
+            (port TDC_DOUT
+              (direction INPUT)
+            )
             (port spi_miso
               (direction OUTPUT)
             )
-            (port tdc_mosi
+            (port avr_rx
               (direction OUTPUT)
             )
-            (port tdc_spi_clock
+            (port TDC_MOSI
               (direction OUTPUT)
             )
-            (port tdc_CS
+            (port TDC_SPI_CLOCK
+              (direction OUTPUT)
+            )
+            (port TDC_CS
               (direction OUTPUT)
             )
             (port TDC_ENABLE
@@ -17566,13 +17566,7 @@
             (port TDC_START_SIGNAL
               (direction OUTPUT)
             )
-            (port w_tx_OUT_TDC
-              (direction OUTPUT)
-            )
-            (port play
-              (direction OUTPUT)
-            )
-            (port pause
+            (port SERIAL_OUT_TDC
               (direction OUTPUT)
             )
             (port FIFO_FULL
@@ -17591,9 +17585,6 @@
               (direction OUTPUT)
             )
             (port t_new_data_FROM_FIFO_TO_SERIAL
-              (direction OUTPUT)
-            )
-            (port avr_rx
               (direction OUTPUT)
             )
             (port (array (rename spi_channel "spi_channel<3:0>") 4)
@@ -17632,15 +17623,15 @@
               (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
-            (instance (rename TDC_INTB_IBUF_renamed_247 "TDC_INTB_IBUF")
+            (instance (rename avr_tx_IBUF_renamed_247 "avr_tx_IBUF")
               (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
-            (instance (rename w_TDC_DOUT_IBUF_renamed_248 "w_TDC_DOUT_IBUF")
+            (instance (rename TDC_INTB_IBUF_renamed_248 "TDC_INTB_IBUF")
               (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
-            (instance (rename avr_tx_IBUF_renamed_249 "avr_tx_IBUF")
+            (instance (rename TDC_DOUT_IBUF_renamed_249 "TDC_DOUT_IBUF")
               (viewRef view_1 (cellRef IBUF (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
@@ -17664,15 +17655,19 @@
               (viewRef view_1 (cellRef OBUFT (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
-            (instance tdc_mosi_OBUF
+            (instance avr_rx_OBUFT
+              (viewRef view_1 (cellRef OBUFT (libraryRef UNISIMS)))
+              (property XSTLIB (boolean (true)) (owner "Xilinx"))
+            )
+            (instance TDC_MOSI_OBUF
               (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
-            (instance (rename tdc_spi_clock_OBUF_renamed_250 "tdc_spi_clock_OBUF")
+            (instance (rename TDC_SPI_CLOCK_OBUF_renamed_250 "TDC_SPI_CLOCK_OBUF")
               (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
-            (instance tdc_CS_OBUF
+            (instance TDC_CS_OBUF
               (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
@@ -17688,15 +17683,7 @@
               (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
-            (instance w_tx_OUT_TDC_OBUF
-              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
-              (property XSTLIB (boolean (true)) (owner "Xilinx"))
-            )
-            (instance play_OBUF
-              (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
-              (property XSTLIB (boolean (true)) (owner "Xilinx"))
-            )
-            (instance pause_OBUF
+            (instance SERIAL_OUT_TDC_OBUF
               (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
@@ -17722,10 +17709,6 @@
             )
             (instance t_new_data_FROM_FIFO_TO_SERIAL_OBUF
               (viewRef view_1 (cellRef OBUF (libraryRef UNISIMS)))
-              (property XSTLIB (boolean (true)) (owner "Xilinx"))
-            )
-            (instance avr_rx_OBUFT
-              (viewRef view_1 (cellRef OBUFT (libraryRef UNISIMS)))
               (property XSTLIB (boolean (true)) (owner "Xilinx"))
             )
             (instance (rename clk_BUFGP_renamed_254 "clk_BUFGP")
@@ -17815,22 +17798,22 @@
                 (portRef spi_sck (instanceRef avr_interface))
               )
             )
-            (net TDC_INTB_IBUF
-              (joined
-                (portRef O (instanceRef TDC_INTB_IBUF_renamed_247))
-                (portRef w_TDC_INTB (instanceRef tdc_control))
-              )
-            )
-            (net w_TDC_DOUT_IBUF
-              (joined
-                (portRef O (instanceRef w_TDC_DOUT_IBUF_renamed_248))
-                (portRef miso (instanceRef tdc_spi_master))
-              )
-            )
             (net avr_tx_IBUF
               (joined
-                (portRef O (instanceRef avr_tx_IBUF_renamed_249))
+                (portRef O (instanceRef avr_tx_IBUF_renamed_247))
                 (portRef rx (instanceRef avr_interface))
+              )
+            )
+            (net TDC_INTB_IBUF
+              (joined
+                (portRef O (instanceRef TDC_INTB_IBUF_renamed_248))
+                (portRef TDC_INTB (instanceRef tdc_control))
+              )
+            )
+            (net TDC_DOUT_IBUF
+              (joined
+                (portRef O (instanceRef TDC_DOUT_IBUF_renamed_249))
+                (portRef miso (instanceRef tdc_spi_master))
               )
             )
             (net (rename spi_channel_3_ "spi_channel<3>")
@@ -17935,16 +17918,14 @@
                 (portRef soft_reset (instanceRef tdc_control))
               )
             )
-            (net play_q
+            (net play
               (joined
-                (portRef I (instanceRef play_OBUF))
                 (portRef play (instanceRef main_control))
                 (portRef play (instanceRef tdc_control))
               )
             )
-            (net pause_q
+            (net pause
               (joined
-                (portRef I (instanceRef pause_OBUF))
                 (portRef pause (instanceRef main_control))
                 (portRef pause (instanceRef tdc_control))
               )
@@ -18297,7 +18278,7 @@
                 (portRef start_signal (instanceRef tdc_control))
               )
             )
-            (net w_CS_END
+            (net CS_END
               (joined
                 (portRef CS_END (instanceRef tdc_spi_master))
                 (portRef CS_END (instanceRef tdc_control))
@@ -18324,7 +18305,7 @@
             )
             (net tx_q
               (joined
-                (portRef I (instanceRef w_tx_OUT_TDC_OBUF))
+                (portRef I (instanceRef SERIAL_OUT_TDC_OBUF))
                 (portRef w_tx_OUT_TDC (instanceRef fifo_manager))
               )
             )
@@ -18396,13 +18377,13 @@
             )
             (net mosi_q
               (joined
-                (portRef I (instanceRef tdc_mosi_OBUF))
+                (portRef I (instanceRef TDC_MOSI_OBUF))
                 (portRef mosi (instanceRef tdc_spi_master))
               )
             )
-            (net tdc_spi_clock_OBUF
+            (net TDC_SPI_CLOCK_OBUF
               (joined
-                (portRef I (instanceRef tdc_spi_clock_OBUF_renamed_250))
+                (portRef I (instanceRef TDC_SPI_CLOCK_OBUF_renamed_250))
                 (portRef sck (instanceRef tdc_spi_master))
               )
             )
@@ -18414,7 +18395,7 @@
             )
             (net CS_q
               (joined
-                (portRef I (instanceRef tdc_CS_OBUF))
+                (portRef I (instanceRef TDC_CS_OBUF))
                 (portRef CS (instanceRef tdc_spi_master))
               )
             )
@@ -18530,40 +18511,40 @@
                 (portRef I (instanceRef spi_sck_IBUF_renamed_246))
               )
             )
-            (net TDC_INTB
-              (joined
-                (portRef TDC_INTB)
-                (portRef I (instanceRef TDC_INTB_IBUF_renamed_247))
-              )
-            )
-            (net w_TDC_DOUT
-              (joined
-                (portRef w_TDC_DOUT)
-                (portRef I (instanceRef w_TDC_DOUT_IBUF_renamed_248))
-              )
-            )
             (net avr_tx
               (joined
                 (portRef avr_tx)
-                (portRef I (instanceRef avr_tx_IBUF_renamed_249))
+                (portRef I (instanceRef avr_tx_IBUF_renamed_247))
               )
             )
-            (net tdc_mosi
+            (net TDC_INTB
               (joined
-                (portRef tdc_mosi)
-                (portRef O (instanceRef tdc_mosi_OBUF))
+                (portRef TDC_INTB)
+                (portRef I (instanceRef TDC_INTB_IBUF_renamed_248))
               )
             )
-            (net tdc_spi_clock
+            (net TDC_DOUT
               (joined
-                (portRef tdc_spi_clock)
-                (portRef O (instanceRef tdc_spi_clock_OBUF_renamed_250))
+                (portRef TDC_DOUT)
+                (portRef I (instanceRef TDC_DOUT_IBUF_renamed_249))
               )
             )
-            (net tdc_CS
+            (net TDC_MOSI
               (joined
-                (portRef tdc_CS)
-                (portRef O (instanceRef tdc_CS_OBUF))
+                (portRef TDC_MOSI)
+                (portRef O (instanceRef TDC_MOSI_OBUF))
+              )
+            )
+            (net TDC_SPI_CLOCK
+              (joined
+                (portRef TDC_SPI_CLOCK)
+                (portRef O (instanceRef TDC_SPI_CLOCK_OBUF_renamed_250))
+              )
+            )
+            (net TDC_CS
+              (joined
+                (portRef TDC_CS)
+                (portRef O (instanceRef TDC_CS_OBUF))
               )
             )
             (net TDC_ENABLE
@@ -18584,22 +18565,10 @@
                 (portRef O (instanceRef TDC_START_SIGNAL_OBUF))
               )
             )
-            (net w_tx_OUT_TDC
+            (net SERIAL_OUT_TDC
               (joined
-                (portRef w_tx_OUT_TDC)
-                (portRef O (instanceRef w_tx_OUT_TDC_OBUF))
-              )
-            )
-            (net play
-              (joined
-                (portRef play)
-                (portRef O (instanceRef play_OBUF))
-              )
-            )
-            (net pause
-              (joined
-                (portRef pause)
-                (portRef O (instanceRef pause_OBUF))
+                (portRef SERIAL_OUT_TDC)
+                (portRef O (instanceRef SERIAL_OUT_TDC_OBUF))
               )
             )
             (net FIFO_FULL

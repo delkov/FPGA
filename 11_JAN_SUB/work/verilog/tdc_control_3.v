@@ -7,7 +7,7 @@
     input soft_reset,
     output start, // for start SPI
     output start_signal,
-    input w_TDC_INTB,
+    input TDC_INTB,
     output CS_END,
     input tdc_busy,
 
@@ -79,7 +79,6 @@
     data_TO_FIFO_d = data_TO_FIFO_q;
     wr_en_d = wr_en_q;
     // wr_en_d2 = wr_en_q2;
-
 
     case (state_q)
       IDLE: begin
@@ -184,7 +183,9 @@
       STOP_WAIT: begin
           if (CS_countr_q==4'd2) begin // start duration is 60ns
             start_signal_d=1'b0;
-            state_d=INTB_WAIT;
+            // if (TDC_INTB == 1'b1) begin // check right PIN
+              state_d=INTB_WAIT;
+            // end
             CS_countr_d=4'd0;
           end else begin
             CS_countr_d=CS_countr_q+1'b1;
@@ -192,7 +193,7 @@
       end
 
       INTB_WAIT: begin
-          if (w_TDC_INTB == 1'b0) begin // IF INTB LOW, PROCESSING OF MEASUREMENT IS READY
+          if (TDC_INTB == 1'b0) begin // IF INTB LOW, PROCESSING OF MEASUREMENT IS READY
             state_d = READ_TIME1;
             addr_d = 6'd20;
             start_d = 1'b1;

@@ -8,7 +8,7 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Thu Jan 11 23:48:52 2018
+Mapped Date    : Fri Jan 12 00:41:53 2018
 
 Design Summary
 --------------
@@ -39,12 +39,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   166 out of   1,430   11%
+  Number of occupied Slices:                   171 out of   1,430   11%
   Number of MUXCYs used:                        64 out of   2,860    2%
-  Number of LUT Flip Flop pairs used:          566
-    Number with an unused Flip Flop:           189 out of     566   33%
-    Number with an unused LUT:                 100 out of     566   17%
-    Number of fully used LUT-FF pairs:         277 out of     566   48%
+  Number of LUT Flip Flop pairs used:          571
+    Number with an unused Flip Flop:           194 out of     571   33%
+    Number with an unused LUT:                 105 out of     571   18%
+    Number of fully used LUT-FF pairs:         272 out of     571   47%
     Number of unique control sets:              29
     Number of slice register sites lost
       to control set restrictions:              84 out of  11,440    1%
@@ -56,8 +56,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        31 out of     102   30%
-    Number of LOCed IOBs:                       25 out of      31   80%
+  Number of bonded IOBs:                        29 out of     102   28%
+    Number of LOCed IOBs:                       25 out of      29   86%
     IOB Flip Flops:                              6
 
 Specific Feature Utilization:
@@ -91,9 +91,9 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                3.68
 
-Peak Memory Usage:  794 MB
-Total REAL time to MAP completion:  10 secs 
-Total CPU time to MAP completion (all processors):   10 secs 
+Peak Memory Usage:  793 MB
+Total REAL time to MAP completion:  19 secs 
+Total CPU time to MAP completion (all processors):   18 secs 
 
 Table of Contents
 -----------------
@@ -122,11 +122,7 @@ Section 3 - Informational
 INFO:Map:284 - Map is running with the multi-threading option on. Map currently
    supports the use of up to 2 processors. Based on the the user options and
    machine load, Map will use 2 processors during this run.
-INFO:LIT:243 - Logical network TDC_TRIG has no load.
-INFO:LIT:395 - The above info message is repeated 1 more times for the following
-   (max. 5 shown):
-   avr_rx_busy_IBUF
-   To see the details of these info messages, please use the -detail switch.
+INFO:LIT:243 - Logical network avr_rx_busy_IBUF has no load.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
    rate limited output drivers. The delay on speed critical single ended outputs
@@ -137,8 +133,8 @@ INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
    1.260 Volts)
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
-INFO:Place:834 - Only a subset of IOs are locked. Out of 31 IOs, 25 are locked
-   and 6 are not locked. If you would like to print the names of these IOs,
+INFO:Place:834 - Only a subset of IOs are locked. Out of 29 IOs, 25 are locked
+   and 4 are not locked. If you would like to print the names of these IOs,
    please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
 
@@ -184,17 +180,20 @@ Section 6 - IOB Properties
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | FIFO_EMPTY                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | FIFO_FULL                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| SERIAL_OUT_TDC                     | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| TDC_CS                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| TDC_DOUT                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | TDC_ENABLE                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | TDC_INTB                           | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| TDC_MOSI                           | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | TDC_REF_CLOCK                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| TDC_SPI_CLOCK                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | TDC_START_SIGNAL                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | avr_rx                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | avr_rx_busy                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | avr_tx                             | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
 | cclk                               | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | clk                                | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
-| pause                              | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
-| play                               | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | rst_n                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | spi_channel[0]                     | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | spi_channel[1]                     | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
@@ -205,13 +204,8 @@ Section 6 - IOB Properties
 | spi_sck                            | IOB              | INPUT     | LVTTL                |       |          |      | IFF          |          |          |
 | spi_ss                             | IOB              | INPUT     | LVTTL                |       |          |      | IFF          |          |          |
 | t_new_data_FROM_FIFO_TO_SERIAL     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| tdc_CS                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
-| tdc_mosi                           | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
-| tdc_spi_clock                      | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | tx_busy_TDC                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| w_TDC_DOUT                         | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | w_rd_en                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
-| w_tx_OUT_TDC                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW | OFF          |          |          |
 | w_wr_en                            | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
