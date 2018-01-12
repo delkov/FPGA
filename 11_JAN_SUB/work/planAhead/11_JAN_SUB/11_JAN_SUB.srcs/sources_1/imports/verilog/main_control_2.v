@@ -20,7 +20,7 @@ module main_control_2 (
   reg [STATE_SIZE-1:0] state_d, state_q;
 
   reg play_d, play_q;
-  reg pause_d, pause_q;
+  reg pause_d, pause_q=1'b0;
   reg soft_reset;
   reg tdc_enable_d, tdc_enable_q;
   reg [19:0] countr_d, countr_q; // to count ud to 2ms approx, 1.7ms is needed for booting TDC
@@ -40,6 +40,7 @@ module main_control_2 (
     case (state_q)
       IDLE: begin
         play_d = 1'b0;
+        // pause_d=1'b0;
         soft_reset=1'b0;
         if (new_rx_data && rx_data == "d") begin
             tdc_enable_d=1'b0;

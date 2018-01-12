@@ -1,6 +1,6 @@
 `define BUF_WIDTH 2    // so, memory is 2^BUF_WIDTH
 `define BUF_SIZE ( 1<<`BUF_WIDTH )
-module fifo_13( clk, rst, buf_in, buf_out, wr_en, rd_en, buf_empty, buf_full, fifo_counter );
+module fifo_16( clk, rst, buf_in, buf_out, wr_en, rd_en, buf_empty, buf_full, fifo_counter );
 
 input                 rst, clk, wr_en, rd_en;    // reset, system clock, write enable and read enable.
 input [47:0]           buf_in;   // data input to be pushed to buffer               

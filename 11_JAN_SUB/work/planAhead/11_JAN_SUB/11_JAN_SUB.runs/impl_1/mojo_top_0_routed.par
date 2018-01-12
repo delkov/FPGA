@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-delkov-15ZD970-EX50K::  Fri Jan 12 14:09:45 2018
+delkov-15ZD970-EX50K::  Fri Jan 12 16:06:49 2018
 
 par -intstyle pa -w -mt on mojo_top_0.ncd mojo_top_0_routed.ncd 
 
@@ -21,16 +21,16 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   428 out of  11,440    3%
-    Number used as Flip Flops:                 427
+  Number of Slice Registers:                   536 out of  11,440    4%
+    Number used as Flip Flops:                 535
     Number used as Latches:                      1
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        466 out of   5,720    8%
-    Number used as logic:                      413 out of   5,720    7%
-      Number using O6 output only:             309
-      Number using O5 output only:              36
-      Number using O5 and O6:                   68
+  Number of Slice LUTs:                        619 out of   5,720   10%
+    Number used as logic:                      557 out of   5,720    9%
+      Number using O6 output only:             386
+      Number using O5 output only:              50
+      Number using O5 and O6:                  121
       Number used as ROM:                        0
     Number used as Memory:                      48 out of   1,440    3%
       Number used as Dual Port RAM:             48
@@ -39,18 +39,18 @@ Slice Logic Utilization:
         Number using O5 and O6:                 48
       Number used as Single Port RAM:            0
       Number used as Shift Register:             0
-    Number used exclusively as route-thrus:      5
-      Number with same-slice register load:      3
-      Number with same-slice carry load:         2
+    Number used exclusively as route-thrus:     14
+      Number with same-slice register load:     11
+      Number with same-slice carry load:         3
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   171 out of   1,430   11%
-  Number of MUXCYs used:                        64 out of   2,860    2%
-  Number of LUT Flip Flop pairs used:          571
-    Number with an unused Flip Flop:           194 out of     571   33%
-    Number with an unused LUT:                 105 out of     571   18%
-    Number of fully used LUT-FF pairs:         272 out of     571   47%
+  Number of occupied Slices:                   204 out of   1,430   14%
+  Number of MUXCYs used:                       112 out of   2,860    3%
+  Number of LUT Flip Flop pairs used:          695
+    Number with an unused Flip Flop:           237 out of     695   34%
+    Number with an unused LUT:                  76 out of     695   10%
+    Number of fully used LUT-FF pairs:         382 out of     695   54%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -61,9 +61,9 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        29 out of     102   28%
-    Number of LOCed IOBs:                       25 out of      29   86%
-    IOB Flip Flops:                              6
+  Number of bonded IOBs:                        27 out of     102   26%
+    Number of LOCed IOBs:                       27 out of      27  100%
+    IOB Flip Flops:                              7
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -78,8 +78,8 @@ Specific Feature Utilization:
     Number used as ILOGIC2s:                     4
     Number used as ISERDES2s:                    0
   Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
-  Number of OLOGIC2/OSERDES2s:                   2 out of     200    1%
-    Number used as OLOGIC2s:                     2
+  Number of OLOGIC2/OSERDES2s:                   3 out of     200    1%
+    Number used as OLOGIC2s:                     3
     Number used as OSERDES2s:                    0
   Number of BSCANs:                              0 out of       4    0%
   Number of BUFHs:                               0 out of     128    0%
@@ -103,13 +103,13 @@ WARNING:Par:288 - The signal avr_rx_busy_IBUF has no load.  PAR will not attempt
 Starting Multi-threaded Router
 
 
-Phase  1  : 2900 unrouted;      REAL time: 3 secs 
+Phase  1  : 3621 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 2463 unrouted;      REAL time: 4 secs 
+Phase  2  : 3081 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 1194 unrouted;      REAL time: 5 secs 
+Phase  3  : 1483 unrouted;      REAL time: 4 secs 
 
-Phase  4  : 1194 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  4  : 1483 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
 
 Updating file: mojo_top_0_routed.ncd with current fully routed design.
 
@@ -123,9 +123,9 @@ Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL 
 
 Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
-Total REAL time to Router completion: 7 secs 
-Total CPU time to Router completion (all processors): 8 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Total REAL time to Router completion: 6 secs 
+Total CPU time to Router completion (all processors): 7 secs 
 
 Generating "PAR" statistics.
 
@@ -136,10 +136,10 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_BUFGP | BUFGMUX_X2Y11| No   |  139 |  0.696     |  2.087      |
+|           clk_BUFGP | BUFGMUX_X2Y11| No   |  172 |  0.697     |  2.087      |
 +---------------------+--------------+------+------+------------+-------------+
 |main_control/state_q |              |      |      |            |             |
-|                 [0] |         Local|      |   27 |  0.000     |  1.137      |
+|                 [0] |         Local|      |   27 |  0.000     |  1.294      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -159,7 +159,7 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |     9.968ns|    10.032ns|       0|           0
+  TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |    12.170ns|     7.830ns|       0|           0
    50%                                      | HOLD        |     0.405ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
@@ -173,10 +173,10 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 1 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 7 secs 
-Total CPU time to PAR completion (all processors): 8 secs 
+Total REAL time to PAR completion: 6 secs 
+Total CPU time to PAR completion (all processors): 7 secs 
 
-Peak Memory Usage:  799 MB
+Peak Memory Usage:  800 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

@@ -3,6 +3,7 @@ module mojo_top_0(
   // GLOBAL
   input clk, // 50Mhz
   input rst_n,
+  output ENABLE,
 
   input SERIAL_IN,
   // AVR 
@@ -24,31 +25,35 @@ module mojo_top_0(
   output TDC_MOSI,
   output TDC_SPI_CLOCK,
   output TDC_CS,
-  output TDC_ENABLE,
   output TDC_REF_CLOCK,
   output TDC_START_SIGNAL,
   output SERIAL_OUT_TDC,
 
+ // MEMS
+  output MEMS_MOSI,
+  output MEMS_SPI_CLOCK,
+  output MEMS_CS,
+  output MEMS_FCLK
 
   // DEBUGGING
   // input TDC_TRIG,
     // FIFO
-  output FIFO_FULL,
-  output FIFO_EMPTY,
-  output w_rd_en,
-  output w_wr_en,
+  // output FIFO_FULL,
+  // output FIFO_EMPTY,
+  // output w_rd_en,
+  // output w_wr_en,
     // SERIAL
-  output tx_busy_TDC,
-  output t_new_data_FROM_FIFO_TO_SERIAL
+  // output tx_busy_TDC,
+  // output t_new_data_FROM_FIFO_TO_SERIAL
   // output play,
   // output pause,
   );
  
-
   // GLOBAL
   wire rst = ~rst_n; // make reset active high
   wire soft_reset;
-  wire play, pause;
+  wire ENABLE; // enable both for TDC & MEMS
+  wire play, pause; // to control play/pause
 
   // MY AVR
   wire [7:0] tx_data;
@@ -63,15 +68,18 @@ module mojo_top_0(
   wire new_rx_data;
   
 
-  // TDC
-  wire TDC_ENABLE; 
-
+  // MEMS
+  wire mems_SPI_start;
+  // wire mems_SPI_new_data; // debugging
+  wire mems_SPI_busy;
+  wire [23:0] data_miso;
   
   // TDC-SPI
-  wire tdc_busy;
+  wire tdc_SPI_start;
+  // wire tdc_SPI_new_data; // debugging
   wire [7:0] tdc_data_in;
+  wire tdc_SPI_busy;
   wire [7:0] tdc_data_out;
-  wire tdc_SPI_start, tdc_SPI_new_data;
   wire CS_END;
 
   // FIFO
@@ -80,8 +88,8 @@ module mojo_top_0(
   wire s1_fifo_writing_done;
   // wire s2_fifo_writing_done;
 
-  assign w_rd_en = t_rd_en;
-  assign w_wr_en = s1_wr_en;
+  // assign w_rd_en = t_rd_en;
+  // assign w_wr_en = s1_wr_en;
 
   avr_interface_1 avr_interface (
     .clk(clk),
@@ -110,12 +118,11 @@ module mojo_top_0(
     // INPUT
     .clk(clk),
     .rst(rst),
-    // .tx_busy(tx_busy), // serial for communication
     .rx_data(rx_data), // serial for communication
     .new_rx_data(new_rx_data), // serial for communication
     
     // OUTPUT
-    .tdc_enable(TDC_ENABLE), // using from low to high
+    .tdc_enable(ENABLE), // using from low to high
     .soft_reset(soft_reset),
     .play(play), // global play
     .pause(pause) // global pause
@@ -126,11 +133,11 @@ module mojo_top_0(
     // INPUT
     .clk(clk),
     .rst(rst),
-    .new_data(tdc_SPI_new_data),
+    // .tdc_SPI_new_data(tdc_SPI_new_data),
     .tdc_MISO(tdc_data_out),
-    .soft_reset(soft_reset),
+    .tdc_soft_reset(soft_reset),
     .TDC_INTB(TDC_INTB),
-    .tdc_busy(tdc_busy),
+    .tdc_SPI_busy(tdc_SPI_busy),
     .fifo_writing_done(s1_fifo_writing_done),
     .play(play), 
     .pause(pause),
@@ -162,6 +169,7 @@ module mojo_top_0(
     .tx_busy_TDC(tx_busy_TDC),
     .new_data_FROM_FIFO_TO_SERIAL(t_new_data_FROM_FIFO_TO_SERIAL),
     .w_tx_OUT_TDC(SERIAL_OUT_TDC),
+    // debug
     .w_empty(FIFO_EMPTY),
     .w_full(FIFO_FULL),
     .t_rd_en(t_rd_en)
@@ -182,11 +190,62 @@ module mojo_top_0(
     .mosi(TDC_MOSI),
     .sck(TDC_SPI_CLOCK),
     .data_out(tdc_data_out),
-    .busy(tdc_busy),
+    .busy(tdc_SPI_busy),
     .new_data(tdc_SPI_new_data),
     .CS(TDC_CS)
   );
    
+  
+  mems_control_6 mems_control (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .pause(pause),
+    .mems_SPI_busy(mems_SPI_busy),
+    .mems_soft_reset(soft_reset),
+
+    // OUTPUT
+    .mems_SPI_start(mems_SPI_start),
+    .data_miso(data_miso)
+  );
+
+
+  // 7 is 16 ms, 10 - 140ms, 4 is 2ms
+  mems_spi_7 #(.CLK_DIV(9)) mems_spi_master(
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .miso(miso),
+    .data_in(data_miso),
+    .start(mems_SPI_start),
+
+    // OUTPUT
+    .mosi(MEMS_MOSI),
+    .sck(MEMS_SPI_CLOCK),
+    .data_out(data_out),
+    .busy(mems_SPI_busy),
+    .new_data(mems_SPI_new_data),
+    .CS(MEMS_CS)
+  );
+
+  // TDC REF clock, 12.5 MHz
+  my_clk_8 #(.CLK_DIV(4)) tdc_ref_clk (
+  .clk(clk),
+   .rst(rst),
+   .my_clk(TDC_REF_CLOCK)
+   ); 
+
+  // MEMS FCLK, 10 KHz
+  my_clk_9 #(.CLK_DIV(5000)) FCLK (
+   // INPUT
+   .clk(clk),
+   .rst(rst),
+
+   // OUTPUT
+   .my_clk(MEMS_FCLK)
+  ); 
+
+
 
 
   // UNCOMMENT TO MAKE COMMUNICATIONS VIA SERIAL
@@ -198,14 +257,5 @@ module mojo_top_0(
   //   .data(rx_data2),
   //   .new_data(new_rx_data2)
   // );
-  
-
-
-
-   my_clk_6 #(.CLK_DIV(4)) tdc_ref_clk (
-   .clk(clk),
-   .rst(rst),
-   .my_clk(TDC_REF_CLOCK)
-   ); 
 
 endmodule

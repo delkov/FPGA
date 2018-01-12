@@ -1,4 +1,4 @@
-module my_clk_6 #(
+module my_clk_8 #(
     parameter CLK_DIV = 16
     // parameter CLK_DIV = 2
     )(

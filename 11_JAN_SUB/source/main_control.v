@@ -2,7 +2,6 @@ module main_control (
     // INPUT
     input clk,
     input rst,
-    // input tx_busy,
     input [7:0] rx_data,
     input new_rx_data,
     // OUTPUT
@@ -20,7 +19,7 @@ module main_control (
   reg [STATE_SIZE-1:0] state_d, state_q;
 
   reg play_d, play_q;
-  reg pause_d, pause_q;
+  reg pause_d, pause_q=1'b0;
   reg soft_reset;
   reg tdc_enable_d, tdc_enable_q;
   reg [19:0] countr_d, countr_q; // to count ud to 2ms approx, 1.7ms is needed for booting TDC
@@ -46,22 +45,19 @@ module main_control (
             state_d = ENABLE_HIGH;
             countr_d = 20'd1;
         end 
-
         if (new_rx_data && rx_data == "s") begin
           pause_d=1'b1;
           play_d=1'b0;
         end 
-
         if (new_rx_data && rx_data == "p") begin
           play_d=1'b1;
           pause_d=1'b0;
         end
       end // IDLE
 
-
       ENABLE_HIGH: begin
-        if (countr_q==20'd0) begin
-            tdc_enable_d = 1'b1;
+        tdc_enable_d = 1'b1;
+        if (countr_q==20'd0) begin // time required ENABLE LOW-HIGH is ~2ms. we are waiting 20 ms
             state_d = SOFT_RESET;
         end else begin
             countr_d = countr_q + 1'b1;

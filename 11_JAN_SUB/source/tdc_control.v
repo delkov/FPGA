@@ -1,15 +1,17 @@
  module tdc_control (
+  // INPUT
     input clk,
     input rst,
-    input new_data, //used for SPI
+    // input tdc_SPI_new_data, //used for SPI
     input [7:0] tdc_MISO,
-    input soft_reset,
+    input tdc_soft_reset,
     input TDC_INTB,
-    input tdc_busy,
+    input tdc_SPI_busy,
     input fifo_writing_done,
     input play,
     input pause,
 
+  // OUTPUT
     output start_signal,
     output CS_END,
     output start, // for start SPI
@@ -20,12 +22,12 @@
     // input fifo_writing_done2,
   );
  
-  localparam STATE_SIZE = 4;
-  localparam IDLE = 4'd0,
+  localparam STATE_SIZE = 4,
+    IDLE = 4'd0,
     SOFTWARE_RESET = 4'd1,
     TRIG_GENERATE = 4'd2,
     TRIG_WAIT_TO_GEN_START = 4'd3,
-    STOP_WAIT = 4'd4,
+    START_PULSE = 4'd4,
     DELAY = 4'd5,
     INTB_WAIT = 4'd6,
     READ_TIME1 = 4'd7,
@@ -87,7 +89,9 @@
         start_signal_d=1'b0;
         Byte_countr_d=4'd1;
         CS_countr_d=4'd0;
-        if (soft_reset) begin
+
+        
+        if (tdc_soft_reset) begin
           state_d = SOFTWARE_RESET;
           Byte_countr_d=4'd1;
           start_d=1'b1;
@@ -98,7 +102,8 @@
       // AFTER POWER ON, SETUP
       SOFTWARE_RESET: begin
             start_d=1'b0; 
-            if (!tdc_busy && start_q == 1'b0) begin // start_q is nedded, to prevent immediately next cycle
+            if (!tdc_SPI_busy && start_q == 1'b0) begin // start_q is nedded, to prevent immediately next cycle
+                // special CS manipulation
                 if (Byte_countr_q==4'd1) begin
                   Byte_countr_d=4'd0; // needed since CS every 2 package
                   CS_END_d=1'b1;
@@ -148,7 +153,7 @@
 
       TRIG_GENERATE: begin
         start_d=1'b0; // start should be after addr already fine..
-        if (!tdc_busy && start_q == 1'b0) begin
+        if (!tdc_SPI_busy && start_q == 1'b0) begin
           // special CS manipulation
           if (Byte_countr_q==4'd1) begin
             Byte_countr_d=4'd0;
@@ -165,7 +170,7 @@
             addr_d = addr_q + 1'b1; // 1 or 2 cycles beetwen addr and data, so deep data_in into in master_spi
             start_d=1'b1;
           end  
-        end  // new_data   
+        end  // tdc_SPI_new_data   
       end // TRIG_GENERATE
 
       TRIG_WAIT_TO_GEN_START: begin
@@ -173,18 +178,18 @@
           if (CS_countr_q==10'd5) begin // 100ns delay instead of trig waiting
             start_signal_d=1'b1;
             CS_countr_d=4'd0;
-            state_d=STOP_WAIT;
+            state_d=START_PULSE;
           end else begin
             CS_countr_d=CS_countr_q+1'b1;
           end
         // end // tdc_trig
       end
 
-      STOP_WAIT: begin
+      START_PULSE: begin // this case  isneeded only sto make start 60ns.
           if (CS_countr_q==4'd2) begin // start duration is 60ns
             start_signal_d=1'b0;
             // if (TDC_INTB == 1'b1) begin // check right PIN
-              state_d=INTB_WAIT;
+            state_d=INTB_WAIT;
             // end
             CS_countr_d=4'd0;
           end else begin
@@ -204,7 +209,7 @@
       // BYTE_CONTER can be changed to addr_q case
       READ_TIME1: begin
         start_d=1'b0; // start should be after addr already fine..
-        if (!tdc_busy && start_q == 1'b0) begin
+        if (!tdc_SPI_busy && start_q == 1'b0) begin
 
           // set wr_en -> join to the FIFO (buf_in) module outside
           if (Byte_countr_q==4'd3) begin // if 3 -> end will be after 4th package
@@ -229,12 +234,12 @@
             addr_d = addr_q + 1'b1; // 1 or 2 cycles beetwen addr and data, so deep data_in into in master_spi
             start_d=1'b1;
           end  
-        end  // new_data   
+        end  // tdc_SPI_new_data   
       end // READ_TIME
 
       READ_CALIB1: begin
         start_d=1'b0; // start should be after addr already fine..
-        if (!tdc_busy && start_q == 1'b0) begin
+        if (!tdc_SPI_busy && start_q == 1'b0) begin
           // special CS manipulation
           if (Byte_countr_q==4'd3) begin
             Byte_countr_d=4'd1;
@@ -258,12 +263,12 @@
             addr_d = addr_q + 1'b1; // 1 or 2 cycles beetwen addr and data, so deep data_in into in master_spi
             start_d=1'b1;
           end  
-        end  // new_data   
+        end  // tdc_SPI_new_data   
       end // READ_CALIB1
 
       READ_CALIB2: begin
         start_d=1'b0; // start should be after addr already fine..
-        if (!tdc_busy && start_q == 1'b0) begin
+        if (!tdc_SPI_busy && start_q == 1'b0) begin
           // special CS manipulation
           if (Byte_countr_q==4'd3) begin
             Byte_countr_d=4'd1;
@@ -278,7 +283,6 @@
             calib2_d = calib2_q << 8 | tdc_MISO;//{tdc_MISO[0],tdc_MISO[1],tdc_MISO[2],tdc_MISO[3],tdc_MISO[4], tdc_MISO[5],tdc_MISO[6],tdc_MISO[7]};//{tdc_MISO[7],tdc_MISO[6],tdc_MISO[5],tdc_MISO[4],tdc_MISO[3], tdc_MISO[2],tdc_MISO[1],tdc_MISO[0]};
           end// else begin
 
-
           if (addr_q == 6'd31) begin // overflow since 32==0
             state_d = WRITE_FIFO;
             addr_d = 6'd0;
@@ -289,7 +293,7 @@
             addr_d = addr_q + 1'b1; // 1 or 2 cycles beetwen addr and data, so deep data_in into in master_spi
             start_d=1'b1;
           end  
-        end  // new_data   
+        end  // tdc_SPI_new_data   
       end // READ_CALIB2
 
       WRITE_FIFO: begin
@@ -298,10 +302,10 @@
         // data_TO_FIFO_d = 48'h000000000009;
         
         data_TO_FIFO_d = {calib2_q, calib1_q, time1_q};
-        
         state_d=WAIT_FIFO_WRITING;
       end 
 
+      // ALREADY SENT DATA, WAIT UNTIL it will be written to FIFO
       WAIT_FIFO_WRITING: begin
         if (fifo_writing_done) begin //s1_fifi_writing e.g
           state_d=DELAY; // VERY IMPORTANT, otherwise will be meandr wr_en
@@ -340,7 +344,7 @@
       state_q <= state_d;
     end
 
-
+    start_signal_q <= start_signal_d;
     data_TO_FIFO_q <= data_TO_FIFO_d;
     wr_en_q <= wr_en_d;
     // wr_en_q2 <= wr_en_d2;
@@ -352,7 +356,6 @@
     Byte_countr_q <= Byte_countr_d;
     CS_END_q <= CS_END_d;
     start_q <= start_d;
-    start_signal_q <= start_signal_d;
   end
  
 endmodule

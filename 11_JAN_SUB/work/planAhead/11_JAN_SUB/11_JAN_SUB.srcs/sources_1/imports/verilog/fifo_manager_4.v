@@ -31,7 +31,7 @@ module fifo_manager_4 (
   assign w_s1_fifo_writing_done = s1_fifo_writing_done;
   assign w_s2_fifo_writing_done = s2_fifo_writing_done;
 
-  serial_tx2_12 #(.CLK_PER_BIT(17)) serial_tx_TDC (
+  serial_tx2_15 #(.CLK_PER_BIT(17)) serial_tx_TDC (
     // INPUT
     .clk(clk),
     .rst(rst), 
@@ -44,7 +44,7 @@ module fifo_manager_4 (
     .busy(tx_busy_TDC) 
   );
 
-  fifo_13 fifo (
+  fifo_16 fifo (
     // INPUT
     .clk(clk),
     .rst(rst),

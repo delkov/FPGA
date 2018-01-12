@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Fri Jan 12 14:09:43 2018
+// Written by: Map P.20131013 on Fri Jan 12 16:06:46 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -9,20 +9,22 @@ COMP "TDC_SPI_CLOCK" LOCATE = SITE "P120" LEVEL 1;
 COMP "TDC_START_SIGNAL" LOCATE = SITE "P116" LEVEL 1;
 COMP "rst_n" LOCATE = SITE "P38" LEVEL 1;
 COMP "spi_sck" LOCATE = SITE "P43" LEVEL 1;
-COMP "w_wr_en" LOCATE = SITE "P105" LEVEL 1;
+COMP "ENABLE" LOCATE = SITE "P104" LEVEL 1;
 COMP "TDC_CS" LOCATE = SITE "P119" LEVEL 1;
 COMP "avr_rx_busy" LOCATE = SITE "P39" LEVEL 1;
 COMP "spi_channel[0]" LOCATE = SITE "P46" LEVEL 1;
 COMP "spi_channel[1]" LOCATE = SITE "P61" LEVEL 1;
 COMP "spi_channel[2]" LOCATE = SITE "P62" LEVEL 1;
 COMP "spi_channel[3]" LOCATE = SITE "P65" LEVEL 1;
+COMP "MEMS_SPI_CLOCK" LOCATE = SITE "P115" LEVEL 1;
 COMP "avr_rx" LOCATE = SITE "P59" LEVEL 1;
 COMP "avr_tx" LOCATE = SITE "P55" LEVEL 1;
-COMP "FIFO_FULL" LOCATE = SITE "P101" LEVEL 1;
 COMP "spi_ss" LOCATE = SITE "P48" LEVEL 1;
 COMP "spi_miso" LOCATE = SITE "P45" LEVEL 1;
 COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
-COMP "TDC_ENABLE" LOCATE = SITE "P104" LEVEL 1;
+COMP "MEMS_FCLK" LOCATE = SITE "P121" LEVEL 1;
+COMP "MEMS_MOSI" LOCATE = SITE "P114" LEVEL 1;
+COMP "MEMS_CS" LOCATE = SITE "P105" LEVEL 1;
 COMP "SERIAL_OUT_TDC" LOCATE = SITE "P124" LEVEL 1;
 COMP "TDC_REF_CLOCK" LOCATE = SITE "P112" LEVEL 1;
 COMP "TDC_DOUT" LOCATE = SITE "P117" LEVEL 1;
@@ -140,9 +142,35 @@ TIMEGRP clk = BEL "tdc_control/start_signal_q" BEL
         "tdc_spi_master/data_q_3" BEL "tdc_spi_master/data_q_2" BEL
         "tdc_spi_master/data_q_1" BEL "tdc_spi_master/data_q_0" BEL
         "tdc_spi_master/mosi_q" BEL "tdc_spi_master/CS_q" BEL
-        "tdc_spi_master/state_q_FSM_FFd2_1" BEL "tdc_ref_clk/my_clk_q" BEL
-        "tdc_ref_clk/cnt_q_0" BEL "tdc_ref_clk/cnt_q_1" BEL
-        "fifo_manager/wr_en_q" BEL
+        "tdc_spi_master/state_q_FSM_FFd2_1" BEL "FCLK/my_clk_q" BEL
+        "FCLK/cnt_q_0" BEL "FCLK/cnt_q_1" BEL "FCLK/cnt_q_2" BEL
+        "FCLK/cnt_q_3" BEL "FCLK/cnt_q_4" BEL "FCLK/cnt_q_5" BEL
+        "FCLK/cnt_q_6" BEL "FCLK/cnt_q_7" BEL "FCLK/cnt_q_8" BEL
+        "FCLK/cnt_q_9" BEL "FCLK/cnt_q_10" BEL "FCLK/cnt_q_11" BEL
+        "FCLK/cnt_q_12" BEL "tdc_ref_clk/my_clk_q" BEL
+        "mems_spi_master/ctr_q_4" BEL "mems_spi_master/ctr_q_3" BEL
+        "mems_spi_master/ctr_q_2" BEL "mems_spi_master/ctr_q_1" BEL
+        "mems_spi_master/ctr_q_0" BEL "mems_spi_master/state_q_FSM_FFd1" BEL
+        "mems_spi_master/state_q_FSM_FFd3" BEL
+        "mems_spi_master/state_q_FSM_FFd2" BEL "mems_spi_master/sck_q_8" BEL
+        "mems_spi_master/sck_q_7" BEL "mems_spi_master/sck_q_6" BEL
+        "mems_spi_master/sck_q_5" BEL "mems_spi_master/sck_q_4" BEL
+        "mems_spi_master/sck_q_3" BEL "mems_spi_master/sck_q_2" BEL
+        "mems_spi_master/sck_q_1" BEL "mems_spi_master/sck_q_0" BEL
+        "mems_spi_master/data_q_23" BEL "mems_spi_master/data_q_22" BEL
+        "mems_spi_master/data_q_21" BEL "mems_spi_master/data_q_20" BEL
+        "mems_spi_master/data_q_19" BEL "mems_spi_master/data_q_18" BEL
+        "mems_spi_master/data_q_17" BEL "mems_spi_master/data_q_16" BEL
+        "mems_spi_master/data_q_15" BEL "mems_spi_master/data_q_14" BEL
+        "mems_spi_master/data_q_13" BEL "mems_spi_master/data_q_12" BEL
+        "mems_spi_master/data_q_11" BEL "mems_spi_master/data_q_10" BEL
+        "mems_spi_master/data_q_9" BEL "mems_spi_master/data_q_8" BEL
+        "mems_spi_master/data_q_7" BEL "mems_spi_master/data_q_6" BEL
+        "mems_spi_master/data_q_5" BEL "mems_spi_master/data_q_4" BEL
+        "mems_spi_master/data_q_3" BEL "mems_spi_master/data_q_2" BEL
+        "mems_spi_master/data_q_1" BEL "mems_spi_master/data_q_0" BEL
+        "mems_spi_master/mosi_q" BEL "mems_spi_master/CS_q" BEL
+        "mems_spi_master/state_q_FSM_FFd2_1" BEL "fifo_manager/wr_en_q" BEL
         "fifo_manager/new_data_FROM_FIFO_TO_SERIAL_q" BEL
         "fifo_manager/data_TO_FIFO_q_47" BEL "fifo_manager/data_TO_FIFO_q_46"
         BEL "fifo_manager/data_TO_FIFO_q_45" BEL
@@ -319,6 +347,38 @@ TIMEGRP clk = BEL "tdc_control/start_signal_q" BEL
         "avr_interface/serial_rx/data_q_2" BEL
         "avr_interface/serial_rx/data_q_1" BEL
         "avr_interface/serial_rx/data_q_0" BEL "avr_interface/serial_rx/rx_q"
+        BEL "mems_control/ch_state_q_FSM_FFd1" BEL
+        "mems_control/ch_state_q_FSM_FFd2" BEL "mems_control/delta_B_q_7" BEL
+        "mems_control/delta_B_q_6" BEL "mems_control/delta_B_q_5" BEL
+        "mems_control/delta_B_q_4" BEL "mems_control/delta_B_q_3" BEL
+        "mems_control/delta_B_q_2" BEL "mems_control/delta_B_q_1" BEL
+        "mems_control/delta_B_q_0" BEL "mems_control/delta_D_q_7" BEL
+        "mems_control/delta_D_q_6" BEL "mems_control/delta_D_q_5" BEL
+        "mems_control/delta_D_q_4" BEL "mems_control/delta_D_q_3" BEL
+        "mems_control/delta_D_q_2" BEL "mems_control/delta_D_q_1" BEL
+        "mems_control/delta_A_q_7" BEL "mems_control/delta_A_q_6" BEL
+        "mems_control/delta_A_q_5" BEL "mems_control/delta_A_q_4" BEL
+        "mems_control/delta_A_q_3" BEL "mems_control/delta_A_q_2" BEL
+        "mems_control/delta_A_q_1" BEL "mems_control/delta_C_q_7" BEL
+        "mems_control/delta_C_q_6" BEL "mems_control/delta_C_q_5" BEL
+        "mems_control/delta_C_q_4" BEL "mems_control/delta_C_q_3" BEL
+        "mems_control/delta_C_q_2" BEL "mems_control/delta_C_q_1" BEL
+        "mems_control/state_q_FSM_FFd1" BEL "mems_control/state_q_FSM_FFd2"
+        BEL "mems_control/addr_q_2" BEL "mems_control/addr_q_1" BEL
+        "mems_control/addr_q_0" BEL "mems_control/start_q" BEL
+        "mems_control/delta_D_q_0" BEL "mems_control/delta_A_q_0" BEL
+        "mems_control/mems_rom/data_q_21" BEL
+        "mems_control/mems_rom/data_q_20" BEL
+        "mems_control/mems_rom/data_q_17" BEL
+        "mems_control/mems_rom/data_q_16" BEL
+        "mems_control/mems_rom/data_q_15" BEL
+        "mems_control/mems_rom/data_q_14" BEL
+        "mems_control/mems_rom/data_q_13" BEL
+        "mems_control/mems_rom/data_q_12" BEL
+        "mems_control/mems_rom/data_q_11" BEL
+        "mems_control/mems_rom/data_q_10" BEL "mems_control/mems_rom/data_q_9"
+        BEL "mems_control/mems_rom/data_q_8" BEL
+        "mems_control/mems_rom/data_q_4" BEL "mems_control/mems_rom/data_q_0"
         BEL "fifo_manager/fifo/Mram_buf_mem1/DP" BEL
         "fifo_manager/fifo/Mram_buf_mem1/SP" BEL
         "fifo_manager/fifo/Mram_buf_mem10/DP" BEL

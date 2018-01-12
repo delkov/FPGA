@@ -1,4 +1,4 @@
-module spi_slave_8(
+module spi_slave_11(
     input clk,
     input rst,
     input ss,

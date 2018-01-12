@@ -1,4 +1,4 @@
-module cclk_detector_7 #(
+module cclk_detector_10 #(
     parameter CLK_RATE = 50000000
     )(
     input clk,

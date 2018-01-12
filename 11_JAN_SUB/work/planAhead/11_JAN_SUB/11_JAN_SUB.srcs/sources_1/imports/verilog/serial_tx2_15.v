@@ -1,4 +1,4 @@
-module serial_tx2_12 #(
+module serial_tx2_15 #(
         parameter CLK_PER_BIT = 50
     )(
         input clk,
