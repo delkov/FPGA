@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-delkov-15ZD970-EX50K::  Fri Jan 12 00:42:16 2018
+delkov-15ZD970-EX50K::  Fri Jan 12 14:09:45 2018
 
 par -intstyle pa -w -mt on mojo_top_0.ncd mojo_top_0_routed.ncd 
 
@@ -103,29 +103,29 @@ WARNING:Par:288 - The signal avr_rx_busy_IBUF has no load.  PAR will not attempt
 Starting Multi-threaded Router
 
 
-Phase  1  : 2900 unrouted;      REAL time: 6 secs 
+Phase  1  : 2900 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 2463 unrouted;      REAL time: 6 secs 
+Phase  2  : 2463 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 1194 unrouted;      REAL time: 8 secs 
+Phase  3  : 1194 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 1194 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  4  : 1194 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
 
 Updating file: mojo_top_0_routed.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 11 secs 
-Total REAL time to Router completion: 11 secs 
-Total CPU time to Router completion (all processors): 11 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
+Total REAL time to Router completion: 7 secs 
+Total CPU time to Router completion (all processors): 8 secs 
 
 Generating "PAR" statistics.
 
@@ -173,8 +173,8 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 1 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 11 secs 
-Total CPU time to PAR completion (all processors): 11 secs 
+Total REAL time to PAR completion: 7 secs 
+Total CPU time to PAR completion (all processors): 8 secs 
 
 Peak Memory Usage:  799 MB
 

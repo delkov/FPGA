@@ -8,7 +8,7 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Fri Jan 12 00:41:53 2018
+Mapped Date    : Fri Jan 12 14:09:29 2018
 
 Design Summary
 --------------
@@ -92,8 +92,8 @@ Specific Feature Utilization:
 Average Fanout of Non-Clock Nets:                3.68
 
 Peak Memory Usage:  793 MB
-Total REAL time to MAP completion:  19 secs 
-Total CPU time to MAP completion (all processors):   18 secs 
+Total REAL time to MAP completion:  13 secs 
+Total CPU time to MAP completion (all processors):   13 secs 
 
 Table of Contents
 -----------------
@@ -122,7 +122,11 @@ Section 3 - Informational
 INFO:Map:284 - Map is running with the multi-threading option on. Map currently
    supports the use of up to 2 processors. Based on the the user options and
    machine load, Map will use 2 processors during this run.
-INFO:LIT:243 - Logical network avr_rx_busy_IBUF has no load.
+INFO:LIT:243 - Logical network SERIAL_IN has no load.
+INFO:LIT:395 - The above info message is repeated 1 more times for the following
+   (max. 5 shown):
+   avr_rx_busy_IBUF
+   To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
    rate limited output drivers. The delay on speed critical single ended outputs
@@ -156,7 +160,8 @@ To quickly locate the original cause for the removal of a chain of logic, look
 above the place where that logic is listed in the trimming report, then locate
 the lines that are least indented (begin at the leftmost edge).
 
-The signal "fifo_manager/fifo/busy_q" is sourceless and has been removed.
+The signal "fifo_manager/fifo/Byte_countr_q[2]" is sourceless and has been
+removed.
 
 Optimized Block(s):
 TYPE 		BLOCK

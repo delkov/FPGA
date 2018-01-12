@@ -5,7 +5,7 @@ verilog work "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_J
 verilog work "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/serial_rx_9.v"
 verilog work "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/FIFO_13.v"
 verilog work "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/cclk_detector_7.v"
-verilog work "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/tdc_spi_master2_5.v"
+verilog work "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/tdc_spi_master_5.v"
 verilog work "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/tdc_control_3.v"
 verilog work "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/my_clk_6.v"
 verilog work "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/main_control_2.v"

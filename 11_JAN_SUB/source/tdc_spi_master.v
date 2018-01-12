@@ -1,16 +1,19 @@
-module tdc_spi_master2 #(parameter CLK_DIV = 2)(
+module tdc_spi_master #(parameter CLK_DIV = 2)(
+    // INPUT
     input clk,
     input rst,
     input miso,
-    output mosi,
-    output sck,
     input start,
     input[7:0] data_in,
+    input CS_END,
+
+    // OUTPUT
+    output mosi,
+    output sck,
     output[7:0] data_out,
     output busy,
     output new_data,
-    output CS,
-    input CS_END
+    output CS
   );
    
   localparam STATE_SIZE = 3;
@@ -50,34 +53,34 @@ module tdc_spi_master2 #(parameter CLK_DIV = 2)(
     case (state_q)
       IDLE: begin
         // CS_d = 1'b1;
-        sck_d = 4'b0;              // reset clock counter
-        ctr_d = 5'b0;              // reset bit counter
-        if (start == 1'b1) begin   // if start command
-          state_d = WAIT_HALF;     // change state
+        sck_d = 4'b0;              
+        ctr_d = 5'b0;              
+        if (start == 1'b1) begin   
+          state_d = WAIT_HALF;     
           CS_d = 1'b0;
         end
       end
      WAIT_HALF: begin // MAKE CS BEFORE MOSI & good data tken from addr_d
        // copy data to send
-       sck_d = sck_q + 1'b1;                  // increment clock counter
+       sck_d = sck_q + 1'b1;                  
        if (sck_q == {CLK_DIV-1{1'b1}}) begin  // if clock is half full (about to fall)
-         sck_d = 1'b0;                        // reset to 0
+         sck_d = 1'b0;                       
          state_d = TRANSFER;   
-         data_d = data_in;                // change state
+         data_d = data_in;              
         end
      end
       TRANSFER: begin
-        sck_d = sck_q + 1'b1;                           // increment clock counter
-        if (sck_q == 4'b0000) begin                     // if clock counter is 0
+        sck_d = sck_q + 1'b1;                           
+        if (sck_q == 4'b0000) begin                     
           mosi_d = data_q[7];                           // output the MSB of data
         end else if (sck_q == {CLK_DIV-1{1'b1}}) begin  // else if it's half full (about to fall)
-          data_d = {data_q[6:0], miso};//sck_d>>7};//miso}; // read in data (shift in)
+          data_d = {data_q[6:0], miso};  // read in data (shift in)
           
           //miso
         end else if (sck_q == {CLK_DIV{1'b1}}) begin    // else if it's full (about to rise)
-          ctr_d = ctr_q + 1'b1;                         // increment bit counter
-          if (ctr_q == 5'b111) begin                    // if we are on the last bit
-            state_d = WAIT_BEFORE_CS;                             // change state
+          ctr_d = ctr_q + 1'b1;                        
+          if (ctr_q == 5'b111) begin               
+            state_d = WAIT_BEFORE_CS;                   
             data_out_d = data_q;                        // output data
             // signal data is valid
             sck_d = 4'b0; 
@@ -85,42 +88,32 @@ module tdc_spi_master2 #(parameter CLK_DIV = 2)(
         end
       end
 
-
-
+    // DECIDE WHAT TO DO WITTH CS PIN
      WAIT_BEFORE_CS: begin
-       // data_d = data_in;
-       sck_d = sck_q + 1'b1;                  // increment clock counter
-       if (sck_q == {CLK_DIV-1{1'b1}}) begin  // if clock is half full (about to fall)
-            
+       sck_d = sck_q + 1'b1;                  
+       if (sck_q == {CLK_DIV-1{1'b1}}) begin  
           if (CS_END==1'b1) begin
             CS_d=1'b1;
           end else begin
             CS_d=1'b0;
           end
-            
-
             state_d = WAIT_DURING_CS; 
             sck_d=1'b0;
-
         end
      end
 
+     // STAY CS PIN in the previous state some time..
      WAIT_DURING_CS: begin
-       // data_d = data_in;
-       sck_d = sck_q + 1'b1;                  // increment clock counter
-       if (sck_q == {CLK_DIV{1'b1}}) begin  // if clock is half full (about to fall)
-         sck_d = 1'b0;                        // reset to 0
-         state_d = IDLE;                  // change state
+       sck_d = sck_q + 1'b1;                 
+       if (sck_q == {CLK_DIV{1'b1}}) begin 
+         sck_d = 1'b0;                        
+         state_d = IDLE;                 
          new_data_d = 1'b1;   
-
         end
      end
-
-
-
-
     endcase
-  end
+  
+  end // always
    
   always @(posedge clk) begin
     if (rst) begin

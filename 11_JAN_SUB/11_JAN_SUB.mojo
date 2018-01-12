@@ -4,7 +4,6 @@
     <src>my_clk.v</src>
     <src>spi_slave.v</src>
     <src>FIFO.v</src>
-    <src>tdc_spi_master2.v</src>
     <src>avr_interface.v</src>
     <src>tdc_control.v</src>
     <src>fifo_manager.v</src>
@@ -13,6 +12,7 @@
     <src>serial_tx.v</src>
     <src>main_control.v</src>
     <src>cclk_detector.v</src>
+    <src>tdc_spi_master.v</src>
     <src>serial_rx.v</src>
     <src>tdc_rom.v</src>
     <src>serial_tx2.v</src>

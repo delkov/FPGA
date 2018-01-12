@@ -3,21 +3,21 @@
     input rst,
     input new_data, //used for SPI
     input [7:0] tdc_MISO,
-    output [7:0] tdc_MOSI,
     input soft_reset,
-    output start, // for start SPI
-    output start_signal,
     input TDC_INTB,
-    output CS_END,
     input tdc_busy,
+    input fifo_writing_done,
+    input play,
+    input pause,
 
+    output start_signal,
+    output CS_END,
+    output start, // for start SPI
+    output [7:0] tdc_MOSI,
     output w_wr_en, // allow write to FIFO
     // output w_wr_en2,
-    output [47:0] data_TO_FIFO,
-    input fifo_writing_done,
+    output [47:0] data_TO_FIFO
     // input fifo_writing_done2,
-    input play,
-    input pause
   );
  
   localparam STATE_SIZE = 4;
@@ -334,7 +334,6 @@
       state_q <= IDLE;
     end else if (pause) begin
       state_q <= IDLE;
-      // state_q <= state_d;
     end else if (play) begin
       state_q <= DELAY;    
     end else begin

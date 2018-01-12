@@ -1,11 +1,11 @@
 module main_control (
+    // INPUT
     input clk,
     input rst,
-    output [7:0] tx_data,
-    output reg new_tx_data,
-    input tx_busy,
+    // input tx_busy,
     input [7:0] rx_data,
     input new_rx_data,
+    // OUTPUT
     output tdc_enable, // used after powe_on, from LOW to HIGH to TDC
     output soft_reset, // flag to make TDC soft reset
     output play,
@@ -13,13 +13,11 @@ module main_control (
   );
 
 
-  localparam STATE_SIZE = 2;
+  localparam  STATE_SIZE = 2,
+  IDLE = 2'd0,
+  ENABLE_HIGH = 2'd1,
+  SOFT_RESET = 2'd2;
   reg [STATE_SIZE-1:0] state_d, state_q;
-
-  localparam IDLE = 2'd0,
-    ENABLE_HIGH = 2'd1,
-    SOFT_RESET = 2'd2;
-
 
   reg play_d, play_q;
   reg pause_d, pause_q;
@@ -38,8 +36,6 @@ module main_control (
   tdc_enable_d = tdc_enable_q;
   countr_d = countr_q;
   state_d = state_q;
-  new_tx_data = 1'b0;
-
 
     case (state_q)
       IDLE: begin
@@ -54,7 +50,7 @@ module main_control (
         if (new_rx_data && rx_data == "s") begin
           pause_d=1'b1;
           play_d=1'b0;
-        end //else begin
+        end 
 
         if (new_rx_data && rx_data == "p") begin
           play_d=1'b1;

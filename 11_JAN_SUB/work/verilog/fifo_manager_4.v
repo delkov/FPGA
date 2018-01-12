@@ -6,9 +6,9 @@ module fifo_manager_4 (
     input s2_wr_en,
     input [47:0] s1_din,
   
-    output w_s1_fifo_writing_done,
-        output w_s2_fifo_writing_done,
     // OUTPUT
+    output w_s1_fifo_writing_done,
+    output w_s2_fifo_writing_done,
     output tx_busy_TDC,
     output new_data_FROM_FIFO_TO_SERIAL,
     output w_tx_OUT_TDC,
@@ -28,29 +28,31 @@ module fifo_manager_4 (
   wire [47:0] w_data_FROM_FIFO_TO_SERIAL;
   
   assign new_data_FROM_FIFO_TO_SERIAL = new_data_FROM_FIFO_TO_SERIAL_q;
-
   assign w_s1_fifo_writing_done = s1_fifo_writing_done;
-
   assign w_s2_fifo_writing_done = s2_fifo_writing_done;
 
   serial_tx2_12 #(.CLK_PER_BIT(17)) serial_tx_TDC (
-    // input
+    // INPUT
     .clk(clk),
     .rst(rst), 
-    .block(rst), // input
+    .block(rst), 
     .new_data(new_data_FROM_FIFO_TO_SERIAL_q),
     .data(w_data_FROM_FIFO_TO_SERIAL),
-    // output
+    
+    // OUTPUT
     .tx(w_tx_OUT_TDC), 
     .busy(tx_busy_TDC) 
   );
 
   fifo_13 fifo (
+    // INPUT
     .clk(clk),
     .rst(rst),
     .wr_en(wr_en_q),
     .rd_en(t_rd_en),
     .buf_in(data_TO_FIFO_q),
+
+    // OUTPUT
     .buf_out(w_data_FROM_FIFO_TO_SERIAL),
     .buf_empty(w_empty),
     .buf_full(w_full),
@@ -94,7 +96,6 @@ module fifo_manager_4 (
         new_data_FROM_FIFO_TO_SERIAL_d = 1'b0;
     end
 
-
   end // always
   
   /* Sequential Logic */
@@ -106,7 +107,7 @@ module fifo_manager_4 (
       wr_en_q <= wr_en_d;
       data_TO_FIFO_q <= data_TO_FIFO_d;
       new_data_FROM_FIFO_TO_SERIAL_q <= new_data_FROM_FIFO_TO_SERIAL_d;
-
+      
     end
   end
   

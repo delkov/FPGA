@@ -25,8 +25,8 @@ Parsing module <fifo_13>.
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/cclk_detector_7.v" into library work
 Parsing module <cclk_detector_7>.
 INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/cclk_detector_7.v" Line 10. parameter declaration becomes local in cclk_detector_7 with formal parameter declaration list
-Analyzing Verilog file "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/tdc_spi_master2_5.v" into library work
-Parsing module <tdc_spi_master2_5>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/tdc_spi_master_5.v" into library work
+Parsing module <tdc_spi_master_5>.
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/tdc_control_3.v" into library work
 Parsing module <tdc_control_3>.
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/my_clk_6.v" into library work
@@ -34,7 +34,7 @@ Parsing module <my_clk_6>.
 INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/my_clk_6.v" Line 13. parameter declaration becomes local in my_clk_6 with formal parameter declaration list
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/main_control_2.v" into library work
 Parsing module <main_control_2>.
-WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/main_control_2.v" Line 26: Redeclaration of ansi port soft_reset is not allowed
+WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/main_control_2.v" Line 24: Redeclaration of ansi port soft_reset is not allowed
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/fifo_manager_4.v" into library work
 Parsing module <fifo_manager_4>.
 WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/fifo_manager_4.v" Line 20: Redeclaration of ansi port t_rd_en is not allowed
@@ -43,12 +43,12 @@ Parsing module <avr_interface_1>.
 INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/avr_interface_1.v" Line 80. parameter declaration becomes local in avr_interface_1 with formal parameter declaration list
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
 Parsing module <mojo_top_0>.
-WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 92: Redeclaration of ansi port TDC_ENABLE is not allowed
+WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 67: Redeclaration of ansi port TDC_ENABLE is not allowed
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
-WARNING:HDLCompiler:1016 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 135: Port w_s2_fifo_writing_done is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 151: Port w_s2_fifo_writing_done is not connected to this instance
 
 Elaborating module <mojo_top_0>.
 
@@ -61,6 +61,7 @@ Elaborating module <spi_slave_8>.
 Elaborating module <serial_rx_9(CLK_PER_BIT=100)>.
 
 Elaborating module <serial_tx_10(CLK_PER_BIT=100)>.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 103: Assignment to tx_busy ignored, since the identifier is never used
 
 Elaborating module <main_control_2>.
 
@@ -84,10 +85,12 @@ WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/FIFO_13.v" Line 73: Result of 3-bit expression is truncated to fit in 2-bit target.
 WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/fifo_manager_4.v" Line 26: Net <s2_fifo_writing_done> does not have a driver.
 
-Elaborating module <tdc_spi_master2_5(CLK_DIV=3)>.
+Elaborating module <tdc_spi_master_5(CLK_DIV=3)>.
 
 Elaborating module <my_clk_6(CLK_DIV=4)>.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 140: Net <s2_wr_en> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 54: Net <tx_data[7]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 55: Net <new_tx_data> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 156: Net <s2_wr_en> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -95,10 +98,14 @@ WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11
 
 Synthesizing Unit <mojo_top_0>.
     Related source file is "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v".
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" line 63: Output port <sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" line 63: Output port <sample_channel> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" line 63: Output port <new_sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" line 135: Output port <w_s2_fifo_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+WARNING:Xst:647 - Input <SERIAL_IN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" line 86: Output port <sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" line 86: Output port <sample_channel> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" line 86: Output port <new_sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" line 86: Output port <tx_busy> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" line 151: Output port <w_s2_fifo_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <new_tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <s2_wr_en> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Summary:
 	no macro.
@@ -192,17 +199,18 @@ Synthesizing Unit <serial_tx_10>.
         CLK_PER_BIT = 100
     Found 1-bit register for signal <tx_q>.
     Found 1-bit register for signal <block_q>.
-    Found 8-bit register for signal <data_q>.
     Found 3-bit register for signal <bit_ctr_q>.
     Found 7-bit register for signal <ctr_q>.
     Found 1-bit register for signal <busy_q>.
     Found 2-bit register for signal <state_q>.
+INFO:Xst:1799 - State 10 is never reached in FSM <state_q>.
+INFO:Xst:1799 - State 11 is never reached in FSM <state_q>.
     Found finite state machine <FSM_1> for signal <state_q>.
     -----------------------------------------------------------------------
-    | States             | 4                                              |
-    | Transitions        | 10                                             |
-    | Inputs             | 4                                              |
-    | Outputs            | 2                                              |
+    | States             | 3                                              |
+    | Transitions        | 1                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 1                                              |
     | Clock              | clk (rising_edge)                              |
     | Reset              | rst (positive)                                 |
     | Reset type         | synchronous                                    |
@@ -211,30 +219,23 @@ Synthesizing Unit <serial_tx_10>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 3-bit adder for signal <bit_ctr_q[2]_GND_6_o_add_13_OUT> created at line 73.
-    Found 7-bit adder for signal <ctr_q[6]_GND_6_o_add_19_OUT> created at line 82.
-    Found 1-bit 8-to-1 multiplexer for signal <bit_ctr_q[2]_data_q[7]_Mux_10_o> created at line 69.
-    Found 7-bit 4-to-1 multiplexer for signal <ctr_d> created at line 41.
     Summary:
-	inferred   2 Adder/Subtractor(s).
-	inferred  21 D-type flip-flop(s).
-	inferred   6 Multiplexer(s).
+	inferred  10 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <serial_tx_10> synthesized.
 
 Synthesizing Unit <main_control_2>.
     Related source file is "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/main_control_2.v".
-WARNING:Xst:647 - Input <tx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:653 - Signal <tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 1-bit register for signal <tdc_enable_q>.
     Found 20-bit register for signal <countr_q>.
     Found 2-bit register for signal <state_q>.
     Found 1-bit register for signal <pause_q>.
     Found 1-bit register for signal <play_q>.
-    Found 20-bit adder for signal <countr_q[19]_GND_13_o_add_6_OUT> created at line 71.
+    Found 20-bit adder for signal <countr_q[19]_GND_13_o_add_6_OUT> created at line 67.
     Found 4x1-bit Read Only RAM for signal <state_q[1]_soft_reset_Mux_15_o>
     Found 4x1-bit Read Only RAM for signal <state_q[1]_GND_14_o_Mux_16_o>
-    Found 2-bit 3-to-1 multiplexer for signal <state_d> created at line 44.
+    Found 2-bit 3-to-1 multiplexer for signal <state_d> created at line 40.
 WARNING:Xst:737 - Found 1-bit latch for signal <soft_reset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     HDL ADVISOR - Describing an operational reset or an explicit power-up state for register <state_q> would allow inference of a finite state machine and as consequence better performance and smaller area.
     Summary:
@@ -296,7 +297,7 @@ Unit <tdc_rom_11> synthesized.
 Synthesizing Unit <fifo_manager_4>.
     Related source file is "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/fifo_manager_4.v".
 WARNING:Xst:647 - Input <s2_wr_en> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/fifo_manager_4.v" line 48: Output port <fifo_counter> of the instance <fifo> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/fifo_manager_4.v" line 47: Output port <fifo_counter> of the instance <fifo> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <s2_fifo_writing_done> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 48-bit register for signal <data_TO_FIFO_q>.
     Found 1-bit register for signal <new_data_FROM_FIFO_TO_SERIAL_q>.
@@ -360,8 +361,8 @@ Synthesizing Unit <fifo_13>.
 	inferred   1 Multiplexer(s).
 Unit <fifo_13> synthesized.
 
-Synthesizing Unit <tdc_spi_master2_5>.
-    Related source file is "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/tdc_spi_master2_5.v".
+Synthesizing Unit <tdc_spi_master_5>.
+    Related source file is "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/tdc_spi_master_5.v".
         CLK_DIV = 3
     Found 8-bit register for signal <data_q>.
     Found 3-bit register for signal <sck_q>.
@@ -384,14 +385,14 @@ Synthesizing Unit <tdc_spi_master2_5>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 5-bit adder for signal <ctr_q[4]_GND_20_o_add_14_OUT> created at line 78.
-    Found 3-bit adder for signal <sck_q[2]_GND_20_o_add_10_OUT> created at line 110.
+    Found 5-bit adder for signal <ctr_q[4]_GND_20_o_add_14_OUT> created at line 81.
+    Found 3-bit adder for signal <sck_q[2]_GND_20_o_add_10_OUT> created at line 107.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  27 D-type flip-flop(s).
 	inferred  12 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
-Unit <tdc_spi_master2_5> synthesized.
+Unit <tdc_spi_master_5> synthesized.
 
 Synthesizing Unit <my_clk_6>.
     Related source file is "/home/delkov/mojo/SIMPLE/11_JAN_SUB/work/planAhead/11_JAN_SUB/11_JAN_SUB.srcs/sources_1/imports/verilog/my_clk_6.v".
@@ -414,53 +415,51 @@ Macro Statistics
  32x8-bit single-port Read Only RAM                    : 1
  4x1-bit single-port Read Only RAM                     : 2
  4x48-bit dual-port RAM                                : 1
-# Adders/Subtractors                                   : 19
+# Adders/Subtractors                                   : 17
  10-bit adder                                          : 1
  2-bit adder                                           : 3
  20-bit adder                                          : 1
- 3-bit adder                                           : 5
+ 3-bit adder                                           : 4
  3-bit addsub                                          : 1
  30-bit adder                                          : 1
  4-bit adder                                           : 1
  5-bit adder                                           : 2
  6-bit adder                                           : 2
- 7-bit adder                                           : 2
-# Registers                                            : 68
+ 7-bit adder                                           : 1
+# Registers                                            : 66
  1-bit register                                        : 31
  10-bit register                                       : 2
  16-bit register                                       : 3
  2-bit register                                        : 4
  20-bit register                                       : 1
- 3-bit register                                        : 6
+ 3-bit register                                        : 5
  30-bit register                                       : 1
  4-bit register                                        : 3
  48-bit register                                       : 4
  5-bit register                                        : 2
  6-bit register                                        : 2
  7-bit register                                        : 2
- 8-bit register                                        : 7
+ 8-bit register                                        : 6
 # Latches                                              : 1
  1-bit latch                                           : 1
 # Comparators                                          : 1
  2-bit comparator greater                              : 1
-# Multiplexers                                         : 88
- 1-bit 2-to-1 multiplexer                              : 21
+# Multiplexers                                         : 83
+ 1-bit 2-to-1 multiplexer                              : 20
  1-bit 48-to-1 multiplexer                             : 1
- 1-bit 8-to-1 multiplexer                              : 1
  10-bit 2-to-1 multiplexer                             : 1
  16-bit 2-to-1 multiplexer                             : 3
  2-bit 2-to-1 multiplexer                              : 2
  2-bit 3-to-1 multiplexer                              : 1
  20-bit 2-to-1 multiplexer                             : 1
- 3-bit 2-to-1 multiplexer                              : 11
+ 3-bit 2-to-1 multiplexer                              : 10
  30-bit 2-to-1 multiplexer                             : 7
  4-bit 2-to-1 multiplexer                              : 12
  48-bit 2-to-1 multiplexer                             : 1
  5-bit 2-to-1 multiplexer                              : 5
  5-bit 4-to-1 multiplexer                              : 1
  6-bit 2-to-1 multiplexer                              : 11
- 7-bit 2-to-1 multiplexer                              : 6
- 7-bit 4-to-1 multiplexer                              : 1
+ 7-bit 2-to-1 multiplexer                              : 5
  8-bit 2-to-1 multiplexer                              : 2
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
@@ -541,10 +540,6 @@ The following registers are absorbed into counter <Byte_countr_q>: 1 register on
 The following registers are absorbed into counter <bit_ctr_q>: 1 register on signal <bit_ctr_q>.
 Unit <serial_tx2_12> synthesized (advanced).
 
-Synthesizing (advanced) Unit <serial_tx_10>.
-The following registers are absorbed into counter <bit_ctr_q>: 1 register on signal <bit_ctr_q>.
-Unit <serial_tx_10> synthesized (advanced).
-
 Synthesizing (advanced) Unit <spi_slave_8>.
 The following registers are absorbed into counter <bit_ct_q>: 1 register on signal <bit_ct_q>.
 Unit <spi_slave_8> synthesized (advanced).
@@ -563,9 +558,9 @@ INFO:Xst:3231 - The small RAM <Mram_data_d> will be implemented on LUTs in order
     -----------------------------------------------------------------------
 Unit <tdc_rom_11> synthesized (advanced).
 
-Synthesizing (advanced) Unit <tdc_spi_master2_5>.
+Synthesizing (advanced) Unit <tdc_spi_master_5>.
 The following registers are absorbed into counter <ctr_q>: 1 register on signal <ctr_q>.
-Unit <tdc_spi_master2_5> synthesized (advanced).
+Unit <tdc_spi_master_5> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -575,29 +570,28 @@ Macro Statistics
  32x8-bit single-port distributed Read Only RAM        : 1
  4x1-bit single-port distributed Read Only RAM         : 2
  4x48-bit dual-port distributed RAM                    : 1
-# Adders/Subtractors                                   : 7
+# Adders/Subtractors                                   : 6
  3-bit adder                                           : 1
  30-bit adder                                          : 1
  4-bit adder                                           : 1
  5-bit adder                                           : 1
  6-bit adder                                           : 1
- 7-bit adder                                           : 2
-# Counters                                             : 12
+ 7-bit adder                                           : 1
+# Counters                                             : 11
  10-bit up counter                                     : 1
  2-bit up counter                                      : 3
  20-bit up counter                                     : 1
- 3-bit up counter                                      : 4
+ 3-bit up counter                                      : 3
  3-bit updown counter                                  : 1
  5-bit up counter                                      : 1
  6-bit up counter                                      : 1
-# Registers                                            : 409
- Flip-Flops                                            : 409
+# Registers                                            : 401
+ Flip-Flops                                            : 401
 # Comparators                                          : 1
  2-bit comparator greater                              : 1
-# Multiplexers                                         : 89
- 1-bit 2-to-1 multiplexer                              : 29
+# Multiplexers                                         : 85
+ 1-bit 2-to-1 multiplexer                              : 28
  1-bit 48-to-1 multiplexer                             : 1
- 1-bit 8-to-1 multiplexer                              : 1
  10-bit 2-to-1 multiplexer                             : 1
  16-bit 2-to-1 multiplexer                             : 3
  2-bit 2-to-1 multiplexer                              : 2
@@ -609,8 +603,7 @@ Macro Statistics
  5-bit 2-to-1 multiplexer                              : 4
  5-bit 4-to-1 multiplexer                              : 1
  6-bit 2-to-1 multiplexer                              : 10
- 7-bit 2-to-1 multiplexer                              : 6
- 7-bit 4-to-1 multiplexer                              : 1
+ 7-bit 2-to-1 multiplexer                              : 5
  8-bit 2-to-1 multiplexer                              : 1
 # FSMs                                                 : 5
 # Xors                                                 : 1
@@ -621,16 +614,12 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <avr_interface/serial_tx/FSM_1> on signal <state_q[1:2]> with gray encoding.
--------------------
- State | Encoding
--------------------
- 00    | 00
- 01    | 01
- 10    | 11
- 11    | 10
--------------------
+WARNING:Xst:1710 - FF/Latch <busy_q> (without init value) has a constant value of 0 in block <avr_interface_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <block_q_0> is unconnected in block <avr_interface_1>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <block_q_1> is unconnected in block <avr_interface_1>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <block_q_2> is unconnected in block <avr_interface_1>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <block_q_3> is unconnected in block <avr_interface_1>.
+WARNING:Xst:1710 - FF/Latch <block_q> (without init value) has a constant value of 0 in block <serial_tx_10>. This FF/Latch will be trimmed during the optimization process.
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <avr_interface/serial_rx/FSM_0> on signal <state_q[1:2]> with gray encoding.
 -------------------
@@ -640,6 +629,15 @@ Optimizing FSM <avr_interface/serial_rx/FSM_0> on signal <state_q[1:2]> with gra
  01    | 01
  10    | 11
  11    | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <avr_interface/serial_tx/FSM_1> on signal <state_q[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 10    | unreached
+ 11    | unreached
 -------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <tdc_control/FSM_4> on signal <state_q[1:4]> with user encoding.
@@ -680,6 +678,14 @@ Optimizing FSM <tdc_spi_master/FSM_6> on signal <state_q[1:3]> with user encodin
  011   | 011
  100   | 100
 -------------------
+WARNING:Xst:1710 - FF/Latch <tx_q> (without init value) has a constant value of 1 in block <serial_tx_10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <ctr_q_0> of sequential type is unconnected in block <serial_tx_10>.
+WARNING:Xst:2677 - Node <ctr_q_1> of sequential type is unconnected in block <serial_tx_10>.
+WARNING:Xst:2677 - Node <ctr_q_2> of sequential type is unconnected in block <serial_tx_10>.
+WARNING:Xst:2677 - Node <ctr_q_3> of sequential type is unconnected in block <serial_tx_10>.
+WARNING:Xst:2677 - Node <ctr_q_4> of sequential type is unconnected in block <serial_tx_10>.
+WARNING:Xst:2677 - Node <ctr_q_5> of sequential type is unconnected in block <serial_tx_10>.
+WARNING:Xst:2677 - Node <ctr_q_6> of sequential type is unconnected in block <serial_tx_10>.
 WARNING:Xst:2677 - Node <avr_interface/sample_q_9> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:2677 - Node <avr_interface/sample_q_8> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:2677 - Node <avr_interface/sample_q_7> of sequential type is unconnected in block <mojo_top_0>.
@@ -696,10 +702,9 @@ WARNING:Xst:2677 - Node <avr_interface/sample_channel_q_3> of sequential type is
 WARNING:Xst:2677 - Node <avr_interface/sample_channel_q_2> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:2677 - Node <avr_interface/sample_channel_q_1> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:2677 - Node <avr_interface/sample_channel_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/serial_tx/busy_q> of sequential type is unconnected in block <mojo_top_0>.
 
 Optimizing unit <mojo_top_0> ...
-
-Optimizing unit <serial_tx_10> ...
 
 Optimizing unit <spi_slave_8> ...
 
@@ -717,19 +722,7 @@ Optimizing unit <serial_tx2_12> ...
 
 Optimizing unit <fifo_13> ...
 
-Optimizing unit <tdc_spi_master2_5> ...
-WARNING:Xst:1710 - FF/Latch <avr_interface/busy_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/state_q_FSM_FFd2> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/tx_q> (without init value) has a constant value of 1 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/data_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/data_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/data_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/data_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/data_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/data_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/data_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/data_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <avr_interface/serial_tx/block_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+Optimizing unit <tdc_spi_master_5> ...
 WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_7> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_6> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_5> of sequential type is unconnected in block <mojo_top_0>.
@@ -740,22 +733,6 @@ WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_1> of sequential type is
 WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_0> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:2677 - Node <avr_interface/spi_slave/done_q> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:2677 - Node <tdc_spi_master/new_data_q> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <avr_interface/block_q_0> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <avr_interface/block_q_1> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <avr_interface/block_q_2> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <avr_interface/block_q_3> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <avr_interface/serial_tx/busy_q> is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/bit_ctr_q_2> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/bit_ctr_q_1> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/bit_ctr_q_0> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/state_q_FSM_FFd1> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/ctr_q_6> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/ctr_q_5> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/ctr_q_4> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/ctr_q_3> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/ctr_q_2> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/ctr_q_1> of sequential type is unconnected in block <mojo_top_0>.
-WARNING:Xst:2677 - Node <avr_interface/serial_tx/ctr_q_0> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:1710 - FF/Latch <tdc_control/Byte_countr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tdc_control/Byte_countr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 
