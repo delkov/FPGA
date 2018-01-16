@@ -1,4 +1,4 @@
-module mems_control_6 (
+module mems_control_7 (
     // INPUT
     input clk,
     input rst,
@@ -10,8 +10,8 @@ module mems_control_6 (
     // OUTPUT
     output mems_SPI_start,
     output [23:0] data_miso,
-    output reg new_frame,
-    output reg new_line
+    output new_line,
+    output new_frame
   );
  
   localparam STATE_SIZE = 2,
@@ -39,6 +39,11 @@ module mems_control_6 (
  
   reg [3:0] addr_d, addr_q;
   reg start_d, start_q; 
+
+  reg new_line_d, new_line_q=1'b0;
+  reg new_frame_d, new_frame_q=1'b0;
+
+
   reg [7:0] delta_A_d;
   reg [7:0] delta_A_q = DOWN_LIMIT;
   reg [7:0] delta_B_d;
@@ -53,7 +58,10 @@ module mems_control_6 (
 
   assign mems_SPI_start=start_q;
 
-  mems_rom_17 mems_rom (
+  assign new_line = new_line_q;
+  assign new_frame = new_frame_q;
+
+  mems_rom_18 mems_rom (
   .clk(clk),
   .addr(addr_q),
   .delta_A(delta_A_q),
@@ -67,17 +75,26 @@ module mems_control_6 (
 
 
     if (new_line_FIFO_done==1'b1) begin
-      new_line=1'b0; // latch here is fine
-    end 
+      new_line_d=1'b0; // latch here is not fine (if at the same time 2 modules -> problem)
+    end else begin
+      new_line_d = new_line_q;
+    end
 
 
     if (new_frame_FIFO_done==1'b1) begin
-      new_frame=1'b0; // latch here is fine
-    end 
+      new_frame_d=1'b0; // latch here is not fine
+    end else begin
+      new_frame_d = new_frame_q;
+    end
+
+
 
     state_d = state_q; // default values
     addr_d = addr_q;   // needed to prevent latches
     ch_state_d = ch_state_q;
+
+
+
     delta_A_d = delta_A_q;
     delta_B_d = delta_B_q;
     delta_C_d = delta_C_q;
@@ -135,10 +152,10 @@ module mems_control_6 (
                             delta_C_d = DOWN_LIMIT_2;
                             delta_D_d = UP_LIMIT_2;  
 
-                            new_frame=1'b1;
+                            new_frame_d=1'b1;
 
                           end else begin
-                            new_line=1'b1; // sent it obly if not frame! so new frame starts fine
+                            new_line_d=1'b1; // sent it only if not frame! so new frame starts fine
                             // change speed of SAW, CAREFUL! should nt be NEGATIVE
                             delta_C_d = delta_C_d + 6'd1; 
                             delta_D_d = delta_D_d - 6'd1;
@@ -201,7 +218,7 @@ module mems_control_6 (
 
       default: state_d = IDLE;
     endcase
-  end
+  end // always
  
   always @(posedge clk) begin
     if (rst) begin
@@ -210,6 +227,9 @@ module mems_control_6 (
       state_q <= state_d;
       ch_state_q <= ch_state_d;
     end
+
+    new_line_q <= new_line_d; 
+    new_frame_q <= new_frame_d; 
 
     delta_A_q <= delta_A_d; 
     delta_B_q <= delta_B_d; 

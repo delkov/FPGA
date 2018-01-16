@@ -60,7 +60,7 @@
   assign CS_END = CS_END_q;
 
   // data for initialiaztion and so on..
-  tdc_rom_14 tdc_rom (
+  tdc_rom_15 tdc_rom (
   .clk(clk),
   .addr(addr_q),
   .data(tdc_MOSI)

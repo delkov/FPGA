@@ -2,7 +2,9 @@
 <project name="JAN_12_SUB" board="Mojo V3" language="Verilog">
   <files>
     <src>my_clk.v</src>
+    <src>fake_tdc.v</src>
     <src>mems_spi.v</src>
+    <src>fake_tdc2.v</src>
     <src>spi_slave.v</src>
     <src>FIFO.v</src>
     <src>avr_interface.v</src>

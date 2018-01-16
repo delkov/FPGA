@@ -5,7 +5,7 @@ Loading device for application Rf_Device from file '6slx9.nph' in environment
    "mojo_top_0" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
 Opened constraints file mojo_top_0.pcf.
 
-Sun Jan 14 21:55:39 2018
+Tue Jan 16 20:23:07 2018
 
 /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -g Binary:Yes -g Compress -w -intstyle pa mojo_top_0_routed.ncd mojo_top_0.bit mojo_top_0.pcf 
 
@@ -128,18 +128,9 @@ There were 0 CONFIG constraint(s) processed from mojo_top_0.pcf.
 
 
 Running DRC.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   mems_control/state_q[1]_ch_state_q[1]_Mux_63_o is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading
-   of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   mems_control/state_q[1]_ch_state_q[1]_Mux_67_o is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading
-   of data into the flip-flop.
-DRC detected 0 errors and 2 warnings.  Please see the previously displayed
-individual error or warning messages for more details.
+DRC detected 0 errors and 0 warnings.
 Creating bit map...
 Saving bit stream in "mojo_top_0.bit".
-Bitstream compression saved 770288 bits.
+Bitstream compression saved 669200 bits.
 Saving bit stream in "mojo_top_0.bin".
 Bitstream generation is complete.

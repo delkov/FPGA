@@ -1,4 +1,4 @@
-module tdc_rom_14 (
+module tdc_rom_15 (
     input clk,
     input [5:0] addr,
     output [7:0] data

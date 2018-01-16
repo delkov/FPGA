@@ -1,11 +1,12 @@
 module my_clk_9 #(
     parameter CLK_DIV = 16
-    // parameter CLK_DIV = 2
     )(
-    input clk,  // clock
-    input rst,  // reset
+    // INPUT
+    input clk,  
+    input rst,  
+    
+    // OUTPUT
     output my_clk
-    // input AZAZA
   );
 
   assign my_clk = my_clk_q;

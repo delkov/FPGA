@@ -34,9 +34,18 @@ module mojo_top(
   output MEMS_MOSI,
   output MEMS_SPI_CLOCK,
   output MEMS_CS,
-  output MEMS_FCLK
+  output MEMS_FCLK,
+
+
+
 
   // DEBUGGING
+  output f2_wr_en,
+  output f3_wr_en,
+
+  output f2_FIFO_writing_done,
+  output f3_FIFO_writing_done
+
   // input TDC_TRIG,
     // FIFO
   // output FIFO_FULL,
@@ -64,7 +73,7 @@ module mojo_top(
   localparam BAUD_RATE_SPEED=4000000; // in Hz, CAN BE ANY
 
   // OTHER
-  localparam SHOOTING_FREQUENCY=100; // in Hz, CAN BE ANY
+  localparam SHOOTING_FREQUENCY=10; // in Hz, CAN BE ANY
     
   // CONVERTED PARAMS  
   localparam FCLK_FREQUENCY_PARAM=MOJO_FREQUENCY/FCLK_FREQUENCY; 
@@ -115,9 +124,15 @@ module mojo_top(
   wire new_line;
   wire new_frame;
 
-  wire s1_wr_en;
-  wire [47:0] s1_din;
-  wire s1_fifo_writing_done;
+  wire x1_wr_en;
+  wire [47:0] x1_din;
+  wire x1_fifo_writing_done;
+
+  wire f2_wr_en;
+  wire f2_FIFO_writing_done;
+
+  wire f3_wr_en;
+  wire f3_FIFO_writing_done;
   // wire s2_fifo_writing_done;
 
   // assign w_rd_en = t_rd_en;
@@ -169,7 +184,7 @@ module mojo_top(
     .tdc_soft_reset(soft_reset),
     .TDC_INTB(TDC_INTB),
     .tdc_SPI_busy(tdc_SPI_busy),
-    .fifo_writing_done(s1_fifo_writing_done),
+    .fifo_writing_done(x1_FIFO_writing_done),
     .pause(pause),
 
     // OUTPUT
@@ -177,29 +192,62 @@ module mojo_top(
     .CS_END(CS_END),
     .start(tdc_SPI_start),
     .tdc_MOSI(tdc_data_in),
-    .w_wr_en(s1_wr_en),
+    .w_wr_en(x1_wr_en),
     // .w_wr_en2(s2_wr_en),
-    .data_TO_FIFO(s1_din)
+    .data_TO_FIFO(x1_din)
     // .fifo_writing_done2(s2_fifo_writing_done),
     // .laser_trig(laser_trig)
   );
  
+
+   fake_tdc fake_tdc2 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .f_FIFO_writing_done(f2_FIFO_writing_done),
+
+    // OUTPUT
+    .wr_en(f2_wr_en)
+
+  );
+
+   fake_tdc fake_tdc3 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .f_FIFO_writing_done(f3_FIFO_writing_done),
+
+    // OUTPUT
+    .wr_en(f3_wr_en)
+
+  );
   
   fifo_manager #(.BAUD_RATE_PARAM(BAUD_RATE_PARAM), .FIFO_WIDTH(FIFO_WIDTH)) fifo_manager (
     // INPUT
     .clk(clk),
     .rst(rst),
-    .s1_wr_en(s1_wr_en),
-    .s2_wr_en(s2_wr_en),
-    .s1_din(s1_din),
+    .x1_wr_en(x1_wr_en),
+    // .x2_wr_en(x2_wr_en),
+    .x1_din(x1_din),
     .new_line(new_line),
     .new_frame(new_frame),
     
+    // fake
+    .f2_wr_en(f2_wr_en),
+
+    .f3_wr_en(f3_wr_en),
+
+
+
     // OUTPUT
     .new_line_FIFO_done(new_line_FIFO_done),
     .new_frame_FIFO_done(new_frame_FIFO_done),
 
-    .w_s1_fifo_writing_done(s1_fifo_writing_done),
+    .x1_FIFO_writing_done(x1_FIFO_writing_done),
+
+    .f2_FIFO_writing_done(f2_FIFO_writing_done),
+    .f3_FIFO_writing_done(f3_FIFO_writing_done),
+
     // .w_s2_fifo_writing_done(s2_fifo_writing_done),
     .tx_busy_TDC(tx_busy_TDC),
     .new_data_FROM_FIFO_TO_SERIAL(t_new_data_FROM_FIFO_TO_SERIAL),
@@ -245,8 +293,8 @@ module mojo_top(
     // OUTPUT
     .mems_SPI_start(mems_SPI_start),
     .data_miso(data_miso),
-    .new_frame(new_frame),
-    .new_line(new_line)
+    .new_line(new_line),
+    .new_frame(new_frame)
   );
 
 

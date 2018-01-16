@@ -1,4 +1,4 @@
-module tdc_spi_master_5 #(
+module tdc_spi_master_6 #(
   parameter CLK_DIV = 2
   )(
     // INPUT

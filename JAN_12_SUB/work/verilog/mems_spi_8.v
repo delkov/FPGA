@@ -1,4 +1,4 @@
-module mems_spi_7 #(
+module mems_spi_8 #(
   parameter CLK_DIV = 16 // clog2 = 4
   )(
     // INPUT

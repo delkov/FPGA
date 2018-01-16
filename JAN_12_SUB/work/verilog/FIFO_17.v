@@ -2,7 +2,7 @@
 // `define BUF_SIZE ( 1<<`BUF_WIDTH )
 // `define BUF_LENGTH 63 // global param
 
-module fifo_16 #(
+module fifo_17 #(
 parameter FIFO_WIDTH=5,
 parameter BUF_SIZE = (1<<FIFO_WIDTH),
 parameter BUF_LENGTH = 63 

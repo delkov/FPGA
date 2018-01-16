@@ -1,4 +1,4 @@
-module mems_rom_17 (
+module mems_rom_18 (
     input clk,
     input [3:0] addr,
     input [7:0] delta_A,
