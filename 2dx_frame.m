@@ -9,12 +9,11 @@ maximum_x_points= 55; % make it bigger 5%
 maximum_y_points= 15; % make it bigger 5%
 color=[0 255];
 
-M=zeros(maximum_y_points,maximum_x_points);
+M=zeros(maximum_y_points,maximum_x_points,'uint8');
 M_2=zeros(maximum_y_points,maximum_x_points,'uint8');
 M_3=zeros(maximum_y_points,maximum_x_points,'uint8');
 
 
-% out=zeros(1,8*(maximum_x_points+1)*maximum_y_points); % +1 since new line saved in this array
 A=zeros(1,4*(maximum_x_points+1)*maximum_y_points); % +1 since new line saved in this array. Don't forget about x4;
 
 if(~exist('s','Var'))
@@ -63,7 +62,6 @@ while 1
         % uin16, since calib2 ~ 27k
         % join with prev. left_out
         out = [left_out; fread(s,s.BytesAvailable,'uint16')];
-
         out_idx = find(out<7); % 6 susbs we have
 
         first_byte_position = min(out_idx);
@@ -76,9 +74,6 @@ while 1
 
         % find all new frames for all subs
         find_new_frames=find(good_out==14);
-        % if (find_new_frames)
-        % 	disp(find_new_frames)
-        % end
 
         for i=1:3:length(find_new_frames)
         	switch good_out(find_new_frames(i)-1) % detect, which submodule
@@ -92,7 +87,6 @@ while 1
 
 
         find_1_all_idx = find(good_out==1); % find indexes of all points 
-
 
         if (new_frame_1_idx ==0) % no new frame for sub_1
         	len_1 = length(find_1_all_idx); % how many points
@@ -110,33 +104,19 @@ while 1
 				A(4*i-3:4*i) = good_out(find_1_all_idx(i-len_1_before):find_1_all_idx(i-len_1_before)+3);
 			end
 
-
-
-			% disp('new frame')
-			% disp(A(1:5))
-			% disp(A(end-20:end-15))
-
-            % A
 			SEP();
-
-            % M
         	set(pl(1),'CData',M);
-        	% % set(pl(2),'CData',M_2);
-        	% % set(pl(3),'CData',M_3);
+        	set(pl(2),'CData',M);
+        	set(pl(3),'CData',M);
         	drawnow;
 
 
 			% M=zeros(maximum_y_points,maximum_x_points,'uint8');
 
 
-
-
-
 			%% A is complete -> prcess it
-			A=zeros(1,4*(maximum_x_points+1)*maximum_y_points); % +1 since new line saved in this array
+			A=zeros(1,4*(maximum_x_points+1)*maximum_y_points,'uint16'); % +1 since new line saved in this array
 			
-
-
 			% fill array, which after new frame
 			len_1_full=length(find_1_all_idx); % all points
 			len_1=find(find_1_all_idx==new_frame_1_idx);
@@ -146,13 +126,10 @@ while 1
 
 			len_1_before=len_1_full-len_1;
 			new_frame_1_idx=0;
-			% fclose(s)
-			% return
 		end % new_frame
 
 	end % if
 end % while
-
 
 
 
@@ -168,8 +145,7 @@ function SEP()
     for i=1:len_new_lines
         clean_new_lines(i)=new_lines(3*i-2);
     end
-    % clean_new_lines
-    %%
+
     len=length(clean_new_lines); % real amount of new lines
     %% ASSUME, that row cannot start from new line !!!
     A_sep=cell(1,len+1); % preallocated memory, carefull size
@@ -182,33 +158,22 @@ function SEP()
     A_sep{len+1}=A(clean_new_lines(len)+3:zero_index);  % outside for, since end.. 
 
 
-% for i=1:length(A_sep)
-%     A_sep{i}
-% end
-
     for i=1:len+1
-        % len
     	size_B=length(A_sep{i})/4;
         TOF_AR=zeros(1,size_B);
-        
         for j=1:size_B
             TOF_AR(j)=  10000   *A_sep{i}(4*(j-1)+2) / ( A_sep{i}(4*(j-1)+4)-A_sep{i}(4*(j-1)+3) ); % time offset & 0.15m
         end
-        
         try
             M(temp_row, 1:size_B) = TOF_AR;
         catch
             A
             exit
         end
-
         temp_row=temp_row-1;
     end  % for
-
     temp_row=maximum_y_points;
-
 end % end SEP function
-
 
 
 % function pause the program

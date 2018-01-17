@@ -21,7 +21,7 @@ function main()
         ser_list=seriallist();
         serial_port=ser_list(1);
         % getting data by bytes, so 8 bits
-        s = serial(serial_port,'BaudRate',1000000,'DataBits',8,'InputBufferSize',160000); %20k is 6000 points * 8 byte each, so take 40k.
+        s = serial(serial_port,'BaudRate',3000000,'DataBits',8,'InputBufferSize',160000); %20k is 6000 points * 8 byte each, so take 40k.
         fopen(s);     
     end
     

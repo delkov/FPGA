@@ -44,6 +44,12 @@ count_old=1;
 temp_row=maximum_y_points;
 % delay_ms(10000)
 
+
+tic
+j=1;
+while j<100
+     j=j+1;
+
 out=[1 21 1000 10000,...
      1 61 1000 10000,...
      1 81 1000 10000,...
@@ -555,6 +561,7 @@ out=[1 21 1000 10000,...
 ];
 
 
+
 left_out=[];
 
 id1_first = find(out==1, 1, 'first');
@@ -573,7 +580,6 @@ out = [left_out; out];
 left_out=out(last_byte_position:end);
 good_out=out(first_byte_position:last_byte_position-1);
 
-% tic
 
 % preallocated memory
 find_1=find(good_out==1);
@@ -635,13 +641,13 @@ end
 % end
 
 
-tic
-j=1;
-while j<500
+% tic
+% j=1;
+% wh?ile j<300
 FILL_MATRIX(A_sep, start_new_row_1);
-j=j+1;
-end
-toc
+% j=j+1;
+% end
+% toc
 % M_2 = FILL_MATRIX(M_2, A_sep_2, start_new_row_2);
 % M_3 = FILL_MATRIX(M_3, A_sep_3, start_new_row_3);
 
@@ -677,21 +683,21 @@ toc
 % delay_ms(3000)
 
 
-if(new_frame_1)
-    count_old=1;
-    temp_row=maximum_y_points;
-    M=zeros(maximum_y_points,maximum_x_points);
-    [A_sep_1, start_new_row_1] = SEP(A_1_new_frame);
-    FILL_MATRIX(A_sep_1, start_new_row_1);
+% if(new_frame_1)
+%     count_old=1;
+%     temp_row=maximum_y_points;
+%     M=zeros(maximum_y_points,maximum_x_points);
+%     [A_sep_1, start_new_row_1] = SEP(A_1_new_frame);
+%     FILL_MATRIX(A_sep_1, start_new_row_1);
 
-    set(pl(1),'CData',M);
-%     % set(pl(2),'CData',M_2);
-%     % set(pl(3),'CData',M_3);
-    % drawnow
+%     set(pl(1),'CData',M);
+% %     % set(pl(2),'CData',M_2);
+% %     % set(pl(3),'CData',M_3);
+%     % drawnow
+% end
+
 end
-
-% % toc
-
+toc
 
 
 function FILL_MATRIX(A_sep, start_new_row)

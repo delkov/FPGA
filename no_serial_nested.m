@@ -1,15 +1,19 @@
 clear; clc 
 
-global M
-global M_2
-global M_3
-global count_old
-global temp_row
-global count_old_2
-global temp_row_2
-global count_old_3
-global temp_row_3
 
+main()
+
+% global M
+% global M_2
+% global M_3
+% global count_old
+% global temp_row
+% global count_old_2
+% global temp_row_2
+% global count_old_3
+% global temp_row_3
+
+function main()
 %%% constants %%%
 maximum_x_points= 20;
 maximum_y_points= 5000;
@@ -573,131 +577,101 @@ out = [left_out; out];
 left_out=out(last_byte_position:end);
 good_out=out(first_byte_position:last_byte_position-1);
 
-% tic
-
+j=1;
+while j<100
+ j=j+1; 
 % preallocated memory
 find_1=find(good_out==1);
 len_1=length(find_1);
-A_1=zeros(1,4*len_1);
+A=zeros(1,4*len_1);
 for i=1:len_1
-  A_1(4*i-3:4*i) = good_out(find_1(i):find_1(i)+3);
+  A(4*i-3:4*i) = good_out(find_1(i):find_1(i)+3);
 end
 
-% A_2=[];
-% A_3=[];
-% for i=1:1:length(good_out)/4
-%     switch good_out(i)
-%         case 1
-%             % A_1=[A_1, good_out(i:i+3)];
-%             A_1(i)=good_out(4*i:4*i+3);
-%         % case 2
-%             % A_2=[A_2, good_out(i:i+3)];
-%         % case 3
-%             % A_3=[A_3, good_out(i:i+3)];
-%         otherwise
-%             disp('error  switch')
-%             good_out(i)
-%     end
-% end
-
-% j=j+1;
-
-% end 
-% toc
-
-% A_1
-% A_2
-% A_3
-
-new_frame_1=find(A_1==14, 1, 'last');
+new_frame_1=find(A==14, 1, 'last');
 if (new_frame_1)
    disp('new frame 1')
-   A_1_new_frame=A_1(new_frame_1+1:end);   
-   A_1=A_1(1:new_frame_1-4);
+   A_new_frame=A(new_frame_1+1:end);   
+   A=A(1:new_frame_1-4);
 end
 
 
-% tic
-% j=1;
-% while j<10000
-[A_sep, start_new_row_1] = SEP(A_1);
-% j=j+1;
-% end
-% toc
 
-% [A_sep_2, start_new_row_2] = SEP(A_2);
-% [A_sep_3, start_new_row_3] = SEP(A_3);
+% [A_sep, start_new_row_1] = SEP(A_1);
 
-% disp('A_sep_1')
-% for i=1:length(A_sep_1)
-%     disp('new')
-%     disp(A_sep_1{i}')
-% end
+FILL_MATRIX();
 
-
-tic
-j=1;
-while j<500
-FILL_MATRIX(A_sep, start_new_row_1);
-j=j+1;
-end
-toc
-% M_2 = FILL_MATRIX(M_2, A_sep_2, start_new_row_2);
-% M_3 = FILL_MATRIX(M_3, A_sep_3, start_new_row_3);
-
-
-% toc
-
-
-
-% % update or reopen if not exist
-% if ~ishandle(h)     
-%     h = figure('ToolBar','none');
-%     ax = axes('Parent', h);
-%     %set(ax,'XLim',[1,maximum_x_points],'YLim',[1,maximum_y_points]);
-%     %[~,pl]=contour(M);
-%     pl=imagesc(M,[color(1), color(2)]);%'EdgeColor','none');
-%     colorbar;
-% %     colormap('jet');
-% %     caxis([color(1) color(2)]);
-% %     set(gca,'xlim',[1 maximum_x_points],'ylim',[1 maximum_y_points]);
-% %     M=zeros(maximum_y_points,maximum_x_points);
-% %     set(pl,'CData',M_1);
-% % % else /
 
     set(pl(1),'CData',M);
     set(pl(2),'CData',M_2);
     set(pl(3),'CData',M_3);
-    % drawnow
-    % toc
 
-% % end
+
+% if(new_frame_1)
+%     count_old=1;
+%     temp_row=maximum_y_points;
+%     M=zeros(maximum_y_points,maximum_x_points);
+%     [A_sep_1, start_new_row_1] = SEP(A_1_new_frame);
+%     FILL_MATRIX(A_sep_1, start_new_row_1);
+
+%     set(pl(1),'CData',M);
+% end
+
 % toc
-
-% delay_ms(3000)
-
-
-if(new_frame_1)
-    count_old=1;
-    temp_row=maximum_y_points;
-    M=zeros(maximum_y_points,maximum_x_points);
-    [A_sep_1, start_new_row_1] = SEP(A_1_new_frame);
-    FILL_MATRIX(A_sep_1, start_new_row_1);
-
-    set(pl(1),'CData',M);
-%     % set(pl(2),'CData',M_2);
-%     % set(pl(3),'CData',M_3);
-    % drawnow
 end
 
-% % toc
+
+
+function FILL_MATRIX()
+
+%% careful about A_sep size..
+function SEP() 
+    new_lines=find(A==13);
+    len_new_lines=length(new_lines)/3;
+    % remove last 2 digits from 13 13 13
+    clean_new_lines=zeros(1,len_new_lines);
+    for i=1:len_new_lines
+        clean_new_lines(i)=new_lines(3*i-2);
+    end
+    %%
+    len=length(clean_new_lines); % real amount of new lines
+    % disp('new lines amount');
+    % disp(len);
+    if (len>0)
+        if (clean_new_lines(1)==2) % start from new_line, should  be len part 
+            A_sep=cell(1,len); % preallocated memory, carefull size: len since start new row
+            start_new_row=1;
+            for i=1:len-1 % if <1 no processing.
+                A_sep{i} = A(clean_new_lines(i)+3:clean_new_lines(i+1)-2); % actually it start from 4:new_lines(i+1)-2
+            end    
+            A_sep{len}=A(clean_new_lines(len)+3:end); % outside for, since end.. 
+        else % should be len+1 part
+            A_sep=cell(1,len+1); % preallocated memory, carefull size
+            start_new_row=0;
+            A_sep{1}=A(1:clean_new_lines(1)-2); % process first line, outside for since start from 1m but not new_lines
+            for i=2:len % if <1 not processing.
+                A_sep{i} = A(clean_new_lines(i-1)+3:clean_new_lines(i)-2);
+            end    
+            A_sep{len+1}=A(clean_new_lines(len)+3:end);  % outside for, since end.. 
+        end
+    else % no new lines
+        % disp('no new lines..')
+        A_sep=cell(1,1); % preallocated emmory
+        start_new_row=0;
+        A_sep{1}=A; 
+    end % len > 0
+end % function
+
+  SEP();
 
 
 
-function FILL_MATRIX(A_sep, start_new_row)
-  global M
-  global count_old
-  global temp_row
+
+
+
+  % global M
+  % global count_old
+  % global temp_row
   
   len_A_sep=length(A_sep);
     
@@ -788,47 +762,6 @@ function FILL_MATRIX(A_sep, start_new_row)
     end
   end % check how many lines
 
-end % functon end
-
-
-
-%% careful about A_sep size..
-function [A_sep, start_new_row] = SEP(A) 
-    new_lines=find(A==13);
-    len_new_lines=length(new_lines)/3;
-    % remove last 2 digits from 13 13 13
-    clean_new_lines=zeros(1,len_new_lines);
-    for i=1:len_new_lines
-        clean_new_lines(i)=new_lines(3*i-2);
-    end
-    %%
-    len=length(clean_new_lines); % real amount of new lines
-    % disp('new lines amount');
-    % disp(len);
-    if (len>0)
-        if (clean_new_lines(1)==2) % start from new_line, should  be len part 
-            A_sep=cell(1,len); % preallocated memory, carefull size: len since start new row
-            start_new_row=1;
-            for i=1:len-1 % if <1 no processing.
-                A_sep{i} = A(clean_new_lines(i)+3:clean_new_lines(i+1)-2); % actually it start from 4:new_lines(i+1)-2
-            end    
-            A_sep{len}=A(clean_new_lines(len)+3:end); % outside for, since end.. 
-        else % should be len+1 part
-            A_sep=cell(1,len+1); % preallocated memory, carefull size
-            start_new_row=0;
-            A_sep{1}=A(1:clean_new_lines(1)-2); % process first line, outside for since start from 1m but not new_lines
-            for i=2:len % if <1 not processing.
-                A_sep{i} = A(clean_new_lines(i-1)+3:clean_new_lines(i)-2);
-            end    
-            A_sep{len+1}=A(clean_new_lines(len)+3:end);  % outside for, since end.. 
-        end
-    else % no new lines
-        % disp('no new lines..')
-        A_sep=cell(1,1); % preallocated emmory
-        start_new_row=0;
-        A_sep{1}=A; 
-    end % len > 0
-end % function
 
 
 function TOF_AR = TOF(A)%,CLK_PERIOD,CALIB_PERIODS)
@@ -847,10 +780,21 @@ function TOF_AR = TOF(A)%,CLK_PERIOD,CALIB_PERIODS)
 end
 
 
+
+end % functon end
+
+
+
+
+
+
+
 function delay_ms(seconds)
 % function pause the program
     tic;
     while toc < seconds/1000
     end
+end
+
 end
 
