@@ -34,7 +34,7 @@ module fake_tdc_4 (
 
     case (state_q)
       DELAY: begin
-        if (delay_cntr_q == 30'd30000000) begin
+        if (delay_cntr_q == 30'd10000) begin
           state_d = SEND_TO_FIFO;
         end else begin
           delay_cntr_d = delay_cntr_q + 1'b1;

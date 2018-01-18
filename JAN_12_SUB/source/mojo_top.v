@@ -34,17 +34,19 @@ module mojo_top(
   output MEMS_MOSI,
   output MEMS_SPI_CLOCK,
   output MEMS_CS,
-  output MEMS_FCLK,
+  output MEMS_FCLK
 
 
 
 
   // DEBUGGING
-  output f2_wr_en,
-  output f3_wr_en,
+  // output f2_new_line,
+  // output f2_new_frame
+  // output f2_wr_en,
+  // output f3_wr_en,
 
-  output f2_FIFO_writing_done,
-  output f3_FIFO_writing_done
+  // output f2_FIFO_writing_done,
+  // output f3_FIFO_writing_done
 
   // input TDC_TRIG,
     // FIFO
@@ -69,11 +71,11 @@ module mojo_top(
   localparam FCLK_FREQUENCY=10000; // 10k -> 6k
   localparam MEMS_SPI_SPEED=25000;  // max is 50MHZ
   // FIFO
-  localparam FIFO_WIDTH=5; // means count of elements is 2^5
+  localparam FIFO_WIDTH=7; // 128 is fine means count of elements is 2^FIFO_WIDTH
   localparam BAUD_RATE_SPEED=4000000; // in Hz, CAN BE ANY
 
   // OTHER
-  localparam SHOOTING_FREQUENCY=10; // in Hz, CAN BE ANY
+  localparam SHOOTING_FREQUENCY=50; // in Hz, CAN BE ANY
     
   // CONVERTED PARAMS  
   localparam FCLK_FREQUENCY_PARAM=MOJO_FREQUENCY/FCLK_FREQUENCY; 
@@ -118,22 +120,57 @@ module mojo_top(
   wire [7:0] tdc_data_out;
   wire CS_END;
 
-  // FIFO
-  wire new_line_FIFO_done;
-  wire new_frame_FIFO_done;
-  wire new_line;
-  wire new_frame;
 
-  wire x1_wr_en;
   wire [47:0] x1_din;
-  wire x1_fifo_writing_done;
-
+  // TDC
+  // wire x1_wr_en;
+  wire f1_wr_en;
   wire f2_wr_en;
-  wire f2_FIFO_writing_done;
-
   wire f3_wr_en;
+  wire f4_wr_en;
+  wire f5_wr_en;
+  wire f6_wr_en;
+
+  // wire x1_fifo_writing_done;
+  wire f1_fifo_writing_done;
+  wire f2_FIFO_writing_done;
   wire f3_FIFO_writing_done;
-  // wire s2_fifo_writing_done;
+  wire f4_FIFO_writing_done;
+  wire f5_FIFO_writing_done;
+  wire f6_FIFO_writing_done;
+
+  // fake MEMS
+  // wire new_line;
+  wire f1_new_line;
+  wire f2_new_line;
+  wire f3_new_line;
+  wire f4_new_line;
+  wire f5_new_line;
+  wire f6_new_line;
+
+  // wire new_frame;
+  wire f1_new_frame;
+  wire f2_new_frame;
+  wire f3_new_frame;
+  wire f4_new_frame;
+  wire f5_new_frame;
+  wire f6_new_frame;
+  
+  // wire new_line_FIFO_done;
+  wire f1_new_line_FIFO_done;
+  wire f2_new_line_FIFO_done;
+  wire f3_new_line_FIFO_done;
+  wire f4_new_line_FIFO_done;
+  wire f5_new_line_FIFO_done;
+  wire f6_new_line_FIFO_done;
+  
+  // wire new_frame_FIFO_done;
+  wire f1_new_frame_FIFO_done;
+  wire f2_new_frame_FIFO_done;
+  wire f3_new_frame_FIFO_done;
+  wire f4_new_frame_FIFO_done;
+  wire f5_new_frame_FIFO_done;
+  wire f6_new_frame_FIFO_done;
 
   // assign w_rd_en = t_rd_en;
   // assign w_wr_en = s1_wr_en;
@@ -198,8 +235,17 @@ module mojo_top(
     // .fifo_writing_done2(s2_fifo_writing_done),
     // .laser_trig(laser_trig)
   );
- 
 
+  fake_tdc fake_tdc1 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .f_FIFO_writing_done(f1_FIFO_writing_done),
+
+    // OUTPUT
+    .wr_en(f1_wr_en)
+  );
+ 
    fake_tdc fake_tdc2 (
     // INPUT
     .clk(clk),
@@ -208,7 +254,6 @@ module mojo_top(
 
     // OUTPUT
     .wr_en(f2_wr_en)
-
   );
 
    fake_tdc fake_tdc3 (
@@ -219,39 +264,185 @@ module mojo_top(
 
     // OUTPUT
     .wr_en(f3_wr_en)
-
   );
+
+   fake_tdc fake_tdc4 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .f_FIFO_writing_done(f4_FIFO_writing_done),
+
+    // OUTPUT
+    .wr_en(f4_wr_en)
+  );
+
+
+   fake_tdc fake_tdc5 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .f_FIFO_writing_done(f5_FIFO_writing_done),
+
+    // OUTPUT
+    .wr_en(f5_wr_en)
+  );
+
+
+   fake_tdc fake_tdc6 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .f_FIFO_writing_done(f6_FIFO_writing_done),
+
+    // OUTPUT
+    .wr_en(f6_wr_en)
+  );
+
+
+  fake_mems fake_mems1 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .new_line_FIFO_done(f1_new_line_FIFO_done),
+    .new_frame_FIFO_done(f1_new_frame_FIFO_done),
+    // OUTPUT
+    .new_line(f1_new_line),
+    .new_frame(f1_new_frame)
+  );
+
+
+  fake_mems fake_mems2 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .new_line_FIFO_done(f2_new_line_FIFO_done),
+    .new_frame_FIFO_done(f2_new_frame_FIFO_done),
+    // OUTPUT
+    .new_line(f2_new_line),
+    .new_frame(f2_new_frame)
+  );
+
+  fake_mems fake_mems3 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .new_line_FIFO_done(f3_new_line_FIFO_done),
+    .new_frame_FIFO_done(f3_new_frame_FIFO_done),
+    // OUTPUT
+    .new_line(f3_new_line),
+    .new_frame(f3_new_frame)
+  );
+
+  fake_mems fake_mems4 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .new_line_FIFO_done(f4_new_line_FIFO_done),
+    .new_frame_FIFO_done(f4_new_frame_FIFO_done),
+    // OUTPUT
+    .new_line(f4_new_line),
+    .new_frame(f4_new_frame)
+  );
+
+  fake_mems fake_mems5 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .new_line_FIFO_done(f5_new_line_FIFO_done),
+    .new_frame_FIFO_done(f5_new_frame_FIFO_done),
+    // OUTPUT
+    .new_line(f5_new_line),
+    .new_frame(f5_new_frame)
+  );
+
+  fake_mems fake_mems6 (
+    // INPUT
+    .clk(clk),
+    .rst(rst),
+    .new_line_FIFO_done(f6_new_line_FIFO_done),
+    .new_frame_FIFO_done(f6_new_frame_FIFO_done),
+    // OUTPUT
+    .new_line(f6_new_line),
+    .new_frame(f6_new_frame)
+  );
+
+
+
   
   fifo_manager #(.BAUD_RATE_PARAM(BAUD_RATE_PARAM), .FIFO_WIDTH(FIFO_WIDTH)) fifo_manager (
     // INPUT
     .clk(clk),
     .rst(rst),
-    .x1_wr_en(x1_wr_en),
-    // .x2_wr_en(x2_wr_en),
+
+    // TDC
     .x1_din(x1_din),
-    .new_line(new_line),
-    .new_frame(new_frame),
-    
-    // fake
+
+    // .x1_wr_en(x1_wr_en),
+
+    .f1_wr_en(f1_wr_en),
     .f2_wr_en(f2_wr_en),
-
     .f3_wr_en(f3_wr_en),
+    .f4_wr_en(f4_wr_en),
+    .f5_wr_en(f5_wr_en),
+    .f6_wr_en(f6_wr_en),
 
+    // MEMS
+    // .new_line(new_line),
+
+    .f1_new_line(f1_new_line),
+    .f2_new_line(f2_new_line),
+    .f3_new_line(f3_new_line),
+    .f4_new_line(f4_new_line),
+    .f5_new_line(f5_new_line),
+    .f6_new_line(f6_new_line),
+    
+    // .new_frame(new_frame),
+
+    .f1_new_frame(f1_new_frame),
+    .f2_new_frame(f2_new_frame),
+    .f3_new_frame(f3_new_frame),
+    .f4_new_frame(f4_new_frame),
+    .f5_new_frame(f5_new_frame),
+    .f6_new_frame(f6_new_frame),
 
 
     // OUTPUT
-    .new_line_FIFO_done(new_line_FIFO_done),
-    .new_frame_FIFO_done(new_frame_FIFO_done),
 
-    .x1_FIFO_writing_done(x1_FIFO_writing_done),
+    // TDC
+    // .x1_FIFO_writing_done(x1_FIFO_writing_done),
 
+    .f1_FIFO_writing_done(f1_FIFO_writing_done),
     .f2_FIFO_writing_done(f2_FIFO_writing_done),
     .f3_FIFO_writing_done(f3_FIFO_writing_done),
+    .f4_FIFO_writing_done(f4_FIFO_writing_done),
+    .f5_FIFO_writing_done(f5_FIFO_writing_done),
+    .f6_FIFO_writing_done(f6_FIFO_writing_done),
 
-    // .w_s2_fifo_writing_done(s2_fifo_writing_done),
+    // MEMS
+    // .new_line_FIFO_done(new_line_FIFO_done),
+
+    .f1_new_line_FIFO_done(f1_new_line_FIFO_done),
+    .f2_new_line_FIFO_done(f2_new_line_FIFO_done),
+    .f3_new_line_FIFO_done(f3_new_line_FIFO_done),
+    .f4_new_line_FIFO_done(f4_new_line_FIFO_done),
+    .f5_new_line_FIFO_done(f5_new_line_FIFO_done),
+    .f6_new_line_FIFO_done(f6_new_line_FIFO_done),
+        
+    // .new_frame_FIFO_done(new_frame_FIFO_done),
+
+    .f1_new_frame_FIFO_done(f1_new_frame_FIFO_done),
+    .f2_new_frame_FIFO_done(f2_new_frame_FIFO_done),
+    .f3_new_frame_FIFO_done(f3_new_frame_FIFO_done),
+    .f4_new_frame_FIFO_done(f4_new_frame_FIFO_done),
+    .f5_new_frame_FIFO_done(f5_new_frame_FIFO_done),
+    .f6_new_frame_FIFO_done(f6_new_frame_FIFO_done),
+
+
+    // OTHERS
     .tx_busy_TDC(tx_busy_TDC),
     .new_data_FROM_FIFO_TO_SERIAL(t_new_data_FROM_FIFO_TO_SERIAL),
     .w_tx_OUT_TDC(SERIAL_OUT_TDC),
+
     // debug
     .w_empty(FIFO_EMPTY),
     .w_full(FIFO_FULL),

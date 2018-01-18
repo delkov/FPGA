@@ -31,8 +31,8 @@ module mems_control (
   localparam DOWN_LIMIT = 8'd21;
 
   // FOR 2 AXES
-  localparam UP_LIMIT_2 = 8'd161; // 
-  localparam DOWN_LIMIT_2 = 8'd21;
+  localparam UP_LIMIT_2 = 8'd75; // 
+  localparam DOWN_LIMIT_2 = 8'd70;
 
   reg [STATE_SIZE-1:0] state_d, state_q;
   reg [CH_STATE_SIZE-1:0] ch_state_d, ch_state_q;

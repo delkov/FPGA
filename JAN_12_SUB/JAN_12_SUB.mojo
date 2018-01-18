@@ -4,7 +4,7 @@
     <src>my_clk.v</src>
     <src>fake_tdc.v</src>
     <src>mems_spi.v</src>
-    <src>fake_tdc2.v</src>
+    <src>fake_mems.v</src>
     <src>spi_slave.v</src>
     <src>FIFO.v</src>
     <src>avr_interface.v</src>
@@ -21,9 +21,5 @@
     <src>serial_tx2.v</src>
     <src>mems_rom.v</src>
     <ucf>mojo.ucf</ucf>
-    <core name="fifo_coregen">
-      <src>fifo_coregen.ngc</src>
-      <src>fifo_coregen.v</src>
-    </core>
   </files>
 </project>
