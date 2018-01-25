@@ -1,0 +1,1886 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.03 secs
+ 
+--> 
+Reading design: mojo_top_0.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mojo_top_0.prj"
+
+---- Target Parameters
+Target Device                      : xc6slx9tqg144-2
+Output File Name                   : "mojo_top_0.ngc"
+
+---- Source Options
+Top Module Name                    : mojo_top_0
+
+---- General Options
+Optimization Goal                  : speed
+Optimization Effort                : 1
+Netlist Hierarchy                  : rebuilt
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_rom_16.v" into library work
+Parsing module <tdc_rom_16>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/spi_slave_13.v" into library work
+Parsing module <spi_slave_13>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/serial_tx_15.v" into library work
+Parsing module <serial_tx_15>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/serial_tx_15.v" Line 14. parameter declaration becomes local in serial_tx_15 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/serial_tx2_17.v" into library work
+Parsing module <serial_tx2_17>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/serial_tx2_17.v" Line 17. parameter declaration becomes local in serial_tx2_17 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/serial_rx_14.v" into library work
+Parsing module <serial_rx_14>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/serial_rx_14.v" Line 12. parameter declaration becomes local in serial_rx_14 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mems_rom_19.v" into library work
+Parsing module <mems_rom_19>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/FIFO_18.v" into library work
+Parsing module <fifo_18>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/cclk_detector_12.v" into library work
+Parsing module <cclk_detector_12>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/cclk_detector_12.v" Line 10. parameter declaration becomes local in cclk_detector_12 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_spi_master_7.v" into library work
+Parsing module <tdc_spi_master_7>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_spi_master_7.v" Line 21. parameter declaration becomes local in tdc_spi_master_7 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_control_3.v" into library work
+Parsing module <tdc_control_3>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/my_clk_11.v" into library work
+Parsing module <my_clk_11>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/my_clk_11.v" Line 14. parameter declaration becomes local in my_clk_11 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/my_clk_10.v" into library work
+Parsing module <my_clk_10>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/my_clk_10.v" Line 14. parameter declaration becomes local in my_clk_10 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mems_spi_9.v" into library work
+Parsing module <mems_spi_9>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mems_spi_9.v" Line 20. parameter declaration becomes local in mems_spi_9 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mems_control_8.v" into library work
+Parsing module <mems_control_8>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/main_control_2.v" into library work
+Parsing module <main_control_2>.
+WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/main_control_2.v" Line 22: Redeclaration of ansi port soft_reset is not allowed
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/fifo_manager_6.v" into library work
+Parsing module <fifo_manager_6>.
+WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/fifo_manager_6.v" Line 72: Redeclaration of ansi port t_rd_en is not allowed
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/fake_tdc_4.v" into library work
+Parsing module <fake_tdc_4>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/fake_mems_5.v" into library work
+Parsing module <fake_mems_5>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/avr_interface_1.v" into library work
+Parsing module <avr_interface_1>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/avr_interface_1.v" Line 80. parameter declaration becomes local in avr_interface_1 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
+Parsing module <mojo_top_0>.
+WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 93: Redeclaration of ansi port ENABLE is not allowed
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <mojo_top_0>.
+
+Elaborating module <avr_interface_1>.
+
+Elaborating module <cclk_detector_12(CLK_RATE=50000000)>.
+
+Elaborating module <spi_slave_13>.
+
+Elaborating module <serial_rx_14(CLK_PER_BIT=100)>.
+
+Elaborating module <serial_tx_15(CLK_PER_BIT=100)>.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 195: Assignment to tx_busy ignored, since the identifier is never used
+
+Elaborating module <main_control_2>.
+
+Elaborating module <tdc_control_3(SHOOTING_PARAM=32'sb011110100001001000000)>.
+
+Elaborating module <tdc_rom_16>.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_control_3.v" Line 115: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_control_3.v" Line 153: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_control_3.v" Line 210: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_control_3.v" Line 239: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_control_3.v" Line 268: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 232: Assignment to x1_wr_en ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 234: Size mismatch in connection of port <data_TO_FIFO>. Formal port size is 48-bit while actual signal size is 32-bit.
+
+Elaborating module <fake_tdc_4>.
+
+Elaborating module <fake_mems_5>.
+
+Elaborating module <fifo_manager_6(BAUD_RATE_PARAM=32'sb01100,FIFO_WIDTH=7)>.
+
+Elaborating module <serial_tx2_17(CLK_PER_BIT=32'sb01100)>.
+
+Elaborating module <fifo_18(FIFO_WIDTH=7)>.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/FIFO_18.v" Line 41: Result of 9-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/FIFO_18.v" Line 43: Result of 32-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/FIFO_18.v" Line 78: Result of 8-bit expression is truncated to fit in 7-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/FIFO_18.v" Line 81: Result of 8-bit expression is truncated to fit in 7-bit target.
+WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 378: Size mismatch in connection of port <x1_din>. Formal port size is 48-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 442: Assignment to tx_busy_TDC ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 443: Assignment to t_new_data_FROM_FIFO_TO_SERIAL ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 447: Assignment to FIFO_EMPTY ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 448: Assignment to FIFO_FULL ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 449: Assignment to t_rd_en ignored, since the identifier is never used
+
+Elaborating module <tdc_spi_master_7(CLK_DIV=32'sb01000)>.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 468: Assignment to tdc_SPI_new_data ignored, since the identifier is never used
+
+Elaborating module <mems_control_8>.
+
+Elaborating module <mems_rom_19>.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 487: Assignment to new_line ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 488: Assignment to new_frame ignored, since the identifier is never used
+
+Elaborating module <mems_spi_9(CLK_DIV=32'sb011111010000)>.
+WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 504: Size mismatch in connection of port <data_out>. Formal port size is 24-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 504: Assignment to data_out ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 506: Assignment to mems_SPI_new_data ignored, since the identifier is never used
+
+Elaborating module <my_clk_10(CLK_DIV=32'sb0100)>.
+
+Elaborating module <my_clk_11(CLK_DIV=32'sb01001110001000)>.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 97: Net <tx_data[7]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 98: Net <new_tx_data> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 224: Net <x1_FIFO_writing_done> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 481: Net <new_line_FIFO_done> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 482: Net <new_frame_FIFO_done> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 497: Net <miso> does not have a driver.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <mojo_top_0>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v".
+WARNING:Xst:647 - Input <SERIAL_IN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 178: Output port <sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 178: Output port <sample_channel> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 178: Output port <new_sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 178: Output port <tx_busy> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 215: Output port <w_wr_en> of the instance <tdc_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <tx_busy_TDC> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <new_data_FROM_FIFO_TO_SERIAL> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <w_empty> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <w_full> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <t_rd_en> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 454: Output port <new_data> of the instance <tdc_spi_master> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 473: Output port <new_line> of the instance <mems_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 473: Output port <new_frame> of the instance <mems_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 493: Output port <data_out> of the instance <mems_spi_master> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 493: Output port <new_data> of the instance <mems_spi_master> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <new_tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <x1_FIFO_writing_done> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <new_line_FIFO_done> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <new_frame_FIFO_done> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <miso> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Summary:
+	no macro.
+Unit <mojo_top_0> synthesized.
+
+Synthesizing Unit <avr_interface_1>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/avr_interface_1.v".
+        CLK_RATE = 50000000
+        SERIAL_BAUD_RATE = 500000
+    Found 10-bit register for signal <sample_q>.
+    Found 1-bit register for signal <new_sample_q>.
+    Found 4-bit register for signal <block_q>.
+    Found 1-bit register for signal <busy_q>.
+    Found 4-bit register for signal <sample_channel_q>.
+    Found 1-bit register for signal <byte_ct_q>.
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 106
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 106
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 106
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 106
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 107
+    Found 1-bit tristate buffer for signal <tx> created at line 108
+    Summary:
+	inferred  21 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+	inferred   6 Tristate(s).
+Unit <avr_interface_1> synthesized.
+
+Synthesizing Unit <cclk_detector_12>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/cclk_detector_12.v".
+        CLK_RATE = 50000000
+    Found 1-bit register for signal <ready_q>.
+    Found 10-bit register for signal <ctr_q>.
+    Found 10-bit adder for signal <ctr_q[9]_GND_3_o_add_2_OUT> created at line 24.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  11 D-type flip-flop(s).
+Unit <cclk_detector_12> synthesized.
+
+Synthesizing Unit <spi_slave_13>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/spi_slave_13.v".
+    Found 3-bit register for signal <bit_ct_q>.
+    Found 8-bit register for signal <dout_q>.
+    Found 1-bit register for signal <miso_q>.
+    Found 1-bit register for signal <sck_q>.
+    Found 1-bit register for signal <mosi_q>.
+    Found 1-bit register for signal <ss_q>.
+    Found 8-bit register for signal <data_q>.
+    Found 1-bit register for signal <sck_old_q>.
+    Found 1-bit register for signal <done_q>.
+    Found 3-bit adder for signal <bit_ct_q[2]_GND_4_o_add_1_OUT> created at line 45.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  25 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+Unit <spi_slave_13> synthesized.
+
+Synthesizing Unit <serial_rx_14>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/serial_rx_14.v".
+        CLK_PER_BIT = 100
+    Found 3-bit register for signal <bit_ctr_q>.
+    Found 1-bit register for signal <new_data_q>.
+    Found 2-bit register for signal <state_q>.
+    Found 1-bit register for signal <rx_q>.
+    Found 8-bit register for signal <data_q>.
+    Found 7-bit register for signal <ctr_q>.
+    Found finite state machine <FSM_0> for signal <state_q>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 7-bit adder for signal <ctr_q[6]_GND_5_o_add_7_OUT> created at line 54.
+    Found 3-bit adder for signal <bit_ctr_q[2]_GND_5_o_add_9_OUT> created at line 57.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  20 D-type flip-flop(s).
+	inferred   7 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <serial_rx_14> synthesized.
+
+Synthesizing Unit <serial_tx_15>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/serial_tx_15.v".
+        CLK_PER_BIT = 100
+    Found 1-bit register for signal <tx_q>.
+    Found 1-bit register for signal <block_q>.
+    Found 3-bit register for signal <bit_ctr_q>.
+    Found 7-bit register for signal <ctr_q>.
+    Found 1-bit register for signal <busy_q>.
+    Found 2-bit register for signal <state_q>.
+INFO:Xst:1799 - State 10 is never reached in FSM <state_q>.
+INFO:Xst:1799 - State 11 is never reached in FSM <state_q>.
+    Found finite state machine <FSM_1> for signal <state_q>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 1                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 1                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred  10 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <serial_tx_15> synthesized.
+
+Synthesizing Unit <main_control_2>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/main_control_2.v".
+    Found 1-bit register for signal <tdc_enable_q>.
+    Found 20-bit register for signal <countr_q>.
+    Found 2-bit register for signal <state_q>.
+    Found 1-bit register for signal <pause_q>.
+    Found 20-bit adder for signal <countr_q[19]_GND_13_o_add_6_OUT> created at line 57.
+    Found 4x1-bit Read Only RAM for signal <state_q[1]_soft_reset_Mux_14_o>
+    Found 4x1-bit Read Only RAM for signal <state_q[1]_GND_14_o_Mux_15_o>
+    Found 2-bit 3-to-1 multiplexer for signal <state_d> created at line 36.
+WARNING:Xst:737 - Found 1-bit latch for signal <soft_reset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    HDL ADVISOR - Describing an operational reset or an explicit power-up state for register <state_q> would allow inference of a finite state machine and as consequence better performance and smaller area.
+    Summary:
+	inferred   2 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  24 D-type flip-flop(s).
+	inferred   1 Latch(s).
+	inferred   4 Multiplexer(s).
+Unit <main_control_2> synthesized.
+
+Synthesizing Unit <tdc_control_3>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_control_3.v".
+        SHOOTING_PARAM = 1000000
+    Found 1-bit register for signal <start_signal_q>.
+    Found 48-bit register for signal <data_TO_FIFO_q>.
+    Found 1-bit register for signal <wr_en_q>.
+    Found 16-bit register for signal <time1_q>.
+    Found 16-bit register for signal <calib1_q>.
+    Found 16-bit register for signal <calib2_q>.
+    Found 6-bit register for signal <addr_q>.
+    Found 30-bit register for signal <CS_countr_q>.
+    Found 4-bit register for signal <Byte_countr_q>.
+    Found 1-bit register for signal <CS_END_q>.
+    Found 1-bit register for signal <start_q>.
+    Found 4-bit register for signal <state_q>.
+    Found finite state machine <FSM_4> for signal <state_q>.
+    -----------------------------------------------------------------------
+    | States             | 13                                             |
+    | Transitions        | 46                                             |
+    | Inputs             | 13                                             |
+    | Outputs            | 7                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 30-bit adder for signal <CS_countr_q[29]_GND_15_o_add_17_OUT> created at line 131.
+    Found 4-bit adder for signal <Byte_countr_q[3]_GND_15_o_add_85_OUT> created at line 268.
+    Found 6-bit adder for signal <addr_q[5]_GND_15_o_add_92_OUT> created at line 283.
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred 140 D-type flip-flop(s).
+	inferred  46 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <tdc_control_3> synthesized.
+
+Synthesizing Unit <tdc_rom_16>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_rom_16.v".
+WARNING:Xst:647 - Input <addr<5:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit register for signal <data_q>.
+    Found 32x8-bit Read Only RAM for signal <data_d>
+    Summary:
+	inferred   1 RAM(s).
+	inferred   8 D-type flip-flop(s).
+Unit <tdc_rom_16> synthesized.
+
+Synthesizing Unit <fake_tdc_4>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/fake_tdc_4.v".
+    Found 30-bit register for signal <delay_cntr_q>.
+    Found 1-bit register for signal <wr_en_q>.
+    Found 2-bit register for signal <state_q>.
+    Found 30-bit adder for signal <delay_cntr_q[29]_GND_17_o_add_2_OUT> created at line 40.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  33 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <fake_tdc_4> synthesized.
+
+Synthesizing Unit <fake_mems_5>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/fake_mems_5.v".
+    Found 1-bit register for signal <new_frame_q>.
+    Found 2-bit register for signal <state_q>.
+    Found 30-bit register for signal <delay_cntr_q>.
+    Found 30-bit register for signal <delay_cntr2_q>.
+    Found 1-bit register for signal <new_line_q>.
+    Found 30-bit adder for signal <delay_cntr2_q[29]_GND_18_o_add_4_OUT> created at line 63.
+    Found 30-bit adder for signal <delay_cntr_q[29]_GND_18_o_add_6_OUT> created at line 67.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  64 D-type flip-flop(s).
+Unit <fake_mems_5> synthesized.
+
+Synthesizing Unit <fifo_manager_6>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/fifo_manager_6.v".
+        BAUD_RATE_PARAM = 12
+        FIFO_WIDTH = 7
+WARNING:Xst:647 - Input <x1_din> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/fifo_manager_6.v" line 97: Output port <fifo_counter> of the instance <fifo> is unconnected or connected to loadless signal.
+    Found 48-bit register for signal <data_TO_FIFO_q>.
+    Found 1-bit register for signal <new_data_FROM_FIFO_TO_SERIAL_q>.
+    Found 1-bit register for signal <wr_en_q>.
+    Summary:
+	inferred  50 D-type flip-flop(s).
+	inferred 185 Multiplexer(s).
+Unit <fifo_manager_6> synthesized.
+
+Synthesizing Unit <serial_tx2_17>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/serial_tx2_17.v".
+        CLK_PER_BIT = 12
+    Found 1-bit register for signal <tx_q>.
+    Found 3-bit register for signal <Byte_countr_q>.
+    Found 1-bit register for signal <block_q>.
+    Found 48-bit register for signal <data_q>.
+    Found 7-bit register for signal <bit_ctr_q>.
+    Found 4-bit register for signal <ctr_q>.
+    Found 1-bit register for signal <busy_q>.
+    Found 2-bit register for signal <state_q>.
+    Found finite state machine <FSM_5> for signal <state_q>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 7-bit adder for signal <bit_ctr_q[6]_GND_20_o_add_14_OUT> created at line 81.
+    Found 4-bit adder for signal <ctr_q[3]_GND_20_o_add_25_OUT> created at line 91.
+    Found 3-bit adder for signal <Byte_countr_q[2]_GND_20_o_add_28_OUT> created at line 98.
+    Found 1-bit 48-to-1 multiplexer for signal <bit_ctr_q[5]_X_20_o_Mux_11_o> created at line 77.
+    Found 4-bit 4-to-1 multiplexer for signal <ctr_d> created at line 47.
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  65 D-type flip-flop(s).
+	inferred   9 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <serial_tx2_17> synthesized.
+
+Synthesizing Unit <fifo_18>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/FIFO_18.v".
+        FIFO_WIDTH = 7
+        BUF_SIZE = 128
+        BUF_LENGTH = 47
+    Found 48-bit register for signal <buf_out>.
+    Found 7-bit register for signal <wr_ptr>.
+    Found 7-bit register for signal <rd_ptr>.
+    Found 8-bit register for signal <fifo_counter>.
+    Found 8-bit adder for signal <fifo_counter[7]_GND_21_o_add_2_OUT> created at line 41.
+    Found 7-bit adder for signal <wr_ptr[6]_GND_21_o_add_15_OUT> created at line 78.
+    Found 7-bit adder for signal <rd_ptr[6]_GND_21_o_add_17_OUT> created at line 81.
+    Found 8-bit subtractor for signal <GND_21_o_GND_21_o_sub_4_OUT<7:0>> created at line 43.
+    Found 128x48-bit dual-port RAM <Mram_buf_mem> for signal <buf_mem>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred  70 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <fifo_18> synthesized.
+
+Synthesizing Unit <tdc_spi_master_7>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/tdc_spi_master_7.v".
+        CLK_DIV = 8
+    Found 8-bit register for signal <data_q>.
+    Found 3-bit register for signal <sck_q>.
+    Found 1-bit register for signal <mosi_q>.
+    Found 3-bit register for signal <state_q>.
+    Found 8-bit register for signal <data_out_q>.
+    Found 1-bit register for signal <new_data_q>.
+    Found 1-bit register for signal <CS_q>.
+    Found 5-bit register for signal <ctr_q>.
+    Found finite state machine <FSM_6> for signal <state_q>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 13                                             |
+    | Inputs             | 7                                              |
+    | Outputs            | 5                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 5-bit adder for signal <ctr_q[4]_GND_22_o_add_14_OUT> created at line 86.
+    Found 3-bit adder for signal <sck_q[2]_GND_22_o_add_10_OUT> created at line 112.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  27 D-type flip-flop(s).
+	inferred  12 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <tdc_spi_master_7> synthesized.
+
+Synthesizing Unit <mems_control_8>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mems_control_8.v".
+    Found 2-bit register for signal <ch_state_q>.
+    Found 1-bit register for signal <new_line_q>.
+    Found 1-bit register for signal <new_frame_q>.
+    Found 8-bit register for signal <delta_A_q>.
+    Found 8-bit register for signal <delta_B_q>.
+    Found 8-bit register for signal <delta_C_q>.
+    Found 8-bit register for signal <delta_D_q>.
+    Found 1-bit register for signal <start_q>.
+    Found 4-bit register for signal <addr_q>.
+    Found 2-bit register for signal <state_q>.
+    Found finite state machine <FSM_8> for signal <state_q>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_9> for signal <ch_state_q>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 17                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Clock enable       | _n0205 (negative)                              |
+    | Reset              | state_q<0> (negative)                          |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit subtractor for signal <delta_D_q[7]_GND_23_o_sub_18_OUT> created at line 161.
+    Found 8-bit subtractor for signal <delta_B_q[7]_GND_23_o_sub_22_OUT> created at line 166.
+    Found 4-bit adder for signal <addr_q[3]_GND_23_o_add_8_OUT> created at line 126.
+    Found 8-bit adder for signal <delta_C_q[7]_GND_23_o_add_16_OUT> created at line 160.
+    Found 8-bit adder for signal <delta_A_q[7]_GND_23_o_add_20_OUT> created at line 165.
+    Found 4-bit 4-to-1 multiplexer for signal <ch_state_q[1]_addr_q[3]_wide_mux_42_OUT> created at line 135.
+    Found 1-bit 4-to-1 multiplexer for signal <start_d> created at line 104.
+    Found 4-bit 4-to-1 multiplexer for signal <addr_d> created at line 104.
+    Found 8-bit comparator greater for signal <PWR_18_o_delta_A_q[7]_LessThan_15_o> created at line 140
+    Found 8-bit comparator greater for signal <GND_23_o_delta_C_q[7]_LessThan_16_o> created at line 151
+    HDL ADVISOR - Describing an operational reset or an explicit power-up state for register <ch_state_q> would allow inference of a finite state machine and as consequence better performance and smaller area.
+    Summary:
+	inferred   5 Adder/Subtractor(s).
+	inferred  39 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred  13 Multiplexer(s).
+	inferred   2 Finite State Machine(s).
+Unit <mems_control_8> synthesized.
+
+Synthesizing Unit <mems_rom_19>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mems_rom_19.v".
+WARNING:Xst:647 - Input <addr<3:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 24-bit register for signal <data_q>.
+    Found 24-bit 6-to-1 multiplexer for signal <data_d> created at line 38.
+    Summary:
+	inferred  24 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <mems_rom_19> synthesized.
+
+Synthesizing Unit <mems_spi_9>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/mems_spi_9.v".
+        CLK_DIV = 2000
+    Found 24-bit register for signal <data_q>.
+    Found 11-bit register for signal <sck_q>.
+    Found 1-bit register for signal <mosi_q>.
+    Found 3-bit register for signal <state_q>.
+    Found 24-bit register for signal <data_out_q>.
+    Found 1-bit register for signal <new_data_q>.
+    Found 1-bit register for signal <CS_q>.
+    Found 5-bit register for signal <ctr_q>.
+    Found finite state machine <FSM_10> for signal <state_q>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 13                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 6                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 5-bit adder for signal <ctr_q[4]_GND_25_o_add_13_OUT> created at line 85.
+    Found 11-bit adder for signal <sck_q[10]_GND_25_o_add_9_OUT> created at line 107.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  67 D-type flip-flop(s).
+	inferred  13 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <mems_spi_9> synthesized.
+
+Synthesizing Unit <my_clk_10>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/my_clk_10.v".
+        CLK_DIV = 4
+    Found 1-bit register for signal <my_clk_q>.
+    Found 2-bit register for signal <cnt_q>.
+    Found 2-bit adder for signal <cnt_d> created at line 22.
+    Found 2-bit comparator greater for signal <my_clk_d> created at line 23
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <my_clk_10> synthesized.
+
+Synthesizing Unit <my_clk_11>.
+    Related source file is "/home/delkov/mojo/SIMPLE/JAN_20_SUB_3bytes/work/planAhead/JAN_20_SUB_3bytes/JAN_20_SUB_3bytes.srcs/sources_1/imports/verilog/my_clk_11.v".
+        CLK_DIV = 5000
+    Found 1-bit register for signal <my_clk_q>.
+    Found 13-bit register for signal <cnt_q>.
+    Found 13-bit adder for signal <cnt_d> created at line 22.
+    Found 13-bit comparator greater for signal <my_clk_d> created at line 23
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  14 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <my_clk_11> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 4
+ 128x48-bit dual-port RAM                              : 1
+ 32x8-bit single-port Read Only RAM                    : 1
+ 4x1-bit single-port Read Only RAM                     : 2
+# Adders/Subtractors                                   : 43
+ 10-bit adder                                          : 1
+ 11-bit adder                                          : 1
+ 13-bit adder                                          : 1
+ 2-bit adder                                           : 1
+ 20-bit adder                                          : 1
+ 3-bit adder                                           : 4
+ 30-bit adder                                          : 19
+ 4-bit adder                                           : 3
+ 5-bit adder                                           : 2
+ 6-bit adder                                           : 1
+ 7-bit adder                                           : 4
+ 8-bit adder                                           : 2
+ 8-bit addsub                                          : 1
+ 8-bit subtractor                                      : 2
+# Registers                                            : 131
+ 1-bit register                                        : 55
+ 10-bit register                                       : 2
+ 11-bit register                                       : 1
+ 13-bit register                                       : 1
+ 16-bit register                                       : 3
+ 2-bit register                                        : 14
+ 20-bit register                                       : 1
+ 24-bit register                                       : 3
+ 3-bit register                                        : 4
+ 30-bit register                                       : 19
+ 4-bit register                                        : 5
+ 48-bit register                                       : 4
+ 5-bit register                                        : 2
+ 6-bit register                                        : 1
+ 7-bit register                                        : 5
+ 8-bit register                                        : 11
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 4
+ 13-bit comparator greater                             : 1
+ 2-bit comparator greater                              : 1
+ 8-bit comparator greater                              : 2
+# Multiplexers                                         : 301
+ 1-bit 2-to-1 multiplexer                              : 191
+ 1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 48-to-1 multiplexer                             : 1
+ 10-bit 2-to-1 multiplexer                             : 1
+ 11-bit 2-to-1 multiplexer                             : 10
+ 16-bit 2-to-1 multiplexer                             : 3
+ 2-bit 2-to-1 multiplexer                              : 2
+ 2-bit 3-to-1 multiplexer                              : 1
+ 20-bit 2-to-1 multiplexer                             : 1
+ 24-bit 2-to-1 multiplexer                             : 1
+ 24-bit 6-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 10
+ 30-bit 2-to-1 multiplexer                             : 13
+ 4-bit 2-to-1 multiplexer                              : 21
+ 4-bit 4-to-1 multiplexer                              : 3
+ 48-bit 2-to-1 multiplexer                             : 17
+ 5-bit 2-to-1 multiplexer                              : 2
+ 6-bit 2-to-1 multiplexer                              : 10
+ 7-bit 2-to-1 multiplexer                              : 6
+ 8-bit 2-to-1 multiplexer                              : 6
+# Tristates                                            : 6
+ 1-bit tristate buffer                                 : 6
+# FSMs                                                 : 8
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:2404 -  FFs/Latches <state_q<1:1>> (without init value) have a constant value of 0 in block <fake_tdc_4>.
+
+Synthesizing (advanced) Unit <cclk_detector_12>.
+The following registers are absorbed into counter <ctr_q>: 1 register on signal <ctr_q>.
+Unit <cclk_detector_12> synthesized (advanced).
+
+Synthesizing (advanced) Unit <fake_mems_5>.
+The following registers are absorbed into counter <delay_cntr_q>: 1 register on signal <delay_cntr_q>.
+The following registers are absorbed into counter <delay_cntr2_q>: 1 register on signal <delay_cntr2_q>.
+Unit <fake_mems_5> synthesized (advanced).
+
+Synthesizing (advanced) Unit <fifo_18>.
+The following registers are absorbed into counter <wr_ptr>: 1 register on signal <wr_ptr>.
+The following registers are absorbed into counter <rd_ptr>: 1 register on signal <rd_ptr>.
+The following registers are absorbed into counter <fifo_counter>: 1 register on signal <fifo_counter>.
+INFO:Xst:3217 - HDL ADVISOR - Register <buf_out> currently described with an asynchronous reset, could be combined with distributed RAM <Mram_buf_mem> for implementation on block RAM resources if you made this reset synchronous instead.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 128-word x 48-bit                   |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <wr_ptr>        |          |
+    |     diA            | connected to signal <_n0073>        |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 128-word x 48-bit                   |          |
+    |     addrB          | connected to signal <rd_ptr>        |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_buf_mem> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+Unit <fifo_18> synthesized (advanced).
+
+Synthesizing (advanced) Unit <main_control_2>.
+The following registers are absorbed into counter <countr_q>: 1 register on signal <countr_q>.
+INFO:Xst:3231 - The small RAM <Mram_state_q[1]_soft_reset_Mux_14_o> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <state_q>       |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3231 - The small RAM <Mram_state_q[1]_GND_14_o_Mux_15_o> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <state_q>       |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <main_control_2> synthesized (advanced).
+
+Synthesizing (advanced) Unit <mems_control_8>.
+The following registers are absorbed into counter <delta_A_q>: 1 register on signal <delta_A_q>.
+The following registers are absorbed into counter <delta_B_q>: 1 register on signal <delta_B_q>.
+The following registers are absorbed into counter <delta_C_q>: 1 register on signal <delta_C_q>.
+The following registers are absorbed into counter <delta_D_q>: 1 register on signal <delta_D_q>.
+Unit <mems_control_8> synthesized (advanced).
+
+Synthesizing (advanced) Unit <mems_spi_9>.
+The following registers are absorbed into counter <ctr_q>: 1 register on signal <ctr_q>.
+Unit <mems_spi_9> synthesized (advanced).
+
+Synthesizing (advanced) Unit <my_clk_10>.
+The following registers are absorbed into counter <cnt_q>: 1 register on signal <cnt_q>.
+Unit <my_clk_10> synthesized (advanced).
+
+Synthesizing (advanced) Unit <my_clk_11>.
+The following registers are absorbed into counter <cnt_q>: 1 register on signal <cnt_q>.
+Unit <my_clk_11> synthesized (advanced).
+
+Synthesizing (advanced) Unit <serial_rx_14>.
+The following registers are absorbed into counter <bit_ctr_q>: 1 register on signal <bit_ctr_q>.
+Unit <serial_rx_14> synthesized (advanced).
+
+Synthesizing (advanced) Unit <serial_tx2_17>.
+The following registers are absorbed into counter <Byte_countr_q>: 1 register on signal <Byte_countr_q>.
+The following registers are absorbed into counter <bit_ctr_q>: 1 register on signal <bit_ctr_q>.
+Unit <serial_tx2_17> synthesized (advanced).
+
+Synthesizing (advanced) Unit <spi_slave_13>.
+The following registers are absorbed into counter <bit_ct_q>: 1 register on signal <bit_ct_q>.
+Unit <spi_slave_13> synthesized (advanced).
+
+Synthesizing (advanced) Unit <tdc_rom_16>.
+INFO:Xst:3231 - The small RAM <Mram_data_d> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 8-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <addr>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <data_d>        |          |
+    -----------------------------------------------------------------------
+Unit <tdc_rom_16> synthesized (advanced).
+
+Synthesizing (advanced) Unit <tdc_spi_master_7>.
+The following registers are absorbed into counter <ctr_q>: 1 register on signal <ctr_q>.
+Unit <tdc_spi_master_7> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 4
+ 128x48-bit dual-port distributed RAM                  : 1
+ 32x8-bit single-port distributed Read Only RAM        : 1
+ 4x1-bit single-port distributed Read Only RAM         : 2
+# Adders/Subtractors                                   : 14
+ 11-bit adder                                          : 1
+ 3-bit adder                                           : 1
+ 30-bit adder                                          : 7
+ 4-bit adder                                           : 3
+ 6-bit adder                                           : 1
+ 7-bit adder                                           : 1
+# Counters                                             : 29
+ 10-bit up counter                                     : 1
+ 13-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
+ 20-bit up counter                                     : 1
+ 3-bit up counter                                      : 3
+ 30-bit up counter                                     : 12
+ 5-bit up counter                                      : 2
+ 7-bit up counter                                      : 3
+ 8-bit down counter                                    : 2
+ 8-bit up counter                                      : 2
+ 8-bit updown counter                                  : 1
+# Registers                                            : 709
+ Flip-Flops                                            : 709
+# Comparators                                          : 4
+ 13-bit comparator greater                             : 1
+ 2-bit comparator greater                              : 1
+ 8-bit comparator greater                              : 2
+# Multiplexers                                         : 321
+ 1-bit 2-to-1 multiplexer                              : 223
+ 1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 48-to-1 multiplexer                             : 1
+ 10-bit 2-to-1 multiplexer                             : 1
+ 11-bit 2-to-1 multiplexer                             : 10
+ 16-bit 2-to-1 multiplexer                             : 3
+ 2-bit 2-to-1 multiplexer                              : 2
+ 2-bit 3-to-1 multiplexer                              : 1
+ 24-bit 6-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 8
+ 30-bit 2-to-1 multiplexer                             : 13
+ 4-bit 2-to-1 multiplexer                              : 21
+ 4-bit 4-to-1 multiplexer                              : 3
+ 48-bit 2-to-1 multiplexer                             : 17
+ 6-bit 2-to-1 multiplexer                              : 10
+ 7-bit 2-to-1 multiplexer                              : 5
+ 8-bit 2-to-1 multiplexer                              : 1
+# FSMs                                                 : 8
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <busy_q> (without init value) has a constant value of 0 in block <avr_interface_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <block_q_0> is unconnected in block <avr_interface_1>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <block_q_1> is unconnected in block <avr_interface_1>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <block_q_2> is unconnected in block <avr_interface_1>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <block_q_3> is unconnected in block <avr_interface_1>.
+WARNING:Xst:1710 - FF/Latch <state_q_0> (without init value) has a constant value of 0 in block <fake_mems_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <state_q_1> (without init value) has a constant value of 0 in block <fake_mems_5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <block_q> (without init value) has a constant value of 0 in block <serial_tx_15>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2146 - In block <mojo_top_0>, Counter <FCLK/cnt_q> <tdc_ref_clk/cnt_q> are equivalent, XST will keep only <FCLK/cnt_q>.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <avr_interface/serial_rx/FSM_0> on signal <state_q[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 11
+ 11    | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <avr_interface/serial_tx/FSM_1> on signal <state_q[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 10    | unreached
+ 11    | unreached
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <tdc_control/FSM_4> on signal <state_q[1:4]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 0000
+ 0001  | 0001
+ 0101  | 0101
+ 0011  | 0011
+ 0100  | 0100
+ 0110  | 0110
+ 0010  | 0010
+ 0111  | 0111
+ 1000  | 1000
+ 1001  | 1001
+ 1011  | 1011
+ 1100  | 1100
+ 1101  | 1101
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <fifo_manager/serial_tx_TDC/FSM_5> on signal <state_q[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+ 11    | 11
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <tdc_spi_master/FSM_6> on signal <state_q[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 100   | 100
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <mems_control/FSM_8> on signal <state_q[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+ 11    | 11
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <mems_control/FSM_9> on signal <ch_state_q[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+ 11    | 11
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <mems_spi_master/FSM_10> on signal <state_q[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 100   | 100
+-------------------
+WARNING:Xst:1710 - FF/Latch <tx_q> (without init value) has a constant value of 1 in block <serial_tx_15>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <ctr_q_0> of sequential type is unconnected in block <serial_tx_15>.
+WARNING:Xst:2677 - Node <ctr_q_1> of sequential type is unconnected in block <serial_tx_15>.
+WARNING:Xst:2677 - Node <ctr_q_2> of sequential type is unconnected in block <serial_tx_15>.
+WARNING:Xst:2677 - Node <ctr_q_3> of sequential type is unconnected in block <serial_tx_15>.
+WARNING:Xst:2677 - Node <ctr_q_4> of sequential type is unconnected in block <serial_tx_15>.
+WARNING:Xst:2677 - Node <ctr_q_5> of sequential type is unconnected in block <serial_tx_15>.
+WARNING:Xst:2677 - Node <ctr_q_6> of sequential type is unconnected in block <serial_tx_15>.
+WARNING:Xst:1710 - FF/Latch <data_TO_FIFO_q_47> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_46> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_45> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_44> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_43> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_42> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_41> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_40> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_37> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_34> (without init value) has a constant value of 1 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_31> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_30> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_29> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_28> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_27> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_26> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_3> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_4> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_5> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_6> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_7> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_8> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_9> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_10> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_11> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_12> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_13> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_14> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_15> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_18> (without init value) has a constant value of 1 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_21> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_24> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_25> (without init value) has a constant value of 0 in block <fifo_manager_6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_q_1> (without init value) has a constant value of 0 in block <mems_rom_19>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_2> (without init value) has a constant value of 0 in block <mems_rom_19>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_3> (without init value) has a constant value of 0 in block <mems_rom_19>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_22> (without init value) has a constant value of 0 in block <mems_rom_19>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_23> (without init value) has a constant value of 0 in block <mems_rom_19>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <data_TO_FIFO_q_20> in Unit <fifo_manager_6> is equivalent to the following 5 FFs/Latches, which will be removed : <data_TO_FIFO_q_22> <data_TO_FIFO_q_23> <data_TO_FIFO_q_36> <data_TO_FIFO_q_38> <data_TO_FIFO_q_39> 
+INFO:Xst:2261 - The FF/Latch <data_TO_FIFO_q_19> in Unit <fifo_manager_6> is equivalent to the following FF/Latch, which will be removed : <data_TO_FIFO_q_35> 
+INFO:Xst:2261 - The FF/Latch <data_q_4> in Unit <mems_rom_19> is equivalent to the following 4 FFs/Latches, which will be removed : <data_q_5> <data_q_6> <data_q_7> <data_q_18> 
+INFO:Xst:2261 - The FF/Latch <data_q_0> in Unit <mems_rom_19> is equivalent to the following FF/Latch, which will be removed : <data_q_19> 
+WARNING:Xst:2677 - Node <avr_interface/sample_q_9> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_q_8> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_q_7> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_q_6> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_q_5> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_q_4> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_q_2> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_q_1> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/new_sample_q> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/byte_ct_q> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_channel_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_channel_q_2> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_channel_q_1> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/sample_channel_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/serial_tx/busy_q> of sequential type is unconnected in block <mojo_top_0>.
+
+Optimizing unit <mojo_top_0> ...
+
+Optimizing unit <spi_slave_13> ...
+
+Optimizing unit <serial_rx_14> ...
+
+Optimizing unit <main_control_2> ...
+
+Optimizing unit <tdc_control_3> ...
+
+Optimizing unit <tdc_rom_16> ...
+
+Optimizing unit <fake_tdc_4> ...
+
+Optimizing unit <fake_mems_5> ...
+
+Optimizing unit <fifo_manager_6> ...
+INFO:Xst:2261 - The FF/Latch <data_TO_FIFO_q_16> in Unit <fifo_manager_6> is equivalent to the following FF/Latch, which will be removed : <data_TO_FIFO_q_32> 
+INFO:Xst:2261 - The FF/Latch <data_TO_FIFO_q_17> in Unit <fifo_manager_6> is equivalent to the following FF/Latch, which will be removed : <data_TO_FIFO_q_33> 
+INFO:Xst:2261 - The FF/Latch <data_TO_FIFO_q_16> in Unit <fifo_manager_6> is equivalent to the following FF/Latch, which will be removed : <data_TO_FIFO_q_32> 
+INFO:Xst:2261 - The FF/Latch <data_TO_FIFO_q_17> in Unit <fifo_manager_6> is equivalent to the following FF/Latch, which will be removed : <data_TO_FIFO_q_33> 
+
+Optimizing unit <serial_tx2_17> ...
+
+Optimizing unit <fifo_18> ...
+
+Optimizing unit <tdc_spi_master_7> ...
+
+Optimizing unit <mems_control_8> ...
+
+Optimizing unit <mems_rom_19> ...
+
+Optimizing unit <mems_spi_9> ...
+WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_7> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_6> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_5> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_4> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_2> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_1> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <avr_interface/spi_slave/done_q> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_47> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_46> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_45> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_44> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_43> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_42> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_41> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_40> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_39> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_38> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_37> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_36> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_35> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_34> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_33> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_32> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_31> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_30> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_29> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_28> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_27> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_26> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_25> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_24> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_23> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_22> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_21> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_20> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_19> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_18> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_17> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_16> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_15> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_14> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_13> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_12> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_11> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_10> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_9> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_8> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_7> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_6> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_5> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_4> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_2> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_1> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/data_TO_FIFO_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_15> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_14> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_13> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_12> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_11> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_10> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_9> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_8> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_7> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_6> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_5> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_4> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_2> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_1> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib2_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_15> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_14> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_13> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_12> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_11> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_10> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_9> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_8> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_7> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_6> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_5> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_4> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_2> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_1> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/calib1_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_15> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_14> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_13> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_12> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_11> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_10> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_9> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_8> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_7> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_6> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_5> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_4> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_2> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_1> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/time1_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_control/wr_en_q> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_spi_master/data_out_q_7> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_spi_master/data_out_q_6> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_spi_master/data_out_q_5> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_spi_master/data_out_q_4> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_spi_master/data_out_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_spi_master/data_out_q_2> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_spi_master/data_out_q_1> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_spi_master/data_out_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <tdc_spi_master/new_data_q> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_control/addr_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_control/new_line_q> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_control/new_frame_q> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_23> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_22> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_21> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_20> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_19> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_18> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_17> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_16> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_15> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_14> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_13> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_12> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_11> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_10> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_9> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_8> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_7> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_6> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_5> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_4> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_2> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_1> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_spi_master/new_data_q> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:1293 - FF/Latch <fake_mems3/delay_cntr2_q_19> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_8> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_9> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_10> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_11> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_12> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_13> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_14> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_16> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_17> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr2_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_8> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_9> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_10> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_11> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_12> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_13> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_14> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_16> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_17> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_19> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems4/delay_cntr2_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_10> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_11> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_12> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_13> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_14> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_16> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_17> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_19> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control/delta_C_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control/delta_C_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control/delta_C_q_6> has a constant value of 1 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control/delta_C_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_8> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems1/delay_cntr2_q_9> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_16> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_17> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_19> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems3/delay_cntr_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_8> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_9> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_10> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_11> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_12> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_13> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems2/delay_cntr2_q_14> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_24> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_25> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_26> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_27> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_28> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_29> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_24> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_24> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_25> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_26> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_27> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_28> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_29> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc3/delay_cntr_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_29> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_24> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_25> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_26> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_27> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_28> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc6/delay_cntr_q_29> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tdc_control/Byte_countr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tdc_control/Byte_countr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_25> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_26> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_27> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_28> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc4/delay_cntr_q_29> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_24> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_25> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_26> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_27> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc5/delay_cntr_q_28> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_8> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_9> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_10> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_11> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_8> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_9> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_10> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_11> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_12> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_13> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_14> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_16> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_17> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_19> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems5/delay_cntr2_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_24> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_25> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_26> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_27> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_28> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_29> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc2/delay_cntr_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_12> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_13> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_14> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_16> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_17> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_19> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_25> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <fake_mems6/delay_cntr2_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <fake_tdc1/delay_cntr_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr2_q_0> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr2_q_0> <fake_mems4/delay_cntr2_q_0> <fake_mems3/delay_cntr2_q_0> <fake_mems2/delay_cntr2_q_0> <fake_mems1/delay_cntr2_q_0> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr2_q_1> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr2_q_1> <fake_mems4/delay_cntr2_q_1> <fake_mems3/delay_cntr2_q_1> <fake_mems2/delay_cntr2_q_1> <fake_mems1/delay_cntr2_q_1> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr2_q_2> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr2_q_2> <fake_mems4/delay_cntr2_q_2> <fake_mems3/delay_cntr2_q_2> <fake_mems2/delay_cntr2_q_2> <fake_mems1/delay_cntr2_q_2> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr2_q_3> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr2_q_3> <fake_mems4/delay_cntr2_q_3> <fake_mems3/delay_cntr2_q_3> <fake_mems2/delay_cntr2_q_3> <fake_mems1/delay_cntr2_q_3> 
+INFO:Xst:2261 - The FF/Latch <mems_control/delta_D_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_C_q_1> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_10> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_10> <fake_tdc4/delay_cntr_q_10> <fake_tdc3/delay_cntr_q_10> <fake_tdc2/delay_cntr_q_10> <fake_tdc1/delay_cntr_q_10> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_11> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_11> <fake_tdc4/delay_cntr_q_11> <fake_tdc3/delay_cntr_q_11> <fake_tdc2/delay_cntr_q_11> <fake_tdc1/delay_cntr_q_11> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_12> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_12> <fake_tdc4/delay_cntr_q_12> <fake_tdc3/delay_cntr_q_12> <fake_tdc2/delay_cntr_q_12> <fake_tdc1/delay_cntr_q_12> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_10> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_10> <fake_mems4/delay_cntr_q_10> <fake_mems3/delay_cntr_q_10> <fake_mems2/delay_cntr_q_10> <fake_mems1/delay_cntr_q_10> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_11> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_11> <fake_mems4/delay_cntr_q_11> <fake_mems3/delay_cntr_q_11> <fake_mems2/delay_cntr_q_11> <fake_mems1/delay_cntr_q_11> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_12> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_12> <fake_mems4/delay_cntr_q_12> <fake_mems3/delay_cntr_q_12> <fake_mems2/delay_cntr_q_12> <fake_mems1/delay_cntr_q_12> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_13> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_13> <fake_mems4/delay_cntr_q_13> <fake_mems3/delay_cntr_q_13> <fake_mems2/delay_cntr_q_13> <fake_mems1/delay_cntr_q_13> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_14> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_14> <fake_mems4/delay_cntr_q_14> <fake_mems3/delay_cntr_q_14> <fake_mems2/delay_cntr_q_14> <fake_mems1/delay_cntr_q_14> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_15> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_15> <fake_mems4/delay_cntr_q_15> <fake_mems3/delay_cntr_q_15> <fake_mems2/delay_cntr_q_15> <fake_mems1/delay_cntr_q_15> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_16> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_16> <fake_mems4/delay_cntr_q_16> <fake_mems3/delay_cntr_q_16> <fake_mems2/delay_cntr_q_16> <fake_mems1/delay_cntr_q_16> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_17> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_17> <fake_mems4/delay_cntr_q_17> <fake_mems3/delay_cntr_q_17> <fake_mems2/delay_cntr_q_17> <fake_mems1/delay_cntr_q_17> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_18> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_18> <fake_mems4/delay_cntr_q_18> <fake_mems3/delay_cntr_q_18> <fake_mems2/delay_cntr_q_18> <fake_mems1/delay_cntr_q_18> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_19> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_19> <fake_mems4/delay_cntr_q_19> <fake_mems3/delay_cntr_q_19> <fake_mems2/delay_cntr_q_19> <fake_mems1/delay_cntr_q_19> 
+INFO:Xst:2261 - The FF/Latch <mems_control/delta_A_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_B_q_0> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/state_q> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/state_q> <fake_tdc4/state_q> <fake_tdc3/state_q> <fake_tdc2/state_q> <fake_tdc1/state_q> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_0> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_0> <fake_tdc4/delay_cntr_q_0> <fake_tdc3/delay_cntr_q_0> <fake_tdc2/delay_cntr_q_0> <fake_tdc1/delay_cntr_q_0> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_1> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_1> <fake_tdc4/delay_cntr_q_1> <fake_tdc3/delay_cntr_q_1> <fake_tdc2/delay_cntr_q_1> <fake_tdc1/delay_cntr_q_1> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_2> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_2> <fake_tdc4/delay_cntr_q_2> <fake_tdc3/delay_cntr_q_2> <fake_tdc2/delay_cntr_q_2> <fake_tdc1/delay_cntr_q_2> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_3> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_3> <fake_tdc4/delay_cntr_q_3> <fake_tdc3/delay_cntr_q_3> <fake_tdc2/delay_cntr_q_3> <fake_tdc1/delay_cntr_q_3> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_4> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_4> <fake_tdc4/delay_cntr_q_4> <fake_tdc3/delay_cntr_q_4> <fake_tdc2/delay_cntr_q_4> <fake_tdc1/delay_cntr_q_4> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_5> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_5> <fake_tdc4/delay_cntr_q_5> <fake_tdc3/delay_cntr_q_5> <fake_tdc2/delay_cntr_q_5> <fake_tdc1/delay_cntr_q_5> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_6> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_6> <fake_tdc4/delay_cntr_q_6> <fake_tdc3/delay_cntr_q_6> <fake_tdc2/delay_cntr_q_6> <fake_tdc1/delay_cntr_q_6> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_7> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_7> <fake_tdc4/delay_cntr_q_7> <fake_tdc3/delay_cntr_q_7> <fake_tdc2/delay_cntr_q_7> <fake_tdc1/delay_cntr_q_7> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_8> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_8> <fake_tdc4/delay_cntr_q_8> <fake_tdc3/delay_cntr_q_8> <fake_tdc2/delay_cntr_q_8> <fake_tdc1/delay_cntr_q_8> 
+INFO:Xst:2261 - The FF/Latch <fake_tdc6/delay_cntr_q_9> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_tdc5/delay_cntr_q_9> <fake_tdc4/delay_cntr_q_9> <fake_tdc3/delay_cntr_q_9> <fake_tdc2/delay_cntr_q_9> <fake_tdc1/delay_cntr_q_9> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_0> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_0> <fake_mems4/delay_cntr_q_0> <fake_mems3/delay_cntr_q_0> <fake_mems2/delay_cntr_q_0> <fake_mems1/delay_cntr_q_0> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_1> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_1> <fake_mems4/delay_cntr_q_1> <fake_mems3/delay_cntr_q_1> <fake_mems2/delay_cntr_q_1> <fake_mems1/delay_cntr_q_1> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_2> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_2> <fake_mems4/delay_cntr_q_2> <fake_mems3/delay_cntr_q_2> <fake_mems2/delay_cntr_q_2> <fake_mems1/delay_cntr_q_2> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_3> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_3> <fake_mems4/delay_cntr_q_3> <fake_mems3/delay_cntr_q_3> <fake_mems2/delay_cntr_q_3> <fake_mems1/delay_cntr_q_3> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_4> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_4> <fake_mems4/delay_cntr_q_4> <fake_mems3/delay_cntr_q_4> <fake_mems2/delay_cntr_q_4> <fake_mems1/delay_cntr_q_4> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_5> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_5> <fake_mems4/delay_cntr_q_5> <fake_mems3/delay_cntr_q_5> <fake_mems2/delay_cntr_q_5> <fake_mems1/delay_cntr_q_5> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_6> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_6> <fake_mems4/delay_cntr_q_6> <fake_mems3/delay_cntr_q_6> <fake_mems2/delay_cntr_q_6> <fake_mems1/delay_cntr_q_6> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_7> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_7> <fake_mems4/delay_cntr_q_7> <fake_mems3/delay_cntr_q_7> <fake_mems2/delay_cntr_q_7> <fake_mems1/delay_cntr_q_7> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_8> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_8> <fake_mems4/delay_cntr_q_8> <fake_mems3/delay_cntr_q_8> <fake_mems2/delay_cntr_q_8> <fake_mems1/delay_cntr_q_8> 
+INFO:Xst:2261 - The FF/Latch <fake_mems6/delay_cntr_q_9> in Unit <mojo_top_0> is equivalent to the following 5 FFs/Latches, which will be removed : <fake_mems5/delay_cntr_q_9> <fake_mems4/delay_cntr_q_9> <fake_mems3/delay_cntr_q_9> <fake_mems2/delay_cntr_q_9> <fake_mems1/delay_cntr_q_9> 
+INFO:Xst:3203 - The FF/Latch <mems_control/delta_D_q_0> in Unit <mojo_top_0> is the opposite to the following FF/Latch, which will be removed : <mems_control/delta_C_q_0> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 13.
+FlipFlop fifo_manager/fifo/fifo_counter_7 has been replicated 1 time(s)
+FlipFlop mems_spi_master/state_q_FSM_FFd2 has been replicated 1 time(s)
+FlipFlop tdc_control/addr_q_0 has been replicated 1 time(s)
+FlipFlop tdc_control/addr_q_1 has been replicated 1 time(s)
+FlipFlop tdc_control/addr_q_2 has been replicated 1 time(s)
+FlipFlop tdc_control/state_q_FSM_FFd1 has been replicated 1 time(s)
+FlipFlop tdc_control/state_q_FSM_FFd2 has been replicated 1 time(s)
+FlipFlop tdc_control/state_q_FSM_FFd3 has been replicated 2 time(s)
+FlipFlop tdc_spi_master/state_q_FSM_FFd2 has been replicated 2 time(s)
+FlipFlop tdc_spi_master/state_q_FSM_FFd3 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 468
+ Flip-Flops                                            : 468
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : mojo_top_0.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1074
+#      GND                         : 7
+#      INV                         : 14
+#      LUT1                        : 85
+#      LUT2                        : 96
+#      LUT3                        : 120
+#      LUT4                        : 80
+#      LUT5                        : 188
+#      LUT6                        : 187
+#      MUXCY                       : 134
+#      MUXF7                       : 13
+#      VCC                         : 7
+#      XORCY                       : 143
+# FlipFlops/Latches                : 469
+#      FD                          : 100
+#      FDCE                        : 71
+#      FDE                         : 150
+#      FDR                         : 27
+#      FDRE                        : 105
+#      FDS                         : 7
+#      FDSE                        : 8
+#      LD                          : 1
+# RAMS                             : 48
+#      RAM128X1D                   : 48
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 25
+#      IBUF                        : 8
+#      OBUF                        : 11
+#      OBUFT                       : 6
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             469  out of  11440     4%  
+ Number of Slice LUTs:                  962  out of   5720    16%  
+    Number used as Logic:               770  out of   5720    13%  
+    Number used as Memory:              192  out of   1440    13%  
+       Number used as RAM:              192
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1041
+   Number with an unused Flip Flop:     572  out of   1041    54%  
+   Number with an unused LUT:            79  out of   1041     7%  
+   Number of fully used LUT-FF pairs:   390  out of   1041    37%  
+   Number of unique control sets:        68
+
+IO Utilization: 
+ Number of IOs:                          28
+ Number of bonded IOBs:                  26  out of    102    25%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)        | Load  |
+-----------------------------------+------------------------------+-------+
+clk                                | BUFGP                        | 516   |
+main_control/state_q_0             | NONE(main_control/soft_reset)| 1     |
+-----------------------------------+------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 5.887ns (Maximum Frequency: 169.866MHz)
+   Minimum input arrival time before clock: 6.836ns
+   Maximum output required time after clock: 6.160ns
+   Maximum combinational path delay: 6.005ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 5.887ns (frequency: 169.866MHz)
+  Total number of paths / destination ports: 13595 / 1239
+-------------------------------------------------------------------------
+Delay:               5.887ns (Levels of Logic = 4)
+  Source:            tdc_control/CS_countr_q_26 (FF)
+  Destination:       tdc_control/CS_countr_q_29 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: tdc_control/CS_countr_q_26 to tdc_control/CS_countr_q_29
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               4   0.525   1.234  CS_countr_q_26 (CS_countr_q_26)
+     LUT5:I0->O            3   0.254   1.042  CS_countr_q[29]_GND_15_o_equal_38_o<29>14_SW0 (N63)
+     LUT6:I2->O            5   0.254   0.841  CS_countr_q[29]_GND_15_o_equal_38_o<29>2 (CS_countr_q[29]_GND_15_o_equal_38_o<29>2)
+     LUT6:I5->O           15   0.254   1.155  Mmux_CS_countr_d1011 (Mmux_CS_countr_d101)
+     LUT5:I4->O            1   0.254   0.000  CS_countr_q_29_rstpot (CS_countr_q_29_rstpot)
+     FD:D                      0.074          CS_countr_q_29
+    ----------------------------------------
+    Total                      5.887ns (1.615ns logic, 4.272ns route)
+                                       (27.4% logic, 72.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 349 / 317
+-------------------------------------------------------------------------
+Offset:              6.836ns (Levels of Logic = 4)
+  Source:            rst_n (PAD)
+  Destination:       fake_mems6/delay_cntr_q_19 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst_n to fake_mems6/delay_cntr_q_19
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            86   1.328   2.208  rst_n_IBUF (rst_inv)
+     begin scope: 'fake_mems6:rst_inv'
+     LUT2:I0->O            1   0.250   0.958  delay_cntr_q[29]_GND_18_o_equal_3_o<29>4_SW2 (N169)
+     LUT6:I2->O           24   0.254   1.379  _n00591 (_n0059)
+     FDRE:R                    0.459          delay_cntr_q_0
+    ----------------------------------------
+    Total                      6.836ns (2.291ns logic, 4.545ns route)
+                                       (33.5% logic, 66.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 22 / 17
+-------------------------------------------------------------------------
+Offset:              6.160ns (Levels of Logic = 3)
+  Source:            mems_spi_master/state_q_FSM_FFd2 (FF)
+  Destination:       MEMS_SPI_CLOCK (PAD)
+  Source Clock:      clk rising
+
+  Data Path: mems_spi_master/state_q_FSM_FFd2 to MEMS_SPI_CLOCK
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             48   0.525   1.788  state_q_FSM_FFd2 (state_q_FSM_FFd2)
+     LUT3:I2->O            1   0.254   0.681  _n0167_inv111 (sck)
+     end scope: 'mems_spi_master:sck'
+     OBUF:I->O                 2.912          MEMS_SPI_CLOCK_OBUF (MEMS_SPI_CLOCK)
+    ----------------------------------------
+    Total                      6.160ns (3.691ns logic, 2.469ns route)
+                                       (59.9% logic, 40.1% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               6.005ns (Levels of Logic = 4)
+  Source:            spi_ss (PAD)
+  Destination:       spi_miso (PAD)
+
+  Data Path: spi_ss to spi_miso
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.328   0.834  spi_ss_IBUF (spi_ss_IBUF)
+     begin scope: 'avr_interface:spi_ss'
+     LUT2:I0->O            1   0.250   0.681  ready_spi_ss_AND_3_o_inv1 (ready_spi_ss_AND_3_o_inv)
+     end scope: 'avr_interface:ready_spi_ss_AND_3_o_inv'
+     OBUFT:T->O                2.912          spi_miso_OBUFT (spi_miso)
+    ----------------------------------------
+    Total                      6.005ns (4.490ns logic, 1.515ns route)
+                                       (74.8% logic, 25.2% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+----------------------+---------+---------+---------+---------+
+                      | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+----------------------+---------+---------+---------+---------+
+clk                   |    5.887|         |         |         |
+main_control/state_q_0|    4.391|         |         |         |
+----------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock main_control/state_q_0
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    1.436|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 15.00 secs
+Total CPU time to Xst completion: 13.94 secs
+ 
+--> 
+
+
+Total memory usage is 401744 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  583 (   0 filtered)
+Number of infos    :   74 (   0 filtered)
+

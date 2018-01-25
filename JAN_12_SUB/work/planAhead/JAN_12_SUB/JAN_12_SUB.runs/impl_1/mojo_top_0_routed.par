@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-delkov-15ZD970-EX50K::  Thu Jan 18 14:45:53 2018
+delkov-15ZD970-EX50K::  Fri Jan 19 16:18:31 2018
 
 par -intstyle pa -w -mt on mojo_top_0.ncd mojo_top_0_routed.ncd 
 
@@ -103,11 +103,11 @@ WARNING:Par:288 - The signal avr_rx_busy_IBUF has no load.  PAR will not attempt
 Starting Multi-threaded Router
 
 
-Phase  1  : 6298 unrouted;      REAL time: 5 secs 
+Phase  1  : 6298 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 5806 unrouted;      REAL time: 5 secs 
+Phase  2  : 5806 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 2280 unrouted;      REAL time: 8 secs 
+Phase  3  : 2280 unrouted;      REAL time: 7 secs 
 
 Phase  4  : 2280 unrouted; (Setup:0, Hold:96, Component Switching Limit:0)     REAL time: 8 secs 
 
@@ -174,7 +174,7 @@ All signals are completely routed.
 WARNING:Par:283 - There are 1 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 Total REAL time to PAR completion: 12 secs 
-Total CPU time to PAR completion (all processors): 14 secs 
+Total CPU time to PAR completion (all processors): 15 secs 
 
 Peak Memory Usage:  808 MB
 

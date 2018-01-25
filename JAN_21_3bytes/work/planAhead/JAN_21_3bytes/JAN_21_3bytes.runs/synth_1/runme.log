@@ -45,7 +45,7 @@ Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JA
 Parsing module <mems_control_6>.
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/main_control_2.v" into library work
 Parsing module <main_control_2>.
-WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/main_control_2.v" Line 23: Redeclaration of ansi port soft_reset is not allowed
+WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/main_control_2.v" Line 25: Redeclaration of ansi port soft_reset is not allowed
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/fifo_manager_3.v" into library work
 Parsing module <fifo_manager_3>.
 WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/fifo_manager_3.v" Line 72: Redeclaration of ansi port t_rd_en is not allowed
@@ -54,7 +54,8 @@ Parsing module <avr_interface_1>.
 INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/avr_interface_1.v" Line 80. parameter declaration becomes local in avr_interface_1 with formal parameter declaration list
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
 Parsing module <mojo_top_0>.
-WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 110: Redeclaration of ansi port ENABLE is not allowed
+WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 111: Redeclaration of ansi port ENABLE is not allowed
+WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 112: Redeclaration of ansi port f2_ENABLE is not allowed
 
 =========================================================================
 *                            HDL Elaboration                            *
@@ -71,7 +72,7 @@ Elaborating module <spi_slave_11>.
 Elaborating module <serial_rx_12(CLK_PER_BIT=100)>.
 
 Elaborating module <serial_tx_13(CLK_PER_BIT=100)>.
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 220: Assignment to tx_busy ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 218: Assignment to tx_busy ignored, since the identifier is never used
 
 Elaborating module <main_control_2>.
 
@@ -84,25 +85,25 @@ WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/FIFO_15.v" Line 43: Result of 32-bit expression is truncated to fit in 8-bit target.
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/FIFO_15.v" Line 78: Result of 8-bit expression is truncated to fit in 7-bit target.
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/FIFO_15.v" Line 81: Result of 8-bit expression is truncated to fit in 7-bit target.
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 276: Assignment to f3_FIFO_writing_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 277: Assignment to f4_FIFO_writing_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 278: Assignment to f5_FIFO_writing_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 279: Assignment to f6_FIFO_writing_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 284: Assignment to f3_new_line_FIFO_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 285: Assignment to f4_new_line_FIFO_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 286: Assignment to f5_new_line_FIFO_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 287: Assignment to f6_new_line_FIFO_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 291: Assignment to f3_new_frame_FIFO_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 292: Assignment to f4_new_frame_FIFO_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 293: Assignment to f5_new_frame_FIFO_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 294: Assignment to f6_new_frame_FIFO_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 298: Assignment to tx_busy_TDC ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 299: Assignment to t_new_data_FROM_FIFO_TO_SERIAL ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 303: Assignment to FIFO_EMPTY ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 304: Assignment to FIFO_FULL ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 305: Assignment to t_rd_en ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 275: Assignment to f3_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 276: Assignment to f4_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 277: Assignment to f5_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 278: Assignment to f6_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 283: Assignment to f3_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 284: Assignment to f4_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 285: Assignment to f5_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 286: Assignment to f6_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 290: Assignment to f3_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 291: Assignment to f4_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 292: Assignment to f5_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 293: Assignment to f6_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 297: Assignment to tx_busy_TDC ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 298: Assignment to t_new_data_FROM_FIFO_TO_SERIAL ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 302: Assignment to FIFO_EMPTY ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 303: Assignment to FIFO_FULL ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 304: Assignment to t_rd_en ignored, since the identifier is never used
 
-Elaborating module <tdc_control_4(SHOOTING_PARAM=32'sb011110100001001000000)>.
+Elaborating module <tdc_control_4(SHOOTING_PARAM=32'sb0101000101100001010)>.
 
 Elaborating module <tdc_rom_16>.
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 119: Result of 5-bit expression is truncated to fit in 4-bit target.
@@ -110,44 +111,45 @@ WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 214: Result of 5-bit expression is truncated to fit in 4-bit target.
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 243: Result of 5-bit expression is truncated to fit in 4-bit target.
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 272: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 327: Size mismatch in connection of port <data_TO_FIFO>. Formal port size is 48-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 349: Size mismatch in connection of port <data_TO_FIFO>. Formal port size is 48-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 326: Size mismatch in connection of port <data_TO_FIFO>. Formal port size is 48-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 348: Size mismatch in connection of port <data_TO_FIFO>. Formal port size is 48-bit while actual signal size is 32-bit.
 
 Elaborating module <tdc_spi_master_5(CLK_DIV=32'sb01000)>.
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 370: Assignment to tdc_SPI_new_data ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 389: Assignment to f2_tdc_SPI_new_data ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 366: Assignment to tdc_SPI_new_data ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 384: Assignment to f2_tdc_SPI_new_data ignored, since the identifier is never used
 
 Elaborating module <mems_control_6>.
 
 Elaborating module <mems_rom_17>.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mems_rom_17.v" Line 11: Net <rom_data[1][23]> does not have a driver.
 
 Elaborating module <mems_spi_7(CLK_DIV=32'sb011111010000)>.
-WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 443: Size mismatch in connection of port <data_out>. Formal port size is 24-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 443: Assignment to data_out ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 445: Assignment to mems_SPI_new_data ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 461: Size mismatch in connection of port <data_out>. Formal port size is 24-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 461: Assignment to f2_data_out ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 463: Assignment to f2_mems_SPI_new_data ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 436: Size mismatch in connection of port <data_out>. Formal port size is 24-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 436: Assignment to data_out ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 438: Assignment to mems_SPI_new_data ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 454: Size mismatch in connection of port <data_out>. Formal port size is 24-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 454: Assignment to f2_data_out ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 456: Assignment to f2_mems_SPI_new_data ignored, since the identifier is never used
 
 Elaborating module <my_clk_8(CLK_DIV=32'sb0100)>.
 
 Elaborating module <my_clk_9(CLK_DIV=32'sb01001110001000)>.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 114: Net <tx_data[7]> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 115: Net <new_tx_data> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 154: Net <f3_wr_en> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 155: Net <f4_wr_en> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 156: Net <f5_wr_en> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 157: Net <f6_wr_en> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 171: Net <f3_new_line> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 172: Net <f4_new_line> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 173: Net <f5_new_line> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 174: Net <f6_new_line> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 117: Net <tx_data[7]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 118: Net <new_tx_data> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 156: Net <f3_wr_en> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 157: Net <f4_wr_en> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 158: Net <f5_wr_en> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 159: Net <f6_wr_en> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 172: Net <f3_new_line> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 173: Net <f4_new_line> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 174: Net <f5_new_line> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 175: Net <f6_new_line> does not have a driver.
 WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 179: Net <f3_new_frame> does not have a driver.
 WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 180: Net <f4_new_frame> does not have a driver.
 WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 181: Net <f5_new_frame> does not have a driver.
 WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 182: Net <f6_new_frame> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 436: Net <miso> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 454: Net <f2_miso> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 429: Net <miso> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 447: Net <f2_miso> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -156,33 +158,33 @@ WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead
 Synthesizing Unit <mojo_top_0>.
     Related source file is "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v".
 WARNING:Xst:647 - Input <SERIAL_IN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 203: Output port <sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 203: Output port <sample_channel> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 203: Output port <new_sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 203: Output port <tx_busy> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f3_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f4_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f5_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f6_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f3_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f4_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f5_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f6_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f3_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f4_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f5_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <f6_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <tx_busy_TDC> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <new_data_FROM_FIFO_TO_SERIAL> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <w_empty> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <w_full> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 240: Output port <t_rd_en> of the instance <fifo_manager> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 356: Output port <new_data> of the instance <tdc_spi_master> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 375: Output port <new_data> of the instance <tdc_spi_master_2> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 432: Output port <data_out> of the instance <mems_spi_master> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 432: Output port <new_data> of the instance <mems_spi_master> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 450: Output port <data_out> of the instance <mems_spi_master_2> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 450: Output port <new_data> of the instance <mems_spi_master_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 201: Output port <sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 201: Output port <sample_channel> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 201: Output port <new_sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 201: Output port <tx_busy> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f3_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f4_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f5_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f6_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f3_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f4_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f5_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f6_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f3_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f4_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f5_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <f6_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <tx_busy_TDC> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <new_data_FROM_FIFO_TO_SERIAL> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <w_empty> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <w_full> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 239: Output port <t_rd_en> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 352: Output port <new_data> of the instance <tdc_spi_master> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 370: Output port <new_data> of the instance <tdc_spi_master_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 425: Output port <data_out> of the instance <mems_spi_master> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 425: Output port <new_data> of the instance <mems_spi_master> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 443: Output port <data_out> of the instance <mems_spi_master_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mojo_top_0.v" line 443: Output port <new_data> of the instance <mems_spi_master_2> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <new_tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <f3_wr_en> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -323,10 +325,10 @@ Synthesizing Unit <main_control_2>.
     Found 20-bit register for signal <countr_q>.
     Found 2-bit register for signal <state_q>.
     Found 1-bit register for signal <pause_q>.
-    Found 20-bit adder for signal <countr_q[19]_GND_13_o_add_6_OUT> created at line 58.
+    Found 20-bit adder for signal <countr_q[19]_GND_13_o_add_6_OUT> created at line 61.
     Found 4x1-bit Read Only RAM for signal <state_q[1]_soft_reset_Mux_14_o>
     Found 4x1-bit Read Only RAM for signal <state_q[1]_GND_14_o_Mux_15_o>
-    Found 2-bit 3-to-1 multiplexer for signal <state_d> created at line 37.
+    Found 2-bit 3-to-1 multiplexer for signal <state_d> created at line 40.
 WARNING:Xst:737 - Found 1-bit latch for signal <soft_reset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     HDL ADVISOR - Describing an operational reset or an explicit power-up state for register <state_q> would allow inference of a finite state machine and as consequence better performance and smaller area.
     Summary:
@@ -422,7 +424,7 @@ Unit <fifo_15> synthesized.
 
 Synthesizing Unit <tdc_control_4>.
     Related source file is "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/tdc_control_4.v".
-        SHOOTING_PARAM = 1000000
+        SHOOTING_PARAM = 166666
     Found 1-bit register for signal <start_signal_q>.
     Found 48-bit register for signal <data_TO_FIFO_q>.
     Found 1-bit register for signal <wr_en_q>.
@@ -542,16 +544,16 @@ Synthesizing Unit <mems_control_6>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 8-bit subtractor for signal <delta_D_q[7]_GND_21_o_sub_19_OUT> created at line 161.
-    Found 8-bit subtractor for signal <delta_B_q[7]_GND_21_o_sub_23_OUT> created at line 166.
-    Found 4-bit adder for signal <addr_q[3]_GND_21_o_add_9_OUT> created at line 126.
-    Found 8-bit adder for signal <delta_C_q[7]_GND_21_o_add_17_OUT> created at line 160.
-    Found 8-bit adder for signal <delta_A_q[7]_GND_21_o_add_21_OUT> created at line 165.
-    Found 4-bit 4-to-1 multiplexer for signal <ch_state_q[1]_addr_q[3]_wide_mux_43_OUT> created at line 135.
-    Found 1-bit 4-to-1 multiplexer for signal <start_d> created at line 104.
-    Found 4-bit 4-to-1 multiplexer for signal <addr_d> created at line 104.
-    Found 8-bit comparator greater for signal <PWR_17_o_delta_A_q[7]_LessThan_16_o> created at line 140
-    Found 8-bit comparator greater for signal <GND_21_o_delta_C_q[7]_LessThan_17_o> created at line 151
+    Found 8-bit subtractor for signal <delta_D_q[7]_GND_21_o_sub_19_OUT> created at line 160.
+    Found 8-bit subtractor for signal <delta_B_q[7]_GND_21_o_sub_23_OUT> created at line 165.
+    Found 4-bit adder for signal <addr_q[3]_GND_21_o_add_9_OUT> created at line 127.
+    Found 8-bit adder for signal <delta_C_q[7]_GND_21_o_add_17_OUT> created at line 159.
+    Found 8-bit adder for signal <delta_A_q[7]_GND_21_o_add_21_OUT> created at line 164.
+    Found 4-bit 4-to-1 multiplexer for signal <ch_state_q[1]_addr_q[3]_wide_mux_43_OUT> created at line 136.
+    Found 1-bit 4-to-1 multiplexer for signal <start_d> created at line 105.
+    Found 4-bit 4-to-1 multiplexer for signal <addr_d> created at line 105.
+    Found 8-bit comparator greater for signal <GND_21_o_delta_A_q[7]_LessThan_16_o> created at line 141
+    Found 8-bit comparator greater for signal <GND_21_o_delta_C_q[7]_LessThan_17_o> created at line 150
     HDL ADVISOR - Describing an operational reset or an explicit power-up state for register <ch_state_q> would allow inference of a finite state machine and as consequence better performance and smaller area.
     Summary:
 	inferred   5 Adder/Subtractor(s).
@@ -564,8 +566,9 @@ Unit <mems_control_6> synthesized.
 Synthesizing Unit <mems_rom_17>.
     Related source file is "/home/delkov/mojo/SIMPLE/JAN_21_3bytes/work/planAhead/JAN_21_3bytes/JAN_21_3bytes.srcs/sources_1/imports/verilog/mems_rom_17.v".
 WARNING:Xst:647 - Input <addr<3:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <rom_data<1>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 24-bit register for signal <data_q>.
-    Found 24-bit 6-to-1 multiplexer for signal <data_d> created at line 38.
+    Found 24-bit 6-to-1 multiplexer for signal <data_d> created at line 42.
     Summary:
 	inferred  24 D-type flip-flop(s).
 	inferred   1 Multiplexer(s).
@@ -915,7 +918,7 @@ Optimizing FSM <fifo_manager/serial_tx_TDC/FSM_4> on signal <state_q[1:2]> with 
  11    | 11
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <tdc_control_1/FSM_5> on signal <state_q[1:4]> with user encoding.
+Optimizing FSM <tdc_control/FSM_5> on signal <state_q[1:4]> with user encoding.
 Optimizing FSM <tdc_control_2/FSM_5> on signal <state_q[1:4]> with user encoding.
 -------------------
  State | Encoding
@@ -1003,13 +1006,13 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_12> 
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_13> (without init value) has a constant value of 0 in block <fifo_manager_3>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_14> (without init value) has a constant value of 0 in block <fifo_manager_3>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_15> (without init value) has a constant value of 0 in block <fifo_manager_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_q_1> (without init value) has a constant value of 0 in block <mems_rom_17>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_2> (without init value) has a constant value of 0 in block <mems_rom_17>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_3> (without init value) has a constant value of 0 in block <mems_rom_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_q_5> (without init value) has a constant value of 0 in block <mems_rom_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_6> (without init value) has a constant value of 0 in block <mems_rom_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_7> (without init value) has a constant value of 0 in block <mems_rom_17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_18> (without init value) has a constant value of 0 in block <mems_rom_17>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_22> (without init value) has a constant value of 0 in block <mems_rom_17>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_q_23> (without init value) has a constant value of 0 in block <mems_rom_17>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <data_q_4> in Unit <mems_rom_17> is equivalent to the following 4 FFs/Latches, which will be removed : <data_q_5> <data_q_6> <data_q_7> <data_q_18> 
-INFO:Xst:2261 - The FF/Latch <data_q_0> in Unit <mems_rom_17> is equivalent to the following FF/Latch, which will be removed : <data_q_19> 
+INFO:Xst:2261 - The FF/Latch <data_q_1> in Unit <mems_rom_17> is equivalent to the following 3 FFs/Latches, which will be removed : <data_q_2> <data_q_3> <data_q_4> 
 WARNING:Xst:2677 - Node <avr_interface/sample_q_9> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:2677 - Node <avr_interface/sample_q_8> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:2677 - Node <avr_interface/sample_q_7> of sequential type is unconnected in block <mojo_top_0>.
@@ -1118,16 +1121,12 @@ WARNING:Xst:2677 - Node <mems_spi_master/data_out_q_0> of sequential type is unc
 WARNING:Xst:2677 - Node <mems_spi_master/new_data_q> of sequential type is unconnected in block <mojo_top_0>.
 WARNING:Xst:1710 - FF/Latch <tdc_control_2/Byte_countr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tdc_control_2/Byte_countr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tdc_control_1/Byte_countr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tdc_control_1/Byte_countr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tdc_control/Byte_countr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <tdc_control/Byte_countr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control_2/delta_C_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control_2/delta_C_q_6> has a constant value of 1 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control_2/delta_C_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control_2/delta_C_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control_2/delta_A_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control/delta_C_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control/delta_C_q_6> has a constant value of 1 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control/delta_C_q_5> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control/delta_C_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <mems_control/delta_A_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_B_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_B_q_1> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_B_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_B_q_2> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_B_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_B_q_3> 
@@ -1148,16 +1147,20 @@ INFO:Xst:2261 - The FF/Latch <mems_control_2/ch_state_q_FSM_FFd1> in Unit <mojo_
 INFO:Xst:2261 - The FF/Latch <mems_control_2/ch_state_q_FSM_FFd2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/ch_state_q_FSM_FFd2> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/start_q> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/start_q> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/mosi_q> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/mosi_q> 
+INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_C_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_C_q_1> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_0> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_C_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_C_q_2> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_1> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_C_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_C_q_3> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_2> 
+INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_C_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_C_q_4> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_3> 
+INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_C_q_5> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_C_q_5> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_4> 
-INFO:Xst:2261 - The FF/Latch <mems_control/mems_rom/data_q_10> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control_2/mems_rom/data_q_10> 
+INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_C_q_6> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_C_q_6> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_5> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_5> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_10> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_10> 
+INFO:Xst:2261 - The FF/Latch <mems_control/mems_rom/data_q_10> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control_2/mems_rom/data_q_10> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/state_q_FSM_FFd1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/state_q_FSM_FFd1> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_6> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_6> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_11> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_11> 
@@ -1186,16 +1189,17 @@ INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_17> in Unit <mojo_top_0> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_22> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_22> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_23> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_23> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_18> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_18> 
+INFO:Xst:2261 - The FF/Latch <mems_control/mems_rom/data_q_19> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control_2/mems_rom/data_q_19> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/data_q_19> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/data_q_19> 
 INFO:Xst:2261 - The FF/Latch <mems_control/mems_rom/data_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control_2/mems_rom/data_q_0> 
-INFO:Xst:2261 - The FF/Latch <mems_control/mems_rom/data_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control_2/mems_rom/data_q_4> 
+INFO:Xst:2261 - The FF/Latch <mems_control/mems_rom/data_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control_2/mems_rom/data_q_1> 
 INFO:Xst:2261 - The FF/Latch <mems_control/mems_rom/data_q_8> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control_2/mems_rom/data_q_8> 
 INFO:Xst:2261 - The FF/Latch <mems_control/mems_rom/data_q_9> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control_2/mems_rom/data_q_9> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/state_q_FSM_FFd1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/state_q_FSM_FFd1> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/state_q_FSM_FFd2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/state_q_FSM_FFd2> 
 INFO:Xst:2261 - The FF/Latch <mems_spi_master_2/state_q_FSM_FFd3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_spi_master/state_q_FSM_FFd3> 
-INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_D_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_D_q_0> 
-INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_D_q_1> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <mems_control_2/delta_C_q_1> <mems_control/delta_D_q_1> <mems_control/delta_C_q_1> 
+INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_D_q_0> in Unit <mojo_top_0> is equivalent to the following 3 FFs/Latches, which will be removed : <mems_control_2/delta_C_q_0> <mems_control/delta_D_q_0> <mems_control/delta_C_q_0> 
+INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_D_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_D_q_1> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_D_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_D_q_2> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_D_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_D_q_3> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_D_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_D_q_4> 
@@ -1219,24 +1223,21 @@ INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_A_q_3> in Unit <mojo_top_0> i
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_A_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_A_q_4> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_A_q_5> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_A_q_5> 
 INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_A_q_6> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_A_q_6> 
-INFO:Xst:2261 - The FF/Latch <mems_control_2/delta_A_q_7> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_control/delta_A_q_7> 
-INFO:Xst:3203 - The FF/Latch <mems_control_2/delta_D_q_0> in Unit <mojo_top_0> is the opposite to the following 2 FFs/Latches, which will be removed : <mems_control_2/delta_C_q_0> <mems_control/delta_C_q_0> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 21.
 FlipFlop mems_spi_master_2/state_q_FSM_FFd2 has been replicated 1 time(s)
-FlipFlop tdc_control_1/addr_q_1 has been replicated 1 time(s)
-FlipFlop tdc_control_1/state_q_FSM_FFd1 has been replicated 1 time(s)
-FlipFlop tdc_control_1/state_q_FSM_FFd2 has been replicated 1 time(s)
-FlipFlop tdc_control_1/state_q_FSM_FFd4 has been replicated 1 time(s)
+FlipFlop tdc_control/addr_q_0 has been replicated 1 time(s)
+FlipFlop tdc_control/addr_q_2 has been replicated 1 time(s)
+FlipFlop tdc_control/state_q_FSM_FFd2 has been replicated 1 time(s)
+FlipFlop tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
 FlipFlop tdc_control_2/addr_q_0 has been replicated 1 time(s)
-FlipFlop tdc_control_2/addr_q_1 has been replicated 1 time(s)
+FlipFlop tdc_control_2/addr_q_2 has been replicated 1 time(s)
 FlipFlop tdc_control_2/state_q_FSM_FFd2 has been replicated 1 time(s)
 FlipFlop tdc_control_2/state_q_FSM_FFd4 has been replicated 1 time(s)
-FlipFlop tdc_spi_master/state_q_FSM_FFd2 has been replicated 2 time(s)
-FlipFlop tdc_spi_master/state_q_FSM_FFd3 has been replicated 1 time(s)
-FlipFlop tdc_spi_master_2/state_q_FSM_FFd2 has been replicated 2 time(s)
+FlipFlop tdc_spi_master/state_q_FSM_FFd2 has been replicated 1 time(s)
+FlipFlop tdc_spi_master_2/state_q_FSM_FFd2 has been replicated 1 time(s)
 FlipFlop tdc_spi_master_2/state_q_FSM_FFd3 has been replicated 1 time(s)
 
 Final Macro Processing ...
@@ -1245,8 +1246,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 730
- Flip-Flops                                            : 730
+# Registers                                            : 731
+ Flip-Flops                                            : 731
 
 =========================================================================
 
@@ -1270,7 +1271,7 @@ Clock Information:
 -----------------------------------+------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)        | Load  |
 -----------------------------------+------------------------------+-------+
-clk                                | BUFGP                        | 778   |
+clk                                | BUFGP                        | 779   |
 main_control/state_q_0             | NONE(main_control/soft_reset)| 1     |
 -----------------------------------+------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -1283,8 +1284,8 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 6.398ns (Maximum Frequency: 156.298MHz)
-   Minimum input arrival time before clock: 5.953ns
+   Minimum period: 6.435ns (Maximum Frequency: 155.399MHz)
+   Minimum input arrival time before clock: 5.949ns
    Maximum output required time after clock: 6.187ns
    Maximum combinational path delay: 6.005ns
 

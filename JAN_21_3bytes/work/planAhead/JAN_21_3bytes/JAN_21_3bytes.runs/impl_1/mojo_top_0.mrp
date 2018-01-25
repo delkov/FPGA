@@ -8,23 +8,23 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Sun Jan 21 02:32:00 2018
+Mapped Date    : Sun Jan 21 07:46:06 2018
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    0
 Slice Logic Utilization:
-  Number of Slice Registers:                   726 out of  11,440    6%
-    Number used as Flip Flops:                 725
+  Number of Slice Registers:                   727 out of  11,440    6%
+    Number used as Flip Flops:                 726
     Number used as Latches:                      1
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      1,066 out of   5,720   18%
-    Number used as logic:                      869 out of   5,720   15%
-      Number using O6 output only:             581
-      Number using O5 output only:              78
-      Number using O5 and O6:                  210
+  Number of Slice LUTs:                      1,086 out of   5,720   18%
+    Number used as logic:                      889 out of   5,720   15%
+      Number using O6 output only:             600
+      Number using O5 output only:              83
+      Number using O5 and O6:                  206
       Number used as ROM:                        0
     Number used as Memory:                     192 out of   1,440   13%
       Number used as Dual Port RAM:            192
@@ -39,15 +39,15 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   365 out of   1,430   25%
-  Number of MUXCYs used:                       180 out of   2,860    6%
-  Number of LUT Flip Flop pairs used:        1,201
-    Number with an unused Flip Flop:           567 out of   1,201   47%
-    Number with an unused LUT:                 135 out of   1,201   11%
-    Number of fully used LUT-FF pairs:         499 out of   1,201   41%
+  Number of occupied Slices:                   366 out of   1,430   25%
+  Number of MUXCYs used:                       184 out of   2,860    6%
+  Number of LUT Flip Flop pairs used:        1,219
+    Number with an unused Flip Flop:           582 out of   1,219   47%
+    Number with an unused LUT:                 133 out of   1,219   10%
+    Number of fully used LUT-FF pairs:         504 out of   1,219   41%
     Number of unique control sets:              44
     Number of slice register sites lost
-      to control set restrictions:             106 out of  11,440    1%
+      to control set restrictions:              97 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -56,8 +56,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        38 out of     102   37%
-    Number of LOCed IOBs:                       27 out of      38   71%
+  Number of bonded IOBs:                        39 out of     102   38%
+    Number of LOCed IOBs:                       39 out of      39  100%
     IOB Flip Flops:                              5
 
 Specific Feature Utilization:
@@ -89,11 +89,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                4.48
+Average Fanout of Non-Clock Nets:                4.49
 
 Peak Memory Usage:  806 MB
-Total REAL time to MAP completion:  13 secs 
-Total CPU time to MAP completion (all processors):   13 secs 
+Total REAL time to MAP completion:  21 secs 
+Total CPU time to MAP completion (all processors):   20 secs 
 
 Table of Contents
 -----------------
@@ -138,9 +138,6 @@ INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
    1.260 Volts)
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
-INFO:Place:834 - Only a subset of IOs are locked. Out of 38 IOs, 27 are locked
-   and 11 are not locked. If you would like to print the names of these IOs,
-   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
@@ -160,8 +157,8 @@ VCC 		avr_interface/cclk_detector/XST_VCC
 GND 		main_control/XST_GND
 GND 		mems_control_2/XST_GND
 VCC 		mems_control_2/XST_VCC
-GND 		tdc_control_1/XST_GND
-VCC 		tdc_control_1/XST_VCC
+GND 		tdc_control/XST_GND
+VCC 		tdc_control/XST_VCC
 GND 		tdc_control_2/XST_GND
 VCC 		tdc_control_2/XST_VCC
 
@@ -193,6 +190,7 @@ Section 6 - IOB Properties
 | avr_tx                             | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
 | cclk                               | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | clk                                | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f2_ENABLE                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | f2_MEMS_CS                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | f2_MEMS_FCLK                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
 | f2_MEMS_MOSI                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |

@@ -6,6 +6,8 @@ module main_control_2 (
     input new_rx_data,
     // OUTPUT
     output tdc_enable, // used after powe_on, from LOW to HIGH to TDC
+    output f2_tdc_enable, // used after powe_on, from LOW to HIGH to TDC
+    
     output soft_reset, // flag to make TDC soft reset
     output pause
   );
@@ -24,6 +26,7 @@ module main_control_2 (
   reg tdc_enable_d, tdc_enable_q;
   reg [19:0] countr_d, countr_q; // to count ud to 2ms approx, 1.7ms is needed for booting TDC
 
+  assign f2_tdc_enable = tdc_enable_q;
   assign tdc_enable = tdc_enable_q;
   assign pause = pause_q;
 

@@ -7,6 +7,7 @@ module mems_control_6 (
     input mems_soft_reset,
     input new_frame_FIFO_done,
     input new_line_FIFO_done,
+
     // OUTPUT
     output mems_SPI_start,
     output [23:0] data_miso,
@@ -27,12 +28,12 @@ module mems_control_6 (
   CH_D = 2'd3;
 
   // FOR 1 AXES
-  localparam UP_LIMIT = 8'd161; // max is 140, Pk-Pk 129, Avg 79
-  localparam DOWN_LIMIT = 8'd21;
+  localparam UP_LIMIT = 8'd122; // 161, max is 140, Pk-Pk 129, Avg 79
+  localparam DOWN_LIMIT = 8'd62; // 21,
 
   // FOR 2 AXES
-  localparam UP_LIMIT_2 = 8'd75; // 
-  localparam DOWN_LIMIT_2 = 8'd70;
+  localparam UP_LIMIT_2 = 8'd122; // 
+  localparam DOWN_LIMIT_2 = 8'd62;
 
   reg [STATE_SIZE-1:0] state_d, state_q;
   reg [CH_STATE_SIZE-1:0] ch_state_d, ch_state_q;
@@ -140,8 +141,6 @@ module mems_control_6 (
                         if (delta_A_q > UP_LIMIT) begin // new_line
                           delta_A_d = DOWN_LIMIT;
                           delta_B_d = UP_LIMIT;
-
-
 
 
 

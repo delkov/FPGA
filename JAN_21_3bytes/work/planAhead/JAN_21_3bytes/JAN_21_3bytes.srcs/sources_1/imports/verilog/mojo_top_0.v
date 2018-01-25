@@ -6,6 +6,7 @@ module mojo_top_0(
   input SERIAL_IN,
 
   output ENABLE,
+  output f2_ENABLE,
   
   // AVR 
   input cclk,
@@ -92,7 +93,7 @@ module mojo_top_0(
   localparam BAUD_RATE_SPEED=4000000; // in Hz, CAN BE ANY
 
   // OTHER
-  localparam SHOOTING_FREQUENCY=50; // in Hz, CAN BE ANY
+  localparam SHOOTING_FREQUENCY=300; // in Hz, CAN BE ANY
     
   // CONVERTED PARAMS  
   localparam FCLK_FREQUENCY_PARAM=MOJO_FREQUENCY/FCLK_FREQUENCY; 
@@ -108,6 +109,8 @@ module mojo_top_0(
   wire rst = ~rst_n; // make reset active high
   wire soft_reset;
   wire ENABLE; // enable both for TDC & MEMS
+  wire f2_ENABLE; // enable both for TDC & MEMS
+  
   wire pause; // to control play/pause
 
   // MY AVR
@@ -122,7 +125,6 @@ module mojo_top_0(
   wire [7:0] rx_data;
   wire new_rx_data;
   
-
   // MEMS_1
   wire mems_SPI_start;
   wire mems_SPI_busy;
@@ -132,13 +134,13 @@ module mojo_top_0(
   wire f2_mems_SPI_busy;
   wire [23:0] f2_data_miso;
   
-  // F1
+  // TDC_1
   wire tdc_SPI_start;
   wire [7:0] tdc_data_in;
   wire tdc_SPI_busy;
   wire [7:0] tdc_data_out;
   wire CS_END;
-  // F2
+  // TDC_2
   wire f2_tdc_SPI_start;
   wire [7:0] f2_tdc_data_in;
   wire f2_tdc_SPI_busy;
@@ -165,7 +167,6 @@ module mojo_top_0(
   wire f6_FIFO_writing_done;
 
   // fake MEMS
-  // wire new_line;
   wire f1_new_line;
   wire f2_new_line;
   wire f3_new_line;
@@ -173,7 +174,6 @@ module mojo_top_0(
   wire f5_new_line;
   wire f6_new_line;
 
-  // wire new_frame;
   wire f1_new_frame;
   wire f2_new_frame;
   wire f3_new_frame;
@@ -181,7 +181,6 @@ module mojo_top_0(
   wire f5_new_frame;
   wire f6_new_frame;
   
-  // wire new_line_FIFO_done;
   wire f1_new_line_FIFO_done;
   wire f2_new_line_FIFO_done;
   wire f3_new_line_FIFO_done;
@@ -189,7 +188,6 @@ module mojo_top_0(
   wire f5_new_line_FIFO_done;
   wire f6_new_line_FIFO_done;
   
-  // wire new_frame_FIFO_done;
   wire f1_new_frame_FIFO_done;
   wire f2_new_frame_FIFO_done;
   wire f3_new_frame_FIFO_done;
@@ -233,6 +231,7 @@ module mojo_top_0(
     
     // OUTPUT
     .tdc_enable(ENABLE), // using from low to high
+    .f2_tdc_enable(f2_ENABLE), // using from low to high
     .soft_reset(soft_reset),
     .pause(pause) // global pause
   );
@@ -306,7 +305,7 @@ module mojo_top_0(
   );
 
 
-  tdc_control_4 #(.SHOOTING_PARAM(SHOOTING_PARAM)) tdc_control_1 (
+  tdc_control_4 #(.SHOOTING_PARAM(SHOOTING_PARAM)) tdc_control (
     // INPUT
     .clk(clk),
     .rst(rst),
@@ -349,9 +348,6 @@ module mojo_top_0(
     .data_TO_FIFO(f2_din)
   );
 
-
-
-  
   // 3 for 6 MHz
   tdc_spi_master_5 #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) tdc_spi_master(
     // INPUT
@@ -371,7 +367,6 @@ module mojo_top_0(
     .CS(TDC_CS)
   );
   
-
   tdc_spi_master_5 #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) tdc_spi_master_2(
     // INPUT
     .clk(clk),
@@ -389,7 +384,6 @@ module mojo_top_0(
     .new_data(f2_tdc_SPI_new_data),
     .CS(f2_TDC_CS)
   );
-
 
   mems_control_6 mems_control (
     // INPUT
@@ -427,8 +421,7 @@ module mojo_top_0(
     .new_frame(f2_new_frame)
   );
 
-
-  // 7 is 16 ms, 10 - 140ms, 4 is 2ms
+  // MEMS_1, 7 is 16 ms, 10 - 140ms, 4 is 2ms
   mems_spi_7 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) mems_spi_master(
     // INPUT
     .clk(clk),
@@ -446,7 +439,7 @@ module mojo_top_0(
     .CS(MEMS_CS)
   );
 
-
+  // MEMS_2
   mems_spi_7 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) mems_spi_master_2(
     // INPUT
     .clk(clk),
@@ -464,8 +457,7 @@ module mojo_top_0(
     .CS(f2_MEMS_CS)
   );
 
-
-  // TDC_1  REF clock, 12.5 MHz
+  // TDC_1  REF_CLOCK, 12.5 MHz
   my_clk_8 #(.CLK_DIV(TDC_REF_PARAM)) tdc_ref_clk (
    // INPUT
    .clk(clk),
@@ -475,7 +467,7 @@ module mojo_top_0(
    .my_clk(TDC_REF_CLOCK)
   ); 
 
-  // TDC_2 REF clock, 12.5 MHz
+  // TDC_2 REF_CLOCK
   my_clk_8 #(.CLK_DIV(TDC_REF_PARAM)) tdc_ref_clk_2 (
    // INPUT
    .clk(clk),
@@ -484,7 +476,6 @@ module mojo_top_0(
    // OUTPUT
    .my_clk(f2_TDC_REF_CLOCK)
   ); 
-
 
   // MEMS_1 FCLK, 10 KHz
   my_clk_9 #(.CLK_DIV(FCLK_FREQUENCY_PARAM)) FCLK (
