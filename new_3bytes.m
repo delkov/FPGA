@@ -12,14 +12,16 @@ function main()
     %% CONSTANT
     counter=0;  
 
+    frame_reversed=false;
+
     % GLOBAL
-    color=[0 200];
+    color=[0 60];
     show_colorbar = 0;
     show_separated_lines = 1;
 
     %X1
-    maximum_x_points_1= 400; % make it bigger 5% 
-    maximum_y_points_1= 200; % make it bigger 5%
+    maximum_x_points_1= 150; % make it bigger 5% 
+    maximum_y_points_1= 10; % make it bigger 5%
     temp_row_1=1;%maximum_y_points;
     
     len_1_before=0;
@@ -27,8 +29,8 @@ function main()
     redraw_1=false;
     
     %X2
-    maximum_x_points_2= 400; % make it bigger 5% 
-    maximum_y_points_2= 200; % make it bigger 5%
+    maximum_x_points_2= 150; % make it bigger 5% 
+    maximum_y_points_2= 10; % make it bigger 5%
     temp_row_2=1;
 
     len_2_before=0;
@@ -93,7 +95,10 @@ function main()
         h=figure('ToolBar','none','units','normalized','outerposition',[0 0 1 1]);
         % cla
         ax = axes('Parent', h);
-        [ha, pos] = tight_subplot(1,4,[0 0],[.01 .01],[.01 .01]);
+        [ha, pos] = tight_subplot(1,2,[0 0],[.01 .01],[.01 .01]);
+
+
+
 
         axes(ha(1));
         pl(1)=imagesc(M_1,[color(1) color(2)]);
@@ -107,17 +112,17 @@ function main()
             axis off;
         end
 
-        axes(ha(3));
-        pl(3)=imagesc(M_3,[color(1) color(2)]);
-        if (~show_separated_lines)
-            axis off;
-        end
+        % axes(ha(3));
+        % pl(3)=imagesc(M_3,[color(1) color(2)]);
+        % if (~show_separated_lines)
+        %     axis off;
+        % end
 
-        axes(ha(4));
-        pl(4)=imagesc(M_4,[color(1) color(2)]);
-        if (~show_separated_lines)
-            axis off;
-        end
+        % axes(ha(4));
+        % pl(4)=imagesc(M_4,[color(1) color(2)]);
+        % if (~show_separated_lines)
+        %     axis off;
+        % end
         
         % axes(ha(5));
         % pl(5)=imagesc(M_5,[color(1) color(2)]);
@@ -132,9 +137,9 @@ function main()
         % end
 
 
-        set(ha,'YTickLabel',[]) 
-        set(ha,'YTick',[])
-        set(ha,'XTick',[])
+        % set(ha,'YTickLabel',[]) 
+        % set(ha,'YTick',[])
+        % set(ha,'XTick',[])
 
         if (show_colorbar)
             colorbar;
@@ -155,21 +160,19 @@ function main()
         ser_list=seriallist();
         serial_port=ser_list(1);
         % getting data by bytes, so 8 bits
-        s = serial(serial_port,'BaudRate',4000000,'DataBits',8,'InputBufferSize',500000); %20k is 6000 points * 8 byte each, so take 40k.
+        s = serial(serial_port,'BaudRate',1000000,'DataBits',8,'InputBufferSize',500000); %20k is 6000 points * 8 byte each, so take 40k.
         fopen(s);     
     end
 
     % start timer 
     start=tic;
 
-
-    while 1 %toc(start) < 1000
-
+    while toc(start) < 100
         if (s.BytesAvailable>7)
                 % disp('parallel is fine')
             % join with prev. left_out uint16 is fine, since calib2 ~ 27k
             out = [left_out; fread(s,s.BytesAvailable,'uint16')]; % both of them 16 bit -> it also 16bit; PREALLOCATED is not needed in such cases
-            out(1:4)
+            % out(1:4)
             % separate by good packages
             out_idx = find(0<out & out<7); % 6 susbs we have
             first_byte_position = min(out_idx);
@@ -222,31 +225,11 @@ function main()
                 % disp('azaza')
             %     redraw_1=false;
             % end
-            % if (redraw_2==true)
-            %     drawnow;
-            %     redraw_2=false;
-            % end
-            % if (redraw_3==true)
-            %     drawnow;
-            %     redraw_3=false;
-            % end
-            % if (redraw_4==true)
-            %     drawnow;
-            %     redraw_4=false;
-            % end
-            % if (redraw_5==true)
-            %     drawnow;
-            %     redraw_5=false;
-            % end
-            % if (redraw_6==true)
-            %     drawnow;
-            %     redraw_6=false;
-            % end
 
             % X1();
             X2();
-            X3();
-            X4();
+            % X3();
+            % X4();
             % X5();
             % X6();
             % if (redraw_1==true)
@@ -255,26 +238,29 @@ function main()
             %     redraw_1=false;
             % end
 
-            if (redraw_2==true)
-                drawnow;
-                disp('frame_2')
-
+            % reversed=false;
+            if (redraw_2==true) 
+                % disp('frame_2')
+                counter=counter+1
                 redraw_2=false;
-            end
 
-            if (redraw_3==true)
+
                 drawnow;
-                disp('frame_3')
-
-                redraw_3=false;
             end
 
-            if (redraw_4==true)
-                drawnow;
-                disp('frame_4')
+            % if (redraw_3==true)
+            %     drawnow;
+            %     disp('frame_3')
 
-                redraw_4=false;
-            end
+            %     redraw_3=false;
+            % end
+
+            % if (redraw_4==true)
+            %     drawnow;
+            %     disp('frame_4')
+
+            %     redraw_4=false;
+            % end
 
             % if ( (redraw_1 == true) & (redraw_2 ==true) & (redraw_3 ==true) )% & redraw_2 & redraw_3 & redraw_4 & redraw_5 & redraw_6)
             %     drawnow;
@@ -298,9 +284,10 @@ function main()
         end % if buffer is not empty
     end % while 1
     
-    disp(['FPS is ', num2str(counter/1000)]);
+
+    disp(['FPS is ', num2str(counter/10)]);
     disp(['Matrix is ',  num2str(length(A_sep{2})/2) 'x' num2str(len)  ]);
-    disp(['Total points/s ',  num2str(counter/1000*len*length(A_sep{2})/2) ]);
+    disp(['Total points/s ',  num2str(counter/10*len*length(A_sep{2})/2) ]);
     
     
     %% NESTED FUNCTION (SINCE SHARED MEMOTY, MATLAB DOENST HAVE POINTERS! ONLY IN MEX type..)    
@@ -431,37 +418,125 @@ function main()
                 % clean_new_lines(1)
                 % SOME TIMES ERROR HERE!! because clean_new_lines can be 1x0. FIXED!!!
                 A_sep{1}=A_2(1:clean_new_lines(1)-2); % process first line, outside loop, since start from 1, but not new_lines
+                
+                % reversed = 1;
                 for i=2:len % if <1 not processing.
+
+                    % if (reversed)
+                    %     A_sep{i} = A_2(clean_new_lines(i)-2:-1:clean_new_lines(i-1)+2);
+                    % else
+                    %     A_sep{i} = A_2(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
+                    % end
+
+                    % reversed = ~reversed;
+
                     A_sep{i} = A_2(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
+                
+
+
                 end
                 zero_index=find(A_2==0,1,'first')-1;
-                
-
-                % clean_new_lines(len)+2
-                % zero_index
-                
-
                 A_sep{len+1}=A_2(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
                 
-                for i=1:len+1
-                    size_A_sepi=length(A_sep{i})/3;
-                    for j=1:size_A_sepi
-                        if (A_sep{i}(3*(j-1)+1)==0)
-                            M_2(temp_row_2,j)=250;
-                        else
-                            % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                            try
-                                M_2(temp_row_2, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
-                            catch
-                                disp('wasted M_2');
-                            end % try
-                        end
-                    end
-                    temp_row_2=temp_row_2+1; % next line
-                end  % for i
-                temp_row_2=1;
+
+
+
+                line_reversed=true; % since first line is not reversed
+                
+
+
+                if (frame_reversed)
+                % loop for all lines
+                    for i=1:len+1
+                        size_A_sepi=length(A_sep{i})/3;
+                        
+                        for j=1:size_A_sepi
+
+                            if (~line_reversed) % if not reversed
+                                % disp('not reversed')
+                                if (A_sep{i}(3*(j-1)+1)==0)
+                                    M_2(temp_row_2,j)=250;
+                                else
+                                    % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
+                                    try
+                                        M_2(temp_row_2, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
+                                    catch
+                                        disp('wasted M_2');
+                                    end % try
+                                end     
+                            else   % if reversed
+                                % disp('reversed')
+                                if (A_sep{i}(3*(j-1)+1)==0)
+                                    M_2(temp_row_2,size_A_sepi+1-j)=250;
+                                else
+                                    % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
+                                    try
+                                        M_2(temp_row_2, size_A_sepi+1-j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
+                                    catch
+                                        disp('wasted M_2');
+                                    end % try
+                                end 
+                            end % reversed
+                        
+
+                        end % for j
+
+                        line_reversed=~line_reversed; % change polarity
+                        temp_row_2=temp_row_2+1; % next line
+                    end  % for i
+                    temp_row_2=1;
+                else
+                    for i=len+1:-1:1
+                        size_A_sepi=length(A_sep{i})/3;
+                        
+                        for j=1:size_A_sepi
+
+                            if (~line_reversed) % if not reversed
+
+                                if (A_sep{i}(3*(j-1)+1)==0)
+                                    M_2(temp_row_2,j)=250;
+                                else
+                                    % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
+                                    try
+                                        M_2(temp_row_2, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
+                                    catch
+                                        disp('wasted M_2');
+                                    end % try
+                                end     
+                            else   % if reversed
+                                if (A_sep{i}(3*(j-1)+1)==0)
+                                    M_2(temp_row_2,size_A_sepi+1-j)=250;
+                                else
+                                    % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
+                                    try
+                                        M_2(temp_row_2, size_A_sepi+1-j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
+                                    catch
+                                        disp('wasted M_2');
+                                    end % try
+                                end 
+                            end % reversed
+                        
+
+                        end % for j
+
+                        line_reversed=~line_reversed; % change polarity
+                        temp_row_2=temp_row_2+1; % next line
+                    end  % for i
+                    temp_row_2=1;
+                end % frame reversed
+                frame_reversed=~frame_reversed;
+
             end % len ~=0
             %%% END SEPARATION %%%
+
+
+
+
+                % M_2=flipud(M_2);
+                % M_2=M_2(end:-1:1,:);
+            % end
+
+
 
             set(pl(2),'CData',M_2);
             redraw_2=true;    
@@ -482,186 +557,190 @@ function main()
             len_2_before=len_2_full-len_2;
             new_frame_2_idx=0;
         end % new_frame_2
+
+
+
+
     end % function X2
 
 
-    function X3()
-        find_3_all_idx = find(good_out==3); % find indexes of all points 
+    % function X3()
+    %     find_3_all_idx = find(good_out==3); % find indexes of all points 
 
-        if (new_frame_3_idx == 0) % no new frame for sub_3
-            len_3 = length(find_3_all_idx); % how many points in this package
-            % fill array from last good_out
-            for i=len_3_before+1:len_3_before+len_3
-                A_3(3*i-2:3*i) = good_out(find_3_all_idx(i-len_3_before):find_3_all_idx(i-len_3_before)+2);
-            end
-            len_3_before=len_3_before+len_3;
+    %     if (new_frame_3_idx == 0) % no new frame for sub_3
+    %         len_3 = length(find_3_all_idx); % how many points in this package
+    %         % fill array from last good_out
+    %         for i=len_3_before+1:len_3_before+len_3
+    %             A_3(3*i-2:3*i) = good_out(find_3_all_idx(i-len_3_before):find_3_all_idx(i-len_3_before)+2);
+    %         end
+    %         len_3_before=len_3_before+len_3;
         
-        else % we have new frame, so first fill before new_line ant htne after new_line
-            len_3=find(find_3_all_idx==new_frame_3_idx)-1; % how many points until new frame
-            for i=len_3_before+1:len_3_before+len_3
-                A_3(3*i-2:3*i) = good_out(find_3_all_idx(i-len_3_before):find_3_all_idx(i-len_3_before)+2);
-            end
+    %     else % we have new frame, so first fill before new_line ant htne after new_line
+    %         len_3=find(find_3_all_idx==new_frame_3_idx)-1; % how many points until new frame
+    %         for i=len_3_before+1:len_3_before+len_3
+    %             A_3(3*i-2:3*i) = good_out(find_3_all_idx(i-len_3_before):find_3_all_idx(i-len_3_before)+2);
+    %         end
     
-            % SEPARATE
-            new_lines=find(A_3==13);
-            len=length(new_lines)/2;
-            if (len~=0) % sometimes we can read only new frame, without new_line
-                % disp('len_new_lines')
-                % remove last 2 digits from 13 13 13
-                clean_new_lines=zeros(1,len,'uint32');
-                for i=1:len
-                    clean_new_lines(i)=new_lines(2*i-1);
-                end
+    %         % SEPARATE
+    %         new_lines=find(A_3==13);
+    %         len=length(new_lines)/2;
+    %         if (len~=0) % sometimes we can read only new frame, without new_line
+    %             % disp('len_new_lines')
+    %             % remove last 2 digits from 13 13 13
+    %             clean_new_lines=zeros(1,len,'uint32');
+    %             for i=1:len
+    %                 clean_new_lines(i)=new_lines(2*i-1);
+    %             end
         
-                %% ASSUME, that row cannot start from new line !!!
-                A_sep=cell(1,len+1); % preallocated memory, carefull size
+    %             %% ASSUME, that row cannot start from new line !!!
+    %             A_sep=cell(1,len+1); % preallocated memory, carefull size
         
-                % clean_new_lines(1)
-                % SOME TIMES ERROR HERE!! because clean_new_lines can be 1x0. FIXED!!!
-                A_sep{1}=A_3(1:clean_new_lines(1)-2); % process first line, outside loop, since start from 1, but not new_lines
-                for i=2:len % if <1 not processing.
-                    A_sep{i} = A_3(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
-                end
-                zero_index=find(A_3==0,1,'first')-1;
-                A_sep{len+1}=A_3(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
+    %             % clean_new_lines(1)
+    %             % SOME TIMES ERROR HERE!! because clean_new_lines can be 1x0. FIXED!!!
+    %             A_sep{1}=A_3(1:clean_new_lines(1)-2); % process first line, outside loop, since start from 1, but not new_lines
+    %             for i=2:len % if <1 not processing.
+    %                 A_sep{i} = A_3(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
+    %             end
+    %             zero_index=find(A_3==0,1,'first')-1;
+    %             A_sep{len+1}=A_3(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
                 
-                % for i=1:length(A_sep)
-                %    A_sep{i}
-                % end
+    %             % for i=1:length(A_sep)
+    %             %    A_sep{i}
+    %             % end
                 
-                for i=1:len+1
-                    size_A_sepi=length(A_sep{i})/3;
-                    for j=1:size_A_sepi
-                        if (A_sep{i}(3*(j-1)+1)==0)
-                            M_3(temp_row_3,j)=250;
-                        else
-                            % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                            try
-                                M_3(temp_row_3, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
-                            catch
-                                disp('wasted M_3');
-                            end % try
-                        end
-                    end
-                    temp_row_3=temp_row_3+1; % next line
-                end  % for i
-                temp_row_3=1;
-            end % len ~=0
+    %             for i=1:len+1
+    %                 size_A_sepi=length(A_sep{i})/3;
+    %                 for j=1:size_A_sepi
+    %                     if (A_sep{i}(3*(j-1)+1)==0)
+    %                         M_3(temp_row_3,j)=250;
+    %                     else
+    %                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
+    %                         try
+    %                             M_3(temp_row_3, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
+    %                         catch
+    %                             disp('wasted M_3');
+    %                         end % try
+    %                     end
+    %                 end
+    %                 temp_row_3=temp_row_3+1; % next line
+    %             end  % for i
+    %             temp_row_3=1;
+    %         end % len ~=0
 
-            % END SEPARATE
+    %         % END SEPARATE
 
-            set(pl(3),'CData',M_3);
-            redraw_3=true;    
+    %         set(pl(3),'CData',M_3);
+    %         redraw_3=true;    
 
-            %% Previous frame is done -> A_3 is complete -> prcess it
-            M_3=zeros(maximum_y_points_3,maximum_x_points_3,'uint8');
-            % disp('new frame 1')
-            A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,'uint32'); % +1 since new line saved in this array
-            % class(A_3)
+    %         %% Previous frame is done -> A_3 is complete -> prcess it
+    %         M_3=zeros(maximum_y_points_3,maximum_x_points_3,'uint8');
+    %         % disp('new frame 1')
+    %         A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,'uint32'); % +1 since new line saved in this array
+    %         % class(A_3)
 
-            % fill array, which after new frame
-            len_3_full=length(find_3_all_idx); % all points
-            len_3=find(find_3_all_idx==new_frame_3_idx);
-            for i=1:len_3_full-len_3
-                A_3(3*i-2:3*i) = good_out(find_3_all_idx(i+len_3):find_3_all_idx(i+len_3)+2);
-            end
+    %         % fill array, which after new frame
+    %         len_3_full=length(find_3_all_idx); % all points
+    %         len_3=find(find_3_all_idx==new_frame_3_idx);
+    %         for i=1:len_3_full-len_3
+    %             A_3(3*i-2:3*i) = good_out(find_3_all_idx(i+len_3):find_3_all_idx(i+len_3)+2);
+    %         end
     
-            len_3_before=len_3_full-len_3;
-            new_frame_3_idx=0;
-        end % new_frame_3
+    %         len_3_before=len_3_full-len_3;
+    %         new_frame_3_idx=0;
+    %     end % new_frame_3
 
-    end % function X3
+    % end % function X3
 
 
-    function X4()
-        find_4_all_idx = find(good_out==4); % find indexes of all points 
+    % function X4()
+    %     find_4_all_idx = find(good_out==4); % find indexes of all points 
 
-        if (new_frame_4_idx == 0) % no new frame for sub_4
-            len_4 = length(find_4_all_idx); % how many points in this package
-            % fill array from last good_out
-            for i=len_4_before+1:len_4_before+len_4
-                A_4(3*i-2:3*i) = good_out(find_4_all_idx(i-len_4_before):find_4_all_idx(i-len_4_before)+2);
-            end
-            len_4_before=len_4_before+len_4;
+    %     if (new_frame_4_idx == 0) % no new frame for sub_4
+    %         len_4 = length(find_4_all_idx); % how many points in this package
+    %         % fill array from last good_out
+    %         for i=len_4_before+1:len_4_before+len_4
+    %             A_4(3*i-2:3*i) = good_out(find_4_all_idx(i-len_4_before):find_4_all_idx(i-len_4_before)+2);
+    %         end
+    %         len_4_before=len_4_before+len_4;
         
-        else % we have new frame, so first fill before new_line ant htne after new_line
-            len_4=find(find_4_all_idx==new_frame_4_idx)-1; % how many points until new frame
-            for i=len_4_before+1:len_4_before+len_4
-                A_4(3*i-2:3*i) = good_out(find_4_all_idx(i-len_4_before):find_4_all_idx(i-len_4_before)+2);
-            end
+    %     else % we have new frame, so first fill before new_line ant htne after new_line
+    %         len_4=find(find_4_all_idx==new_frame_4_idx)-1; % how many points until new frame
+    %         for i=len_4_before+1:len_4_before+len_4
+    %             A_4(3*i-2:3*i) = good_out(find_4_all_idx(i-len_4_before):find_4_all_idx(i-len_4_before)+2);
+    %         end
     
 
-            % SEPARATE
-            new_lines=find(A_4==13);
-            len=length(new_lines)/2;
-            if (len~=0) % sometimes we can read only new frame, without new_line
-                % disp('len_new_lines')
-                % remove last 2 digits from 13 13 13
-                clean_new_lines=zeros(1,len,'uint32');
-                for i=1:len
-                    clean_new_lines(i)=new_lines(2*i-1);
-                end
+    %         % SEPARATE
+    %         new_lines=find(A_4==13);
+    %         len=length(new_lines)/2;
+    %         if (len~=0) % sometimes we can read only new frame, without new_line
+    %             % disp('len_new_lines')
+    %             % remove last 2 digits from 13 13 13
+    %             clean_new_lines=zeros(1,len,'uint32');
+    %             for i=1:len
+    %                 clean_new_lines(i)=new_lines(2*i-1);
+    %             end
         
-                %% ASSUME, that row cannot start from new line !!!
-                A_sep=cell(1,len+1); % preallocated memory, carefull size
+    %             %% ASSUME, that row cannot start from new line !!!
+    %             A_sep=cell(1,len+1); % preallocated memory, carefull size
         
-                % clean_new_lines(1)
-                % SOME TIMES ERROR HERE!! because clean_new_lines can be 1x0. FIXED!!!
-                A_sep{1}=A_4(1:clean_new_lines(1)-2); % process first line, outside loop, since start from 1, but not new_lines
-                for i=2:len % if <1 not processing.
-                    A_sep{i} = A_4(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
-                end
-                zero_index=find(A_4==0,1,'first')-1;
-                A_sep{len+1}=A_4(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
+    %             % clean_new_lines(1)
+    %             % SOME TIMES ERROR HERE!! because clean_new_lines can be 1x0. FIXED!!!
+    %             A_sep{1}=A_4(1:clean_new_lines(1)-2); % process first line, outside loop, since start from 1, but not new_lines
+    %             for i=2:len % if <1 not processing.
+    %                 A_sep{i} = A_4(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
+    %             end
+    %             zero_index=find(A_4==0,1,'first')-1;
+    %             A_sep{len+1}=A_4(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
                 
-                % for i=1:length(A_sep)
-                %    A_sep{i}
-                % end
+    %             % for i=1:length(A_sep)
+    %             %    A_sep{i}
+    %             % end
                 
-                for i=1:len+1
-                    size_A_sepi=length(A_sep{i})/3;
-                    for j=1:size_A_sepi
-                        if (A_sep{i}(3*(j-1)+1)==0)
-                            M_4(temp_row_4,j)=250;
-                        else
-                            % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                            try
-                                M_4(temp_row_4, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
-                            catch
-                                disp('wasted M_4');
-                            end % try
-                        end
-                    end
-                    temp_row_4=temp_row_4+1; % next line
-                end  % for i
-                temp_row_4=1;
-            end % len ~=0
+    %             for i=1:len+1
+    %                 size_A_sepi=length(A_sep{i})/3;
+    %                 for j=1:size_A_sepi
+    %                     if (A_sep{i}(3*(j-1)+1)==0)
+    %                         M_4(temp_row_4,j)=250;
+    %                     else
+    %                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
+    %                         try
+    %                             M_4(temp_row_4, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
+    %                         catch
+    %                             disp('wasted M_4');
+    %                         end % try
+    %                     end
+    %                 end
+    %                 temp_row_4=temp_row_4+1; % next line
+    %             end  % for i
+    %             temp_row_4=1;
+    %         end % len ~=0
 
-            % SEPARATE
+    %         % SEPARATE
 
 
-            set(pl(4),'CData',M_4);
-            redraw_4=true;    
+    %         set(pl(4),'CData',M_4);
+    %         redraw_4=true;    
 
-            %% Previous frame is done -> A_4 is complete -> prcess it
-            M_4=zeros(maximum_y_points_4,maximum_x_points_4,'uint8');
-            % disp('new frame 1')
-            A_4=zeros(1,3*maximum_x_points_4*maximum_y_points_4,'uint32'); % +1 since new line saved in this array
-            % class(A_4)
+    %         %% Previous frame is done -> A_4 is complete -> prcess it
+    %         M_4=zeros(maximum_y_points_4,maximum_x_points_4,'uint8');
+    %         % disp('new frame 1')
+    %         A_4=zeros(1,3*maximum_x_points_4*maximum_y_points_4,'uint32'); % +1 since new line saved in this array
+    %         % class(A_4)
 
-            % fill array, which after new frame
-            len_4_full=length(find_4_all_idx); % all points
-            len_4=find(find_4_all_idx==new_frame_4_idx);
-            for i=1:len_4_full-len_4
-                A_4(3*i-2:3*i) = good_out(find_4_all_idx(i+len_4):find_4_all_idx(i+len_4)+2);
-            end
+    %         % fill array, which after new frame
+    %         len_4_full=length(find_4_all_idx); % all points
+    %         len_4=find(find_4_all_idx==new_frame_4_idx);
+    %         for i=1:len_4_full-len_4
+    %             A_4(3*i-2:3*i) = good_out(find_4_all_idx(i+len_4):find_4_all_idx(i+len_4)+2);
+    %         end
     
-            len_4_before=len_4_full-len_4;
-            new_frame_4_idx=0;
-        end % new_frame_4
+    %         len_4_before=len_4_full-len_4;
+    %         new_frame_4_idx=0;
+    %     end % new_frame_4
 
    
-    end
+    % end
 
 
 

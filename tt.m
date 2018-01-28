@@ -1,12 +1,14 @@
 clear; clc
 
+% dfdfd
+
 delete(instrfindall);
 if(~exist('s','Var'))
     ser_list=seriallist()
     serial_port=ser_list(1)
     % getting data by bytes, so 8 bits
     % 3.5Mhz is working!!
-    s = serial(serial_port,'BaudRate',4000000,'DataBits',8,'InputBufferSize',480000); %20k is 1250points * 4 byte each, so take 40k.
+    s = serial(serial_port,'BaudRate',1000000,'DataBits',8,'InputBufferSize',480000); %20k is 1250points * 4 byte each, so take 40k.
     fopen(s);     
 end
 
@@ -25,19 +27,20 @@ while 1
 
             out=fread(s,s.BytesAvailable,'uint16')
             % out(1)
+            % TOF()
             % separate by good packages
-            % out_idx = find(out<7); % 6 susbs we have
+            % out_idx = find(out<2); % 6 susbs we have
             % first_byte_position = min(out_idx);
             % last_byte_position = max(out_idx);
             
-            %probably 1 x or 1 x y11
+            % %probably 1 x or 1 x y11
             % left_out=out(last_byte_position:end); % uint16, since out is uint16
             
-            % totaly wright input, like 1 x y z
+            % % totaly wright input, like 1 x y z
             % good_out=out(first_byte_position:last_byte_position-1); % uint16
-            % disp([out(1) out(2) out(3)])
-            % A=TOF(out);
-            % A(1)
+            % % disp([out(1) out(2) out(3)])
+            % A=TOF(good_out);
+            % % A(1)
      end
 
      delay_ms(100);
@@ -51,7 +54,9 @@ function TOF_AR = TOF(A)%,CLK_PERIOD,CALIB_PERIODS)
         size_B=length(A)/3;
         TOF_AR=zeros(1,size_B);
         for i=1:1:size_B
-            TOF_AR(i)=10^9*(A(3*(i-1)+1)*80*10^-9*(10-1)/(A(3*(i-1)+3)-A(3*(i-1)+2))); % time offset & 0.15m
+            disp('mesurement')
+            TOF_AR(i)=(A(3*(i-1)+2)*80*(10-1))/(A(3*(i-1)+3)); % time offset & 0.15m
+(A(3*(i-1)+2)*80*(10-1))/(A(3*(i-1)+3))
            % TOF_AR(i)=(A(4*(i-1)+2)*80*(10-1))/(A(4*(i-1)+4)-A(4*(i-1)+3)); % time offset & 0.15m
              % 10^9*(A(4*(i-1)+2)*125*10^-9*(10-1)/(A(4*(i-1)+4)-A(4*(i-1)+3)))*0.15-2.9
         end
