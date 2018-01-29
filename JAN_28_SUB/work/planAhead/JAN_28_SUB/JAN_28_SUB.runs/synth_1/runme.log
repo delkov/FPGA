@@ -1,0 +1,133 @@
+
+*** Running xst
+    with args -ifn mojo_top_0.xst -ofn mojo_top_0.srp -intstyle ise
+
+Reading design: mojo_top_0.prj
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_rom_16.v" into library work
+Parsing module <tdc_rom_16>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/spi_slave_11.v" into library work
+Parsing module <spi_slave_11>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/serial_tx_13.v" into library work
+Parsing module <serial_tx_13>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/serial_tx_13.v" Line 14. parameter declaration becomes local in serial_tx_13 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/serial_tx2_14.v" into library work
+Parsing module <serial_tx2_14>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/serial_tx2_14.v" Line 17. parameter declaration becomes local in serial_tx2_14 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/serial_rx_12.v" into library work
+Parsing module <serial_rx_12>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/serial_rx_12.v" Line 12. parameter declaration becomes local in serial_rx_12 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mems_rom_17.v" into library work
+Parsing module <mems_rom_17>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/FIFO_15.v" into library work
+Parsing module <fifo_15>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/cclk_detector_10.v" into library work
+Parsing module <cclk_detector_10>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/cclk_detector_10.v" Line 10. parameter declaration becomes local in cclk_detector_10 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_spi_master_5.v" into library work
+Parsing module <tdc_spi_master_5>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_spi_master_5.v" Line 21. parameter declaration becomes local in tdc_spi_master_5 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" into library work
+Parsing module <tdc_control_4>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/my_clk_9.v" into library work
+Parsing module <my_clk_9>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/my_clk_9.v" Line 14. parameter declaration becomes local in my_clk_9 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/my_clk_8.v" into library work
+Parsing module <my_clk_8>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/my_clk_8.v" Line 14. parameter declaration becomes local in my_clk_8 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mems_spi_7.v" into library work
+Parsing module <mems_spi_7>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mems_spi_7.v" Line 20. parameter declaration becomes local in mems_spi_7 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mems_control_6.v" into library work
+Parsing module <mems_control_6>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/main_control_2.v" into library work
+Parsing module <main_control_2>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/fifo_manager_3.v" into library work
+Parsing module <fifo_manager_3>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/avr_interface_1.v" into library work
+Parsing module <avr_interface_1>.
+INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/avr_interface_1.v" Line 80. parameter declaration becomes local in avr_interface_1 with formal parameter declaration list
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
+Parsing module <mojo_top_0>.
+WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 281: Redeclaration of ansi port f2_new_line is not allowed
+WARNING:HDLCompiler:751 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 288: Redeclaration of ansi port f2_new_frame is not allowed
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+WARNING:HDLCompiler:1016 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 552: Port new_data is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 588: Port new_data is not connected to this instance
+
+Elaborating module <mojo_top_0>.
+
+Elaborating module <avr_interface_1>.
+
+Elaborating module <cclk_detector_10(CLK_RATE=50000000)>.
+
+Elaborating module <spi_slave_11>.
+
+Elaborating module <serial_rx_12(CLK_PER_BIT=100)>.
+
+Elaborating module <serial_tx_13(CLK_PER_BIT=100)>.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 325: Assignment to tx_busy ignored, since the identifier is never used
+
+Elaborating module <main_control_2>.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 340: Assignment to f1_ENABLE ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 342: Assignment to f3_ENABLE ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 343: Assignment to f4_ENABLE ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 344: Assignment to f5_ENABLE ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 345: Assignment to f6_ENABLE ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 347: Assignment to f1_soft_reset ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 349: Assignment to f3_soft_reset ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 350: Assignment to f4_soft_reset ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 351: Assignment to f5_soft_reset ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 352: Assignment to f6_soft_reset ignored, since the identifier is never used
+
+Elaborating module <fifo_manager_3(BAUD_RATE_PARAM=32'sb0110010,FIFO_WIDTH=5)>.
+
+Elaborating module <serial_tx2_14(CLK_PER_BIT=32'sb0110010)>.
+
+Elaborating module <fifo_15(FIFO_WIDTH=5)>.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/FIFO_15.v" Line 41: Result of 7-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/FIFO_15.v" Line 43: Result of 32-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/FIFO_15.v" Line 78: Result of 6-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/FIFO_15.v" Line 81: Result of 6-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 378: Assignment to f1_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 380: Assignment to f3_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 381: Assignment to f4_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 382: Assignment to f5_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 383: Assignment to f6_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 402: Assignment to f1_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 404: Assignment to f3_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 405: Assignment to f4_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 406: Assignment to f5_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 407: Assignment to f6_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 409: Assignment to f1_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 411: Assignment to f3_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 412: Assignment to f4_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 413: Assignment to f5_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 414: Assignment to f6_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 418: Assignment to tx_busy_TDC ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 419: Assignment to t_new_data_FROM_FIFO_TO_SERIAL ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 422: Assignment to FIFO_EMPTY ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 423: Assignment to FIFO_FULL ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 424: Assignment to t_rd_en ignored, since the identifier is never used
+
+Elaborating module <tdc_control_4(SHOOTING_PARAM=32'sb010011100010000)>.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 62: Result of 48-bit expression is truncated to fit in 32-bit target.
+
+Elaborating module <tdc_rom_16>.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 119: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 157: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 214: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 243: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 272: Result of 5-bit expression is truncated to fit in 4-bit target.
+
+Elaborating module <tdc_spi_master_5(CLK_DIV=32'sb01000)>.
+
+Elaborating module <mems_control_6>.
+
+Elaborating module <mems_rom_17>.

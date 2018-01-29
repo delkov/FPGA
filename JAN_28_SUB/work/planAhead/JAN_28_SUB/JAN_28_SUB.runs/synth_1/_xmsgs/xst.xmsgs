@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="751" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 281: Redeclaration of ansi port <arg fmt="%s" index="1">f2_new_line</arg> is not allowed
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="751" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 288: Redeclaration of ansi port <arg fmt="%s" index="1">f2_new_frame</arg> is not allowed
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 552: Port <arg fmt="%s" index="1">new_data</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 588: Port <arg fmt="%s" index="1">new_data</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 325: Assignment to <arg fmt="%s" index="1">tx_busy</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 340: Assignment to <arg fmt="%s" index="1">f1_ENABLE</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 342: Assignment to <arg fmt="%s" index="1">f3_ENABLE</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 343: Assignment to <arg fmt="%s" index="1">f4_ENABLE</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 344: Assignment to <arg fmt="%s" index="1">f5_ENABLE</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 345: Assignment to <arg fmt="%s" index="1">f6_ENABLE</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 347: Assignment to <arg fmt="%s" index="1">f1_soft_reset</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 349: Assignment to <arg fmt="%s" index="1">f3_soft_reset</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 350: Assignment to <arg fmt="%s" index="1">f4_soft_reset</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 351: Assignment to <arg fmt="%s" index="1">f5_soft_reset</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 352: Assignment to <arg fmt="%s" index="1">f6_soft_reset</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/FIFO_15.v" Line 41: Result of <arg fmt="%d" index="1">7</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">6</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/FIFO_15.v" Line 43: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">6</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/FIFO_15.v" Line 78: Result of <arg fmt="%d" index="1">6</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">5</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/FIFO_15.v" Line 81: Result of <arg fmt="%d" index="1">6</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">5</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 378: Assignment to <arg fmt="%s" index="1">f1_FIFO_writing_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 380: Assignment to <arg fmt="%s" index="1">f3_FIFO_writing_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 381: Assignment to <arg fmt="%s" index="1">f4_FIFO_writing_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 382: Assignment to <arg fmt="%s" index="1">f5_FIFO_writing_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 383: Assignment to <arg fmt="%s" index="1">f6_FIFO_writing_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 402: Assignment to <arg fmt="%s" index="1">f1_new_line_FIFO_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 404: Assignment to <arg fmt="%s" index="1">f3_new_line_FIFO_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 405: Assignment to <arg fmt="%s" index="1">f4_new_line_FIFO_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 406: Assignment to <arg fmt="%s" index="1">f5_new_line_FIFO_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 407: Assignment to <arg fmt="%s" index="1">f6_new_line_FIFO_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 409: Assignment to <arg fmt="%s" index="1">f1_new_frame_FIFO_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 411: Assignment to <arg fmt="%s" index="1">f3_new_frame_FIFO_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 412: Assignment to <arg fmt="%s" index="1">f4_new_frame_FIFO_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 413: Assignment to <arg fmt="%s" index="1">f5_new_frame_FIFO_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 414: Assignment to <arg fmt="%s" index="1">f6_new_frame_FIFO_done</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 418: Assignment to <arg fmt="%s" index="1">tx_busy_TDC</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 419: Assignment to <arg fmt="%s" index="1">t_new_data_FROM_FIFO_TO_SERIAL</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 422: Assignment to <arg fmt="%s" index="1">FIFO_EMPTY</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 423: Assignment to <arg fmt="%s" index="1">FIFO_FULL</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 424: Assignment to <arg fmt="%s" index="1">t_rd_en</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 62: Result of <arg fmt="%d" index="1">48</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">32</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 119: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 157: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 214: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 243: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/JAN_28_SUB/work/planAhead/JAN_28_SUB/JAN_28_SUB.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 272: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+</msg>
+
+</messages>
