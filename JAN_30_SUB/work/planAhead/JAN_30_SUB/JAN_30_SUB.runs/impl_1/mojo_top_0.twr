@@ -1,0 +1,1492 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -o
+mojo_top_0.twr -v 30 -l 30 mojo_top_0_routed.ncd mojo_top_0.pcf
+
+Design file:              mojo_top_0_routed.ncd
+Physical constraint file: mojo_top_0.pcf
+Device,package,speed:     xc6slx9,tqg144,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report, limited to 30 items per constraint
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 14177 paths analyzed, 2594 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   9.359ns.
+--------------------------------------------------------------------------------
+Slack:                  10.641ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/serial_tx_TDC/bit_ctr_q_1 (FF)
+  Destination:          fifo_manager/serial_tx_TDC/tx_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      9.786ns (Levels of Logic = 3)
+  Clock Path Skew:      0.462ns (0.812 - 0.350)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/serial_tx_TDC/bit_ctr_q_1 to fifo_manager/serial_tx_TDC/tx_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y14.AQ       Tcko                  0.476   fifo_manager/serial_tx_TDC/bit_ctr_q[3]
+                                                       fifo_manager/serial_tx_TDC/bit_ctr_q_1
+    SLICE_X10Y29.A1      net (fanout=15)       3.437   fifo_manager/serial_tx_TDC/bit_ctr_q[1]
+    SLICE_X10Y29.A       Tilo                  0.235   fifo_manager/serial_tx_TDC/data_q[43]
+                                                       fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_114
+    SLICE_X4Y17.B1       net (fanout=1)        1.722   fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_114
+    SLICE_X4Y17.B        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d_SW0
+    SLICE_X4Y17.A3       net (fanout=1)        0.484   fifo_manager/serial_tx_TDC/N8
+    SLICE_X4Y17.A        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.D1       net (fanout=1)        1.746   fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.CLK0     Todck                 1.178   tx_q
+                                                       fifo_manager/serial_tx_TDC/tx_q
+    -------------------------------------------------  ---------------------------
+    Total                                      9.786ns (2.397ns logic, 7.389ns route)
+                                                       (24.5% logic, 75.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.673ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/serial_tx_TDC/bit_ctr_q_0 (FF)
+  Destination:          fifo_manager/serial_tx_TDC/tx_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.754ns (Levels of Logic = 3)
+  Clock Path Skew:      0.462ns (0.812 - 0.350)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/serial_tx_TDC/bit_ctr_q_0 to fifo_manager/serial_tx_TDC/tx_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y14.AMUX     Tshcko                0.535   fifo_manager/serial_tx_TDC/bit_ctr_q[3]
+                                                       fifo_manager/serial_tx_TDC/bit_ctr_q_0
+    SLICE_X10Y29.A4      net (fanout=15)       2.346   fifo_manager/serial_tx_TDC/bit_ctr_q[0]
+    SLICE_X10Y29.A       Tilo                  0.235   fifo_manager/serial_tx_TDC/data_q[43]
+                                                       fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_114
+    SLICE_X4Y17.B1       net (fanout=1)        1.722   fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_114
+    SLICE_X4Y17.B        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d_SW0
+    SLICE_X4Y17.A3       net (fanout=1)        0.484   fifo_manager/serial_tx_TDC/N8
+    SLICE_X4Y17.A        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.D1       net (fanout=1)        1.746   fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.CLK0     Todck                 1.178   tx_q
+                                                       fifo_manager/serial_tx_TDC/tx_q
+    -------------------------------------------------  ---------------------------
+    Total                                      8.754ns (2.456ns logic, 6.298ns route)
+                                                       (28.1% logic, 71.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.856ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd2 (FF)
+  Destination:          f2_tdc_control/state_q_FSM_FFd3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.004ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.105ns (0.601 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd2 to f2_tdc_control/state_q_FSM_FFd3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.BQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd2
+    SLICE_X15Y31.C3      net (fanout=21)       2.783   state_q_FSM_FFd2
+    SLICE_X15Y31.C       Tilo                  0.259   f2_tdc_SPI_busy
+                                                       f2_tdc_spi_master/busy1
+    SLICE_X11Y29.C3      net (fanout=7)        0.997   f2_tdc_SPI_busy
+    SLICE_X11Y29.C       Tilo                  0.259   f2_tdc_control/addr_q[3]
+                                                       f2_tdc_control/state_q_FSM_FFd3-In12
+    SLICE_X12Y31.D2      net (fanout=1)        1.236   f2_tdc_control/state_q_FSM_FFd3-In11
+    SLICE_X12Y31.CMUX    Topdc                 0.456   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14_F
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14
+    SLICE_X13Y31.BX      net (fanout=2)        1.375   f2_tdc_control/state_q_FSM_FFd3-In
+    SLICE_X13Y31.CLK     Tdick                 0.114   f2_tdc_control/state_q_FSM_FFd2
+                                                       f2_tdc_control/state_q_FSM_FFd3
+    -------------------------------------------------  ---------------------------
+    Total                                      8.004ns (1.613ns logic, 6.391ns route)
+                                                       (20.2% logic, 79.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.925ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd1 (FF)
+  Destination:          f2_tdc_control/state_q_FSM_FFd3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.935ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.105ns (0.601 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd1 to f2_tdc_control/state_q_FSM_FFd3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.AQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd1
+    SLICE_X15Y31.C6      net (fanout=14)       2.714   state_q_FSM_FFd1
+    SLICE_X15Y31.C       Tilo                  0.259   f2_tdc_SPI_busy
+                                                       f2_tdc_spi_master/busy1
+    SLICE_X11Y29.C3      net (fanout=7)        0.997   f2_tdc_SPI_busy
+    SLICE_X11Y29.C       Tilo                  0.259   f2_tdc_control/addr_q[3]
+                                                       f2_tdc_control/state_q_FSM_FFd3-In12
+    SLICE_X12Y31.D2      net (fanout=1)        1.236   f2_tdc_control/state_q_FSM_FFd3-In11
+    SLICE_X12Y31.CMUX    Topdc                 0.456   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14_F
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14
+    SLICE_X13Y31.BX      net (fanout=2)        1.375   f2_tdc_control/state_q_FSM_FFd3-In
+    SLICE_X13Y31.CLK     Tdick                 0.114   f2_tdc_control/state_q_FSM_FFd2
+                                                       f2_tdc_control/state_q_FSM_FFd3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.935ns (1.613ns logic, 6.322ns route)
+                                                       (20.3% logic, 79.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.933ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/state_q_FSM_FFd3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.927ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.105ns (0.601 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/state_q_FSM_FFd3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X15Y31.C4      net (fanout=16)       2.706   state_q_FSM_FFd3
+    SLICE_X15Y31.C       Tilo                  0.259   f2_tdc_SPI_busy
+                                                       f2_tdc_spi_master/busy1
+    SLICE_X11Y29.C3      net (fanout=7)        0.997   f2_tdc_SPI_busy
+    SLICE_X11Y29.C       Tilo                  0.259   f2_tdc_control/addr_q[3]
+                                                       f2_tdc_control/state_q_FSM_FFd3-In12
+    SLICE_X12Y31.D2      net (fanout=1)        1.236   f2_tdc_control/state_q_FSM_FFd3-In11
+    SLICE_X12Y31.CMUX    Topdc                 0.456   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14_F
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14
+    SLICE_X13Y31.BX      net (fanout=2)        1.375   f2_tdc_control/state_q_FSM_FFd3-In
+    SLICE_X13Y31.CLK     Tdick                 0.114   f2_tdc_control/state_q_FSM_FFd2
+                                                       f2_tdc_control/state_q_FSM_FFd3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.927ns (1.613ns logic, 6.314ns route)
+                                                       (20.3% logic, 79.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.237ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/serial_tx_TDC/bit_ctr_q_1 (FF)
+  Destination:          fifo_manager/serial_tx_TDC/tx_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.190ns (Levels of Logic = 3)
+  Clock Path Skew:      0.462ns (0.812 - 0.350)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/serial_tx_TDC/bit_ctr_q_1 to fifo_manager/serial_tx_TDC/tx_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y14.AQ       Tcko                  0.476   fifo_manager/serial_tx_TDC/bit_ctr_q[3]
+                                                       fifo_manager/serial_tx_TDC/bit_ctr_q_1
+    SLICE_X5Y29.A3       net (fanout=15)       2.493   fifo_manager/serial_tx_TDC/bit_ctr_q[1]
+    SLICE_X5Y29.A        Tilo                  0.259   fifo_manager/serial_tx_TDC/data_q[47]
+                                                       fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_123
+    SLICE_X4Y17.B6       net (fanout=1)        1.046   fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_123
+    SLICE_X4Y17.B        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d_SW0
+    SLICE_X4Y17.A3       net (fanout=1)        0.484   fifo_manager/serial_tx_TDC/N8
+    SLICE_X4Y17.A        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.D1       net (fanout=1)        1.746   fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.CLK0     Todck                 1.178   tx_q
+                                                       fifo_manager/serial_tx_TDC/tx_q
+    -------------------------------------------------  ---------------------------
+    Total                                      8.190ns (2.421ns logic, 5.769ns route)
+                                                       (29.6% logic, 70.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.311ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/serial_tx_TDC/bit_ctr_q_0 (FF)
+  Destination:          fifo_manager/serial_tx_TDC/tx_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.116ns (Levels of Logic = 3)
+  Clock Path Skew:      0.462ns (0.812 - 0.350)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/serial_tx_TDC/bit_ctr_q_0 to fifo_manager/serial_tx_TDC/tx_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y14.AMUX     Tshcko                0.535   fifo_manager/serial_tx_TDC/bit_ctr_q[3]
+                                                       fifo_manager/serial_tx_TDC/bit_ctr_q_0
+    SLICE_X5Y29.A2       net (fanout=15)       2.360   fifo_manager/serial_tx_TDC/bit_ctr_q[0]
+    SLICE_X5Y29.A        Tilo                  0.259   fifo_manager/serial_tx_TDC/data_q[47]
+                                                       fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_123
+    SLICE_X4Y17.B6       net (fanout=1)        1.046   fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_123
+    SLICE_X4Y17.B        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d_SW0
+    SLICE_X4Y17.A3       net (fanout=1)        0.484   fifo_manager/serial_tx_TDC/N8
+    SLICE_X4Y17.A        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.D1       net (fanout=1)        1.746   fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.CLK0     Todck                 1.178   tx_q
+                                                       fifo_manager/serial_tx_TDC/tx_q
+    -------------------------------------------------  ---------------------------
+    Total                                      8.116ns (2.480ns logic, 5.636ns route)
+                                                       (30.6% logic, 69.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.438ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd2 (FF)
+  Destination:          f2_tdc_control/state_q_FSM_FFd3_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.422ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.105ns (0.601 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd2 to f2_tdc_control/state_q_FSM_FFd3_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.BQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd2
+    SLICE_X15Y31.C3      net (fanout=21)       2.783   state_q_FSM_FFd2
+    SLICE_X15Y31.C       Tilo                  0.259   f2_tdc_SPI_busy
+                                                       f2_tdc_spi_master/busy1
+    SLICE_X11Y29.C3      net (fanout=7)        0.997   f2_tdc_SPI_busy
+    SLICE_X11Y29.C       Tilo                  0.259   f2_tdc_control/addr_q[3]
+                                                       f2_tdc_control/state_q_FSM_FFd3-In12
+    SLICE_X12Y31.D2      net (fanout=1)        1.236   f2_tdc_control/state_q_FSM_FFd3-In11
+    SLICE_X12Y31.CMUX    Topdc                 0.456   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14_F
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14
+    SLICE_X12Y31.DX      net (fanout=2)        0.822   f2_tdc_control/state_q_FSM_FFd3-In
+    SLICE_X12Y31.CLK     Tdick                 0.085   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.422ns (1.584ns logic, 5.838ns route)
+                                                       (21.3% logic, 78.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.507ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd1 (FF)
+  Destination:          f2_tdc_control/state_q_FSM_FFd3_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.353ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.105ns (0.601 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd1 to f2_tdc_control/state_q_FSM_FFd3_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.AQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd1
+    SLICE_X15Y31.C6      net (fanout=14)       2.714   state_q_FSM_FFd1
+    SLICE_X15Y31.C       Tilo                  0.259   f2_tdc_SPI_busy
+                                                       f2_tdc_spi_master/busy1
+    SLICE_X11Y29.C3      net (fanout=7)        0.997   f2_tdc_SPI_busy
+    SLICE_X11Y29.C       Tilo                  0.259   f2_tdc_control/addr_q[3]
+                                                       f2_tdc_control/state_q_FSM_FFd3-In12
+    SLICE_X12Y31.D2      net (fanout=1)        1.236   f2_tdc_control/state_q_FSM_FFd3-In11
+    SLICE_X12Y31.CMUX    Topdc                 0.456   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14_F
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14
+    SLICE_X12Y31.DX      net (fanout=2)        0.822   f2_tdc_control/state_q_FSM_FFd3-In
+    SLICE_X12Y31.CLK     Tdick                 0.085   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.353ns (1.584ns logic, 5.769ns route)
+                                                       (21.5% logic, 78.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.515ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/state_q_FSM_FFd3_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.345ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.105ns (0.601 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/state_q_FSM_FFd3_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X15Y31.C4      net (fanout=16)       2.706   state_q_FSM_FFd3
+    SLICE_X15Y31.C       Tilo                  0.259   f2_tdc_SPI_busy
+                                                       f2_tdc_spi_master/busy1
+    SLICE_X11Y29.C3      net (fanout=7)        0.997   f2_tdc_SPI_busy
+    SLICE_X11Y29.C       Tilo                  0.259   f2_tdc_control/addr_q[3]
+                                                       f2_tdc_control/state_q_FSM_FFd3-In12
+    SLICE_X12Y31.D2      net (fanout=1)        1.236   f2_tdc_control/state_q_FSM_FFd3-In11
+    SLICE_X12Y31.CMUX    Topdc                 0.456   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14_F
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14
+    SLICE_X12Y31.DX      net (fanout=2)        0.822   f2_tdc_control/state_q_FSM_FFd3-In
+    SLICE_X12Y31.CLK     Tdick                 0.085   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.345ns (1.584ns logic, 5.761ns route)
+                                                       (21.6% logic, 78.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.112ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/calib2_q_12 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.766ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.087ns (0.619 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/calib2_q_12
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X10Y27.A1      net (fanout=16)       2.924   state_q_FSM_FFd3
+    SLICE_X10Y27.A       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0521_inv21
+    SLICE_X10Y27.B4      net (fanout=2)        0.428   f2_tdc_control/_n0521_inv2
+    SLICE_X10Y27.B       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0402_inv_SW0
+    SLICE_X8Y22.A5       net (fanout=1)        0.717   f2_tdc_control/N12
+    SLICE_X8Y22.A        Tilo                  0.254   f2_tdc_control/calib2_q[2]
+                                                       f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X11Y25.B1      net (fanout=16)       1.075   f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X11Y25.CLK     Tas                   0.373   f2_tdc_control/calib2_q[14]
+                                                       f2_tdc_control/calib2_q_12_dpot
+                                                       f2_tdc_control/calib2_q_12
+    -------------------------------------------------  ---------------------------
+    Total                                      6.766ns (1.622ns logic, 5.144ns route)
+                                                       (24.0% logic, 76.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.126ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/calib2_q_9 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.758ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.081ns (0.625 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/calib2_q_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X10Y27.A1      net (fanout=16)       2.924   state_q_FSM_FFd3
+    SLICE_X10Y27.A       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0521_inv21
+    SLICE_X10Y27.B4      net (fanout=2)        0.428   f2_tdc_control/_n0521_inv2
+    SLICE_X10Y27.B       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0402_inv_SW0
+    SLICE_X8Y22.A5       net (fanout=1)        0.717   f2_tdc_control/N12
+    SLICE_X8Y22.A        Tilo                  0.254   f2_tdc_control/calib2_q[2]
+                                                       f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X8Y27.C3       net (fanout=16)       1.101   f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X8Y27.CLK      Tas                   0.339   f2_tdc_control/calib2_q[10]
+                                                       f2_tdc_control/calib2_q_9_dpot
+                                                       f2_tdc_control/calib2_q_9
+    -------------------------------------------------  ---------------------------
+    Total                                      6.758ns (1.588ns logic, 5.170ns route)
+                                                       (23.5% logic, 76.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.143ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/calib2_q_10 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.741ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.081ns (0.625 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/calib2_q_10
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X10Y27.A1      net (fanout=16)       2.924   state_q_FSM_FFd3
+    SLICE_X10Y27.A       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0521_inv21
+    SLICE_X10Y27.B4      net (fanout=2)        0.428   f2_tdc_control/_n0521_inv2
+    SLICE_X10Y27.B       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0402_inv_SW0
+    SLICE_X8Y22.A5       net (fanout=1)        0.717   f2_tdc_control/N12
+    SLICE_X8Y22.A        Tilo                  0.254   f2_tdc_control/calib2_q[2]
+                                                       f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X8Y27.D3       net (fanout=16)       1.084   f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X8Y27.CLK      Tas                   0.339   f2_tdc_control/calib2_q[10]
+                                                       f2_tdc_control/calib2_q_10_dpot
+                                                       f2_tdc_control/calib2_q_10
+    -------------------------------------------------  ---------------------------
+    Total                                      6.741ns (1.588ns logic, 5.153ns route)
+                                                       (23.6% logic, 76.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.167ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/serial_tx_TDC/bit_ctr_q_1 (FF)
+  Destination:          fifo_manager/serial_tx_TDC/tx_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.260ns (Levels of Logic = 3)
+  Clock Path Skew:      0.462ns (0.812 - 0.350)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/serial_tx_TDC/bit_ctr_q_1 to fifo_manager/serial_tx_TDC/tx_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y14.AQ       Tcko                  0.476   fifo_manager/serial_tx_TDC/bit_ctr_q[3]
+                                                       fifo_manager/serial_tx_TDC/bit_ctr_q_1
+    SLICE_X3Y23.B1       net (fanout=15)       1.626   fifo_manager/serial_tx_TDC/bit_ctr_q[1]
+    SLICE_X3Y23.B        Tilo                  0.259   fifo_manager/serial_tx_TDC/data_q[39]
+                                                       fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_113
+    SLICE_X4Y17.B5       net (fanout=1)        0.983   fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_113
+    SLICE_X4Y17.B        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d_SW0
+    SLICE_X4Y17.A3       net (fanout=1)        0.484   fifo_manager/serial_tx_TDC/N8
+    SLICE_X4Y17.A        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.D1       net (fanout=1)        1.746   fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.CLK0     Todck                 1.178   tx_q
+                                                       fifo_manager/serial_tx_TDC/tx_q
+    -------------------------------------------------  ---------------------------
+    Total                                      7.260ns (2.421ns logic, 4.839ns route)
+                                                       (33.3% logic, 66.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.187ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/fifo/wr_ptr_4 (FF)
+  Destination:          fifo_manager/fifo/Mram_buf_mem1/SP (RAM)
+  Requirement:          20.000ns
+  Data Path Delay:      6.761ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.017ns (0.331 - 0.348)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/fifo/wr_ptr_4 to fifo_manager/fifo/Mram_buf_mem1/SP
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y18.DQ       Tcko                  0.476   fifo_manager/fifo/wr_ptr[4]
+                                                       fifo_manager/fifo/wr_ptr_4
+    SLICE_X4Y29.D5       net (fanout=25)       2.181   fifo_manager/fifo/wr_ptr[4]
+    SLICE_X4Y29.D        Tilo                  0.254   fifo_manager/w_data_FROM_FIFO_TO_SERIAL[0]
+                                                       fifo_manager/fifo/Mram_buf_mem1/SP
+    SLICE_X9Y14.B3       net (fanout=1)        1.841   fifo_manager/fifo/wr_ptr[4]_read_port_13_OUT[0]
+    SLICE_X9Y14.BMUX     Tilo                  0.337   fifo_manager/serial_tx_TDC/data_q[23]
+                                                       fifo_manager/fifo/Mmux__n007311
+    SLICE_X4Y29.DI       net (fanout=2)        1.599   fifo_manager/fifo/_n0073[0]
+    SLICE_X4Y29.CLK      Tds                   0.073   fifo_manager/w_data_FROM_FIFO_TO_SERIAL[0]
+                                                       fifo_manager/fifo/Mram_buf_mem1/SP
+    -------------------------------------------------  ---------------------------
+    Total                                      6.761ns (1.140ns logic, 5.621ns route)
+                                                       (16.9% logic, 83.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.210ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_control/addr_q_5 (FF)
+  Destination:          f2_tdc_control/state_q_FSM_FFd3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.704ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.051ns (0.601 - 0.652)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_control/addr_q_5 to f2_tdc_control/state_q_FSM_FFd3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y28.CQ      Tcko                  0.430   f2_tdc_control/addr_q[5]
+                                                       f2_tdc_control/addr_q_5
+    SLICE_X11Y29.D6      net (fanout=9)        1.123   f2_tdc_control/addr_q[5]
+    SLICE_X11Y29.D       Tilo                  0.259   f2_tdc_control/addr_q[3]
+                                                       f2_tdc_control/addr_q[5]_GND_23_o_equal_97_o<5>1
+    SLICE_X11Y29.C1      net (fanout=9)        1.452   f2_tdc_control/addr_q[5]_GND_23_o_equal_97_o
+    SLICE_X11Y29.C       Tilo                  0.259   f2_tdc_control/addr_q[3]
+                                                       f2_tdc_control/state_q_FSM_FFd3-In12
+    SLICE_X12Y31.D2      net (fanout=1)        1.236   f2_tdc_control/state_q_FSM_FFd3-In11
+    SLICE_X12Y31.CMUX    Topdc                 0.456   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14_F
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14
+    SLICE_X13Y31.BX      net (fanout=2)        1.375   f2_tdc_control/state_q_FSM_FFd3-In
+    SLICE_X13Y31.CLK     Tdick                 0.114   f2_tdc_control/state_q_FSM_FFd2
+                                                       f2_tdc_control/state_q_FSM_FFd3
+    -------------------------------------------------  ---------------------------
+    Total                                      6.704ns (1.518ns logic, 5.186ns route)
+                                                       (22.6% logic, 77.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.214ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/fifo/wr_ptr_4 (FF)
+  Destination:          fifo_manager/fifo/Mram_buf_mem1/DP (RAM)
+  Requirement:          20.000ns
+  Data Path Delay:      6.734ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.017ns (0.331 - 0.348)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/fifo/wr_ptr_4 to fifo_manager/fifo/Mram_buf_mem1/DP
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y18.DQ       Tcko                  0.476   fifo_manager/fifo/wr_ptr[4]
+                                                       fifo_manager/fifo/wr_ptr_4
+    SLICE_X4Y29.D5       net (fanout=25)       2.181   fifo_manager/fifo/wr_ptr[4]
+    SLICE_X4Y29.D        Tilo                  0.254   fifo_manager/w_data_FROM_FIFO_TO_SERIAL[0]
+                                                       fifo_manager/fifo/Mram_buf_mem1/SP
+    SLICE_X9Y14.B3       net (fanout=1)        1.841   fifo_manager/fifo/wr_ptr[4]_read_port_13_OUT[0]
+    SLICE_X9Y14.BMUX     Tilo                  0.337   fifo_manager/serial_tx_TDC/data_q[23]
+                                                       fifo_manager/fifo/Mmux__n007311
+    SLICE_X4Y29.BI       net (fanout=2)        1.569   fifo_manager/fifo/_n0073[0]
+    SLICE_X4Y29.CLK      Tds                   0.076   fifo_manager/w_data_FROM_FIFO_TO_SERIAL[0]
+                                                       fifo_manager/fifo/Mram_buf_mem1/DP
+    -------------------------------------------------  ---------------------------
+    Total                                      6.734ns (1.143ns logic, 5.591ns route)
+                                                       (17.0% logic, 83.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.242ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/calib2_q_14 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.636ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.087ns (0.619 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/calib2_q_14
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X10Y27.A1      net (fanout=16)       2.924   state_q_FSM_FFd3
+    SLICE_X10Y27.A       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0521_inv21
+    SLICE_X10Y27.B4      net (fanout=2)        0.428   f2_tdc_control/_n0521_inv2
+    SLICE_X10Y27.B       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0402_inv_SW0
+    SLICE_X8Y22.A5       net (fanout=1)        0.717   f2_tdc_control/N12
+    SLICE_X8Y22.A        Tilo                  0.254   f2_tdc_control/calib2_q[2]
+                                                       f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X11Y25.D3      net (fanout=16)       0.945   f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X11Y25.CLK     Tas                   0.373   f2_tdc_control/calib2_q[14]
+                                                       f2_tdc_control/calib2_q_14_dpot
+                                                       f2_tdc_control/calib2_q_14
+    -------------------------------------------------  ---------------------------
+    Total                                      6.636ns (1.622ns logic, 5.014ns route)
+                                                       (24.4% logic, 75.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.275ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/calib2_q_13 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.603ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.087ns (0.619 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/calib2_q_13
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X10Y27.A1      net (fanout=16)       2.924   state_q_FSM_FFd3
+    SLICE_X10Y27.A       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0521_inv21
+    SLICE_X10Y27.B4      net (fanout=2)        0.428   f2_tdc_control/_n0521_inv2
+    SLICE_X10Y27.B       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0402_inv_SW0
+    SLICE_X8Y22.A5       net (fanout=1)        0.717   f2_tdc_control/N12
+    SLICE_X8Y22.A        Tilo                  0.254   f2_tdc_control/calib2_q[2]
+                                                       f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X11Y25.C3      net (fanout=16)       0.912   f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X11Y25.CLK     Tas                   0.373   f2_tdc_control/calib2_q[14]
+                                                       f2_tdc_control/calib2_q_13_dpot
+                                                       f2_tdc_control/calib2_q_13
+    -------------------------------------------------  ---------------------------
+    Total                                      6.603ns (1.622ns logic, 4.981ns route)
+                                                       (24.6% logic, 75.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.361ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/calib2_q_8 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.523ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.081ns (0.625 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/calib2_q_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X10Y27.A1      net (fanout=16)       2.924   state_q_FSM_FFd3
+    SLICE_X10Y27.A       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0521_inv21
+    SLICE_X10Y27.B4      net (fanout=2)        0.428   f2_tdc_control/_n0521_inv2
+    SLICE_X10Y27.B       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0402_inv_SW0
+    SLICE_X8Y22.A5       net (fanout=1)        0.717   f2_tdc_control/N12
+    SLICE_X8Y22.A        Tilo                  0.254   f2_tdc_control/calib2_q[2]
+                                                       f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X8Y27.B6       net (fanout=16)       0.866   f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X8Y27.CLK      Tas                   0.339   f2_tdc_control/calib2_q[10]
+                                                       f2_tdc_control/calib2_q_8_dpot
+                                                       f2_tdc_control/calib2_q_8
+    -------------------------------------------------  ---------------------------
+    Total                                      6.523ns (1.588ns logic, 4.935ns route)
+                                                       (24.3% logic, 75.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.361ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/calib2_q_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.523ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.081ns (0.625 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/calib2_q_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X10Y27.A1      net (fanout=16)       2.924   state_q_FSM_FFd3
+    SLICE_X10Y27.A       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0521_inv21
+    SLICE_X10Y27.B4      net (fanout=2)        0.428   f2_tdc_control/_n0521_inv2
+    SLICE_X10Y27.B       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0402_inv_SW0
+    SLICE_X8Y22.A5       net (fanout=1)        0.717   f2_tdc_control/N12
+    SLICE_X8Y22.A        Tilo                  0.254   f2_tdc_control/calib2_q[2]
+                                                       f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X8Y27.A6       net (fanout=16)       0.866   f2_tdc_control/_n0402_inv_rstpot
+    SLICE_X8Y27.CLK      Tas                   0.339   f2_tdc_control/calib2_q[10]
+                                                       f2_tdc_control/calib2_q_7_dpot
+                                                       f2_tdc_control/calib2_q_7
+    -------------------------------------------------  ---------------------------
+    Total                                      6.523ns (1.588ns logic, 4.935ns route)
+                                                       (24.3% logic, 75.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.381ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/serial_tx_TDC/bit_ctr_q_0 (FF)
+  Destination:          fifo_manager/serial_tx_TDC/tx_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.046ns (Levels of Logic = 3)
+  Clock Path Skew:      0.462ns (0.812 - 0.350)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/serial_tx_TDC/bit_ctr_q_0 to fifo_manager/serial_tx_TDC/tx_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y14.AMUX     Tshcko                0.535   fifo_manager/serial_tx_TDC/bit_ctr_q[3]
+                                                       fifo_manager/serial_tx_TDC/bit_ctr_q_0
+    SLICE_X3Y23.B5       net (fanout=15)       1.353   fifo_manager/serial_tx_TDC/bit_ctr_q[0]
+    SLICE_X3Y23.B        Tilo                  0.259   fifo_manager/serial_tx_TDC/data_q[39]
+                                                       fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_113
+    SLICE_X4Y17.B5       net (fanout=1)        0.983   fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_113
+    SLICE_X4Y17.B        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d_SW0
+    SLICE_X4Y17.A3       net (fanout=1)        0.484   fifo_manager/serial_tx_TDC/N8
+    SLICE_X4Y17.A        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.D1       net (fanout=1)        1.746   fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.CLK0     Todck                 1.178   tx_q
+                                                       fifo_manager/serial_tx_TDC/tx_q
+    -------------------------------------------------  ---------------------------
+    Total                                      7.046ns (2.480ns logic, 4.566ns route)
+                                                       (35.2% logic, 64.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.400ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_control/addr_q_4 (FF)
+  Destination:          f2_tdc_control/state_q_FSM_FFd3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.514ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.051ns (0.601 - 0.652)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_control/addr_q_4 to f2_tdc_control/state_q_FSM_FFd3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y28.CQ      Tcko                  0.476   f2_tdc_control/addr_q[4]
+                                                       f2_tdc_control/addr_q_4
+    SLICE_X10Y30.B1      net (fanout=15)       1.703   f2_tdc_control/addr_q[4]
+    SLICE_X10Y30.B       Tilo                  0.235   f2_tdc_control/Byte_countr_q[0]
+                                                       f2_tdc_control/addr_q[5]_GND_23_o_equal_63_o<5>1
+    SLICE_X12Y31.A2      net (fanout=8)        1.012   f2_tdc_control/addr_q[5]_GND_23_o_equal_63_o
+    SLICE_X12Y31.A       Tilo                  0.254   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd4-In11
+    SLICE_X12Y31.C2      net (fanout=2)        0.915   f2_tdc_control/state_q_FSM_FFd4-In1
+    SLICE_X12Y31.CMUX    Tilo                  0.430   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14_G
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14
+    SLICE_X13Y31.BX      net (fanout=2)        1.375   f2_tdc_control/state_q_FSM_FFd3-In
+    SLICE_X13Y31.CLK     Tdick                 0.114   f2_tdc_control/state_q_FSM_FFd2
+                                                       f2_tdc_control/state_q_FSM_FFd3
+    -------------------------------------------------  ---------------------------
+    Total                                      6.514ns (1.509ns logic, 5.005ns route)
+                                                       (23.2% logic, 76.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.406ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/fifo/wr_ptr_0 (FF)
+  Destination:          fifo_manager/fifo/Mram_buf_mem1/SP (RAM)
+  Requirement:          20.000ns
+  Data Path Delay:      6.542ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.017ns (0.331 - 0.348)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/fifo/wr_ptr_0 to fifo_manager/fifo/Mram_buf_mem1/SP
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y18.BQ       Tcko                  0.476   fifo_manager/fifo/wr_ptr[4]
+                                                       fifo_manager/fifo/wr_ptr_0
+    SLICE_X4Y29.D1       net (fanout=27)       1.962   fifo_manager/fifo/wr_ptr[0]
+    SLICE_X4Y29.D        Tilo                  0.254   fifo_manager/w_data_FROM_FIFO_TO_SERIAL[0]
+                                                       fifo_manager/fifo/Mram_buf_mem1/SP
+    SLICE_X9Y14.B3       net (fanout=1)        1.841   fifo_manager/fifo/wr_ptr[4]_read_port_13_OUT[0]
+    SLICE_X9Y14.BMUX     Tilo                  0.337   fifo_manager/serial_tx_TDC/data_q[23]
+                                                       fifo_manager/fifo/Mmux__n007311
+    SLICE_X4Y29.DI       net (fanout=2)        1.599   fifo_manager/fifo/_n0073[0]
+    SLICE_X4Y29.CLK      Tds                   0.073   fifo_manager/w_data_FROM_FIFO_TO_SERIAL[0]
+                                                       fifo_manager/fifo/Mram_buf_mem1/SP
+    -------------------------------------------------  ---------------------------
+    Total                                      6.542ns (1.140ns logic, 5.402ns route)
+                                                       (17.4% logic, 82.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.433ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/serial_tx_TDC/bit_ctr_q_0 (FF)
+  Destination:          fifo_manager/serial_tx_TDC/tx_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.994ns (Levels of Logic = 3)
+  Clock Path Skew:      0.462ns (0.812 - 0.350)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/serial_tx_TDC/bit_ctr_q_0 to fifo_manager/serial_tx_TDC/tx_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y14.AMUX     Tshcko                0.535   fifo_manager/serial_tx_TDC/bit_ctr_q[3]
+                                                       fifo_manager/serial_tx_TDC/bit_ctr_q_0
+    SLICE_X3Y16.D3       net (fanout=15)       1.039   fifo_manager/serial_tx_TDC/bit_ctr_q[0]
+    SLICE_X3Y16.D        Tilo                  0.259   fifo_manager/serial_tx_TDC/data_q[7]
+                                                       fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_121
+    SLICE_X6Y17.D2       net (fanout=1)        1.210   fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_121
+    SLICE_X6Y17.CMUX     Topdc                 0.402   fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_10
+                                                       fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_7
+                                                       fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_5_f7
+    SLICE_X4Y17.A6       net (fanout=1)        0.371   fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_5_f7
+    SLICE_X4Y17.A        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.D1       net (fanout=1)        1.746   fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.CLK0     Todck                 1.178   tx_q
+                                                       fifo_manager/serial_tx_TDC/tx_q
+    -------------------------------------------------  ---------------------------
+    Total                                      6.994ns (2.628ns logic, 4.366ns route)
+                                                       (37.6% logic, 62.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.433ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/fifo/wr_ptr_0 (FF)
+  Destination:          fifo_manager/fifo/Mram_buf_mem1/DP (RAM)
+  Requirement:          20.000ns
+  Data Path Delay:      6.515ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.017ns (0.331 - 0.348)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/fifo/wr_ptr_0 to fifo_manager/fifo/Mram_buf_mem1/DP
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y18.BQ       Tcko                  0.476   fifo_manager/fifo/wr_ptr[4]
+                                                       fifo_manager/fifo/wr_ptr_0
+    SLICE_X4Y29.D1       net (fanout=27)       1.962   fifo_manager/fifo/wr_ptr[0]
+    SLICE_X4Y29.D        Tilo                  0.254   fifo_manager/w_data_FROM_FIFO_TO_SERIAL[0]
+                                                       fifo_manager/fifo/Mram_buf_mem1/SP
+    SLICE_X9Y14.B3       net (fanout=1)        1.841   fifo_manager/fifo/wr_ptr[4]_read_port_13_OUT[0]
+    SLICE_X9Y14.BMUX     Tilo                  0.337   fifo_manager/serial_tx_TDC/data_q[23]
+                                                       fifo_manager/fifo/Mmux__n007311
+    SLICE_X4Y29.BI       net (fanout=2)        1.569   fifo_manager/fifo/_n0073[0]
+    SLICE_X4Y29.CLK      Tds                   0.076   fifo_manager/w_data_FROM_FIFO_TO_SERIAL[0]
+                                                       fifo_manager/fifo/Mram_buf_mem1/DP
+    -------------------------------------------------  ---------------------------
+    Total                                      6.515ns (1.143ns logic, 5.372ns route)
+                                                       (17.5% logic, 82.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.437ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo_manager/serial_tx_TDC/data_q_43 (FF)
+  Destination:          fifo_manager/serial_tx_TDC/tx_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.054ns (Levels of Logic = 3)
+  Clock Path Skew:      0.526ns (1.179 - 0.653)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo_manager/serial_tx_TDC/data_q_43 to fifo_manager/serial_tx_TDC/tx_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y29.DQ      Tcko                  0.476   fifo_manager/serial_tx_TDC/data_q[43]
+                                                       fifo_manager/serial_tx_TDC/data_q_43
+    SLICE_X10Y29.A2      net (fanout=1)        0.705   fifo_manager/serial_tx_TDC/data_q[43]
+    SLICE_X10Y29.A       Tilo                  0.235   fifo_manager/serial_tx_TDC/data_q[43]
+                                                       fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_114
+    SLICE_X4Y17.B1       net (fanout=1)        1.722   fifo_manager/serial_tx_TDC/Mmux_bit_ctr_q[5]_X_21_o_Mux_11_o_114
+    SLICE_X4Y17.B        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d_SW0
+    SLICE_X4Y17.A3       net (fanout=1)        0.484   fifo_manager/serial_tx_TDC/N8
+    SLICE_X4Y17.A        Tilo                  0.254   fifo_manager/serial_tx_TDC/N8
+                                                       fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.D1       net (fanout=1)        1.746   fifo_manager/serial_tx_TDC/tx_d
+    OLOGIC_X6Y1.CLK0     Todck                 1.178   tx_q
+                                                       fifo_manager/serial_tx_TDC/tx_q
+    -------------------------------------------------  ---------------------------
+    Total                                      7.054ns (2.397ns logic, 4.657ns route)
+                                                       (34.0% logic, 66.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.445ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd1 (FF)
+  Destination:          f2_tdc_control/state_q_FSM_FFd3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.415ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.105ns (0.601 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd1 to f2_tdc_control/state_q_FSM_FFd3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.AQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd1
+    SLICE_X12Y31.A3      net (fanout=14)       2.802   state_q_FSM_FFd1
+    SLICE_X12Y31.A       Tilo                  0.254   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd4-In11
+    SLICE_X12Y31.C2      net (fanout=2)        0.915   f2_tdc_control/state_q_FSM_FFd4-In1
+    SLICE_X12Y31.CMUX    Tilo                  0.430   f2_tdc_control/state_q_FSM_FFd3_1
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14_G
+                                                       f2_tdc_control/state_q_FSM_FFd3-In14
+    SLICE_X13Y31.BX      net (fanout=2)        1.375   f2_tdc_control/state_q_FSM_FFd3-In
+    SLICE_X13Y31.CLK     Tdick                 0.114   f2_tdc_control/state_q_FSM_FFd2
+                                                       f2_tdc_control/state_q_FSM_FFd3
+    -------------------------------------------------  ---------------------------
+    Total                                      6.415ns (1.323ns logic, 5.092ns route)
+                                                       (20.6% logic, 79.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.447ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/calib1_q_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.430ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.088ns (0.618 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/calib1_q_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X10Y27.A1      net (fanout=16)       2.924   state_q_FSM_FFd3
+    SLICE_X10Y27.A       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0521_inv21
+    SLICE_X10Y27.C1      net (fanout=2)        0.538   f2_tdc_control/_n0521_inv2
+    SLICE_X10Y27.C       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0368_inv_SW0
+    SLICE_X10Y27.D3      net (fanout=1)        0.460   f2_tdc_control/N14
+    SLICE_X10Y27.D       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0368_inv
+    SLICE_X9Y24.CE       net (fanout=2)        0.870   f2_tdc_control/_n0368_inv
+    SLICE_X9Y24.CLK      Tceck                 0.408   f2_tdc_control/calib1_q[6]
+                                                       f2_tdc_control/calib1_q_4
+    -------------------------------------------------  ---------------------------
+    Total                                      6.430ns (1.638ns logic, 4.792ns route)
+                                                       (25.5% logic, 74.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.448ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               f2_tdc_spi_master/state_q_FSM_FFd3 (FF)
+  Destination:          f2_tdc_control/calib1_q_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.429ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.088ns (0.618 - 0.706)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: f2_tdc_spi_master/state_q_FSM_FFd3 to f2_tdc_control/calib1_q_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y9.CQ        Tcko                  0.525   state_q_FSM_FFd3
+                                                       f2_tdc_spi_master/state_q_FSM_FFd3
+    SLICE_X10Y27.A1      net (fanout=16)       2.924   state_q_FSM_FFd3
+    SLICE_X10Y27.A       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0521_inv21
+    SLICE_X10Y27.C1      net (fanout=2)        0.538   f2_tdc_control/_n0521_inv2
+    SLICE_X10Y27.C       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0368_inv_SW0
+    SLICE_X10Y27.D3      net (fanout=1)        0.460   f2_tdc_control/N14
+    SLICE_X10Y27.D       Tilo                  0.235   f2_tdc_control/_n0368_inv
+                                                       f2_tdc_control/_n0368_inv
+    SLICE_X9Y24.CE       net (fanout=2)        0.870   f2_tdc_control/_n0368_inv
+    SLICE_X9Y24.CLK      Tceck                 0.407   f2_tdc_control/calib1_q[6]
+                                                       f2_tdc_control/calib1_q_7
+    -------------------------------------------------  ---------------------------
+    Total                                      6.429ns (1.637ns logic, 4.792ns route)
+                                                       (25.5% logic, 74.5% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 16.430ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.570ns (280.112MHz) (Trper_CLKA(Fmax))
+  Physical resource: f2_mems_control_mems_rom/Mram__n74351/CLKA
+  Logical resource: f2_mems_control_mems_rom/Mram__n74351/CLKA
+  Location pin: RAMB16_X1Y4.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 16.430ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.570ns (280.112MHz) (Trper_CLKA(Fmax))
+  Physical resource: f2_mems_control_mems_rom/Mram__n74352/CLKA
+  Logical resource: f2_mems_control_mems_rom/Mram__n74352/CLKA
+  Location pin: RAMB16_X1Y6.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 16.430ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.570ns (280.112MHz) (Trper_CLKA(Fmax))
+  Physical resource: f2_mems_control_mems_rom/Mram__n74353/CLKA
+  Logical resource: f2_mems_control_mems_rom/Mram__n74353/CLKA
+  Location pin: RAMB16_X0Y8.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 16.430ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.570ns (280.112MHz) (Trper_CLKA(Fmax))
+  Physical resource: f2_mems_control_mems_rom/Mram__n74354/CLKA
+  Logical resource: f2_mems_control_mems_rom/Mram__n74354/CLKA
+  Location pin: RAMB16_X0Y10.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 16.430ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.570ns (280.112MHz) (Trper_CLKA(Fmax))
+  Physical resource: f2_mems_control_mems_rom/Mram__n74355/CLKA
+  Logical resource: f2_mems_control_mems_rom/Mram__n74355/CLKA
+  Location pin: RAMB16_X1Y8.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 16.430ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.570ns (280.112MHz) (Trper_CLKA(Fmax))
+  Physical resource: f2_mems_control_mems_rom/Mram__n74356/CLKA
+  Logical resource: f2_mems_control_mems_rom/Mram__n74356/CLKA
+  Location pin: RAMB16_X1Y12.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 16.430ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.570ns (280.112MHz) (Trper_CLKA(Fmax))
+  Physical resource: f2_mems_control_mems_rom/Mram__n74357/CLKA
+  Logical resource: f2_mems_control_mems_rom/Mram__n74357/CLKA
+  Location pin: RAMB16_X1Y14.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 16.430ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.570ns (280.112MHz) (Trper_CLKA(Fmax))
+  Physical resource: f2_mems_control_mems_rom/Mram__n74358/CLKA
+  Logical resource: f2_mems_control_mems_rom/Mram__n74358/CLKA
+  Location pin: RAMB16_X1Y10.CLKA
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.334ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: clk_BUFGP/BUFG/I0
+  Logical resource: clk_BUFGP/BUFG/I0
+  Location pin: BUFGMUX_X2Y11.I0
+  Clock network: clk_BUFGP/IBUFG
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: my_clk_q/CLK0
+  Logical resource: f2_tdc_ref_clk/my_clk_q/CK0
+  Location pin: OLOGIC_X12Y32.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: my_clk_q_0/CLK0
+  Logical resource: f2_FCLK/my_clk_q/CK0
+  Location pin: OLOGIC_X0Y5.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: tx_q/CLK0
+  Logical resource: fifo_manager/serial_tx_TDC/tx_q/CK0
+  Location pin: OLOGIC_X6Y1.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: avr_interface/spi_slave/sck_q/CLK0
+  Logical resource: avr_interface/spi_slave/sck_q/CLK0
+  Location pin: ILOGIC_X2Y0.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: spi_ss_IBUF/CLK0
+  Logical resource: avr_interface/spi_slave/ss_q/CLK0
+  Location pin: ILOGIC_X3Y1.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: avr_interface/spi_slave/mosi_q/CLK0
+  Logical resource: avr_interface/spi_slave/mosi_q/CLK0
+  Location pin: ILOGIC_X2Y1.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[6]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem2/DP/CLK
+  Location pin: SLICE_X4Y16.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[6]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem4/DP/CLK
+  Location pin: SLICE_X4Y16.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[6]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem3/DP/CLK
+  Location pin: SLICE_X4Y16.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[6]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem7/DP/CLK
+  Location pin: SLICE_X4Y16.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[6]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem2/SP/CLK
+  Location pin: SLICE_X4Y16.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[6]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem3/SP/CLK
+  Location pin: SLICE_X4Y16.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[6]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem4/SP/CLK
+  Location pin: SLICE_X4Y16.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[6]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem7/SP/CLK
+  Location pin: SLICE_X4Y16.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[34]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem30/DP/CLK
+  Location pin: SLICE_X4Y19.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[34]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem32/DP/CLK
+  Location pin: SLICE_X4Y19.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[34]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem31/DP/CLK
+  Location pin: SLICE_X4Y19.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[34]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem35/DP/CLK
+  Location pin: SLICE_X4Y19.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[34]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem30/SP/CLK
+  Location pin: SLICE_X4Y19.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[34]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem31/SP/CLK
+  Location pin: SLICE_X4Y19.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.743ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.257ns (795.545MHz) (Tcp)
+  Physical resource: fifo_manager/w_data_FROM_FIFO_TO_SERIAL[34]/CLK
+  Logical resource: fifo_manager/fifo/Mram_buf_mem32/SP/CLK
+  Location pin: SLICE_X4Y19.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    9.359|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 14177 paths, 0 nets, and 2548 connections
+
+Design statistics:
+   Minimum period:   9.359ns{1}   (Maximum frequency: 106.849MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Tue Jan 30 06:54:52 2018 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 403 MB
+
+
+

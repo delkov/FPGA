@@ -45,6 +45,10 @@ module mojo_top_0(
   output f2_TDC_CS,
   output f2_TDC_REF_CLOCK,
   output f2_TDC_START_SIGNAL,
+
+  // output fake_f2_TDC_START_SIGNAL,
+  // output fake_f2_TDC_INTB,
+
   // MEMS
   output f2_MEMS_MOSI,
   output f2_MEMS_CS,
@@ -52,7 +56,9 @@ module mojo_top_0(
   output f2_MEMS_SPI_CLOCK,
 
   // output f2_new_line,
-  // output f2_new_frame,
+  // output f2_new_line_FIFO_done,
+  output f2_new_frame,
+  output f2_new_frame_FIFO_done,
   // // F3
   // output f3_ENABLE,
   // // TDC
@@ -128,8 +134,9 @@ module mojo_top_0(
   // output f2_new_frame
   // output f2_wr_en,
   // output f3_wr_en,
+  // output CHECK_DATA
 
-  // output f2_FIFO_writing_done,
+  // output f2_FIFO_writing_done
   // output f3_FIFO_writing_done
 
   // input TDC_TRIG,
@@ -145,6 +152,10 @@ module mojo_top_0(
   // output pause,
   );
  
+  assign fake_f2_TDC_START_SIGNAL = f2_TDC_START_SIGNAL;
+  // assign fake_f2_TDC_INTB = f2_TDC_INTB;
+
+
   // PARAMS
   localparam MOJO_FREQUENCY=50000000; // constant
   // must be 50/2^n, since they are clock, otherwise will be rounded to closest minimum one. e.g 3.3kk->3.125kk
@@ -153,7 +164,7 @@ module mojo_top_0(
   localparam TDC_SPI_SPEED=6250000; // 6250000, max is  20Mhz
   // MEMS
   localparam FCLK_FREQUENCY=52000; // 10k -> 6k -> available 6k*2^n;
-  localparam MEMS_SPI_SPEED=25000;  // max is 50MHZ
+  localparam MEMS_SPI_SPEED=100000;  // max is 50MHZ
   
 
   // FIFO
@@ -161,7 +172,7 @@ module mojo_top_0(
   localparam BAUD_RATE_SPEED= 1000000; // in Hz, CAN BE ANY
 
   // OTHER
-  localparam SHOOTING_FREQUENCY=10000; // in Hz, CAN BE ANY
+  localparam SHOOTING_FREQUENCY=7000; // in Hz, CAN BE ANY. PAY ATTENTION, THAT AT 70khz, the real speed will be only 36 at TDC SPI SPEED 12.5kk. since after couner we have others deals. 
     
   // CONVERTED PARAMS  
   localparam FCLK_FREQUENCY_PARAM=MOJO_FREQUENCY/FCLK_FREQUENCY; 
@@ -548,7 +559,8 @@ module mojo_top_0(
     .start(f2_tdc_SPI_start),
     .tdc_MOSI(f2_tdc_data_in),
     .w_wr_en(f2_wr_en),
-    .data_TO_FIFO(f2_din)
+    .data_TO_FIFO(f2_din),
+    .CHECK_DATA(CHECK_DATA)
   );
 
   tdc_spi_master_5 #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) f2_tdc_spi_master(

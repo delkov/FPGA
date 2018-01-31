@@ -5,7 +5,6 @@ module mojo_top(
   input rst_n,
   input SERIAL_IN,
 
-
   // AVR 
   input cclk,
   input spi_ss,
@@ -52,6 +51,8 @@ module mojo_top(
   output f2_MEMS_FCLK,
   output f2_MEMS_SPI_CLOCK,
 
+  output f2_new_line,
+  output f2_new_frame,
   // // F3
   // output f3_ENABLE,
   // // TDC
@@ -151,14 +152,16 @@ module mojo_top(
   localparam TDC_REF_CLOCK_FREQUENCY=12500000; // 12500000, range [1-16MHz]
   localparam TDC_SPI_SPEED=6250000; // 6250000, max is  20Mhz
   // MEMS
-  localparam FCLK_FREQUENCY=10000; // 10k -> 6k
-  localparam MEMS_SPI_SPEED=25000;  // max is 50MHZ
+  localparam FCLK_FREQUENCY=13000; // 10k -> 6k -> available 6k*2^n;
+  localparam MEMS_SPI_SPEED=4000000;  // max is 50MHZ
+  
+
   // FIFO
   localparam FIFO_WIDTH=7; // 128 is fine means count of elements is 2^FIFO_WIDTH
-  localparam BAUD_RATE_SPEED= 4000000; // in Hz, CAN BE ANY
+  localparam BAUD_RATE_SPEED= 1000000; // in Hz, CAN BE ANY
 
   // OTHER
-  localparam SHOOTING_FREQUENCY=300; // in Hz, CAN BE ANY
+  localparam SHOOTING_FREQUENCY=8000; // in Hz, CAN BE ANY
     
   // CONVERTED PARAMS  
   localparam FCLK_FREQUENCY_PARAM=MOJO_FREQUENCY/FCLK_FREQUENCY; 
@@ -180,9 +183,6 @@ module mojo_top(
   wire f6_soft_reset;
 
 
-  // wire f1_ENABLE; // enable both for TDC & MEMS
-  // wire f2_ENABLE; // enable both for TDC & MEMS
-  
   wire pause; // to control play/pause
 
   // MY AVR

@@ -80,6 +80,9 @@ module fifo_manager #(
   reg [47:0] data_TO_FIFO_d, data_TO_FIFO_q;
   reg new_data_FROM_FIFO_TO_SERIAL_d, new_data_FROM_FIFO_TO_SERIAL_q;
   
+  reg [5:0] delay_d, delay_q;
+
+
   wire [47:0] w_data_FROM_FIFO_TO_SERIAL;
   
   assign new_data_FROM_FIFO_TO_SERIAL = new_data_FROM_FIFO_TO_SERIAL_q;
@@ -116,6 +119,7 @@ module fifo_manager #(
   /* Combinational Logic */
   always @* begin
     
+    delay_d = delay_q;
     data_TO_FIFO_d = data_TO_FIFO_q;
     wr_en_d = wr_en_q;
     new_data_FROM_FIFO_TO_SERIAL_d = new_data_FROM_FIFO_TO_SERIAL_q;
@@ -153,16 +157,28 @@ module fifo_manager #(
 
     // TDC_2
     // end else 
+
     if (f2_wr_en==1'b1) begin
-      wr_en_d=1'b1; // write TO FIFO
-      
-      data_TO_FIFO_d = {f2_din[31:0],16'h0002};
+      // TRY REMOVE delay..
+      if (delay_q == 6'd2) begin
+          
+        wr_en_d=1'b1; // write TO FIFO
+        data_TO_FIFO_d = {f2_din[31:0],16'h0002};
       // data_TO_FIFO_d = {16'd12000,16'd400,16'h0002};
 
+        delay_d=6'b0;
 
-      f2_FIFO_writing_done=1'b1;
-      f2_new_line_FIFO_done=1'b0;
-      f2_new_frame_FIFO_done=1'b0;
+        f2_FIFO_writing_done=1'b1;
+        f2_new_line_FIFO_done=1'b0;
+        f2_new_frame_FIFO_done=1'b0;
+    end else begin
+        f2_FIFO_writing_done=1'b0;
+        f2_new_line_FIFO_done=1'b0;
+        f2_new_frame_FIFO_done=1'b0;
+
+
+        delay_d = delay_q+1'b1;
+    end
       
 
       // TDC
@@ -371,7 +387,6 @@ module fifo_manager #(
       f2_new_line_FIFO_done=1'b1;
       f2_new_frame_FIFO_done=1'b0;
     
-
     
 
       
@@ -694,7 +709,7 @@ module fifo_manager #(
       // Add flip-flop reset values here
     end else begin
       // Add flip-flop q <= d statements here
-
+      delay_q <= delay_d;
       wr_en_q <= wr_en_d;
       data_TO_FIFO_q <= data_TO_FIFO_d;
       new_data_FROM_FIFO_TO_SERIAL_q <= new_data_FROM_FIFO_TO_SERIAL_d;
