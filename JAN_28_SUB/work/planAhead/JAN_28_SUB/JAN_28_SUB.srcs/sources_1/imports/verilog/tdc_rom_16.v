@@ -22,11 +22,15 @@ module tdc_rom_16 (
     rom_data[4] = 8'h43;
     rom_data[5] = 8'h07; // Interrupt MASK register. NOT RECOMMENT TO POLLINT TO UNDERSTAND NEW MEASUREMTN IS DONE. INTB pin shoul be used instead.
 
-    rom_data[6] = 8'h44; // Coarse counter overflow_H!! IMPORTANT
-    rom_data[7] = 8'h01; // FF is 200us, OF is 10us
+    rom_data[6] = 8'h44; // Coarse counter overflow_H!! IMPORTANT -- address
+    rom_data[7] = 8'h01; // FF is 200us, OF is 10us. 01 WAS  -- value
+    // rom_data[7] = 8'h01; // FF is 200us, OF is 10us
+    // rom_data[7] = 8'h03; // FF is 200us, OF is 10us
     
+
     rom_data[8] = 8'h45;
-    rom_data[9] = 8'h8F; // 00,FF is 840ns, 018F is  ~1.2 us (SHOUL BE bigger than 1.1 us) 180m  Coarse counter overflow_L -- > probably about 100m
+    rom_data[9] = 8'h8F; // 00,FF is 840ns, 018F (see at rom_data[7]) is  ~1.2 us (SHOUL BE bigger than 1.1 us) 180m  Coarse counter overflow_L -- > probably about 100m
+    // rom_data[9] = 8'hAF; // 00,FF is 840ns, 018F (see at rom_data[7]) is  ~1.2 us (SHOUL BE bigger than 1.1 us) 180m  Coarse counter overflow_L -- > probably about 100m
     
 
     // not USED BEGIN, only COARSE COUNTER is used
@@ -57,14 +61,14 @@ module tdc_rom_16 (
 
 
     // READ CALBIB1
-    rom_data[24] = 8'h1B; // TIME1 address
+    rom_data[24] = 8'h1B; // CALBIB1 address
     rom_data[25] = 8'h00; 
     rom_data[26] = 8'h00; 
     rom_data[27] = 8'h00; 
 
 
     // READ CALIB2
-    rom_data[28] = 8'h1C; // TIME1 address
+    rom_data[28] = 8'h1C; // CALBIB2 address
     rom_data[29] = 8'h00; 
     rom_data[30] = 8'h00; 
     rom_data[31] = 8'h00; 

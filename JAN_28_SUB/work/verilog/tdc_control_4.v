@@ -41,7 +41,7 @@
   reg [5:0] addr_d, addr_q;
   reg start_d, start_q;
   reg start_signal_d, start_signal_q;
-  reg [29:0] CS_countr_d,CS_countr_q;
+  reg [15:0] CS_countr_d,CS_countr_q;
   reg [3:0] Byte_countr_d,Byte_countr_q;
   reg CS_END_d, CS_END_q; // SPI
   // data from TDC
@@ -51,7 +51,7 @@
 
   reg [15:0] calib_diff_d,calib_diff_q; // calib2-calib1
   
-  reg [47:0] data_TO_FIFO_d, data_TO_FIFO_q; // combine data from TDC, will be sent to FIFO
+  reg [31:0] data_TO_FIFO_d, data_TO_FIFO_q; // combine data from TDC, will be sent to FIFO
   // end data from tdc
   reg wr_en_d, wr_en_q;
 
@@ -82,7 +82,25 @@
     calib2_d = calib2_q;
     calib_diff_d = calib_diff_q;
     data_TO_FIFO_d = data_TO_FIFO_q;
+
+
+
     wr_en_d = wr_en_q;
+    if (fifo_writing_done==1'b1 && wr_en_q==1'b1) begin
+      wr_en_d=1'b0; // latch here is not fine (if at the same time 2 modules -> problem)
+    end //else begin
+
+    //end
+
+    
+
+
+
+
+
+
+
+
 
     case (state_q)
       PAUSE: begin
@@ -131,17 +149,18 @@
 
       // MEASUREMENT CYCLE BEGIN // 
       DELAY: begin
+
+
+                  //wr_en_d = 1'b0; UNOMMENT -- FOR 1 SUB IS BEST!
           addr_d=6'd18; // reset all registers, NEW measurement, generate TRIG from TDC.
-          CS_countr_d = CS_countr_q + 1'b1; // increase each time..
           if (CS_countr_q == SHOOTING_PARAM) begin // how often to shoot
-            time1_d=16'b0;
-            calib1_d=16'b0;
-            calib2_d=16'b0;
+            wr_en_d = 1'b0;
             start_d=1'b1;
             Byte_countr_d=4'd1;
             state_d = TRIG_GENERATE;
+            CS_countr_d=16'd0;
           end else begin
-            wr_en_d = 1'b0;
+            CS_countr_d = CS_countr_q + 1'b1; // increase each time..
           end
       end // DELAY
 
@@ -186,6 +205,15 @@
             state_d=INTB_WAIT;
             // end
             CS_countr_d=4'd0;
+
+
+
+            time1_d=16'b0;
+            calib1_d=16'b0;
+            calib2_d=16'b0;
+
+
+
           end else begin
             CS_countr_d=CS_countr_q+1'b1;
           end
@@ -198,11 +226,18 @@
             start_d = 1'b1;
             Byte_countr_d = 1'b1;
           end
+
+          // wrong measurement. No more signal than 2us (16'd100) -- I DONT REMEMBER EXACTY TIME! so make it relly big!
+          if (CS_countr_q ==16'd1500) begin
+            state_d = DELAY;
+          end else begin
+            CS_countr_d = CS_countr_q+1'b1;
+          end
       end
 
       // BYTE_CONTER can be changed to addr_q case
       READ_TIME1: begin
-        start_d=1'b0; // start should be after addr already fine..
+        start_d=1'b0; // start should be after addr already fine.. previous addr already passed.
         if (!tdc_SPI_busy && start_q == 1'b0) begin
 
           // set wr_en -> join to the FIFO (buf_in) module outside
@@ -216,18 +251,27 @@
 
           // PREPARE DATA FOR SERIAL
           if (addr_q == 6'd22 || addr_q == 6'd23) begin
-            time1_d = time1_q << 8 | tdc_MISO;//{tdc_MISO[0],tdc_MISO[1],tdc_MISO[2],tdc_MISO[3],tdc_MISO[4], tdc_MISO[5],tdc_MISO[6],tdc_MISO[7]};//{tdc_MISO[7],tdc_MISO[6],tdc_MISO[5],tdc_MISO[4],tdc_MISO[3], tdc_MISO[2],tdc_MISO[1],tdc_MISO[0]};
+            time1_d = time1_q << 8 | tdc_MISO;
           end// else begin
 
+
           if (addr_q == 6'd23) begin
-            state_d = READ_CALIB1;
-            start_d = 1'b1;
-            addr_d = 6'd24;
-            Byte_countr_d = 1'b1;
+
+            if (time1_d !== 16'h0000 && time1_d !== 16'd1792) begin
+              state_d = READ_CALIB1;
+              start_d = 1'b1;
+              addr_d = 6'd24;
+              Byte_countr_d = 1'b1;
+            end else begin
+              state_d=DELAY;
+            end
+        
           end else begin
             addr_d = addr_q + 1'b1; // 1 or 2 cycles beetwen addr and data, so deep data_in into in master_spi
             start_d=1'b1;
           end  
+
+
         end  // tdc_SPI_new_data   
       end // READ_TIME
 
@@ -245,7 +289,7 @@
 
           // PREPARE DATA FOR SERIAL
           if (addr_q == 6'd26 || addr_q == 6'd27) begin
-            calib1_d = calib1_q << 8 | tdc_MISO;//{tdc_MISO[0],tdc_MISO[1],tdc_MISO[2],tdc_MISO[3],tdc_MISO[4], tdc_MISO[5],tdc_MISO[6],tdc_MISO[7]};//{tdc_MISO[7],tdc_MISO[6],tdc_MISO[5],tdc_MISO[4],tdc_MISO[3], tdc_MISO[2],tdc_MISO[1],tdc_MISO[0]};
+            calib1_d = calib1_q << 8 | tdc_MISO;
           end// else begin
 
           if (addr_q == 6'd27) begin
@@ -274,7 +318,7 @@
 
           // PREPARE DATA FOR SERIAL
           if (addr_q == 6'd30 || addr_q == 6'd31) begin
-            calib2_d = calib2_q << 8 | tdc_MISO;//{tdc_MISO[0],tdc_MISO[1],tdc_MISO[2],tdc_MISO[3],tdc_MISO[4], tdc_MISO[5],tdc_MISO[6],tdc_MISO[7]};//{tdc_MISO[7],tdc_MISO[6],tdc_MISO[5],tdc_MISO[4],tdc_MISO[3], tdc_MISO[2],tdc_MISO[1],tdc_MISO[0]};
+            calib2_d = calib2_q << 8 | tdc_MISO;
           end// else begin
 
           if (addr_q == 6'd31) begin // overflow since 32==0
@@ -300,18 +344,24 @@
 
 
       WRITE_FIFO: begin
-        wr_en_d=1'b1;
-        data_TO_FIFO_d = {calib_diff_q, time1_q}; // 32bit+sub -> 48total.
+        data_TO_FIFO_d = {calib_diff_q, time1_q}; // 32bit
+
+        // data_TO_FIFO_d = {16'd12000,16'd400}; // 32bit
+
         state_d=WAIT_FIFO_WRITING;
       end  // WRITE_FIFO
 
 
       // ALREADY SENT DATA, WAIT UNTIL it will be written to FIFO
       WAIT_FIFO_WRITING: begin
-        if (fifo_writing_done) begin //s1_fifi_writing e.g
+
+        // if (fifo_writing_done==1'b1) begin //s1_fifi_writing e.g
           state_d=DELAY; // VERY IMPORTANT, otherwise will be meandr wr_en
-          wr_en_d = 1'b0;  // s1_wr_en e.g
-        end// else begin
+          // wr_en_d = 1'b0;  // s1_wr_en e.g
+        // end else begin
+
+          wr_en_d=1'b1; // still waiting for writing 
+        // end
       end  // WAIT_FIFO_WRITING
 
       // MEASUREMENT CYCLE END //

@@ -15,8 +15,8 @@ module mems_control (
     output new_frame
   );
   
-  reg new_line_d, new_line_q=1'b0;
-  reg new_frame_d, new_frame_q=1'b0;
+  reg new_line_d, new_line_q;//=1'b0;
+  reg new_frame_d, new_frame_q;//=1'b0;
   
   assign mems_SPI_start=mems_SPI_start_q;
 
@@ -48,7 +48,14 @@ module mems_control (
 
   always @(*) begin
 
+
+// new_line_d = new_line_q;
+// new_frame_d = new_frame_q;
+
+
+    // if (new_line_FIFO_done==1'b1 && new_line_q==1'b1) begin
     if (new_line_FIFO_done==1'b1) begin
+    
       new_line_d=1'b0; // latch here is not fine (if at the same time 2 modules -> problem)
     end else begin
       new_line_d = new_line_q;
@@ -59,6 +66,8 @@ module mems_control (
     end else begin
       new_frame_d = new_frame_q;
     end
+
+
 
 
     state_d = state_q; // default values
@@ -102,26 +111,53 @@ module mems_control (
 
                     // begin from the beginning if end reached.         
                     if (rom_scan_is_done==1'b1) begin
-                         addr_d=16'd8;  
-                       end else begin
-                         addr_d = addr_q+1'b1;
-                    end
-
-//                     // check new_line conditions
-if (addr_q == 16'd64 || addr_q == 16'd448 || addr_q == 16'd832 || addr_q == 16'd1216 || addr_q == 16'd1600 || addr_q == 16'd1984 || addr_q == 16'd2368 || addr_q == 16'd2752 || addr_q == 16'd3136 || addr_q == 16'd3520 || addr_q == 16'd3904 || addr_q == 16'd4288 || addr_q == 16'd4672 || addr_q == 16'd5056 || addr_q == 16'd5440 || addr_q == 16'd5824 || addr_q == 16'd6208 || addr_q == 16'd6592 || addr_q == 16'd6976 || addr_q == 16'd7360 || addr_q == 16'd7744 || addr_q == 16'd8128 || addr_q == 16'd8512 || addr_q == 16'd8896 || addr_q == 16'd9280 || addr_q == 16'd9664 || addr_q == 16'd10048 || addr_q == 16'd10432 || addr_q == 16'd10816 || addr_q == 16'd11200 || addr_q == 16'd11584 || addr_q == 16'd11968 || addr_q == 16'd12352 || addr_q == 16'd12736 || addr_q == 16'd13120 || addr_q == 16'd13504 || addr_q == 16'd13888 || addr_q == 16'd14272 || addr_q == 16'd14656 || addr_q == 16'd15040 || addr_q == 16'd256 || addr_q == 16'd640 || addr_q == 16'd1024 || addr_q == 16'd1408 || addr_q == 16'd1792 || addr_q == 16'd2176 || addr_q == 16'd2560 || addr_q == 16'd2944 || addr_q == 16'd3328 || addr_q == 16'd3712 || addr_q == 16'd4096 || addr_q == 16'd4480 || addr_q == 16'd4864 || addr_q == 16'd5248 || addr_q == 16'd5632 || addr_q == 16'd6016 || addr_q == 16'd6400 || addr_q == 16'd6784 || addr_q == 16'd7168 || addr_q == 16'd7552 || addr_q == 16'd7936 || addr_q == 16'd8320 || addr_q == 16'd8704 || addr_q == 16'd9088 || addr_q == 16'd9472 || addr_q == 16'd9856 || addr_q == 16'd10240 || addr_q == 16'd10624 || addr_q == 16'd11008 || addr_q == 16'd11392 || addr_q == 16'd11776 || addr_q == 16'd12160 || addr_q == 16'd12544 || addr_q == 16'd12928 || addr_q == 16'd13312 || addr_q == 16'd13696 || addr_q == 16'd14080 || addr_q == 16'd14464 || addr_q == 16'd14848 || addr_q==16'd15267) begin
-
-                        new_line_d=1'b1;
-                    end //else begin
-                      // new_line_d=1'b0;
-//                     // end
+                    // if (addr_q==16'd12800) begin
+                         addr_d = 16'd8;  
+                    end else begin
 
 
-                    // check new_frame conditions
-if (addr_q == 16'd7680 || addr_q==16'd15360) begin
+                        // check new_frame
+                        
 
 
-                      new_frame_d = 1'b1;
-                    end //else begin
+
+
+                        if (addr_q == 16'd88) begin // 6495 no overflow at all1! 6490 also no overf.
+                        // if (addr_q == 16'd6488 || addr_q == 16'd88) begin // 6495 no overflow at all1! 6490 also no overf.
+
+                            new_frame_d = 1'b1;
+                        end else
+
+                        // random
+                        if (addr_q == 16'd88 || addr_q == 16'd408 || addr_q == 16'd728 || addr_q == 16'd1048 || addr_q == 16'd1368 || addr_q == 16'd1688 || addr_q == 16'd2008 || addr_q == 16'd2328 || addr_q == 16'd2648 || addr_q == 16'd2968 || addr_q == 16'd3288 || addr_q == 16'd3608 || addr_q == 16'd3928 || addr_q == 16'd4248 || addr_q == 16'd4568 || addr_q == 16'd4888 || addr_q == 16'd5208 || addr_q == 16'd5528 || addr_q == 16'd5848 || addr_q == 16'd6168 || addr_q == 16'd6488 || addr_q == 16'd6808 || addr_q == 16'd7128 || addr_q == 16'd7448 || addr_q == 16'd7768 || addr_q == 16'd8088 || addr_q == 16'd8408 || addr_q == 16'd8728 || addr_q == 16'd9048 || addr_q == 16'd9368 || addr_q == 16'd9688 || addr_q == 16'd10008 || addr_q == 16'd10328 || addr_q == 16'd10648 || addr_q == 16'd10968 || addr_q == 16'd11288 || addr_q == 16'd11608 || addr_q == 16'd11928 || addr_q == 16'd12248 || addr_q==16'd12568) begin
+
+
+                        // only up
+                        // if (addr_q == 16'd88 || addr_q == 16'd408 || addr_q == 16'd728 || addr_q == 16'd1048 || addr_q == 16'd1368 || addr_q == 16'd1688 || addr_q == 16'd2008 || addr_q == 16'd2328 || addr_q == 16'd2648 || addr_q == 16'd2968 || addr_q == 16'd3288 || addr_q == 16'd3608 || addr_q == 16'd3928 || addr_q == 16'd4248 || addr_q == 16'd4568 || addr_q == 16'd4888 || addr_q == 16'd5208 || addr_q == 16'd5528 || addr_q == 16'd5848 || addr_q == 16'd6168 || addr_q == 16'd6488 || addr_q == 16'd6808 || addr_q == 16'd7128 || addr_q == 16'd7448 || addr_q == 16'd7768 || addr_q == 16'd8088 || addr_q == 16'd8408 || addr_q == 16'd8728 || addr_q == 16'd9048 || addr_q == 16'd9368 || addr_q == 16'd9688 || addr_q == 16'd10008 || addr_q == 16'd10328 || addr_q == 16'd10648 || addr_q == 16'd10968 || addr_q == 16'd11288 || addr_q == 16'd11608 || addr_q == 16'd11928 || addr_q == 16'd12248 || addr_q==16'd12568) begin
+
+                        // down & up
+                        // if (addr_q == 16'd88 || addr_q == 16'd408 || addr_q == 16'd728 || addr_q == 16'd1048 || addr_q == 16'd1368 || addr_q == 16'd1688 || addr_q == 16'd2008 || addr_q == 16'd2328 || addr_q == 16'd2648 || addr_q == 16'd2968 || addr_q == 16'd3288 || addr_q == 16'd3608 || addr_q == 16'd3928 || addr_q == 16'd4248 || addr_q == 16'd4568 || addr_q == 16'd4888 || addr_q == 16'd5208 || addr_q == 16'd5528 || addr_q == 16'd5848 || addr_q == 16'd6168 || addr_q == 16'd6488 || addr_q == 16'd6808 || addr_q == 16'd7128 || addr_q == 16'd7448 || addr_q == 16'd7768 || addr_q == 16'd8088 || addr_q == 16'd8408 || addr_q == 16'd8728 || addr_q == 16'd9048 || addr_q == 16'd9368 || addr_q == 16'd9688 || addr_q == 16'd10008 || addr_q == 16'd10328 || addr_q == 16'd10648 || addr_q == 16'd10968 || addr_q == 16'd11288 || addr_q == 16'd11608 || addr_q == 16'd11928 || addr_q == 16'd12248 || addr_q == 16'd12568 || addr_q == 16'd248 || addr_q == 16'd568 || addr_q == 16'd888 || addr_q == 16'd1208 || addr_q == 16'd1528 || addr_q == 16'd1848 || addr_q == 16'd2168 || addr_q == 16'd2488 || addr_q == 16'd2808 || addr_q == 16'd3128 || addr_q == 16'd3448 || addr_q == 16'd3768 || addr_q == 16'd4088 || addr_q == 16'd4408 || addr_q == 16'd4728 || addr_q == 16'd5048 || addr_q == 16'd5368 || addr_q == 16'd5688 || addr_q == 16'd6008 || addr_q == 16'd6328 || addr_q == 16'd6648 || addr_q == 16'd6968 || addr_q == 16'd7288 || addr_q == 16'd7608 || addr_q == 16'd7928 || addr_q == 16'd8248 || addr_q == 16'd8568 || addr_q == 16'd8888 || addr_q == 16'd9208 || addr_q == 16'd9528 || addr_q == 16'd9848 || addr_q == 16'd10168 || addr_q == 16'd10488 || addr_q == 16'd10808 || addr_q == 16'd11128 || addr_q == 16'd11448 || addr_q == 16'd11768 || addr_q == 16'd12088 || addr_q == 16'd12408 || addr_q==16'd12728) begin
+
+                        // end else if (addr_q == 16'd88 || addr_q == 16'd408 || addr_q == 16'd728 || addr_q == 16'd1048 || addr_q == 16'd1368 || addr_q == 16'd1688 || addr_q == 16'd2008 || addr_q == 16'd2328 || addr_q == 16'd2648 || addr_q == 16'd2968 || addr_q == 16'd3288 || addr_q == 16'd3608 || addr_q == 16'd3928 || addr_q == 16'd4248 || addr_q == 16'd4568 || addr_q == 16'd4888 || addr_q == 16'd5208 || addr_q == 16'd5528 || addr_q == 16'd5848 || addr_q == 16'd6168 || addr_q == 16'd6808 || addr_q == 16'd7128 || addr_q == 16'd7448 || addr_q == 16'd7768 || addr_q == 16'd8088 || addr_q == 16'd8408 || addr_q == 16'd8728 || addr_q == 16'd9048 || addr_q == 16'd9368 || addr_q == 16'd9688 || addr_q == 16'd10008 || addr_q == 16'd10328 || addr_q == 16'd10648 || addr_q == 16'd10968 || addr_q == 16'd11288 || addr_q == 16'd11608 || addr_q == 16'd11928 || addr_q == 16'd12248 || addr_q==16'd12568) begin
+                            new_line_d=1'b1;
+                        end 
+                        
+                        
+
+
+
+
+
+
+
+
+                      addr_d = addr_q+1'b1;
+                    end // if rom_scan_is_done
+
+
+
+
+
 
 
 

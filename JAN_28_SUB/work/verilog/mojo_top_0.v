@@ -51,8 +51,8 @@ module mojo_top_0(
   output f2_MEMS_FCLK,
   output f2_MEMS_SPI_CLOCK,
 
-  output f2_new_line,
-  output f2_new_frame,
+  // output f2_new_line,
+  // output f2_new_frame,
   // // F3
   // output f3_ENABLE,
   // // TDC
@@ -153,15 +153,15 @@ module mojo_top_0(
   localparam TDC_SPI_SPEED=6250000; // 6250000, max is  20Mhz
   // MEMS
   localparam FCLK_FREQUENCY=52000; // 10k -> 6k -> available 6k*2^n;
-  localparam MEMS_SPI_SPEED=50000;  // max is 50MHZ
+  localparam MEMS_SPI_SPEED=25000;  // max is 50MHZ
   
 
   // FIFO
-  localparam FIFO_WIDTH=5; // 128 is fine means count of elements is 2^FIFO_WIDTH
+  localparam FIFO_WIDTH=6; // 128 is fine means count of elements is 2^FIFO_WIDTH
   localparam BAUD_RATE_SPEED= 1000000; // in Hz, CAN BE ANY
 
   // OTHER
-  localparam SHOOTING_FREQUENCY=5000; // in Hz, CAN BE ANY
+  localparam SHOOTING_FREQUENCY=10000; // in Hz, CAN BE ANY
     
   // CONVERTED PARAMS  
   localparam FCLK_FREQUENCY_PARAM=MOJO_FREQUENCY/FCLK_FREQUENCY; 
@@ -199,6 +199,8 @@ module mojo_top_0(
   
   // TDC
   wire f1_tdc_SPI_start;
+
+
   wire f2_tdc_SPI_start;
   wire f3_tdc_SPI_start;
   wire f4_tdc_SPI_start;
@@ -360,68 +362,68 @@ module mojo_top_0(
 
     // TDC
     // INPUT
-    .f1_din(f1_din),
+    // .f1_din(f1_din),
     .f2_din(f2_din),
-    .f3_din(f3_din),
-    .f4_din(f4_din),
-    .f5_din(f5_din),
-    .f6_din(f6_din),
+    // .f3_din(f3_din),
+    // .f4_din(f4_din),
+    // .f5_din(f5_din),
+    // .f6_din(f6_din),
     
-    .f1_wr_en(f1_wr_en),
+    // .f1_wr_en(f1_wr_en),
     .f2_wr_en(f2_wr_en),
-    .f3_wr_en(f3_wr_en),
-    .f4_wr_en(f4_wr_en),
-    .f5_wr_en(f5_wr_en),
-    .f6_wr_en(f6_wr_en),
+    // .f3_wr_en(f3_wr_en),
+    // .f4_wr_en(f4_wr_en),
+    // .f5_wr_en(f5_wr_en),
+    // .f6_wr_en(f6_wr_en),
 
     // OUTPUT
-    .f1_FIFO_writing_done(f1_FIFO_writing_done),
+    // .f1_FIFO_writing_done(f1_FIFO_writing_done),
     .f2_FIFO_writing_done(f2_FIFO_writing_done),
-    .f3_FIFO_writing_done(f3_FIFO_writing_done),
-    .f4_FIFO_writing_done(f4_FIFO_writing_done),
-    .f5_FIFO_writing_done(f5_FIFO_writing_done),
-    .f6_FIFO_writing_done(f6_FIFO_writing_done),
+    // .f3_FIFO_writing_done(f3_FIFO_writing_done),
+    // .f4_FIFO_writing_done(f4_FIFO_writing_done),
+    // .f5_FIFO_writing_done(f5_FIFO_writing_done),
+    // .f6_FIFO_writing_done(f6_FIFO_writing_done),
 
     // MEMS
     // INPUT
-    .f1_new_line(f1_new_line),
+    // .f1_new_line(f1_new_line),
     .f2_new_line(f2_new_line),
-    .f3_new_line(f3_new_line),
-    .f4_new_line(f4_new_line),
-    .f5_new_line(f5_new_line),
-    .f6_new_line(f6_new_line),
+    // .f3_new_line(f3_new_line),
+    // .f4_new_line(f4_new_line),
+    // .f5_new_line(f5_new_line),
+    // .f6_new_line(f6_new_line),
     
-    .f1_new_frame(f1_new_frame),
+    // .f1_new_frame(f1_new_frame),
     .f2_new_frame(f2_new_frame),
-    .f3_new_frame(f3_new_frame),
-    .f4_new_frame(f4_new_frame),
-    .f5_new_frame(f5_new_frame),
-    .f6_new_frame(f6_new_frame),
+    // .f3_new_frame(f3_new_frame),
+    // .f4_new_frame(f4_new_frame),
+    // .f5_new_frame(f5_new_frame),
+    // .f6_new_frame(f6_new_frame),
 
     // OUTPUT
-    .f1_new_line_FIFO_done(f1_new_line_FIFO_done),
+    // .f1_new_line_FIFO_done(f1_new_line_FIFO_done),
     .f2_new_line_FIFO_done(f2_new_line_FIFO_done),
-    .f3_new_line_FIFO_done(f3_new_line_FIFO_done),
-    .f4_new_line_FIFO_done(f4_new_line_FIFO_done),
-    .f5_new_line_FIFO_done(f5_new_line_FIFO_done),
-    .f6_new_line_FIFO_done(f6_new_line_FIFO_done),
+    // .f3_new_line_FIFO_done(f3_new_line_FIFO_done),
+    // .f4_new_line_FIFO_done(f4_new_line_FIFO_done),
+    // .f5_new_line_FIFO_done(f5_new_line_FIFO_done),
+    // .f6_new_line_FIFO_done(f6_new_line_FIFO_done),
         
-    .f1_new_frame_FIFO_done(f1_new_frame_FIFO_done),
+    // .f1_new_frame_FIFO_done(f1_new_frame_FIFO_done),
     .f2_new_frame_FIFO_done(f2_new_frame_FIFO_done),
-    .f3_new_frame_FIFO_done(f3_new_frame_FIFO_done),
-    .f4_new_frame_FIFO_done(f4_new_frame_FIFO_done),
-    .f5_new_frame_FIFO_done(f5_new_frame_FIFO_done),
-    .f6_new_frame_FIFO_done(f6_new_frame_FIFO_done),
+    // .f3_new_frame_FIFO_done(f3_new_frame_FIFO_done),
+    // .f4_new_frame_FIFO_done(f4_new_frame_FIFO_done),
+    // .f5_new_frame_FIFO_done(f5_new_frame_FIFO_done),
+    // .f6_new_frame_FIFO_done(f6_new_frame_FIFO_done),
 
     // OTHERS
     .w_tx_OUT_TDC(SERIAL_OUT_TDC),
-    .tx_busy_TDC(tx_busy_TDC), // debugging
-    .new_data_FROM_FIFO_TO_SERIAL(t_new_data_FROM_FIFO_TO_SERIAL), // debugging
+    .tx_busy_TDC(tx_busy_TDC) // debugging
+    // .new_data_FROM_FIFO_TO_SERIAL(t_new_data_FROM_FIFO_TO_SERIAL), // debugging
 
     // debug
-    .w_empty(FIFO_EMPTY), // debugging
-    .w_full(FIFO_FULL), // debugging
-    .t_rd_en(t_rd_en) // debugging
+    // .w_empty(FIFO_EMPTY), // debugging
+    // .w_full(FIFO_FULL), // debugging
+    // .t_rd_en(t_rd_en) // debugging
   );
 
 
