@@ -29,8 +29,8 @@ function main()
     redraw_1=false;
     
     %X2
-    maximum_x_points_2= 300; % make it bigger 5% 
-    maximum_y_points_2= 90; % make it bigger 5%
+    maximum_x_points_2= 1200; % make it bigger 5% 
+    maximum_y_points_2= 50; % make it bigger 5%
     temp_row_2=1;
 
     len_2_before=0;
@@ -90,15 +90,12 @@ function main()
     A_6=zeros(1,3*maximum_x_points_6*maximum_y_points_6,'uint32'); % 
              
 
-    fileID = fopen('serial_checking.txt','w');
-
+    
     if ~exist('h','Var')   
         h=figure('ToolBar','none','units','normalized','outerposition',[0 0 1 1], 'color', 'black');
         % cla
         ax = axes('Parent', h);
-        
-        % [ha, pos] = tight_subplot(1,1,[0 0],[.01 .01],[.01 .01]);
-        [ha, pos] = tight_subplot(1,1,[0 0],[.02 .02],[.01 .01]);
+        [ha, pos] = tight_subplot(1,1,[0 0],[.01 .01],[.01 .01]);
 
 
 
@@ -108,18 +105,18 @@ function main()
             axis off;
         end
 
+
+
+% set(gca,'Ydir','Normal')
+set(gca,'Ydir','reverse')
+
         ax=gca;
         ax.Color=[0 0 0];%,'k')
-        ax.YTick = [0:5:80];
+        ax.YTick = [1:50];
         ax.XTick = [1:20:800];
-        ax.YAxisLocation = 'left';
+        ax.YAxisLocation = 'right';
         ax.XColor=[1,1,1];
         ax.YColor=[1,1,1];
-
-        % ax.Xdir='reverse';
-        % set(ax, 'Xdir', 'reverse')
-        % set(h1, 'Ydir', 'reverse')
-
 
         % set(gca, 'ylim', [0:50],'YTick', [0:1:50],'YAxisLocation', 'right', 'XAxisLocation', 'top')
 
@@ -177,37 +174,27 @@ function main()
     % flushinput(s);
     
     left_out=uint16([]); % to make good out 16bit
-    start_ok=false;
-
-
+    
     if(~exist('s','Var'))
         ser_list=seriallist();
         serial_port=ser_list(1);
         % getting data by bytes, so 8 bits
-        s = serial(serial_port,'BaudRate',1000000,'DataBits',8,'InputBufferSize',500000); %20k is 6000 points * 8 byte each, so take 40k.
+        s = serial(serial_port,'BaudRate',4000000,'DataBits',8,'InputBufferSize',500000); %20k is 6000 points * 8 byte each, so take 40k.
         fopen(s);     
     end
 
     % start timer 
     start=tic;
 
-    % while toc(start) < 600
-    while 1  
+    while toc(start) < 300
         if (s.BytesAvailable>7)
+                % disp('parallel is fine')
             % join with prev. left_out uint16 is fine, since calib2 ~ 27k
             out = [left_out; fread(s,s.BytesAvailable,'uint16')]; % both of them 16 bit -> it also 16bit; PREALLOCATED is not needed in such cases
-    
-
-
-
-            % if (start_ok==false)
-            %     if (find(out==2) >0)
-            %         start_ok=true;
-            %         disp('fine')
-            %     end 
+            
+            % if (find(out(1:3)>13000))
+                % out(1:3)
             % end
-     
-            out(1:3)
             
 
             % separate by good packages
@@ -219,12 +206,10 @@ function main()
             left_out=out(last_byte_position:end); % uint16, since out is uint16
             % totaly right input, like 1 x y z
             good_out=out(first_byte_position:last_byte_position-1); % uint16
-            fprintf(fileID,'%d\n',good_out);   
-
+    
             % find all new frames for all subs
             find_new_frames=find(good_out==14);
     
-            %% WE ASUME ONLY 1 FRAME PER TIME !!! 
             for i=1:2:length(find_new_frames) % here we skip 1 14 14.. just grab first one
                 switch good_out(find_new_frames(i)-1) % detect, which submodule
                     case 1
@@ -243,14 +228,27 @@ function main()
                         disp('wrong submodule for new frame..')
                 end
             end
+                    % disp('azaza-1')
+                    % disp('azaza0')
         % F(2) = parfeval(p,@X2,0);
         % F(3) = parfeval(p,@X3,0);
         % F(4) = parfeval(p,@X4,0);
         % F(5) = parfeval(p,@X5,0);
         % F(6) = parfeval(p,@X6,0);
 
+            % % MAKE redraw only if all is ready, since drawnos is expensive
+            
+            % while (redraw_1==false)
+            %     disp('not yet..')
+            % end
         % fetchOutputs(F)
         % completedIdx = fetchNext(F)
+            % if (redraw_1==true)
+                % drawnow;
+                % M_1
+                % disp('azaza')
+            %     redraw_1=false;
+            % end
 
             % X1();
             X2();
@@ -263,15 +261,15 @@ function main()
                 % disp('frame_2')
                 counter=counter+1
                 redraw_2=false;
-                % disp(['Matrix is ',  num2str(length(A_sep{2})/2) 'x' num2str(len+1)  ]);
+                disp(['Matrix is ',  num2str(length(A_sep{2})/2) 'x' num2str(len)  ]);
                 try
                     disp(['M(1) is ', num2str(length(A_sep{1})/3)]) 
                     disp(['M(20) is ', num2str(length(A_sep{20})/3)]) 
-                    disp(['Matrix is ',  num2str(length(A_sep{2})/3) 'x' num2str(len+1)  ]);
                 catch
                 end
                 drawnow;
             end
+
 
             % if ( (redraw_1 == true) & (redraw_2 ==true) & (redraw_3 ==true) & (redraw_4 ==true) & (redraw_5 ==true) & (redraw_6 ==true) )% & redraw_2 & redraw_3 & redraw_4 & redraw_5 & redraw_6)
             %     drawnow;
@@ -288,9 +286,9 @@ function main()
     end % while 1
     
 
-    % disp(['FPS is ', num2str(counter/10)]);
-    % disp(['Matrix is ',  num2str(length(A_sep{2})/2) 'x' num2str(len)  ]);
-    % disp(['Total points/s ',  num2str(counter/10*len*length(A_sep{2})/2) ]);
+    disp(['FPS is ', num2str(counter/10)]);
+    disp(['Matrix is ',  num2str(length(A_sep{2})/2) 'x' num2str(len)  ]);
+    disp(['Total points/s ',  num2str(counter/10*len*length(A_sep{2})/2) ]);
     
     
     %% NESTED FUNCTION (SINCE SHARED MEMOTY, MATLAB DOENST HAVE POINTERS! ONLY IN MEX type..)    
@@ -386,7 +384,6 @@ function main()
 
     
 
-    %% A2 contains all point for sub #2
     function X2()
         find_2_all_idx = find(good_out==2); % find indexes of all points 
         if (new_frame_2_idx == 0) % no new frame for sub_2
@@ -397,18 +394,16 @@ function main()
             end
             len_2_before=len_2_before+len_2;
         
-        else % we have new frame, so first fill before new_line ant then after new_line
+        else % we have new frame, so first fill before new_line ant htne after new_line
             len_2=find(find_2_all_idx==new_frame_2_idx)-1; % how many points until new frame
             for i=len_2_before+1:len_2_before+len_2
                 A_2(3*i-2:3*i) = good_out(find_2_all_idx(i-len_2_before):find_2_all_idx(i-len_2_before)+2);
             end
 
-            % NOW A_2 contains all frame -> separate by lines it.
 
             %%% SEPARATION %%%
             new_lines=find(A_2==13);
             len=length(new_lines)/2;
-            disp(['Lines amount', num2str(len)])
             if (len~=0) % sometimes we can read only new frame, without new_line
                 % disp('len_new_lines')
                 % remove last 2 digits from 13 13 13
@@ -427,21 +422,21 @@ function main()
                 for i=2:len % if <1 not processing.
                     A_sep{i} = A_2(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
                 end
-                zero_index_all=find(A_2==0,1,'first')-1 % we have keeping MORE!!! some times we have 0 in REAL data (ALREADY FIXED IN FPGA.., but anyway keep it)
-                zero_index=zero_index_all(end); % take real matrix zeros..
+                zero_index=find(A_2==0,1,'first')-1;
                 A_sep{len+1}=A_2(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
                 
-                % start from the beggining both for reversde & not reversed frames
+
+                line_reversed=false; % since first line is not reversed
                 temp_row_2=1;
-                line_reversed=true;
+
 
                 if (~frame_reversed) % we dont need to reverse frame..
-                % line_reversed=false; % since first line is not reversed
                 % loop for all lines
                     for i=1:len+1
                         size_A_sepi=length(A_sep{i})/3;
-                        % loop for selected line
+                        
                         for j=1:size_A_sepi
+
                             if (~line_reversed) % if we dont need to reverse
                                 % disp('not reversed')
                                 if (A_sep{i}(3*(j-1)+1)==0)
@@ -457,7 +452,6 @@ function main()
                             else   % if we must reversed
                                 % disp('reversed')
                                 if (A_sep{i}(3*(j-1)+1)==0)
-                                    size_A_sepi+1-j
                                     M_2(temp_row_2,size_A_sepi+1-j)=250;
                                 else
                                     % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -467,17 +461,16 @@ function main()
                                         disp('wasted M_2');
                                     end % try
                                 end 
-    
                             end % reversed
+                        
 
                         end % for j
 
-                        line_reversed=~line_reversed; % change polarity
+                        % line_reversed=~line_reversed; % change polarity
                         temp_row_2=temp_row_2+1; % next line
                     end  % for i
                     % temp_row_2=1;
                 else % we need to reverse frame
-
                     for i=len+1:-1:1
                         size_A_sepi=length(A_sep{i})/3;
                         

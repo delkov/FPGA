@@ -2,11 +2,15 @@ clear; clc
 
 
 % length = 4800; for 20
-length = 240;
+length = 1600;
+true_length=length; % add +1 for symmetric test
+% phase_shift=-0.075;
+phase_shift=-0.08;
+% x_shift=0.1;
 
-number_of_waves = 5;
+number_of_waves = 40;
 
-crit_value=0.99
+crit_value=0.997
 
 middle = 92;
 VA = 60;
@@ -24,11 +28,9 @@ return_period = length/2;
 growth=1;
 jback=0;
 
-phase_shift=-0.13;
 
 % phase_shift=-0.025; for 20
 
-true_length=length; % add +1 for symmetric test
 
 x = zeros(1,true_length);
 y =zeros(1,true_length);
@@ -46,9 +48,11 @@ for j=1:true_length
 
                 A = VA;
                 if (growth==1)
-                    N = uint16(middle - A + 2*A*(j-1)/(length-return_period));                    
+                    N = uint16(middle - A + 2*A*(  (j-1) + 6/(j+1^2)  - 4000/((j-length*0.53)^2) )/(length-return_period));    
+                    % N = uint16(middle - A + 2*A*(  (j-1)  + 50/(j+10^2) - 300/((j-220)^2) )/(length-return_period));                                    
                 else 
-                    N = uint16(middle + A - 2*A*(j-jback-1)/(return_period));
+                    % N=x(j-true_)
+                    N = uint16(middle + A - 2*A*(   (j-jback-1)   )/(return_period));
                 end  
 
 
@@ -61,9 +65,9 @@ for j=1:true_length
 
                     x(j)=N;
                     
-                    b= de2bi(N,16,'left-msb');
-                    formatSpec = '    rom_data[%2.0f]=16''b%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f;\n';
-                    fprintf(fileID,formatSpec,j*2+k-1,b(1),b(2),b(3),b(4),b(5),b(6),b(7),b(8),b(9),b(10),b(11),b(12),b(13),b(14),b(15),b(16));
+                    % b= de2bi(N,16,'left-msb');
+                    % formatSpec = '    rom_data[%2.0f]=16''b%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f;\n';
+                    % fprintf(fileID,formatSpec,j*2+k-1,b(1),b(2),b(3),b(4),b(5),b(6),b(7),b(8),b(9),b(10),b(11),b(12),b(13),b(14),b(15),b(16));
 
             case 2
 
@@ -77,11 +81,11 @@ for j=1:true_length
 
                 end
 
-                % if j<(true_length+1)
-                    b= de2bi(N,16,'left-msb');
-                    formatSpec = '    rom_data[%2.0f]=16''b%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f;\n';
-                    fprintf(fileID,formatSpec,j*2+k-1,b(1),b(2),b(3),b(4),b(5),b(6),b(7),b(8),b(9),b(10),b(11),b(12),b(13),b(14),b(15),b(16));
-                % end
+                % % if j<(true_length+1)
+                %     b= de2bi(N,16,'left-msb');
+                %     formatSpec = '    rom_data[%2.0f]=16''b%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f;\n';
+                %     fprintf(fileID,formatSpec,j*2+k-1,b(1),b(2),b(3),b(4),b(5),b(6),b(7),b(8),b(9),b(10),b(11),b(12),b(13),b(14),b(15),b(16));
+                % % end
 
 
                 % GOT NEW LINE INDEXES..
@@ -109,27 +113,54 @@ for j=1:true_length
 
 end
 
-disp('new_line_up')
-disp(new_line_up)
 
-disp('new_line_down')
-disp(new_line_down)
+x(end/2+1:end)=x(end/2:-1:1);
 
-disp(8*jback)
 
-str = strcat(   'if (', sprintf('addr_q == 16''d%d || ', 8*[new_line_up; new_line_down(1:end-1)]), ' addr_q==16''d',num2str(8*new_line_down(end)), ') begin' )
+
+for i=1:true_length
+    formatSpec = '    rom_data[%2.0f]=16''b%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f%1.0f;\n';
+    
+
+    b= de2bi(x(i),16,'left-msb');
+    fprintf(fileID,formatSpec,i*2,b(1),b(2),b(3),b(4),b(5),b(6),b(7),b(8),b(9),b(10),b(11),b(12),b(13),b(14),b(15),b(16));
+
+    b= de2bi(y(i),16,'left-msb');
+    fprintf(fileID,formatSpec,i*2+1,b(1),b(2),b(3),b(4),b(5),b(6),b(7),b(8),b(9),b(10),b(11),b(12),b(13),b(14),b(15),b(16));
+
+end
+
+
+
+
+
+% disp('new_line_up')
+% disp(new_line_up)
+
+% disp('new_line_down')
+% disp(new_line_down)
+
+% disp(8*jback)
+add=8;
+% str = strcat(   'if (', sprintf('addr_q == 16''d%d || ', add+8*[new_line_up(1:end-1)]), ' addr_q==16''d',num2str(add+8*new_line_up(end)), ') begin' )
+
+
+
+str = strcat(   'if (', sprintf('addr_q == 16''d%d || ', add+8*[new_line_up; new_line_down(1:end-1)]), ' addr_q==16''d',num2str(add+8*new_line_down(end)), ') begin' )
+
+
+% str = strcat(   'if (', sprintf('addr_q == 16''d%d || ', 8*[new_line_up-10; new_line_down(1:end-1)-10]), ' addr_q==16''d',num2str(8*new_line_down(end)-10), ') begin' )
 figure();
-
 plot(x,y,'.-')
 
-figure();
-[~,size_y]=size(y)
-plot([1:size_y],y,'.-')
+% figure();
+% [~,size_y]=size(y)
+% plot([1:size_y],y,'.-')
 
 
-figure();
-[~,size_x]=size(x)
-plot([1:size_x],x)
+% figure();
+% [~,size_x]=size(x)
+% plot([1:size_x],x)
 
 
 % disp('y(1)')
@@ -138,7 +169,12 @@ plot([1:size_x],x)
 % disp('y(end)')
 % y(end)
 
+size(new_line_up)
+size(new_line_down)
 
-disp('y(1)/rel_max(y)')
+
+str2 = strcat(   'if (', sprintf('addr_q == 16''d%d || ', 8*true_length/2), ' addr_q==16''d', num2str(8*true_length), ') begin' )
+
+
+disp('symmetry')
 (y(end)-min(y))/(max(y)-min(y))
-1

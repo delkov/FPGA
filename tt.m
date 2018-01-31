@@ -18,18 +18,30 @@ delay_ms(1000);
 %fwrite(s, 'd')
 
 left_out=[]
+start_ok=false;
 
+fileID = fopen('serial_checking_tt.txt','w');
 while 1
      if (s.BytesAvailable>7)
           % [out, count] = fread(s,s.BytesAvailable,'uint16')
             % out = [left_out; fread(s,s.BytesAvailable,'uint16')]; % both of them 16 bit -> it also 16bit; PREALLOCATED is not needed in such cases
 
 
-            out=fread(s,s.BytesAvailable,'uint16')
+            out=fread(s,s.BytesAvailable,'uint16');
+
+
+
+            fprintf(fileID,'%d\n',out);
+
+
+            % if out(2) > 400
+            %     out(2)
+            % end
+
             % out(1)
             % TOF()
             % separate by good packages
-            % out_idx = find(out<2); % 6 susbs we have
+            % out_idx = find(out<3); % 6 susbs we have
             % first_byte_position = min(out_idx);
             % last_byte_position = max(out_idx);
             
@@ -56,7 +68,7 @@ function TOF_AR = TOF(A)%,CLK_PERIOD,CALIB_PERIODS)
         for i=1:1:size_B
             disp('mesurement')
             TOF_AR(i)=(A(3*(i-1)+2)*80*(10-1))/(A(3*(i-1)+3)); % time offset & 0.15m
-(A(3*(i-1)+2)*80*(10-1))/(A(3*(i-1)+3))
+% (A(3*(i-1)+2)*80*(10-1))/(A(3*(i-1)+3))
            % TOF_AR(i)=(A(4*(i-1)+2)*80*(10-1))/(A(4*(i-1)+4)-A(4*(i-1)+3)); % time offset & 0.15m
              % 10^9*(A(4*(i-1)+2)*125*10^-9*(10-1)/(A(4*(i-1)+4)-A(4*(i-1)+3)))*0.15-2.9
         end
