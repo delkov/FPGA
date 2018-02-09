@@ -1,31 +1,35 @@
-clear; clc
-delete(instrfindall); % remove already opened serial
 
-main();
+% main();
 
 function main()
+
+    clear; clc
+    delete(instrfindall); % remove already opened serial
 
     % % parallel initialization
     % if ~exist('p','Var')   
     %     p = gcp();
     % end
 
+    
     %% CONSTANT
     counter=0;  
+    serial_port='/dev/ttyUSB1';
     baud_rate=4000000;
     buffer_size=500000; % in bytes
 
     % GLOBAL
 
-    x_size=145;
+    x_size=160;
     y_size=13;
 
+
     show_x_min=0;
-    show_x_max=150;
+    show_x_max=1810;
     show_y_min=0;
     show_y_max=13;
 
-    color=[0 80];
+    color=[0 50];
     show_colorbar = 0;
     show_separated_lines = 1;
 
@@ -104,47 +108,35 @@ function main()
 
     fileID = fopen('serial_checking.txt','w');
 
-    if ~exist('h','Var')   
+    if ~exist('h','var')   
         h=figure('ToolBar','none','units','normalized','outerposition',[0 0 1 1], 'color', 'black');
         
 
-        % set(gcf, 'Renderer','opengl') 
-        % set(gcf, 'Renderer','painters') 
+        set(gcf, 'Renderer','OpenGl') 
+        % set(gcf, 'Renderer','painter1s') 
         % set(h, 'GraphicsSmoothing','off') 
         % speed up FPS
-        set(gcf, 'GraphicsSmoothing','off')  % worled!
-        set(gcf,'Renderer','OpenGL'); % probably not..
-        set(gcf,'RendererMode','manual') % already setted because of OpenGl, just keep it..
+        % set(gcf, 'GraphicsSmoothing','off')  % worled! use for 2017 (HG2)
+        % set(gcf,'Renderer','OpenGL'); % probably not..
+        % set(gcf,'RendererMode','manual') % probably not..
 
 
         % cla
-        ax = axes('Parent', h);        
+        ax = axes('Parent', h);
         
+        % [ha, pos] = tight_subplot(1,1,[0 0],[.01 .01],[.01 .01]);
         [ha, pos] = tight_subplot(1,3,[0 0],[.02 .02],[.01 .01]);
 
-
-
-        % F1
         axes(ha(1));
-        pl(1)=image(M_1,'CDataMapping','scaled');
-
+        pl(1)=imagesc(M_1,[color(1) color(2)]);
         if (~show_separated_lines)
             axis off;
         end
 
         ax=gca;
-
-        set(ax, 'xlimmode','manual',...
-           'ylimmode','manual',...
-           'zlimmode','manual',...
-           'climmode','manual',...
-           'alimmode','manual');
-
-        ax.CLim = [color(1) color(2)]; % color limit
-
         ax.Color=[0 0 0];%,'k')
-        ax.YTick = [0:5:50];
-        ax.XTick = [0:20:300];
+        ax.YTick = [0:1:30];
+        ax.XTick = [0:1:30];
         ax.YAxisLocation = 'left';
         ax.XColor=[1,1,1];
         ax.YColor=[1,1,1];
@@ -153,27 +145,14 @@ function main()
         ax.YLim=[show_y_min, show_y_max];
 
 
-
-
-        % F2
         axes(ha(2));
-        pl(2)=image(M_2,'CDataMapping','scaled');%,[color(1) color(2)]);
+        pl(2)=imagesc(M_2,[color(1) color(2)]);
         if (~show_separated_lines)
             axis off;
         end
 
         ax=gca;
 
-
-set(ax, 'xlimmode','manual',...
-           'ylimmode','manual',...
-           'zlimmode','manual',...
-           'climmode','manual',...
-           'alimmode','manual');
-
-
-        ax.CLim = [color(1) color(2)]; % color limit
-        
         ax.Color=[0 0 0];%,'k')
         ax.YTick = [0:5:50];
         ax.XTick = [0:20:300];
@@ -184,34 +163,14 @@ set(ax, 'xlimmode','manual',...
         ax.XLim=[show_x_min, show_x_max];
         ax.YLim=[show_y_min, show_y_max];
 
-
-
-
-
-
-
-
-
-
-        % F3
         axes(ha(3));
-        pl(3)=image(M_3,'CDataMapping','scaled');%,[color(1) color(2)]);
+        pl(3)=imagesc(M_3,[color(1) color(2)]);
         if (~show_separated_lines)
             axis off;
         end
 
-        % ylim([0 10])
         ax=gca;
-
-set(ax, 'xlimmode','manual',...
-           'ylimmode','manual',...
-           'zlimmode','manual',...
-           'climmode','manual',...
-           'alimmode','manual');
-
-
-        ax.CLim = [color(1) color(2)]; % color limit
-        
+        % ylim([0 10])
         ax.Color=[0 0 0];%,'k')
         ax.YTick = [0:5:50];
         ax.XTick = [0:20:300];
@@ -221,60 +180,11 @@ set(ax, 'xlimmode','manual',...
 
         ax.XLim=[show_x_min, show_x_max];
         ax.YLim=[show_y_min, show_y_max];
-
-
-        % axes(ha(4));
-        % pl(4)=imagesc(M_4,[color(1) color(2)]);
-        % if (~show_separated_lines)
-        %     axis off;
-        % end
-
-        % ax=gca;
-        % ax.Color=[0 0 0];%,'k')
-        % ax.YTick = [0:5:50];
-        % ax.XTick = [0:20:300];
-        % ax.YAxisLocation = 'left';
-        % ax.XColor=[1,1,1];
-        % ax.YColor=[1,1,1];
-
-        % axes(ha(5));
-        % pl(5)=imagesc(M_5,[color(1) color(2)]);
-        % if (~show_separated_lines)
-        %     axis off;
-        % end
-
-        % ax=gca;
-        % ax.Color=[0 0 0];%,'k')
-        % ax.YTick = [0:5:50];
-        % ax.XTick = [0:20:300];
-        % ax.YAxisLocation = 'left';
-        % ax.XColor=[1,1,1];
-        % ax.YColor=[1,1,1];
-
-
-        % axes(ha(6));
-        % pl(6)=imagesc(M_6,[color(1) color(2)]);
-        % if (~show_separated_lines)
-        %     axis off;
-        % end
-
-        % ax=gca;
-        % ax.Color=[0 0 0];%,'k')
-        % ax.YTick = [0:5:50];
-        % ax.XTick = [0:20:300];
-        % ax.YAxisLocation = 'left';
-        % ax.XColor=[1,1,1];
-        % ax.YColor=[1,1,1];
-        % ax.Xdir='reverse';
-        % set(ax, 'Xdir', 'reverse')
-        % set(h1, 'Ydir', 'reverse')
 
 
         % set(gca, 'ylim', [0:50],'YTick', [0:1:50],'YAxisLocation', 'right', 'XAxisLocation', 'top')
 
 
-
-        % drawnow
 
         % set(ha,'YTickLabel',[]) 
         % set(ha,'YTick',[])
@@ -297,9 +207,9 @@ set(ax, 'xlimmode','manual',...
     start_ok=false;
 
 
-    if(~exist('s','Var'))
-        ser_list=seriallist();
-        serial_port=ser_list(1);
+    if(~exist('s','var'))
+        % ser_list=seriallist();
+% serial_port
         % getting data by bytes, so 8 bits
         s = serial(serial_port,'BaudRate',baud_rate,'DataBits',8,'InputBufferSize',buffer_size); %20k is 6000 points * 8 byte each, so take 40k.
         fopen(s);     
@@ -325,8 +235,17 @@ set(ax, 'xlimmode','manual',...
         if (s.BytesAvailable>7)
             % join with prev. left_out uint16 is fine, since calib2 ~ 27k
             out = [left_out; fread(s,s.BytesAvailable,'uint16')]; % both of them 16 bit -> it also 16bit; PREALLOCATED is not needed in such cases
+    
+            % if (start_ok==false)
+            %     if (find(out==2) >0)
+            %         start_ok=true;
+            %         disp('fine')
+            %     end 
+            % end
      
             % out(1:3)
+
+
 
             % separate by good packages
             out_idx = find(0<out & out<7); % 6 susbs we have
@@ -372,18 +291,16 @@ set(ax, 'xlimmode','manual',...
 
             % X1();
             X2();
-            X3();
-            X4();
+            % X3();
+            % X4();
             % X5();
             % X6();
 
-            % if (redraw_2==true && redraw_3==true && redraw_4==true) 
-            if (redraw_4==true) 
+            if (redraw_2==true)% && redraw_3==true) 
                 % disp('frame_2')
                 counter=counter+1;
                 redraw_2=false;
                 redraw_3=false;
-                redraw_4=false;
                 % disp(['Matrix is ',  num2str(length(A_sep{2})/2) 'x' num2str(len+1)  ]);
                 % try
                     % disp(['M(1) is ', num2str(length(A_sep{1})/3)]) 
@@ -392,9 +309,20 @@ set(ax, 'xlimmode','manual',...
                 % catch
                 % end
                 % drawnow nocallbacks limitrate
-                drawnow nocallbacks
+                drawnow %update%expose%update nocallbacks
+                delay_ms(11)
             end
 
+            % if ( (redraw_1 == true) & (redraw_2 ==true) & (redraw_3 ==true) & (redraw_4 ==true) & (redraw_5 ==true) & (redraw_6 ==true) )% & redraw_2 & redraw_3 & redraw_4 & redraw_5 & redraw_6)
+            %     drawnow;
+            %     counter=counter+1;
+            %     redraw_1=false;
+            %     redraw_2=false;
+            %     redraw_3=false;
+            %     redraw_4=false;
+            %     redraw_5=false;
+            %     redraw_6=false;
+            % end
 
         end % if buffer is not empty
     end % while 1
@@ -407,6 +335,10 @@ set(ax, 'xlimmode','manual',...
     
     %% NESTED FUNCTION (SINCE SHARED MEMOTY, MATLAB DOENST HAVE POINTERS! ONLY IN MEX type..)    
     %% careful about A_sep size.. ALSO WE HAVE ZEROS at the end of A_1, since preallocated..
+    
+
+
+    
 
     %% A2 contains all point for sub #2
     function X2()
@@ -450,12 +382,9 @@ set(ax, 'xlimmode','manual',...
                     A_sep{i} = A_2(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
                 end
                 zero_index_all=find(A_2==0,5,'first')-1; % we have keeping MORE!!! some times we have 0 in REAL data (ALREADY FIXED IN FPGA.., but anyway keep it)
+                zero_index=zero_index_all(end); % take real matrix zeros..
+                A_sep{len+1}=A_2(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
                 
-                try % sometimes we start from case, when first line is empty -> wrong zero_first..
-                    zero_index=zero_index_all(end); % take real matrix zeros..
-                    A_sep{len+1}=A_2(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
-                catch           
-                end
                 % start from the beggining both for reversde & not reversed frames
 
 
@@ -485,6 +414,7 @@ set(ax, 'xlimmode','manual',...
                             else   % if we must reversed
                                 % disp('reversed')
                                 if (A_sep{i}(3*(j-1)+2)==0)
+                                    size_A_sepi+1-j
                                     M_2(temp_row_2,size_A_sepi+1-j)=replace_zero_to;
                                 else
                                     % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -552,7 +482,7 @@ set(ax, 'xlimmode','manual',...
             %%% END SEPARATION %%%
 
             % M_2(1,1:3)
-            set(pl(1),'CData',M_2);
+            set(pl(2),'CData',M_2);
             redraw_2=true;    
 
             %% Previous frame is done -> A_2 is complete -> prcess it
@@ -597,7 +527,7 @@ set(ax, 'xlimmode','manual',...
             %%% SEPARATION %%%
             new_lines=find(A_3==13);
             len=length(new_lines)/2;
-            % disp(['Lines amount', num2str(len)])
+            disp(['Lines amount', num2str(len)])
             if (len~=0) % sometimes we can read only new frame, without new_line
                 % disp('len_new_lines')
                 % remove last 2 digits from 13 13 13
@@ -617,21 +547,17 @@ set(ax, 'xlimmode','manual',...
                     A_sep{i} = A_3(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
                 end
                 zero_index_all=find(A_3==0,5,'first')-1; % we have keeping MORE!!! some times we have 0 in REAL data (ALREADY FIXED IN FPGA.., but anyway keep it)
-                
-                try % sometimes we start from case, when first line is empty -> wrong zero_first..
-                    zero_index=zero_index_all(end); % take real matrix zeros..
-                    A_sep{len+1}=A_3(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
-                catch           
-                end
-
+                zero_index=zero_index_all(end); % take real matrix zeros..
+                A_sep{len+1}=A_3(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
                 
                 % start from the beggining both for reversde & not reversed frames
+
 
 
                 if (~frame_reversed_3) % we dont need to reverse frame..
                 temp_row_3=2;
                 line_reversed=true;
-                % disp('not reversed')
+                disp('not reversed')
                 % line_reversed=false; % since first line is not reversed
                 % loop for all lines
                     for i=1:len+1
@@ -653,6 +579,7 @@ set(ax, 'xlimmode','manual',...
                             else   % if we must reversed
                                 % disp('reversed')
                                 if (A_sep{i}(3*(j-1)+2)==0)
+                                    size_A_sepi+1-j
                                     M_3(temp_row_3,size_A_sepi+1-j)=replace_zero_to;
                                 else
                                     % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -673,7 +600,7 @@ set(ax, 'xlimmode','manual',...
                     % temp_row_3=1;
                 else % we need to reverse frame
                     temp_row_3=1;
-                    % disp('reversed')
+                    disp('reversed')
                     line_reversed=false;
                     for i=len+1:-1:1
                         size_A_sepi=fix(length(A_sep{i})/3);
@@ -720,7 +647,7 @@ set(ax, 'xlimmode','manual',...
             %%% END SEPARATION %%%
 
             % M_3(1,1:3)
-            set(pl(2),'CData',M_3);
+            set(pl(3),'CData',M_3);
             redraw_3=true;    
 
             %% Previous frame is done -> A_3 is complete -> prcess it
@@ -739,174 +666,14 @@ set(ax, 'xlimmode','manual',...
             len_3_before=len_3_full-len_3;
             new_frame_3_idx=0;
         end % new_frame_3
+
+
+
+
     end % function X3
 
 
 
-    function X4()
-        find_4_all_idx = find(good_out==4); % find indexes of all points 
-        if (new_frame_4_idx == 0) % no new frame for sub_4
-            len_4 = length(find_4_all_idx); % how many points in this package
-            % fill array from last good_out
-            for i=len_4_before+1:len_4_before+len_4
-                A_4(3*i-2:3*i) = good_out(find_4_all_idx(i-len_4_before):find_4_all_idx(i-len_4_before)+2);
-            end
-            len_4_before=len_4_before+len_4;
-        
-        else % we have new frame, so first fill before new_line, process it  and then fill data after new_line
-            len_4=find(find_4_all_idx==new_frame_4_idx)-1; % how many points until new frame
-            for i=len_4_before+1:len_4_before+len_4
-                A_4(3*i-2:3*i) = good_out(find_4_all_idx(i-len_4_before):find_4_all_idx(i-len_4_before)+2);
-            end
-
-            % NOW A_4 contains all frame -> separate by lines it.
-
-            %%% SEPARATION %%%
-            new_lines=find(A_4==13);
-            len=length(new_lines)/2;
-            % disp(['Lines amount', num2str(len)])
-            if (len~=0) % sometimes we can read only new frame, without new_line
-                % disp('len_new_lines')
-                % remove last 2 digits from 13 13 13
-                % overflow sometimes.. for clean_new_lines
-                clean_new_lines=zeros(1,len,'uint32');
-                for i=1:len
-                    clean_new_lines(i)=new_lines(2*i-1);
-                end
-        
-                %% ASSUME, that row cannot start from new line !!!
-                A_sep=cell(1,len+1); % preallocated memory, carefull size
-        
-                % clean_new_lines(1)
-                % SOME TIMES ERROR HERE!! because clean_new_lines can be 1x0. FIXED!!!
-                A_sep{1}=A_4(1:clean_new_lines(1)-2); % process first line, outside loop, since start from 1, but not new_lines
-                for i=2:len % if <1 not processing.
-                    A_sep{i} = A_4(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
-                end
-                zero_index_all=find(A_4==0,5,'first')-1; % we have keeping MORE!!! some times we have 0 in REAL data (ALREADY FIXED IN FPGA.., but anyway keep it)
-                
-                try % sometimes we start from case, when first line is empty -> wrong zero_first..
-                    zero_index=zero_index_all(end); % take real matrix zeros..
-                    A_sep{len+1}=A_4(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
-                catch           
-                end
-                % start from the beggining both for reversde & not reversed frames
-
-
-
-                if (~frame_reversed_4) % we dont need to reverse frame..
-                    temp_row_4=2;
-                    line_reversed=true;
-                % disp('not reversed')
-                % line_reversed=false; % since first line is not reversed
-                % loop for all lines
-                    for i=1:len+1
-                        size_A_sepi=fix(length(A_sep{i})/3); % sometimes we have zero in data (so we use line 483) and this size is not divided by 3..
-                        % loop for selected line
-                        for j=1:size_A_sepi
-                            if (~line_reversed) % if we dont need to reverse
-                                % disp('not reversed')
-                                if (A_sep{i}(3*(j-1)+2)==0)
-                                    M_4(temp_row_4,j)=replace_zero_to;
-                                else
-                                    % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                                    try
-                                        M_4(temp_row_4, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
-                                    catch
-                                        disp('wasted M_4');
-                                    end % try
-                                end     
-                            else   % if we must reversed
-                                % disp('reversed')
-                                if (A_sep{i}(3*(j-1)+2)==0)
-                                    M_4(temp_row_4,size_A_sepi+1-j)=replace_zero_to;
-                                else
-                                    % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                                    try
-                                        M_4(temp_row_4, size_A_sepi+1-j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
-                                    catch
-                                        disp('wasted M_4');
-                                    end % try
-                                end 
-    
-                            end % reversed
-
-                        end % for j
-
-                        line_reversed=~line_reversed; % change polarity
-                        temp_row_4=temp_row_4+1; % next line
-                    end  % for i
-                    % temp_row_4=1;
-                else % we need to reverse frame
-                    temp_row_4=1;
-                    % disp('reversed')
-                    line_reversed=false;
-                    for i=len+1:-1:1
-                        size_A_sepi=fix(length(A_sep{i})/3);
-                        
-                        for j=1:size_A_sepi
-
-                            if (~line_reversed) % if not reversed
-
-                                if (A_sep{i}(3*(j-1)+2)==0)
-                                    M_4(temp_row_4,j)=replace_zero_to;
-                                else
-                                    % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                                    try
-                                        M_4(temp_row_4, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
-                                    catch
-                                        disp('wasted M_4');
-                                    end % try
-
-
-                                end     
-                            else   % if we must reversed
-                                if (A_sep{i}(3*(j-1)+2)==0)
-                                    M_4(temp_row_4,size_A_sepi+1-j)=replace_zero_to;
-                                else
-                                    % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                                    try
-                                        M_4(temp_row_4, size_A_sepi+1-j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
-                                    catch
-                                        disp('wasted M_4');
-                                    end % try
-                                end 
-                            end % reversed
-                        
-                        end % for j
-
-                        line_reversed=~line_reversed; % change polarity
-                        temp_row_4=temp_row_4+1; % next line
-                    end  % for i
-                end % frame reversed
-                frame_reversed_4=~frame_reversed_4;
-                    
-
-            end % len ~=0
-            %%% END SEPARATION %%%
-
-            % M_4(1,1:3)
-            set(pl(3),'CData',M_4);
-            redraw_4=true;    
-
-            %% Previous frame is done -> A_4 is complete -> prcess it
-            M_4=zeros(maximum_y_points_4,maximum_x_points_4,'uint8');
-            % disp('new frame 1')
-            A_4=zeros(1,3*maximum_x_points_4*maximum_y_points_4,'uint32'); % +1 since new line saved in this array
-            % class(A_4)
-
-            % fill array, which after new frame
-            len_4_full=length(find_4_all_idx); % all points
-            len_4=find(find_4_all_idx==new_frame_4_idx);
-            for i=1:len_4_full-len_4
-                A_4(3*i-2:3*i) = good_out(find_4_all_idx(i+len_4):find_4_all_idx(i+len_4)+2);
-            end
-    
-            len_4_before=len_4_full-len_4;
-            new_frame_4_idx=0;
-        end % new_frame_4
-
-    end % function X4
 
 
 

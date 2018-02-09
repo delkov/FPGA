@@ -1,6 +1,6 @@
 clear; clc
 
-N = 115;
+N = 200;
 d = 7.6404/N;
 x = zeros(1,N);
 
@@ -18,7 +18,7 @@ HA = 40;% 61 is 107 <-> 111 sometimes; 63 is 111 pk-pk  %75 makes 25.22 degree w
 
 new_line_up=[];
 new_line_down=[];
-crit_value=0.9993;
+crit_value=0.9998;
 
 
 cd('/home/delkov/mojo/SIMPLE/');
@@ -31,7 +31,8 @@ y = sin(x);
 x(end/2+1:end)=x(end/2:-1:1);
 x=2*(x/max(x)-1/2);
 
-shift=3;
+% shift=-5;
+shift=0;
 x=circshift(x,shift);
 calib=3*10^2;
 
@@ -59,7 +60,7 @@ y=  uint16( calib*(middle+HA*y) );
 
 
 
-plot(x,y,'.-')
+% plot(x,y,'.-')
 
 
 
@@ -85,11 +86,12 @@ disp(size(new_line_down))
 
 % show new lines
 
-add=115;
+% add=115;
+add=215;
 % disp(new_line_up*8+add)
 % disp(new_line_down*8+add)
 add_down=0;
-add_up=-2;
+add_up=0;
 
 
 %new line

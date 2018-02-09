@@ -2,19 +2,19 @@ clear; clc
 
 
 % length = 4800; for 20
-length = 1600;
+length = 1000;
 true_length=length; % add +1 for symmetric test
 % phase_shift=-0.075;
-phase_shift=-0.08;
+phase_shift=-0.05;
 % x_shift=0.1;
 
-number_of_waves = 40;
+number_of_waves = 10;
 
-crit_value=0.997
+crit_value=0.999;
 
 middle = 92;
-VA = 60;
-HA = 61;% 61 is 107 <-> 111 sometimes; 63 is 111 pk-pk  %75 makes 25.22 degree with 5000 clock div
+VA = 45;
+HA = 45;% 61 is 107 <-> 111 sometimes; 63 is 111 pk-pk  %75 makes 25.22 degree with 5000 clock div
 
 middle = middle*256+128;
 VA = VA*256;
@@ -51,7 +51,7 @@ for j=1:true_length
                     N = uint16(middle - A + 2*A*(  (j-1) + 6/(j+1^2)  - 4000/((j-length*0.53)^2) )/(length-return_period));    
                     % N = uint16(middle - A + 2*A*(  (j-1)  + 50/(j+10^2) - 300/((j-220)^2) )/(length-return_period));                                    
                 else 
-                    % N=x(j-true_)
+                    % N=x(j-true_)2
                     N = uint16(middle + A - 2*A*(   (j-jback-1)   )/(return_period));
                 end  
 
@@ -104,11 +104,6 @@ for j=1:true_length
 
         end % switch
 
-
-        
-        % if j==length
-        %     break
-        % end  
     end % for k
 
 end
@@ -134,33 +129,32 @@ end
 
 
 
-% disp('new_line_up')
-% disp(new_line_up)
-
-% disp('new_line_down')
-% disp(new_line_down)
 
 % disp(8*jback)
-add=8;
+add=112;
 % str = strcat(   'if (', sprintf('addr_q == 16''d%d || ', add+8*[new_line_up(1:end-1)]), ' addr_q==16''d',num2str(add+8*new_line_up(end)), ') begin' )
 
+% disp('new_line_up')
+disp(new_line_up*8+add)
+
+% disp('new_line_down')
+disp(new_line_down*8+add)
 
 
 str = strcat(   'if (', sprintf('addr_q == 16''d%d || ', add+8*[new_line_up; new_line_down(1:end-1)]), ' addr_q==16''d',num2str(add+8*new_line_down(end)), ') begin' )
 
 
-% str = strcat(   'if (', sprintf('addr_q == 16''d%d || ', 8*[new_line_up-10; new_line_down(1:end-1)-10]), ' addr_q==16''d',num2str(8*new_line_down(end)-10), ') begin' )
 figure();
 plot(x,y,'.-')
 
-% figure();
-% [~,size_y]=size(y)
-% plot([1:size_y],y,'.-')
+figure();
+[~,size_y]=size(y)
+plot([1:size_y],y,'.-')
 
 
-% figure();
-% [~,size_x]=size(x)
-% plot([1:size_x],x)
+figure();
+[~,size_x]=size(x)
+plot([1:size_x],x,'.-')
 
 
 % disp('y(1)')
@@ -173,7 +167,7 @@ size(new_line_up)
 size(new_line_down)
 
 
-str2 = strcat(   'if (', sprintf('addr_q == 16''d%d || ', 8*true_length/2), ' addr_q==16''d', num2str(8*true_length), ') begin' )
+str2 = strcat(   'if (', sprintf('addr_q == 16''d%d || ', add+8*new_line_up(1)), ' addr_q==16''d', num2str(add+8*new_line_up(end/2)), ') begin' )
 
 
 disp('symmetry')
