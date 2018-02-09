@@ -14,7 +14,7 @@ module tdc_spi_master_5 #(
     output sck,
     output[7:0] data_out,
     output busy,
-    output new_data,
+    output new_data, // debug
     output CS
   );
 

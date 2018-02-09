@@ -49,7 +49,7 @@ module fake_mems (
 
     case (state_q)
       DELAY: begin
-        if (delay_cntr_q == 30'd550000) begin
+        if (delay_cntr_q == 30'd1000000) begin
 
 
           if (delay_cntr2_q == 30'd15) begin

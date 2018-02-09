@@ -110,7 +110,7 @@ module mems_control_6 (
                          addr_d = 16'd8;  
                     end else begin
                     
-if (addr_q == 16'd353 || addr_q==16'd4953) begin
+if (addr_q == 16'd623 || addr_q==16'd8623) begin
 
 // if (addr_q == 16'd164) begin // 6495 no overflow at all1! 6490 also no overf.
 
@@ -118,12 +118,12 @@ if (addr_q == 16'd353 || addr_q==16'd4953) begin
 
                             new_frame_d = 1'b1;
                         end else 
+// if (addr_q == 16'd623 || addr_q == 16'd2223 || addr_q == 16'd3823 || addr_q == 16'd5423 || addr_q == 16'd7023 || addr_q == 16'd8623 || addr_q == 16'd10223 || addr_q == 16'd11823 || addr_q == 16'd13423 || addr_q == 16'd15023 || addr_q == 16'd1423 || addr_q == 16'd3023 || addr_q == 16'd4623 || addr_q == 16'd6223 || addr_q == 16'd7823 || addr_q == 16'd9423 || addr_q == 16'd11023 || addr_q == 16'd12623 || addr_q == 16'd14223 || addr_q==16'd15823) begin
 
-if (addr_q == 16'd353 || addr_q == 16'd1273 || addr_q == 16'd2193 || addr_q == 16'd3113 || addr_q == 16'd4033 || addr_q == 16'd4953 || addr_q == 16'd5873 || addr_q == 16'd6793 || addr_q == 16'd7713 || addr_q == 16'd8633 || addr_q == 16'd811 || addr_q == 16'd1731 || addr_q == 16'd2651 || addr_q == 16'd3571 || addr_q == 16'd4491 || addr_q == 16'd5411 || addr_q == 16'd6331 || addr_q == 16'd7251 || addr_q == 16'd8171 || addr_q==16'd9091) begin  
+if (addr_q == 16'd623 || addr_q == 16'd2223 || addr_q == 16'd3823 || addr_q == 16'd5423 || addr_q == 16'd7023 || addr_q == 16'd8623 || addr_q == 16'd10223 || addr_q == 16'd11823 || addr_q == 16'd13423 || addr_q == 16'd15023 || addr_q == 16'd1423 || addr_q == 16'd3023 || addr_q == 16'd4623 || addr_q == 16'd6223 || addr_q == 16'd7823 || addr_q == 16'd9423 || addr_q == 16'd11023 || addr_q == 16'd12623 || addr_q == 16'd14223 || addr_q==16'd15823) begin
+             
 
-
-
-                  new_line_d=1'b1;
+              new_line_d=1'b1;
                 end 
 
 

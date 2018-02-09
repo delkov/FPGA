@@ -52,11 +52,6 @@ module mems_control_6 (
 
   always @(*) begin
 
-
-// new_line_d = new_line_q;
-// new_frame_d = new_frame_q;
-
-
     // if (new_line_FIFO_done==1'b1 && new_line_q==1'b1) begin
     if (new_line_FIFO_done==1'b1) begin
       new_line_d=1'b0; // latch here is not fine (if at the same time 2 modules -> problem)
@@ -69,9 +64,6 @@ module mems_control_6 (
     end else begin
       new_frame_d = new_frame_q;
     end
-
-
-
 
     state_d = state_q; // default values
     addr_d = addr_q;   // needed to prevent latches
@@ -142,7 +134,7 @@ module mems_control_6 (
 
                         //+2
 
-                        if (addr_q == 16'd416 || addr_q==16'd6496) begin // 6495 no overflow at all1! 6490 also no overf.
+                        if (addr_q == 16'd96 || addr_q==16'd6496) begin // 6495 no overflow at all1! 6490 also no overf.
 
                         // if (addr_q == 16'd96) begin // 6495 no overflow at all1! 6490 also no overf.
 

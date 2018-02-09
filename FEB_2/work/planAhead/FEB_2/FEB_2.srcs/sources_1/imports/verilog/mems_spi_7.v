@@ -13,7 +13,7 @@ module mems_spi_7 #(
     output sck,
     // output[23:0] data_out, // not used here 
     output busy,
-    output new_data,
+    // output new_data, // debug
     output CS
   );
    

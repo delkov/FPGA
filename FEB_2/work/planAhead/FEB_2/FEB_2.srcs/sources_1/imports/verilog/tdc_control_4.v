@@ -18,8 +18,8 @@
     output start, // for start SPI
     output [7:0] tdc_MOSI,
     output w_wr_en, // allow write to FIFO
-    output [31:0] data_TO_FIFO,
-    output reg CHECK_DATA
+    output [31:0] data_TO_FIFO
+    // output reg CHECK_DATA // debug bad values from TDC
   );
  
   localparam STATE_SIZE = 4,
@@ -224,7 +224,7 @@
       end
 
       START_PULSE: begin // this case  isneeded only sto make start 60ns.
-          if (CS_countr_q==4'd2) begin // start duration is 60ns
+          if (CS_countr_q==4'd4) begin // start duration is 60ns
             start_signal_d=1'b0;
             // if (TDC_INTB == 1'b1) begin // check right PIN
             state_d=INTB_WAIT;
@@ -394,14 +394,18 @@
       CALCULATE_CALIB_DIFF: begin
         calib_diff_d = calib2_q-calib1_q;
         
-        if ( (time1_q == 16'd1792) || (time1_q==16'd0000) ) begin
-          CHECK_DATA=1'b1;
-          state_d=DELAY;
-          CS_countr_d=16'd0;
-        end else begin
-          CHECK_DATA=1'b0;
+        // if ( (time1_q == 16'd1792) || (time1_q==16'd0000) ) begin
+          // CHECK_DATA=1'b1;
+          // state_d=DELAY;/
+          // CS_countr_d=16'd0;
+        // end else begin
+          // CHECK_DATA=1'b0;
           state_d = WRITE_FIFO;
-        end // CALCULATE_CALIB_DIFF
+        // end // CALCULATE_CALI//B_DIFF
+
+
+
+
 
         // if (time1_q == 16'd0000) begin
         //   CHECK_DATA=1'b1;
@@ -409,7 +413,7 @@
         //   CS_countr_d=16'd0;
         // end else begin
         //   CHECK_DATA=1'b0;
-        //   state_d = WRITE_FIFO;
+          // state_d = WRITE_FIFO;
         // end // CALCULATE_CALIB_DIFF
 
 

@@ -5,7 +5,7 @@ Loading device for application Rf_Device from file '6slx9.nph' in environment
    "mojo_top_0" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
 Opened constraints file mojo_top_0.pcf.
 
-Fri Feb  2 08:33:13 2018
+Sun Feb  4 13:31:41 2018
 
 /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -g Binary:Yes -g Compress -w -intstyle pa mojo_top_0_routed.ncd mojo_top_0.bit mojo_top_0.pcf 
 
@@ -128,14 +128,14 @@ There were 0 CONFIG constraint(s) processed from mojo_top_0.pcf.
 
 
 Running DRC.
-WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
-   f2_MEMS_CS_PULLUP is set but the tri state is not configured. 
-WARNING:PhysDesignRules:781 - PULLDOWN on an active net. PULLDOWN of comp
-   f2_MEMS_MOSI_PULLDOWN is set but the tri state is not configured. 
-DRC detected 0 errors and 2 warnings.  Please see the previously displayed
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   main_control/Mram_state_q[1]_PWR_8_o_Mux_17_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+DRC detected 0 errors and 1 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
 Creating bit map...
 Saving bit stream in "mojo_top_0.bit".
-Bitstream compression saved 839104 bits.
+Bitstream compression saved 943376 bits.
 Saving bit stream in "mojo_top_0.bin".
 Bitstream generation is complete.
