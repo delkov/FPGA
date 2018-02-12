@@ -8,7 +8,7 @@ if(~exist('s','Var'))
     serial_port=ser_list(1)
     % getting data by bytes, so 8 bits
     % 3.5Mhz is working!!
-    s = serial(serial_port,'BaudRate',4000000,'DataBits',8,'InputBufferSize',480000); %20k is 1250points * 4 byte each, so take 40k.
+    s = serial(serial_port,'BaudRate',1000000,'DataBits',8,'InputBufferSize',480000); %20k is 1250points * 4 byte each, so take 40k.
     fopen(s);     
 end
 
@@ -20,7 +20,7 @@ delay_ms(1000);
 left_out=[]
 start_ok=false;
 
-fileID = fopen('serial_checking_tt.txt','w');
+% fileID = fopen('serial_checking_tt.txt','w');
 while 1
      if (s.BytesAvailable>7)
           % [out, count] = fread(s,s.BytesAvailable,'uint16')
@@ -32,7 +32,7 @@ while 1
 
 
 
-            fprintf(fileID,'%d\n',out);
+            % fprintf(fi1leID,'%d\n',out);
 
 
             % if out(2) > 400

@@ -1,24 +1,24 @@
 clear; clc
 
-N = 200;
-d = 7.6404/N;
+N = 220;
+d = 7.6404/N; % from eleptical integral
 x = zeros(1,N);
 
-
-for n = 2:10*N
-    x(n) = x(n-1) + d/sqrt(1+cos(x(n-1))^2);
-end
-
+number_of_lines=5; % real lines -1, additional +1;
 
 middle = 80;
 VA = 40;
 HA = 40;% 61 is 107 <-> 111 sometimes; 63 is 111 pk-pk  %75 makes 25.22 degree with 5000 clock div8
 
-
-
+crit_value=0.9997;
 new_line_up=[];
 new_line_down=[];
-crit_value=0.9998;
+
+
+for n = 2:number_of_lines*N
+    x(n) = x(n-1) + d/sqrt(1+cos(x(n-1))^2);
+end
+
 
 
 cd('/home/delkov/mojo/SIMPLE/');
@@ -26,16 +26,25 @@ fileID = fopen('NEW_memsrom_2.txt','w');
 
 y = sin(x);
 
+% make smooth left side
+for i=1:N/4
+	x(i)=x(i)+1/(x(i)+x(N/4))^4;
+end
 
+% make smooth right side 
+for i=number_of_lines*N/2-N/4:number_of_lines*N/2
+	x(i)=x(i)-1/(x(i)-x(11*number_of_lines*N/20))^4;
+end
 
+% plot(x,y,'.-')
 x(end/2+1:end)=x(end/2:-1:1);
 x=2*(x/max(x)-1/2);
 
-% shift=-5;
-shift=0;
+% make shift one axes on another
+shift=-5;
+% shift=0;
 x=circshift(x,shift);
 calib=3*10^2;
-
 
 
 
@@ -53,16 +62,12 @@ end
 
 
 
-
-
-x= uint16( calib*(middle+VA*x)  );
+x = uint16( calib*(middle+VA*x)  );
 y=  uint16( calib*(middle+HA*y) );
 
 
-
-% plot(x,y,'.-')
-
-
+figure();
+plot(x,y,'.-')
 
 
 
@@ -87,7 +92,7 @@ disp(size(new_line_down))
 % show new lines
 
 % add=115;
-add=215;
+add=114;
 % disp(new_line_up*8+add)
 % disp(new_line_down*8+add)
 add_down=0;
