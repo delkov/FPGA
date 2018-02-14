@@ -1,16 +1,16 @@
 clear; clc
 
-N = 220;
+N = 50;
 d = 7.6404/N; % from eleptical integral
 x = zeros(1,N);
 
-number_of_lines=5; % real lines -1, additional +1;
+number_of_lines=40; % real lines -1, additional +1;
 
 middle = 80;
 VA = 40;
 HA = 40;% 61 is 107 <-> 111 sometimes; 63 is 111 pk-pk  %75 makes 25.22 degree with 5000 clock div8
 
-crit_value=0.9997;
+crit_value=0.9984;
 new_line_up=[];
 new_line_down=[];
 
@@ -26,22 +26,23 @@ fileID = fopen('NEW_memsrom_2.txt','w');
 
 y = sin(x);
 
-% make smooth left side
-for i=1:N/4
-	x(i)=x(i)+1/(x(i)+x(N/4))^4;
-end
+% % make smooth left side
+% for i=1:N/4
+% 	x(i)=x(i)+1/(x(i)+x(N/4))^4;
+% end
 
-% make smooth right side 
-for i=number_of_lines*N/2-N/4:number_of_lines*N/2
-	x(i)=x(i)-1/(x(i)-x(11*number_of_lines*N/20))^4;
-end
+% % make smooth right side 
+% for i=number_of_lines*N/2-N/4:number_of_lines*N/2
+% 	x(i)=x(i)-1/(x(i)-x(11*number_of_lines*N/20))^4;
+% end
 
 % plot(x,y,'.-')
 x(end/2+1:end)=x(end/2:-1:1);
 x=2*(x/max(x)-1/2);
 
 % make shift one axes on another
-shift=-5;
+% shift=-5; -5 for 280 per sin at 16k?.. some frequence.
+shift=-2;
 % shift=0;
 x=circshift(x,shift);
 calib=3*10^2;
@@ -56,10 +57,7 @@ for i=1:size_y
 	elseif  (y(i)/max(y) < -crit_value)
 		new_line_down=[new_line_down; i];
 	end
-		
-
 end
-
 
 
 x = uint16( calib*(middle+VA*x)  );
@@ -92,7 +90,7 @@ disp(size(new_line_down))
 % show new lines
 
 % add=115;
-add=114;
+add=31;
 % disp(new_line_up*8+add)
 % disp(new_line_down*8+add)
 add_down=0;

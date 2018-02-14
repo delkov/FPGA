@@ -23,8 +23,8 @@ function main()
     % plot settings
     show_x_min=0;
     show_x_max=160;
-    show_y_min=2;
-    show_y_max=10;
+    show_y_min=0;
+    show_y_max=13;
 
     color=[0 40];
     show_colorbar = 0;

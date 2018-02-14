@@ -16,19 +16,19 @@ function main()
     buffer_size=100000; % in bytes
 
     % VERY IMPORTANT PARAM! should be num_of_frames*size_of_frame*~0.8
-    size_to_read=4000; % read when reached in buffer.
+    size_to_read=2000; % read when reached in buffer.
 
     % GLOBAL
     x_size=400;
-    y_size=50;
+    y_size=13;
 
     % plot settings
     show_x_min=0;
     show_x_max=400;
     show_y_min=0;
-    show_y_max=50;
+    show_y_max=13;
 
-    color=[0 25];
+    color=[0 7];
     show_colorbar = 0;
     show_separated_lines = 1;
 
@@ -105,7 +105,7 @@ function main()
     A_6=zeros(1,3*maximum_x_points_6*maximum_y_points_6,'uint32'); % 
              
 
-    % fileID = fopen('xcorr_checking.txt','w');
+    fileID = fopen('xcorr_checking.txt','w');
 
     if ~exist('h','Var')   
         h=figure('ToolBar','none','units','normalized','outerposition',[0 0 1 1], 'color', 'black');
@@ -317,7 +317,7 @@ function main()
             left_out=out(last_byte_position:end); % uint16, since out is uint16
             % totaly right input, like 1 x y z
             good_out=out(first_byte_position:last_byte_position-1); % uint16
-            % fprintf(fileID,'%d\n',good_out);   
+            fprintf(fileID,'%d\n',good_out);   
 
             % find all new frames for all subs
             find_new_frames=find(good_out==14);
@@ -363,11 +363,6 @@ function main()
             if (redraw_2==true)% && redraw_4==true) 
                 counter=counter+1;
                 redraw_2=false;
-
-                        if(counter==2)
-                            dlmwrite('real_corr_test.txt',M_2_backup);
-                        end
-
                 drawnow nocallbacks %% more faster (25%) than just drawnow.
             end
 
@@ -510,8 +505,6 @@ function main()
 
                 set(pl(1),'CData',M_2);
                 redraw_2=true;    
-
-                M_2_backup=M_2;
 
                 %% Previous frame is done -> A_2 is complete -> prcess it
                 M_2=zeros(maximum_y_points_2,maximum_x_points_2,'uint8');

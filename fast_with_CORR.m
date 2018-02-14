@@ -157,7 +157,7 @@ function main()
             colorbar;
         end
         colormap('jet');
-    end2
+    end
    
     % wait initialization of frames % co.
     % delay_ms(1000);
@@ -171,13 +171,13 @@ function main()
 
     drawnow
     % delay_ms(1000);
-    if(~exist('s','Var'))
-        ser_list=seriallist();
-        serial_port=ser_list(1);
-        % getting data by bytes, so 8 bits
-        s = serial(serial_port,'BaudRate',baud_rate,'DataBits',8,'InputBufferSize',buffer_size); %20k is 6000 points * 8 byte each, so take 40k.
-        fopen(s);     
-    end
+    % if(~exist('s','Var'))
+    %     ser_list=seriallist();
+    %     serial_port=ser_list(1);
+    %     % getting data by bytes, so 8 bits
+    %     s = serial(serial_port,'BaudRate',baud_rate,'DataBits',8,'InputBufferSize',buffer_size); %20k is 6000 points * 8 byte each, so take 40k.
+    %     fopen(s);     
+    % end
 
 
     profile on
@@ -194,27 +194,27 @@ function main()
     
 
     % size_to_read=uint8(0);
-    % fileID = fopen('test_out.txt','r');
-    % all_out=textread('test_out.txt');
+    % fileID = fopen('xcorr_checking.txt','r');
+    all_out=textread('xcorr_output.txt');
 
-    start=tic;
-    while toc(start) < 10
-    % piece=1;
+    % start=tic;/
+    % while toc(start) < 10
+    piece=1;
 
-    % while piece < 470
-            % piece=piece+1;
+    while piece < 10
+            piece=piece+1;
             % index=index+
 
         % if (10>7)
             % join with prev. left_out uint16 is fine, since calib2 ~ 27k
-            % out = [left_out; all_out(5000*piece:5000*(piece+1))]; % both of them 16 bit -> it also 16bit; PREALLOCATED is not needed in such cases
+            out = [left_out; all_out(17000*piece:17000*(piece+1))]; % both of them 16 bit -> it also 16bit; PREALLOCATED is not needed in such cases
         
-        size_to_read=s.BytesAvailable;
+            % size_to_read=s.BytesAvailable;
         % size_to_read=2000;
-        if (size_to_read>read_trigger_size)
-            new_out=fread(s,size_to_read,'uint16');
+        % if (size_to_read>read_trigger_size)
+            % new_out=fread(s,size_to_read,'uint16');
 
-            out = [left_out; new_out]; % both of them 16 bit -> it also 16bit; PREALLOCATED is not needed in such cases
+            % out = [left_out; new_out]; % both of them 16 bit -> it also 16bit; PREALLOCATED is not needed in such cases
 
 
 
@@ -275,6 +275,9 @@ function main()
                 counter=counter+1;
                 redraw_2=false;
 
+
+
+                        % delay_ms(1000);
                 % disp(['Matrix is ',  num2str(length(A_sep{2})/2) 'x' num2str(len+1)  ]);
                 % try
                     % disp(['M(1) is ', num2str(length(A_sep{1})/3)]) 
@@ -283,22 +286,23 @@ function main()
                 % catch
                 % end
                 drawnow nocallbacks
+                delay_ms(1000)
                 % drawnow limitrate
             end
 
 
-        end % if buffer is not empty
+        % end % if buffer is not empty
     end % while 1
     
 
-    disp(['FPS is ', num2str(counter/toc(start))]);
+    % disp(['FPS is ', num2str(counter/toc(start))]);
 
 
-    name=strsplit(string(datetime('now')),' ');
-    name=char(strrep(name(2),':','_'));
-    profsave(profile('info'), name);
-
-    delete(h)
+    % name=strsplit(string(datetime('now')),' ');
+    % name=char(strrep(name(2),':','_'));
+    % profsave(profile('info'), name);
+% 
+    % delete(h)
 
 
 
@@ -407,7 +411,17 @@ function main()
     
                             end % reversed
 
+
+
+
+
                         end % for j
+
+
+
+
+
+
 
                         line_reversed=~line_reversed; % change polarity
                         temp_row_2=temp_row_2+1; % next line
@@ -449,6 +463,15 @@ function main()
                                 end 
                             end % reversed
                         
+
+
+                                                if(j==2)
+                            % [c,lags]=xcorr(M_2(temp_row_2,:),M_2(temp_row_2-1,:));
+                            % [maxC,I]=max(c)
+                            % lag = lags(I)  
+                            M_2
+                        end
+
                         end % for j
 
                         line_reversed=~line_reversed; % change polarity
@@ -457,6 +480,8 @@ function main()
                 end % frame reversed
                 frame_reversed_2=~frame_reversed_2;
                     
+
+
 
             end % len ~=0
             %%% END SEPARATION %%%
