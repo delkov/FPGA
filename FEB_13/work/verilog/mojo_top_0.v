@@ -157,7 +157,7 @@ module mojo_top_0(
   localparam TDC_SPI_SPEED=6250000; // 6250000, max is  20Mhz
   // MEMS
   localparam FCLK_FREQUENCY=16000; // 10k -> 6k -> available 6k*2^n;
-  localparam MEMS_SPI_SPEED=3200000;  // max is 50MHZ
+  localparam MEMS_SPI_SPEED=200000;  // max is 50MHZ
 
   // FIFO
   localparam FIFO_WIDTH=6; // 128 is fine means count of elements is 2^FIFO_WIDTH
@@ -205,6 +205,7 @@ module mojo_top_0(
   // wire [31:0] f1_din;
   // wire f1_FIFO_writing_done;
 
+  // wire [15:0] f1_addr;
   // wire f1_mems_SPI_start;
   // wire f1_mems_SPI_busy;
   // wire [23:0] f1_mems_data_in;
@@ -375,7 +376,13 @@ module mojo_top_0(
 
     // TDC
     // INPUT
+    // .f1_wr_en(f1_wr_en),
     // .f1_din(f1_din),
+    // .f1_FIFO_writing_done(f1_FIFO_writing_done),
+    // .f1_new_line(f1_new_line),
+    // .f1_new_frame(f1_new_frame),
+    // .f1_new_line_FIFO_done(f1_new_line_FIFO_done),
+    // .f1_new_frame_FIFO_done(f1_new_frame_FIFO_done),
 
     // F2
     .f2_wr_en(f2_wr_en),
@@ -423,23 +430,6 @@ module mojo_top_0(
     .f6_new_frame_FIFO_done(f6_new_frame_FIFO_done),
     
 
-    
-    // .f1_wr_en(f1_wr_en),
-
-    // OUTPUT
-    // .f1_FIFO_writing_done(f1_FIFO_writing_done),
-
-    // MEMS
-    // INPUT
-    // .f1_new_line(f1_new_line),
-    
-    // .f1_new_frame(f1_new_frame),
-
-    // OUTPUT
-    // .f1_new_line_FIFO_done(f1_new_line_FIFO_done),
-        
-    // .f1_new_frame_FIFO_done(f1_new_frame_FIFO_done),
-
     // OTHERS
     .w_tx_OUT_TDC(SERIAL_OUT_TDC),
     .tx_busy_TDC(tx_busy_TDC) // debugging
@@ -452,6 +442,26 @@ module mojo_top_0(
   );
 
 
+  mems_rom_4 mems_rom (
+  // INPUT
+  .rst(rst),
+  .clk(clk),
+  .go_home(go_home),
+  
+  .f2_addr(f2_addr),
+  .f3_addr(f3_addr),
+  .f4_addr(f4_addr),
+  .f5_addr(f5_addr),
+  .f6_addr(f6_addr),
+
+  // OUTPUT
+  .f2_data(f2_mems_data_in),
+  .f3_data(f3_mems_data_in),
+  .f4_data(f4_mems_data_in),
+  .f5_data(f5_mems_data_in),
+  .f6_data(f6_mems_data_in)
+  // .rom_scan_is_done(rom_scan_is_done)
+  );
 
 
 
@@ -511,7 +521,8 @@ module mojo_top_0(
 
   //   // OUTPUT
   //   .mems_SPI_start(f1_mems_SPI_start),
-  //   .data_mosi(f1_mems_data_in),
+  //   .addr(f1_addr),
+  //   //  .data_mosi(f1_mems_data_in),
   //   .new_line(f1_new_line),
   //   .new_frame(f1_new_frame)
   // );
@@ -553,27 +564,6 @@ module mojo_top_0(
 
 
 
-
-  mems_rom_4 mems_rom (
-  // INPUT
-  .rst(rst),
-  .clk(clk),
-  .go_home(go_home),
-  
-  .f2_addr(f2_addr),
-  .f3_addr(f3_addr),
-  .f4_addr(f4_addr),
-  .f5_addr(f5_addr),
-  .f6_addr(f6_addr),
-
-  // OUTPUT
-  .f2_data(f2_mems_data_in),
-  .f3_data(f3_mems_data_in),
-  .f4_data(f4_mems_data_in),
-  .f5_data(f5_mems_data_in),
-  .f6_data(f6_mems_data_in)
-  // .rom_scan_is_done(rom_scan_is_done)
-  );
 
 
   // F2
@@ -626,8 +616,8 @@ module mojo_top_0(
     // .go_home(go_home),
 
     // OUTPUT
-    .addr(f2_addr),
     .mems_SPI_start(f2_mems_SPI_start),
+    .addr(f2_addr),
     // .data_mosi(f2_mems_data_in),
     .new_line(f2_new_line),
     .new_frame(f2_new_frame)
@@ -713,8 +703,8 @@ module mojo_top_0(
     // .go_home(go_home),
 
     // OUTPUT
-    .addr(f3_addr),
     .mems_SPI_start(f3_mems_SPI_start),
+    .addr(f3_addr),
     // .data_mosi(f3_mems_data_in),
     .new_line(f3_new_line),
     .new_frame(f3_new_frame)
@@ -986,8 +976,8 @@ module mojo_top_0(
     // .go_home(go_home),
 
     // OUTPUT
-    .addr(f6_addr),
     .mems_SPI_start(f6_mems_SPI_start),
+    .addr(f6_addr),
     // .data_mosi(f6_mems_data_in),
     .new_line(f6_new_line),
     .new_frame(f6_new_frame)

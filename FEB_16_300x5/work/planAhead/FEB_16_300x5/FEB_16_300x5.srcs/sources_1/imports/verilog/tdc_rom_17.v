@@ -23,13 +23,13 @@ module tdc_rom_17 (
     rom_data[5] = 8'h07; // Interrupt MASK register. NOT RECOMMENT TO POLLINT TO UNDERSTAND NEW MEASUREMTN IS DONE. INTB pin shoul be used instead.
 
     rom_data[6] = 8'h44; // Coarse counter overflow_H!! IMPORTANT -- address
-    rom_data[7] = 8'h01; // FF is 200us, OF is 10us. 01 WAS  -- value
+    rom_data[7] = 8'h00; // FF is 200us, OF is 10us. 01 WAS  -- value
     // rom_data[7] = 8'h01; // FF is 200us, OF is 10us
     // rom_data[7] = 8'h03; // FF is 200us, OF is 10us
     
 
     rom_data[8] = 8'h45;
-    rom_data[9] = 8'h8F; // 00,FF is 840ns, 018F (see at rom_data[7]) is  ~1.2 us (SHOUL BE bigger than 1.1 us) 180m  Coarse counter overflow_L -- > probably about 100m
+    rom_data[9] = 8'hFF; // 00,FF is 840ns, 018F (see at rom_data[7]) is  ~1.2 us (SHOUL BE bigger than 1.1 us) 180m  Coarse counter overflow_L -- > probably about 100m
     // rom_data[9] = 8'hAF; // 00,FF is 840ns, 018F (see at rom_data[7]) is  ~1.2 us (SHOUL BE bigger than 1.1 us) 180m  Coarse counter overflow_L -- > probably about 100m
     
 

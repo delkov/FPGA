@@ -102,11 +102,14 @@ module mems_control (
                     
 
 
-                    if (addr_q==16'd11204) begin
+                    if (addr_q==16'd16004) begin
+                    // if (addr_q==16'd15844) begin
                          addr_d = 16'd8;  
                     end else begin
                     
-if (addr_q == 16'd622 || addr_q==16'd6282) begin
+// if (addr_q == 16'd623 || addr_q==16'd8623) begin
+// if (addr_q == 16'd226 || addr_q==16'd3826) begin
+if (addr_q == 16'd143 || addr_q==16'd8143) begin
 
 // if (addr_q == 16'd164) begin // 6495 no overflow at all1! 6490 also no overf.
 
@@ -115,7 +118,13 @@ if (addr_q == 16'd622 || addr_q==16'd6282) begin
                             new_frame_d = 1'b1;
                         end else 
 // if (addr_q == 16'd562 || addr_q == 16'd2322 || addr_q == 16'd4082 || addr_q == 16'd5842 || addr_q == 16'd7602 || addr_q == 16'd1442 || addr_q == 16'd3202 || addr_q == 16'd4962 || addr_q == 16'd6722 || addr_q==16'd8482) begin
-if (addr_q == 16'd682 || addr_q == 16'd2922 || addr_q == 16'd5162 || addr_q == 16'd7402 || addr_q == 16'd9642 || addr_q == 16'd1802 || addr_q == 16'd4042 || addr_q == 16'd6282 || addr_q == 16'd8522 || addr_q==16'd10762) begin
+// if (addr_q == 16'd623 || addr_q == 16'd2223 || addr_q == 16'd3823 || addr_q == 16'd5423 || addr_q == 16'd7023 || addr_q == 16'd8623 || addr_q == 16'd10223 || addr_q == 16'd11823 || addr_q == 16'd13423 || addr_q == 16'd15023 || addr_q == 16'd1423 || addr_q == 16'd3023 || addr_q == 16'd4623 || addr_q == 16'd6223 || addr_q == 16'd7823 || addr_q == 16'd9423 || addr_q == 16'd11023 || addr_q == 16'd12623 || addr_q == 16'd14223 || addr_q==16'd15823) begin
+
+
+
+
+
+if (addr_q == 16'd143 || addr_q == 16'd543 || addr_q == 16'd943 || addr_q == 16'd1343 || addr_q == 16'd1743 || addr_q == 16'd2143 || addr_q == 16'd2543 || addr_q == 16'd2943 || addr_q == 16'd3343 || addr_q == 16'd3743 || addr_q == 16'd4143 || addr_q == 16'd4543 || addr_q == 16'd4943 || addr_q == 16'd5343 || addr_q == 16'd5743 || addr_q == 16'd6143 || addr_q == 16'd6543 || addr_q == 16'd6943 || addr_q == 16'd7343 || addr_q == 16'd7743 || addr_q == 16'd8143 || addr_q == 16'd8543 || addr_q == 16'd8943 || addr_q == 16'd9343 || addr_q == 16'd9743 || addr_q == 16'd10143 || addr_q == 16'd10543 || addr_q == 16'd10943 || addr_q == 16'd11343 || addr_q == 16'd11743 || addr_q == 16'd12143 || addr_q == 16'd12543 || addr_q == 16'd12943 || addr_q == 16'd13343 || addr_q == 16'd13743 || addr_q == 16'd14143 || addr_q == 16'd14543 || addr_q == 16'd14943 || addr_q == 16'd15343 || addr_q == 16'd15743 || addr_q == 16'd343 || addr_q == 16'd743 || addr_q == 16'd1143 || addr_q == 16'd1543 || addr_q == 16'd1943 || addr_q == 16'd2343 || addr_q == 16'd2743 || addr_q == 16'd3143 || addr_q == 16'd3543 || addr_q == 16'd3943 || addr_q == 16'd4343 || addr_q == 16'd4743 || addr_q == 16'd5143 || addr_q == 16'd5543 || addr_q == 16'd5943 || addr_q == 16'd6343 || addr_q == 16'd6743 || addr_q == 16'd7143 || addr_q == 16'd7543 || addr_q == 16'd7943 || addr_q == 16'd8343 || addr_q == 16'd8743 || addr_q == 16'd9143 || addr_q == 16'd9543 || addr_q == 16'd9943 || addr_q == 16'd10343 || addr_q == 16'd10743 || addr_q == 16'd11143 || addr_q == 16'd11543 || addr_q == 16'd11943 || addr_q == 16'd12343 || addr_q == 16'd12743 || addr_q == 16'd13143 || addr_q == 16'd13543 || addr_q == 16'd13943 || addr_q == 16'd14343 || addr_q == 16'd14743 || addr_q == 16'd15143 || addr_q == 16'd15543 || addr_q==16'd15943) begin
 
               new_line_d=1'b1;
                 end 

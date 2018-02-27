@@ -56,7 +56,7 @@ Parsing module <mojo_top_0>.
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
-WARNING:HDLCompiler:1016 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 340: Port f1_tdc_enable is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 341: Port f1_tdc_enable is not connected to this instance
 
 Elaborating module <mojo_top_0>.
 
@@ -69,7 +69,7 @@ Elaborating module <spi_slave_12>.
 Elaborating module <serial_rx_13(CLK_PER_BIT=100)>.
 
 Elaborating module <serial_tx_14(CLK_PER_BIT=100)>.
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 334: Assignment to tx_busy ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 335: Assignment to tx_busy ignored, since the identifier is never used
 
 Elaborating module <main_control_2>.
 
@@ -84,7 +84,7 @@ WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/FIFO_16.v" Line 78: Result of 7-bit expression is truncated to fit in 6-bit target.
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/FIFO_16.v" Line 81: Result of 7-bit expression is truncated to fit in 6-bit target.
 WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/fifo_manager_3.v" Line 112: Assignment to w_full ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 445: Assignment to tx_busy_TDC ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 435: Assignment to tx_busy_TDC ignored, since the identifier is never used
 
 Elaborating module <mems_rom_4>.
 WARNING:HDLCompiler:872 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mems_rom_4.v" Line 47: Using initial value of home_step since it is never assigned
@@ -105,7 +105,7 @@ WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_1
 
 Elaborating module <mems_control_7>.
 
-Elaborating module <mems_spi_8(CLK_DIV=32'sb01111)>.
+Elaborating module <mems_spi_8(CLK_DIV=32'sb011111010)>.
 WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mems_spi_8.v" Line 42: Assignment to new_data ignored, since the identifier is never used
 
 Elaborating module <my_clk_9(CLK_DIV=32'sb0100)>.
@@ -121,13 +121,13 @@ WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13
 Synthesizing Unit <mojo_top_0>.
     Related source file is "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v".
 WARNING:Xst:647 - Input <SERIAL_IN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 317: Output port <sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 317: Output port <sample_channel> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 317: Output port <new_sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 317: Output port <tx_busy> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 340: Output port <f1_tdc_enable> of the instance <main_control> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 340: Output port <f1_soft_reset> of the instance <main_control> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 371: Output port <tx_busy_TDC> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 318: Output port <sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 318: Output port <sample_channel> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 318: Output port <new_sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 318: Output port <tx_busy> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 341: Output port <f1_tdc_enable> of the instance <main_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 341: Output port <f1_soft_reset> of the instance <main_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <tx_busy_TDC> of the instance <fifo_manager> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <new_tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Summary:
@@ -343,7 +343,7 @@ Unit <fifo_16> synthesized.
 
 Synthesizing Unit <mems_rom_4>.
     Related source file is "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mems_rom_4.v".
-        rom_size = 2801
+        rom_size = 4001
 WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:653 - Signal <rom_data<1>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <rom_data<0>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -422,86 +422,86 @@ WARNING:Xst:653 - Signal <rom_data<0>> is used but never assigned. This sourcele
     Found 4096x16-bit Read Only RAM for signal <f4_addrs[11]_X_23_o_wide_mux_163_OUT>
     Found 4096x16-bit Read Only RAM for signal <f5_addrs[11]_X_23_o_wide_mux_169_OUT>
     Found 4096x16-bit Read Only RAM for signal <f6_addrs[11]_X_23_o_wide_mux_175_OUT>
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[15]_Mux_214_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[14]_Mux_215_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[13]_Mux_216_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[12]_Mux_217_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[11]_Mux_218_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[10]_Mux_219_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[9]_Mux_220_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[8]_Mux_221_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[7]_Mux_222_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[6]_Mux_223_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[5]_Mux_224_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[4]_Mux_225_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[3]_Mux_226_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[2]_Mux_227_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[1]_Mux_228_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[0]_Mux_229_o> created at line 3213.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[15]_Mux_236_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[14]_Mux_237_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[13]_Mux_238_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[12]_Mux_239_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[11]_Mux_240_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[10]_Mux_241_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[9]_Mux_242_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[8]_Mux_243_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[7]_Mux_244_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[6]_Mux_245_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[5]_Mux_246_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[4]_Mux_247_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[3]_Mux_248_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[2]_Mux_249_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[1]_Mux_250_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[0]_Mux_251_o> created at line 3242.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[15]_Mux_258_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[14]_Mux_259_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[13]_Mux_260_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[12]_Mux_261_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[11]_Mux_262_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[10]_Mux_263_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[9]_Mux_264_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[8]_Mux_265_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[7]_Mux_266_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[6]_Mux_267_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[5]_Mux_268_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[4]_Mux_269_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[3]_Mux_270_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[2]_Mux_271_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[1]_Mux_272_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[0]_Mux_273_o> created at line 3269.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[15]_Mux_280_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[14]_Mux_281_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[13]_Mux_282_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[12]_Mux_283_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[11]_Mux_284_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[10]_Mux_285_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[9]_Mux_286_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[8]_Mux_287_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[7]_Mux_288_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[6]_Mux_289_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[5]_Mux_290_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[4]_Mux_291_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[3]_Mux_292_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[2]_Mux_293_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[1]_Mux_294_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[0]_Mux_295_o> created at line 3296.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[15]_Mux_302_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[14]_Mux_303_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[13]_Mux_304_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[12]_Mux_305_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[11]_Mux_306_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[10]_Mux_307_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[9]_Mux_308_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[8]_Mux_309_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[7]_Mux_310_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[6]_Mux_311_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[5]_Mux_312_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[4]_Mux_313_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[3]_Mux_314_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[2]_Mux_315_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[1]_Mux_316_o> created at line 3324.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[0]_Mux_317_o> created at line 3324.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[15]_Mux_214_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[14]_Mux_215_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[13]_Mux_216_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[12]_Mux_217_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[11]_Mux_218_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[10]_Mux_219_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[9]_Mux_220_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[8]_Mux_221_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[7]_Mux_222_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[6]_Mux_223_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[5]_Mux_224_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[4]_Mux_225_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[3]_Mux_226_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[2]_Mux_227_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[1]_Mux_228_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[0]_Mux_229_o> created at line 4413.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[15]_Mux_236_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[14]_Mux_237_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[13]_Mux_238_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[12]_Mux_239_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[11]_Mux_240_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[10]_Mux_241_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[9]_Mux_242_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[8]_Mux_243_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[7]_Mux_244_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[6]_Mux_245_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[5]_Mux_246_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[4]_Mux_247_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[3]_Mux_248_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[2]_Mux_249_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[1]_Mux_250_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[0]_Mux_251_o> created at line 4442.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[15]_Mux_258_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[14]_Mux_259_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[13]_Mux_260_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[12]_Mux_261_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[11]_Mux_262_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[10]_Mux_263_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[9]_Mux_264_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[8]_Mux_265_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[7]_Mux_266_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[6]_Mux_267_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[5]_Mux_268_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[4]_Mux_269_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[3]_Mux_270_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[2]_Mux_271_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[1]_Mux_272_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[0]_Mux_273_o> created at line 4469.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[15]_Mux_280_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[14]_Mux_281_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[13]_Mux_282_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[12]_Mux_283_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[11]_Mux_284_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[10]_Mux_285_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[9]_Mux_286_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[8]_Mux_287_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[7]_Mux_288_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[6]_Mux_289_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[5]_Mux_290_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[4]_Mux_291_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[3]_Mux_292_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[2]_Mux_293_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[1]_Mux_294_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[0]_Mux_295_o> created at line 4496.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[15]_Mux_302_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[14]_Mux_303_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[13]_Mux_304_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[12]_Mux_305_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[11]_Mux_306_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[10]_Mux_307_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[9]_Mux_308_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[8]_Mux_309_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[7]_Mux_310_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[6]_Mux_311_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[5]_Mux_312_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[4]_Mux_313_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[3]_Mux_314_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[2]_Mux_315_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[1]_Mux_316_o> created at line 4524.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[0]_Mux_317_o> created at line 4524.
     Found 16-bit comparator greater for signal <GND_23_o_f2_CH_A_q[15]_LessThan_12_o> created at line 121
     Found 16-bit comparator greater for signal <GND_23_o_f2_CH_C_q[15]_LessThan_18_o> created at line 128
     Found 16-bit comparator greater for signal <GND_23_o_f2_CH_B_q[15]_LessThan_24_o> created at line 135
@@ -632,7 +632,7 @@ Synthesizing Unit <mems_control_7>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 16-bit adder for signal <addr_q[15]_GND_27_o_add_27_OUT> created at line 128.
+    Found 16-bit adder for signal <addr_q[15]_GND_27_o_add_97_OUT> created at line 137.
     Found 1-bit 4-to-1 multiplexer for signal <mems_SPI_start_d> created at line 65.
     Found 16-bit 4-to-1 multiplexer for signal <addr_d> created at line 65.
     Summary:
@@ -644,9 +644,9 @@ Unit <mems_control_7> synthesized.
 
 Synthesizing Unit <mems_spi_8>.
     Related source file is "/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mems_spi_8.v".
-        CLK_DIV = 15
+        CLK_DIV = 250
     Found 24-bit register for signal <data_q>.
-    Found 4-bit register for signal <sck_q>.
+    Found 8-bit register for signal <sck_q>.
     Found 1-bit register for signal <mosi_q>.
     Found 3-bit register for signal <state_q>.
     Found 1-bit register for signal <CS_q>.
@@ -665,10 +665,10 @@ Synthesizing Unit <mems_spi_8>.
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 5-bit adder for signal <ctr_q[4]_GND_28_o_add_12_OUT> created at line 85.
-    Found 4-bit adder for signal <sck_q[3]_GND_28_o_add_8_OUT> created at line 107.
+    Found 8-bit adder for signal <sck_q[7]_GND_28_o_add_8_OUT> created at line 107.
     Summary:
 	inferred   2 Adder/Subtractor(s).
-	inferred  35 D-type flip-flop(s).
+	inferred  39 D-type flip-flop(s).
 	inferred  12 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <mems_spi_8> synthesized.
@@ -717,11 +717,12 @@ Macro Statistics
  2-bit adder                                           : 5
  20-bit adder                                          : 1
  3-bit adder                                           : 8
- 4-bit adder                                           : 11
+ 4-bit adder                                           : 6
  5-bit adder                                           : 10
  6-bit adder                                           : 7
  7-bit adder                                           : 2
  7-bit addsub                                          : 1
+ 8-bit adder                                           : 5
 # Registers                                            : 230
  1-bit register                                        : 88
  10-bit register                                       : 2
@@ -732,12 +733,12 @@ Macro Statistics
  24-bit register                                       : 10
  3-bit register                                        : 8
  32-bit register                                       : 5
- 4-bit register                                        : 13
+ 4-bit register                                        : 8
  48-bit register                                       : 3
  5-bit register                                        : 10
  6-bit register                                        : 7
  7-bit register                                        : 4
- 8-bit register                                        : 18
+ 8-bit register                                        : 23
 # Latches                                              : 1
  1-bit latch                                           : 1
 # Comparators                                          : 30
@@ -756,13 +757,13 @@ Macro Statistics
  20-bit 2-to-1 multiplexer                             : 2
  24-bit 2-to-1 multiplexer                             : 15
  3-bit 2-to-1 multiplexer                              : 42
- 4-bit 2-to-1 multiplexer                              : 114
+ 4-bit 2-to-1 multiplexer                              : 64
  4-bit 4-to-1 multiplexer                              : 1
  48-bit 2-to-1 multiplexer                             : 14
  5-bit 2-to-1 multiplexer                              : 10
  6-bit 2-to-1 multiplexer                              : 50
  7-bit 2-to-1 multiplexer                              : 6
- 8-bit 2-to-1 multiplexer                              : 6
+ 8-bit 2-to-1 multiplexer                              : 56
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
 # FSMs                                                 : 23
@@ -966,9 +967,10 @@ Macro Statistics
  16-bit subtractor                                     : 5
  20-bit adder                                          : 1
  3-bit adder                                           : 5
- 4-bit adder                                           : 11
+ 4-bit adder                                           : 6
  6-bit adder                                           : 5
  7-bit adder                                           : 1
+ 8-bit adder                                           : 5
 # Counters                                             : 28
  10-bit up counter                                     : 1
  12-bit up counter                                     : 5
@@ -978,8 +980,8 @@ Macro Statistics
  6-bit up counter                                      : 2
  7-bit up counter                                      : 1
  7-bit updown counter                                  : 1
-# Registers                                            : 1719
- Flip-Flops                                            : 1719
+# Registers                                            : 1739
+ Flip-Flops                                            : 1739
 # Comparators                                          : 30
  12-bit comparator greater                             : 5
  16-bit comparator greater                             : 20
@@ -996,12 +998,12 @@ Macro Statistics
  20-bit 2-to-1 multiplexer                             : 2
  24-bit 2-to-1 multiplexer                             : 15
  3-bit 2-to-1 multiplexer                              : 40
- 4-bit 2-to-1 multiplexer                              : 114
+ 4-bit 2-to-1 multiplexer                              : 64
  4-bit 4-to-1 multiplexer                              : 1
  48-bit 2-to-1 multiplexer                             : 14
  6-bit 2-to-1 multiplexer                              : 50
  7-bit 2-to-1 multiplexer                              : 5
- 8-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 51
 # FSMs                                                 : 23
 # Xors                                                 : 1
  1-bit xor2                                            : 1
@@ -1244,24 +1246,29 @@ INFO:Xst:2261 - The FF/Latch <f6_mems_spi_master/sck_q_2> in Unit <mojo_top_0> i
 INFO:Xst:2261 - The FF/Latch <f6_mems_control/addr_q_5> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_control/addr_q_5> <f4_mems_control/addr_q_5> <f3_mems_control/addr_q_5> <f2_mems_control/addr_q_5> 
 INFO:Xst:2261 - The FF/Latch <f6_mems_spi_master/sck_q_3> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_spi_master/sck_q_3> <f4_mems_spi_master/sck_q_3> <f3_mems_spi_master/sck_q_3> <f2_mems_spi_master/sck_q_3> 
 INFO:Xst:2261 - The FF/Latch <f6_mems_control/addr_q_6> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_control/addr_q_6> <f4_mems_control/addr_q_6> <f3_mems_control/addr_q_6> <f2_mems_control/addr_q_6> 
+INFO:Xst:2261 - The FF/Latch <f6_mems_spi_master/sck_q_4> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_spi_master/sck_q_4> <f4_mems_spi_master/sck_q_4> <f3_mems_spi_master/sck_q_4> <f2_mems_spi_master/sck_q_4> 
 INFO:Xst:2261 - The FF/Latch <f6_mems_control/addr_q_7> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_control/addr_q_7> <f4_mems_control/addr_q_7> <f3_mems_control/addr_q_7> <f2_mems_control/addr_q_7> 
+INFO:Xst:2261 - The FF/Latch <f6_mems_spi_master/sck_q_5> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_spi_master/sck_q_5> <f4_mems_spi_master/sck_q_5> <f3_mems_spi_master/sck_q_5> <f2_mems_spi_master/sck_q_5> 
 INFO:Xst:2261 - The FF/Latch <f6_mems_control/addr_q_8> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_control/addr_q_8> <f4_mems_control/addr_q_8> <f3_mems_control/addr_q_8> <f2_mems_control/addr_q_8> 
+INFO:Xst:2261 - The FF/Latch <f6_mems_spi_master/sck_q_6> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_spi_master/sck_q_6> <f4_mems_spi_master/sck_q_6> <f3_mems_spi_master/sck_q_6> <f2_mems_spi_master/sck_q_6> 
 INFO:Xst:2261 - The FF/Latch <f6_mems_control/addr_q_9> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_control/addr_q_9> <f4_mems_control/addr_q_9> <f3_mems_control/addr_q_9> <f2_mems_control/addr_q_9> 
+INFO:Xst:2261 - The FF/Latch <f6_mems_spi_master/sck_q_7> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_spi_master/sck_q_7> <f4_mems_spi_master/sck_q_7> <f3_mems_spi_master/sck_q_7> <f2_mems_spi_master/sck_q_7> 
 INFO:Xst:2261 - The FF/Latch <f5_mems_control/state_q_FSM_FFd2> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f6_mems_control/state_q_FSM_FFd2> <f4_mems_control/state_q_FSM_FFd2> <f3_mems_control/state_q_FSM_FFd2> <f2_mems_control/state_q_FSM_FFd2> 
 INFO:Xst:2261 - The FF/Latch <f6_mems_spi_master/CS_q> in Unit <mojo_top_0> is equivalent to the following 4 FFs/Latches, which will be removed : <f5_mems_spi_master/CS_q> <f4_mems_spi_master/CS_q> <f3_mems_spi_master/CS_q> <f2_mems_spi_master/CS_q> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 64.
-FlipFlop f2_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
-FlipFlop f3_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
-FlipFlop f4_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
-FlipFlop f5_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 68.
 FlipFlop f6_mems_control/addr_q_0 has been replicated 1 time(s)
 FlipFlop f6_mems_control/addr_q_1 has been replicated 1 time(s)
+FlipFlop f6_mems_control/addr_q_13 has been replicated 1 time(s)
 FlipFlop f6_mems_control/addr_q_2 has been replicated 1 time(s)
-FlipFlop f6_mems_spi_master/state_q_FSM_FFd2 has been replicated 1 time(s)
-FlipFlop f6_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
+FlipFlop f6_mems_control/addr_q_3 has been replicated 2 time(s)
+FlipFlop f6_mems_control/addr_q_4 has been replicated 1 time(s)
+FlipFlop f6_mems_control/addr_q_6 has been replicated 1 time(s)
+FlipFlop f6_mems_control/addr_q_7 has been replicated 1 time(s)
+FlipFlop f6_mems_control/addr_q_8 has been replicated 2 time(s)
+FlipFlop f6_mems_control/addr_q_9 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -1269,8 +1276,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1673
- Flip-Flops                                            : 1673
+# Registers                                            : 1680
+ Flip-Flops                                            : 1680
 
 =========================================================================
 
@@ -1295,7 +1302,7 @@ Clock Information:
 Clock Signal                                                                                    | Clock buffer(FF name)              | Load  |
 ------------------------------------------------------------------------------------------------+------------------------------------+-------+
 main_control/Mram_state_q[1]_PWR_8_o_Mux_18_o(main_control/Mram_state_q[1]_PWR_8_o_Mux_18_o11:O)| NONE(*)(main_control/f2_soft_reset)| 1     |
-clk                                                                                             | BUFGP                              | 1421  |
+clk                                                                                             | BUFGP                              | 1428  |
 f6_mems_control/addr_q_0                                                                        | BUFG                               | 320   |
 ------------------------------------------------------------------------------------------------+------------------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
@@ -1311,9 +1318,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 7.121ns (Maximum Frequency: 140.430MHz)
-   Minimum input arrival time before clock: 7.113ns
-   Maximum output required time after clock: 6.904ns
+   Minimum period: 7.763ns (Maximum Frequency: 128.809MHz)
+   Minimum input arrival time before clock: 5.988ns
+   Maximum output required time after clock: 6.980ns
    Maximum combinational path delay: 6.005ns
 
 =========================================================================

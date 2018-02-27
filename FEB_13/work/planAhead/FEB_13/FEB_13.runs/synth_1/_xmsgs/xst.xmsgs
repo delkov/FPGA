@@ -5,10 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 340: Port <arg fmt="%s" index="1">f1_tdc_enable</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 341: Port <arg fmt="%s" index="1">f1_tdc_enable</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 334: Assignment to <arg fmt="%s" index="1">tx_busy</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 335: Assignment to <arg fmt="%s" index="1">tx_busy</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/fifo_manager_3.v" Line 85: Assignment to <arg fmt="%s" index="1">new_data_FROM_FIFO_TO_SERIAL</arg> ignored, since the identifier is never used
@@ -29,7 +29,7 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/fifo_manager_3.v" Line 112: Assignment to <arg fmt="%s" index="1">w_full</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 445: Assignment to <arg fmt="%s" index="1">tx_busy_TDC</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 435: Assignment to <arg fmt="%s" index="1">tx_busy_TDC</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="872" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mems_rom_4.v" Line 47: Using initial value of <arg fmt="%s" index="1">home_step</arg> since it is never assigned
@@ -71,25 +71,25 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">SERIAL_IN</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">317</arg>: Output port &lt;<arg fmt="%s" index="3">sample</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">318</arg>: Output port &lt;<arg fmt="%s" index="3">sample</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">317</arg>: Output port &lt;<arg fmt="%s" index="3">sample_channel</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">318</arg>: Output port &lt;<arg fmt="%s" index="3">sample_channel</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">317</arg>: Output port &lt;<arg fmt="%s" index="3">new_sample</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">318</arg>: Output port &lt;<arg fmt="%s" index="3">new_sample</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">317</arg>: Output port &lt;<arg fmt="%s" index="3">tx_busy</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">318</arg>: Output port &lt;<arg fmt="%s" index="3">tx_busy</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">340</arg>: Output port &lt;<arg fmt="%s" index="3">f1_tdc_enable</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">main_control</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">341</arg>: Output port &lt;<arg fmt="%s" index="3">f1_tdc_enable</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">main_control</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">340</arg>: Output port &lt;<arg fmt="%s" index="3">f1_soft_reset</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">main_control</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">341</arg>: Output port &lt;<arg fmt="%s" index="3">f1_soft_reset</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">main_control</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">371</arg>: Output port &lt;<arg fmt="%s" index="3">tx_busy_TDC</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo_manager</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/FEB_13/work/planAhead/FEB_13/FEB_13.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">372</arg>: Output port &lt;<arg fmt="%s" index="3">tx_busy_TDC</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo_manager</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">tx_data</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
@@ -494,13 +494,25 @@
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">f6_mems_control/addr_q_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;f5_mems_control/addr_q_6&gt; &lt;f4_mems_control/addr_q_6&gt; &lt;f3_mems_control/addr_q_6&gt; &lt;f2_mems_control/addr_q_6&gt; </arg>
 </msg>
 
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">f6_mems_spi_master/sck_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;f5_mems_spi_master/sck_q_4&gt; &lt;f4_mems_spi_master/sck_q_4&gt; &lt;f3_mems_spi_master/sck_q_4&gt; &lt;f2_mems_spi_master/sck_q_4&gt; </arg>
+</msg>
+
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">f6_mems_control/addr_q_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;f5_mems_control/addr_q_7&gt; &lt;f4_mems_control/addr_q_7&gt; &lt;f3_mems_control/addr_q_7&gt; &lt;f2_mems_control/addr_q_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">f6_mems_spi_master/sck_q_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;f5_mems_spi_master/sck_q_5&gt; &lt;f4_mems_spi_master/sck_q_5&gt; &lt;f3_mems_spi_master/sck_q_5&gt; &lt;f2_mems_spi_master/sck_q_5&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">f6_mems_control/addr_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;f5_mems_control/addr_q_8&gt; &lt;f4_mems_control/addr_q_8&gt; &lt;f3_mems_control/addr_q_8&gt; &lt;f2_mems_control/addr_q_8&gt; </arg>
 </msg>
 
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">f6_mems_spi_master/sck_q_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;f5_mems_spi_master/sck_q_6&gt; &lt;f4_mems_spi_master/sck_q_6&gt; &lt;f3_mems_spi_master/sck_q_6&gt; &lt;f2_mems_spi_master/sck_q_6&gt; </arg>
+</msg>
+
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">f6_mems_control/addr_q_9</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;f5_mems_control/addr_q_9&gt; &lt;f4_mems_control/addr_q_9&gt; &lt;f3_mems_control/addr_q_9&gt; &lt;f2_mems_control/addr_q_9&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">f6_mems_spi_master/sck_q_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;f5_mems_spi_master/sck_q_7&gt; &lt;f4_mems_spi_master/sck_q_7&gt; &lt;f3_mems_spi_master/sck_q_7&gt; &lt;f2_mems_spi_master/sck_q_7&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">f5_mems_control/state_q_FSM_FFd2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">4 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;f6_mems_control/state_q_FSM_FFd2&gt; &lt;f4_mems_control/state_q_FSM_FFd2&gt; &lt;f3_mems_control/state_q_FSM_FFd2&gt; &lt;f2_mems_control/state_q_FSM_FFd2&gt; </arg>

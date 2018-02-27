@@ -167,7 +167,7 @@ module mojo_top(
   localparam BAUD_RATE_SPEED= 4000000; // in Hz,  will be rounded.
 
   // OTHER
-  localparam SHOOTING_FREQUENCY= 13800; //5550,8315 no shift.. 8325 9250 wa fine! in Hz, CAN BE ANY. PAY ATTENTION, THAT AT 70khz, the real speed will be only 36 at TDC SPI SPEED 12.5kk. since after couner we have others deals. 
+  localparam SHOOTING_FREQUENCY= 12600; //(y=ax+b, a=0.66, b=1.65)5550,8315 no shift.. 8325 9250 wa fine! in Hz, CAN BE ANY. PAY ATTENTION, THAT AT 70khz, the real speed will be only 36 at TDC SPI SPEED 12.5kk. since after couner we have others deals. 
     
   // CONVERTED PARAMS  
   localparam FCLK_FREQUENCY_PARAM=MOJO_FREQUENCY/FCLK_FREQUENCY; 

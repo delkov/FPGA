@@ -226,7 +226,7 @@
       end
 
       START_PULSE: begin // this case  isneeded only sto make start 60ns.
-          if (CS_countr_q==4'd10) begin // start duration is 60ns
+          if (CS_countr_q==4'd3) begin // start duration is 60ns
             start_signal_d=1'b0;
             // if (TDC_INTB == 1'b1) begin // check right PIN
             state_d=INTB_WAIT;
@@ -247,7 +247,7 @@
       end
 
       INTB_WAIT: begin
-          if (TDC_INTB == 1'b0 && CS_countr_q==16'd99) begin
+          if (TDC_INTB == 1'b0 && CS_countr_q==16'd99) begin // second codition to make it unformaly.. somtimes INTB faster, sometimes slower.
           // if (TDC_INTB == 1'b0) begin // IF INTB LOW, PROCESSING OF MEASUREMENT IS READY
             state_d = READ_TIME1;
             addr_d = 6'd20;
@@ -255,13 +255,14 @@
             Byte_countr_d = 1'b1;
           end
 
-          // wrong measurement. No more signal than 2us (16'd100) -- 1.8us is max for TDC INTB..
+          // wrong measurement (NOT OVERFLOW, after overflow INTB down!! e.g INTB broken..). SHOULD BE BIGGER THAN OVERFLOW VALUE (see tdc_rom, not 840ns) No more signal than 2us (16'd100) -- 1.8us is max for TDC INTB..
           if (CS_countr_q ==16'd100) begin
             state_d = DELAY;
             CS_countr_d=16'd0;
           end else begin
             CS_countr_d = CS_countr_q+1'b1;
           end
+     
      
 
       end
@@ -331,12 +332,13 @@
 
       READ_CALIB1: begin
 
-
+            // e.g NO STOP SIGNAL CASE..
             // PREVENT ZEROS! BUT SIGNAL willbe really weak.. since no time for charging of capacitor
-            // if (time1_q == 16'h0000) begin
-            //   state_d=DELAY;
-            //   CS_countr_d=SHOOTING_PARAM;
-            // end 
+            if (time1_q == 16'h0000) begin
+              time1_d=16'd1488;
+              // state_d=DELAY;
+              // CS_countr_d=SHOOTING_PARAM;
+            end 
 
 
 

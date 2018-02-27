@@ -157,7 +157,7 @@ module mojo_top(
   localparam TDC_SPI_SPEED=6250000; // 6250000, max is  20Mhz
   // MEMS
   localparam FCLK_FREQUENCY=16000; // 10k -> 6k -> available 6k*2^n;
-  localparam MEMS_SPI_SPEED=3200000;  // max is 50MHZ
+  localparam MEMS_SPI_SPEED=200000;  // max is 50MHZ
 
   // FIFO
   localparam FIFO_WIDTH=6; // 128 is fine means count of elements is 2^FIFO_WIDTH

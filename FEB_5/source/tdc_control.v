@@ -94,34 +94,11 @@
 
 
 
-                 wr_en_d = wr_en_q;
-           if (fifo_writing_done==1'b1) begin // && wr_en_q==1'b1) begin
-                 // state_d=DELAY; // VERY IMPORTANT, otherwise will be meandr wr_en
-                 wr_en_d=1'b0; // latch here is not fine (if at the same time 2 modules -> problem)
-           // end else begin
-           end
-
-
-
-
-
-
-    // if (fifo_writing_done==1'b1) begin // && wr_en_q==1'b1) begin
-      
-    //   wr_en_d=1'b0; // latch here is not fine (if at the same time 2 modules -> problem)
-   
-    // end else begin
-    // wr_en_d = wr_en_q;
-    // end
-
-    
-
-
-
-
-
-
-
+     wr_en_d = wr_en_q;
+    // it can be putted at the end state_q, but we save time to go directly to DELAY state -- WAIT_FIFO_WRITING
+     if (fifo_writing_done==1'b1) begin // && wr_en_q==1'b1) begin
+           wr_en_d=1'b0; // latch here is not fine (if at the same time 2 modules -> problem)
+     end
 
 
     case (state_q)
@@ -403,6 +380,7 @@
       end // READ_CALIB2
 
 
+      // used for checking value..
       CALCULATE_CALIB_DIFF: begin
         calib_diff_d = calib2_q-calib1_q;
         

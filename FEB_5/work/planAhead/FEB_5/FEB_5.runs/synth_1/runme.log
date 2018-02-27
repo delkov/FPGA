@@ -99,11 +99,11 @@ WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/
 Elaborating module <tdc_control_4(SHOOTING_PARAM=32'sb0110111110011)>.
 
 Elaborating module <tdc_rom_16>.
-WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 159: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 203: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 280: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 353: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 382: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 136: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 180: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 257: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 330: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 359: Result of 5-bit expression is truncated to fit in 4-bit target.
 
 Elaborating module <tdc_spi_master_5(CLK_DIV=32'sb01000)>.
 WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_5/work/planAhead/FEB_5/FEB_5.srcs/sources_1/imports/verilog/tdc_spi_master_5.v" Line 45: Assignment to new_data ignored, since the identifier is never used
@@ -406,10 +406,10 @@ Synthesizing Unit <tdc_control_4>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 16-bit subtractor for signal <calib2_q[15]_calib1_q[15]_sub_110_OUT> created at line 407.
-    Found 16-bit adder for signal <CS_countr_q[15]_GND_23_o_add_53_OUT> created at line 263.
-    Found 4-bit adder for signal <Byte_countr_q[3]_GND_23_o_add_92_OUT> created at line 382.
-    Found 6-bit adder for signal <addr_q[5]_GND_23_o_add_99_OUT> created at line 399.
+    Found 16-bit subtractor for signal <calib2_q[15]_calib1_q[15]_sub_110_OUT> created at line 385.
+    Found 16-bit adder for signal <CS_countr_q[15]_GND_23_o_add_53_OUT> created at line 240.
+    Found 4-bit adder for signal <Byte_countr_q[3]_GND_23_o_add_92_OUT> created at line 359.
+    Found 6-bit adder for signal <addr_q[5]_GND_23_o_add_99_OUT> created at line 376.
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred 126 D-type flip-flop(s).

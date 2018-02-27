@@ -4,7 +4,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.02 secs
+Total CPU time to Xst completion: 0.03 secs
  
 --> 
 Reading design: mojo_top_0.prj
@@ -130,7 +130,7 @@ WARNING:HDLCompiler:872 - "/home/delkov/mojo/SIMPLE/FEB_21/work/planAhead/FEB_21
 WARNING:HDLCompiler:872 - "/home/delkov/mojo/SIMPLE/FEB_21/work/planAhead/FEB_21/FEB_21.srcs/sources_1/imports/verilog/mems_rom_3.v" Line 54: Using initial value of home_bias since it is never assigned
 WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_21/work/planAhead/FEB_21/FEB_21.srcs/sources_1/imports/verilog/mems_rom_3.v" Line 25: Net <rom_data[1][15]> does not have a driver.
 
-Elaborating module <tdc_control_4(SHOOTING_PARAM=32'sb01001000011101)>.
+Elaborating module <tdc_control_4(SHOOTING_PARAM=32'sb01001111010111)>.
 
 Elaborating module <tdc_rom_13>.
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_21/work/planAhead/FEB_21/FEB_21.srcs/sources_1/imports/verilog/tdc_control_4.v" Line 136: Result of 5-bit expression is truncated to fit in 4-bit target.
@@ -523,7 +523,7 @@ Unit <mems_rom_3> synthesized.
 
 Synthesizing Unit <tdc_control_4>.
     Related source file is "/home/delkov/mojo/SIMPLE/FEB_21/work/planAhead/FEB_21/FEB_21.srcs/sources_1/imports/verilog/tdc_control_4.v".
-        SHOOTING_PARAM = 4637
+        SHOOTING_PARAM = 5079
 WARNING:Xst:647 - Input <TDC_INTB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <pause> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 1-bit register for signal <start_signal_q>.
@@ -1138,14 +1138,11 @@ Optimizing unit <mems_spi_7> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 81.
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 82.
 FlipFlop f1_mems_control/addr_q_0 has been replicated 1 time(s)
 FlipFlop f1_mems_control/addr_q_1 has been replicated 1 time(s)
 FlipFlop f1_mems_control/addr_q_2 has been replicated 1 time(s)
 FlipFlop f1_mems_spi_master/state_q_FSM_FFd2 has been replicated 1 time(s)
-FlipFlop f1_tdc_control/state_q_FSM_FFd3 has been replicated 1 time(s)
-FlipFlop f1_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
-FlipFlop f1_tdc_spi_master/state_q_FSM_FFd2 has been replicated 1 time(s)
 FlipFlop f2_mems_control/addr_q_0 has been replicated 1 time(s)
 FlipFlop f2_mems_control/addr_q_1 has been replicated 1 time(s)
 FlipFlop f2_mems_control/addr_q_2 has been replicated 1 time(s)
@@ -1183,8 +1180,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 2071
- Flip-Flops                                            : 2071
+# Registers                                            : 2068
+ Flip-Flops                                            : 2068
 
 =========================================================================
 
@@ -1207,24 +1204,24 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 5462
+# BELS                             : 5464
 #      GND                         : 17
 #      INV                         : 19
 #      LUT1                        : 250
-#      LUT2                        : 621
-#      LUT3                        : 773
-#      LUT4                        : 577
-#      LUT5                        : 505
-#      LUT6                        : 1112
+#      LUT2                        : 606
+#      LUT3                        : 797
+#      LUT4                        : 570
+#      LUT5                        : 496
+#      LUT6                        : 1147
 #      MUXCY                       : 710
-#      MUXF7                       : 118
+#      MUXF7                       : 92
 #      VCC                         : 16
 #      XORCY                       : 744
-# FlipFlops/Latches                : 2077
+# FlipFlops/Latches                : 2074
 #      FD                          : 444
 #      FDCE                        : 67
 #      FDE                         : 1096
-#      FDR                         : 108
+#      FDR                         : 105
 #      FDRE                        : 355
 #      FDS                         : 1
 #      LD                          : 6
@@ -1247,17 +1244,17 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            2077  out of  11440    18%  
- Number of Slice LUTs:                 3953  out of   5720    69%  
-    Number used as Logic:              3857  out of   5720    67%  
+ Number of Slice Registers:            2074  out of  11440    18%  
+ Number of Slice LUTs:                 3981  out of   5720    69%  
+    Number used as Logic:              3885  out of   5720    67%  
     Number used as Memory:               96  out of   1440     6%  
        Number used as RAM:               96
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   4233
-   Number with an unused Flip Flop:    2156  out of   4233    50%  
-   Number with an unused LUT:           280  out of   4233     6%  
-   Number of fully used LUT-FF pairs:  1797  out of   4233    42%  
+ Number of LUT Flip Flop pairs used:   4258
+   Number with an unused Flip Flop:    2184  out of   4258    51%  
+   Number with an unused LUT:           277  out of   4258     6%  
+   Number of fully used LUT-FF pairs:  1797  out of   4258    42%  
    Number of unique control sets:       174
 
 IO Utilization: 
@@ -1290,7 +1287,7 @@ Clock Information:
 -------------------------------------------------------------------------------------+------------------------------------+-------+
 Clock Signal                                                                         | Clock buffer(FF name)              | Load  |
 -------------------------------------------------------------------------------------+------------------------------------+-------+
-clk                                                                                  | DCM_SP:CLKFX                       | 1759  |
+clk                                                                                  | DCM_SP:CLKFX                       | 1756  |
 f6_mems_control/addr_q_0                                                             | BUFG                               | 64    |
 f5_mems_control/addr_q_0                                                             | BUFG                               | 64    |
 f4_mems_control/addr_q_0                                                             | BUFG                               | 64    |
@@ -1313,7 +1310,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 8.512ns (Maximum Frequency: 117.481MHz)
-   Minimum input arrival time before clock: 6.365ns
+   Minimum input arrival time before clock: 6.364ns
    Maximum output required time after clock: 6.187ns
    Maximum combinational path delay: No path found
 
@@ -1324,7 +1321,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 8.512ns (frequency: 117.481MHz)
-  Total number of paths / destination ports: 68150 / 3744
+  Total number of paths / destination ports: 67998 / 3741
 -------------------------------------------------------------------------
 Delay:               6.650ns (Levels of Logic = 5)
   Source:            f2_mems_control/addr_q_15 (FF)
@@ -1350,10 +1347,10 @@ Delay:               6.650ns (Levels of Logic = 5)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'f6_mems_control/addr_q_0'
-  Clock period: 7.033ns (frequency: 142.182MHz)
+  Clock period: 7.006ns (frequency: 142.735MHz)
   Total number of paths / destination ports: 10722 / 64
 -------------------------------------------------------------------------
-Delay:               7.033ns (Levels of Logic = 16)
+Delay:               7.006ns (Levels of Logic = 15)
   Source:            mems_rom/f6_CH_B_q_4 (FF)
   Destination:       mems_rom/f6_CH_B_q_15 (FF)
   Source Clock:      f6_mems_control/addr_q_0 rising
@@ -1365,11 +1362,10 @@ Delay:               7.033ns (Levels of Logic = 16)
     ----------------------------------------  ------------
      FDE:C->Q              3   0.525   1.221  f6_CH_B_q_4 (f6_CH_B_q_4)
      LUT6:I0->O            1   0.254   0.682  GND_17_o_f6_CH_B_q[15]_LessThan_166_o21 (GND_17_o_f6_CH_B_q[15]_LessThan_166_o2)
-     LUT6:I5->O           11   0.254   1.039  GND_17_o_f6_CH_B_q[15]_LessThan_166_o22 (GND_17_o_f6_CH_B_q[15]_LessThan_166_o21)
-     LUT6:I5->O            7   0.254   0.910  GND_17_o_f6_CH_B_q[15]_LessThan_166_o23 (GND_17_o_f6_CH_B_q[15]_LessThan_166_o3)
-     LUT2:I1->O            1   0.254   0.000  Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_lut<5> (Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_lut<5>)
-     MUXCY:S->O            1   0.215   0.000  Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<5> (Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<5>)
-     MUXCY:CI->O           1   0.023   0.000  Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<6> (Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<6>)
+     LUT6:I5->O           12   0.254   1.069  GND_17_o_f6_CH_B_q[15]_LessThan_166_o22 (GND_17_o_f6_CH_B_q[15]_LessThan_166_o21)
+     LUT6:I5->O            6   0.254   0.876  GND_17_o_f6_CH_B_q[15]_LessThan_166_o23 (GND_17_o_f6_CH_B_q[15]_LessThan_166_o3)
+     LUT2:I1->O            1   0.254   0.000  Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_lut<6> (Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_lut<6>)
+     MUXCY:S->O            1   0.215   0.000  Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<6> (Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<6>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<7> (Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<7>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<8> (Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<8>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<9> (Maddsub_f6_CH_B_q[15]_f6_CH_B_q[15]_mux_170_OUT_cy<9>)
@@ -1382,15 +1378,15 @@ Delay:               7.033ns (Levels of Logic = 16)
      LUT3:I2->O            1   0.254   0.000  Mmux__n1844971 (_n18449<15>)
      FDE:D                     0.074          f6_CH_B_q_15
     ----------------------------------------
-    Total                      7.033ns (2.499ns logic, 4.534ns route)
-                                       (35.5% logic, 64.5% route)
+    Total                      7.006ns (2.476ns logic, 4.530ns route)
+                                       (35.3% logic, 64.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'f5_mems_control/addr_q_0'
-  Clock period: 7.033ns (frequency: 142.182MHz)
+  Clock period: 7.006ns (frequency: 142.735MHz)
   Total number of paths / destination ports: 10722 / 64
 -------------------------------------------------------------------------
-Delay:               7.033ns (Levels of Logic = 16)
+Delay:               7.006ns (Levels of Logic = 15)
   Source:            mems_rom/f5_CH_B_q_4 (FF)
   Destination:       mems_rom/f5_CH_B_q_15 (FF)
   Source Clock:      f5_mems_control/addr_q_0 rising
@@ -1402,11 +1398,10 @@ Delay:               7.033ns (Levels of Logic = 16)
     ----------------------------------------  ------------
      FDE:C->Q              3   0.525   1.221  f5_CH_B_q_4 (f5_CH_B_q_4)
      LUT6:I0->O            1   0.254   0.682  GND_17_o_f5_CH_B_q[15]_LessThan_138_o21 (GND_17_o_f5_CH_B_q[15]_LessThan_138_o2)
-     LUT6:I5->O           11   0.254   1.039  GND_17_o_f5_CH_B_q[15]_LessThan_138_o22 (GND_17_o_f5_CH_B_q[15]_LessThan_138_o21)
-     LUT6:I5->O            7   0.254   0.910  GND_17_o_f5_CH_B_q[15]_LessThan_138_o23 (GND_17_o_f5_CH_B_q[15]_LessThan_138_o3)
-     LUT2:I1->O            1   0.254   0.000  Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_lut<5> (Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_lut<5>)
-     MUXCY:S->O            1   0.215   0.000  Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<5> (Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<5>)
-     MUXCY:CI->O           1   0.023   0.000  Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<6> (Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<6>)
+     LUT6:I5->O           12   0.254   1.069  GND_17_o_f5_CH_B_q[15]_LessThan_138_o22 (GND_17_o_f5_CH_B_q[15]_LessThan_138_o21)
+     LUT6:I5->O            6   0.254   0.876  GND_17_o_f5_CH_B_q[15]_LessThan_138_o23 (GND_17_o_f5_CH_B_q[15]_LessThan_138_o3)
+     LUT2:I1->O            1   0.254   0.000  Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_lut<6> (Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_lut<6>)
+     MUXCY:S->O            1   0.215   0.000  Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<6> (Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<6>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<7> (Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<7>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<8> (Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<8>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<9> (Maddsub_f5_CH_B_q[15]_f5_CH_B_q[15]_mux_142_OUT_cy<9>)
@@ -1419,15 +1414,15 @@ Delay:               7.033ns (Levels of Logic = 16)
      LUT3:I2->O            1   0.254   0.000  Mmux__n1844171 (_n18441<15>)
      FDE:D                     0.074          f5_CH_B_q_15
     ----------------------------------------
-    Total                      7.033ns (2.499ns logic, 4.534ns route)
-                                       (35.5% logic, 64.5% route)
+    Total                      7.006ns (2.476ns logic, 4.530ns route)
+                                       (35.3% logic, 64.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'f4_mems_control/addr_q_0'
-  Clock period: 7.033ns (frequency: 142.182MHz)
+  Clock period: 7.006ns (frequency: 142.735MHz)
   Total number of paths / destination ports: 10722 / 64
 -------------------------------------------------------------------------
-Delay:               7.033ns (Levels of Logic = 16)
+Delay:               7.006ns (Levels of Logic = 15)
   Source:            mems_rom/f4_CH_B_q_4 (FF)
   Destination:       mems_rom/f4_CH_B_q_15 (FF)
   Source Clock:      f4_mems_control/addr_q_0 rising
@@ -1439,11 +1434,10 @@ Delay:               7.033ns (Levels of Logic = 16)
     ----------------------------------------  ------------
      FDE:C->Q              3   0.525   1.221  f4_CH_B_q_4 (f4_CH_B_q_4)
      LUT6:I0->O            1   0.254   0.682  GND_17_o_f4_CH_B_q[15]_LessThan_110_o21 (GND_17_o_f4_CH_B_q[15]_LessThan_110_o2)
-     LUT6:I5->O           11   0.254   1.039  GND_17_o_f4_CH_B_q[15]_LessThan_110_o22 (GND_17_o_f4_CH_B_q[15]_LessThan_110_o21)
-     LUT6:I5->O            7   0.254   0.910  GND_17_o_f4_CH_B_q[15]_LessThan_110_o23 (GND_17_o_f4_CH_B_q[15]_LessThan_110_o3)
-     LUT2:I1->O            1   0.254   0.000  Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_lut<5> (Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_lut<5>)
-     MUXCY:S->O            1   0.215   0.000  Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<5> (Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<5>)
-     MUXCY:CI->O           1   0.023   0.000  Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<6> (Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<6>)
+     LUT6:I5->O           12   0.254   1.069  GND_17_o_f4_CH_B_q[15]_LessThan_110_o22 (GND_17_o_f4_CH_B_q[15]_LessThan_110_o21)
+     LUT6:I5->O            6   0.254   0.876  GND_17_o_f4_CH_B_q[15]_LessThan_110_o23 (GND_17_o_f4_CH_B_q[15]_LessThan_110_o3)
+     LUT2:I1->O            1   0.254   0.000  Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_lut<6> (Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_lut<6>)
+     MUXCY:S->O            1   0.215   0.000  Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<6> (Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<6>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<7> (Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<7>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<8> (Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<8>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<9> (Maddsub_f4_CH_B_q[15]_f4_CH_B_q[15]_mux_114_OUT_cy<9>)
@@ -1456,15 +1450,15 @@ Delay:               7.033ns (Levels of Logic = 16)
      LUT3:I2->O            1   0.254   0.000  Mmux__n1843371 (_n18433<15>)
      FDE:D                     0.074          f4_CH_B_q_15
     ----------------------------------------
-    Total                      7.033ns (2.499ns logic, 4.534ns route)
-                                       (35.5% logic, 64.5% route)
+    Total                      7.006ns (2.476ns logic, 4.530ns route)
+                                       (35.3% logic, 64.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'f3_mems_control/addr_q_0'
-  Clock period: 7.033ns (frequency: 142.182MHz)
+  Clock period: 7.006ns (frequency: 142.735MHz)
   Total number of paths / destination ports: 10722 / 64
 -------------------------------------------------------------------------
-Delay:               7.033ns (Levels of Logic = 16)
+Delay:               7.006ns (Levels of Logic = 15)
   Source:            mems_rom/f3_CH_B_q_4 (FF)
   Destination:       mems_rom/f3_CH_B_q_15 (FF)
   Source Clock:      f3_mems_control/addr_q_0 rising
@@ -1476,11 +1470,10 @@ Delay:               7.033ns (Levels of Logic = 16)
     ----------------------------------------  ------------
      FDE:C->Q              3   0.525   1.221  f3_CH_B_q_4 (f3_CH_B_q_4)
      LUT6:I0->O            1   0.254   0.682  GND_17_o_f3_CH_B_q[15]_LessThan_82_o21 (GND_17_o_f3_CH_B_q[15]_LessThan_82_o2)
-     LUT6:I5->O           11   0.254   1.039  GND_17_o_f3_CH_B_q[15]_LessThan_82_o22 (GND_17_o_f3_CH_B_q[15]_LessThan_82_o21)
-     LUT6:I5->O            7   0.254   0.910  GND_17_o_f3_CH_B_q[15]_LessThan_82_o23 (GND_17_o_f3_CH_B_q[15]_LessThan_82_o3)
-     LUT2:I1->O            1   0.254   0.000  Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_lut<5> (Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_lut<5>)
-     MUXCY:S->O            1   0.215   0.000  Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<5> (Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<5>)
-     MUXCY:CI->O           1   0.023   0.000  Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<6> (Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<6>)
+     LUT6:I5->O           12   0.254   1.069  GND_17_o_f3_CH_B_q[15]_LessThan_82_o22 (GND_17_o_f3_CH_B_q[15]_LessThan_82_o21)
+     LUT6:I5->O            6   0.254   0.876  GND_17_o_f3_CH_B_q[15]_LessThan_82_o23 (GND_17_o_f3_CH_B_q[15]_LessThan_82_o3)
+     LUT2:I1->O            1   0.254   0.000  Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_lut<6> (Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_lut<6>)
+     MUXCY:S->O            1   0.215   0.000  Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<6> (Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<6>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<7> (Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<7>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<8> (Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<8>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<9> (Maddsub_f3_CH_B_q[15]_f3_CH_B_q[15]_mux_86_OUT_cy<9>)
@@ -1493,15 +1486,15 @@ Delay:               7.033ns (Levels of Logic = 16)
      LUT3:I2->O            1   0.254   0.000  Mmux__n1842571 (_n18425<15>)
      FDE:D                     0.074          f3_CH_B_q_15
     ----------------------------------------
-    Total                      7.033ns (2.499ns logic, 4.534ns route)
-                                       (35.5% logic, 64.5% route)
+    Total                      7.006ns (2.476ns logic, 4.530ns route)
+                                       (35.3% logic, 64.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'f2_mems_control/addr_q_0'
-  Clock period: 7.033ns (frequency: 142.182MHz)
+  Clock period: 7.006ns (frequency: 142.735MHz)
   Total number of paths / destination ports: 10722 / 64
 -------------------------------------------------------------------------
-Delay:               7.033ns (Levels of Logic = 16)
+Delay:               7.006ns (Levels of Logic = 15)
   Source:            mems_rom/f2_CH_B_q_4 (FF)
   Destination:       mems_rom/f2_CH_B_q_15 (FF)
   Source Clock:      f2_mems_control/addr_q_0 rising
@@ -1513,11 +1506,10 @@ Delay:               7.033ns (Levels of Logic = 16)
     ----------------------------------------  ------------
      FDE:C->Q              3   0.525   1.221  f2_CH_B_q_4 (f2_CH_B_q_4)
      LUT6:I0->O            1   0.254   0.682  GND_17_o_f2_CH_B_q[15]_LessThan_54_o21 (GND_17_o_f2_CH_B_q[15]_LessThan_54_o2)
-     LUT6:I5->O           11   0.254   1.039  GND_17_o_f2_CH_B_q[15]_LessThan_54_o22 (GND_17_o_f2_CH_B_q[15]_LessThan_54_o21)
-     LUT6:I5->O            7   0.254   0.910  GND_17_o_f2_CH_B_q[15]_LessThan_54_o23 (GND_17_o_f2_CH_B_q[15]_LessThan_54_o3)
-     LUT2:I1->O            1   0.254   0.000  Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_lut<5> (Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_lut<5>)
-     MUXCY:S->O            1   0.215   0.000  Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<5> (Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<5>)
-     MUXCY:CI->O           1   0.023   0.000  Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<6> (Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<6>)
+     LUT6:I5->O           12   0.254   1.069  GND_17_o_f2_CH_B_q[15]_LessThan_54_o22 (GND_17_o_f2_CH_B_q[15]_LessThan_54_o21)
+     LUT6:I5->O            6   0.254   0.876  GND_17_o_f2_CH_B_q[15]_LessThan_54_o23 (GND_17_o_f2_CH_B_q[15]_LessThan_54_o3)
+     LUT2:I1->O            1   0.254   0.000  Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_lut<6> (Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_lut<6>)
+     MUXCY:S->O            1   0.215   0.000  Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<6> (Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<6>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<7> (Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<7>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<8> (Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<8>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<9> (Maddsub_f2_CH_B_q[15]_f2_CH_B_q[15]_mux_58_OUT_cy<9>)
@@ -1530,15 +1522,15 @@ Delay:               7.033ns (Levels of Logic = 16)
      LUT3:I2->O            1   0.254   0.000  Mmux__n1841771 (_n18417<15>)
      FDE:D                     0.074          f2_CH_B_q_15
     ----------------------------------------
-    Total                      7.033ns (2.499ns logic, 4.534ns route)
-                                       (35.5% logic, 64.5% route)
+    Total                      7.006ns (2.476ns logic, 4.530ns route)
+                                       (35.3% logic, 64.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'f1_mems_control/addr_q_0'
-  Clock period: 7.060ns (frequency: 141.653MHz)
+  Clock period: 7.033ns (frequency: 142.182MHz)
   Total number of paths / destination ports: 10722 / 64
 -------------------------------------------------------------------------
-Delay:               7.060ns (Levels of Logic = 17)
+Delay:               7.033ns (Levels of Logic = 16)
   Source:            mems_rom/f1_CH_B_q_4 (FF)
   Destination:       mems_rom/f1_CH_B_q_15 (FF)
   Source Clock:      f1_mems_control/addr_q_0 rising
@@ -1550,11 +1542,10 @@ Delay:               7.060ns (Levels of Logic = 17)
     ----------------------------------------  ------------
      FDE:C->Q              3   0.525   1.221  f1_CH_B_q_4 (f1_CH_B_q_4)
      LUT6:I0->O            1   0.254   0.682  GND_17_o_f1_CH_B_q[15]_LessThan_26_o21 (GND_17_o_f1_CH_B_q[15]_LessThan_26_o2)
-     LUT6:I5->O           10   0.254   1.008  GND_17_o_f1_CH_B_q[15]_LessThan_26_o22 (GND_17_o_f1_CH_B_q[15]_LessThan_26_o21)
-     LUT6:I5->O            8   0.254   0.944  GND_17_o_f1_CH_B_q[15]_LessThan_26_o23 (GND_17_o_f1_CH_B_q[15]_LessThan_26_o3)
-     LUT2:I1->O            1   0.254   0.000  Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_lut<4> (Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_lut<4>)
-     MUXCY:S->O            1   0.215   0.000  Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<4> (Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<4>)
-     MUXCY:CI->O           1   0.023   0.000  Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<5> (Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<5>)
+     LUT6:I5->O           11   0.254   1.039  GND_17_o_f1_CH_B_q[15]_LessThan_26_o22 (GND_17_o_f1_CH_B_q[15]_LessThan_26_o21)
+     LUT6:I5->O            7   0.254   0.910  GND_17_o_f1_CH_B_q[15]_LessThan_26_o23 (GND_17_o_f1_CH_B_q[15]_LessThan_26_o3)
+     LUT2:I1->O            1   0.254   0.000  Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_lut<5> (Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_lut<5>)
+     MUXCY:S->O            1   0.215   0.000  Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<5> (Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<5>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<6> (Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<6>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<7> (Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<7>)
      MUXCY:CI->O           1   0.023   0.000  Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<8> (Maddsub_f1_CH_B_q[15]_f1_CH_B_q[15]_mux_30_OUT_cy<8>)
@@ -1568,14 +1559,14 @@ Delay:               7.060ns (Levels of Logic = 17)
      LUT3:I2->O            1   0.254   0.000  Mmux__n1840971 (_n18409<15>)
      FDE:D                     0.074          f1_CH_B_q_15
     ----------------------------------------
-    Total                      7.060ns (2.523ns logic, 4.537ns route)
-                                       (35.7% logic, 64.3% route)
+    Total                      7.033ns (2.499ns logic, 4.534ns route)
+                                       (35.5% logic, 64.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 626 / 624
+  Total number of paths / destination ports: 623 / 621
 -------------------------------------------------------------------------
-Offset:              6.365ns (Levels of Logic = 3)
+Offset:              6.364ns (Levels of Logic = 3)
   Source:            rst_n (PAD)
   Destination:       f5_mems_control/state_q_FSM_FFd2 (FF)
   Destination Clock: clk rising 1.3X
@@ -1585,11 +1576,11 @@ Offset:              6.365ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            55   1.328   1.859  rst_n_IBUF (rst_inv)
-     INV:I->O            532   0.255   2.464  rst1_INV_0 (rst)
+     INV:I->O            529   0.255   2.463  rst1_INV_0 (rst)
      begin scope: 'f5_mems_control:rst'
      FDR:R                     0.459          state_q_FSM_FFd2
     ----------------------------------------
-    Total                      6.365ns (2.042ns logic, 4.323ns route)
+    Total                      6.364ns (2.042ns logic, 4.322ns route)
                                        (32.1% logic, 67.9% route)
 
 =========================================================================
@@ -1624,12 +1615,12 @@ Clock to Setup on destination clock clk
 Source Clock                            |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------------------------------+---------+---------+---------+---------+
 clk                                     |    6.650|         |         |         |
-f1_mems_control/addr_q_0                |    2.932|         |         |         |
-f2_mems_control/addr_q_0                |    2.962|         |         |         |
-f3_mems_control/addr_q_0                |    2.962|         |         |         |
-f4_mems_control/addr_q_0                |    2.962|         |         |         |
-f5_mems_control/addr_q_0                |    2.962|         |         |         |
-f6_mems_control/addr_q_0                |    2.962|         |         |         |
+f1_mems_control/addr_q_0                |    2.962|         |         |         |
+f2_mems_control/addr_q_0                |    2.991|         |         |         |
+f3_mems_control/addr_q_0                |    2.991|         |         |         |
+f4_mems_control/addr_q_0                |    2.991|         |         |         |
+f5_mems_control/addr_q_0                |    2.991|         |         |         |
+f6_mems_control/addr_q_0                |    2.991|         |         |         |
 main_control/state_q[1]_PWR_4_o_Mux_33_o|         |    4.211|         |         |
 ----------------------------------------+---------+---------+---------+---------+
 
@@ -1639,7 +1630,7 @@ Clock to Setup on destination clock f1_mems_control/addr_q_0
 Source Clock            |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------+---------+---------+---------+---------+
 clk                     |    5.540|         |         |         |
-f1_mems_control/addr_q_0|    7.060|         |         |         |
+f1_mems_control/addr_q_0|    7.033|         |         |         |
 ------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock f2_mems_control/addr_q_0
@@ -1648,7 +1639,7 @@ Clock to Setup on destination clock f2_mems_control/addr_q_0
 Source Clock            |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------+---------+---------+---------+---------+
 clk                     |    5.540|         |         |         |
-f2_mems_control/addr_q_0|    7.033|         |         |         |
+f2_mems_control/addr_q_0|    7.006|         |         |         |
 ------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock f3_mems_control/addr_q_0
@@ -1657,7 +1648,7 @@ Clock to Setup on destination clock f3_mems_control/addr_q_0
 Source Clock            |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------+---------+---------+---------+---------+
 clk                     |    5.540|         |         |         |
-f3_mems_control/addr_q_0|    7.033|         |         |         |
+f3_mems_control/addr_q_0|    7.006|         |         |         |
 ------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock f4_mems_control/addr_q_0
@@ -1666,7 +1657,7 @@ Clock to Setup on destination clock f4_mems_control/addr_q_0
 Source Clock            |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------+---------+---------+---------+---------+
 clk                     |    5.540|         |         |         |
-f4_mems_control/addr_q_0|    7.033|         |         |         |
+f4_mems_control/addr_q_0|    7.006|         |         |         |
 ------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock f5_mems_control/addr_q_0
@@ -1675,7 +1666,7 @@ Clock to Setup on destination clock f5_mems_control/addr_q_0
 Source Clock            |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------+---------+---------+---------+---------+
 clk                     |    5.540|         |         |         |
-f5_mems_control/addr_q_0|    7.033|         |         |         |
+f5_mems_control/addr_q_0|    7.006|         |         |         |
 ------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock f6_mems_control/addr_q_0
@@ -1684,7 +1675,7 @@ Clock to Setup on destination clock f6_mems_control/addr_q_0
 Source Clock            |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------+---------+---------+---------+---------+
 clk                     |    5.540|         |         |         |
-f6_mems_control/addr_q_0|    7.033|         |         |         |
+f6_mems_control/addr_q_0|    7.006|         |         |         |
 ------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock main_control/state_q[1]_PWR_4_o_Mux_33_o
@@ -1698,13 +1689,13 @@ clk            |         |         |    8.327|         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 127.00 secs
-Total CPU time to Xst completion: 126.80 secs
+Total REAL time to Xst completion: 122.00 secs
+Total CPU time to Xst completion: 121.80 secs
  
 --> 
 
 
-Total memory usage is 574712 kilobytes
+Total memory usage is 574716 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   79 (   0 filtered)

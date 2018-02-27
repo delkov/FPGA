@@ -44,13 +44,13 @@
 <msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_16_300x5/work/planAhead/FEB_16_300x5/FEB_16_300x5.srcs/sources_1/imports/verilog/tdc_control_5.v" Line 203: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_16_300x5/work/planAhead/FEB_16_300x5/FEB_16_300x5.srcs/sources_1/imports/verilog/tdc_control_5.v" Line 280: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_16_300x5/work/planAhead/FEB_16_300x5/FEB_16_300x5.srcs/sources_1/imports/verilog/tdc_control_5.v" Line 281: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_16_300x5/work/planAhead/FEB_16_300x5/FEB_16_300x5.srcs/sources_1/imports/verilog/tdc_control_5.v" Line 353: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_16_300x5/work/planAhead/FEB_16_300x5/FEB_16_300x5.srcs/sources_1/imports/verilog/tdc_control_5.v" Line 355: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_16_300x5/work/planAhead/FEB_16_300x5/FEB_16_300x5.srcs/sources_1/imports/verilog/tdc_control_5.v" Line 382: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_16_300x5/work/planAhead/FEB_16_300x5/FEB_16_300x5.srcs/sources_1/imports/verilog/tdc_control_5.v" Line 384: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/FEB_16_300x5/work/planAhead/FEB_16_300x5/FEB_16_300x5.srcs/sources_1/imports/verilog/tdc_spi_master_6.v" Line 45: Assignment to <arg fmt="%s" index="1">new_data</arg> ignored, since the identifier is never used

@@ -65,7 +65,7 @@ module main_control (
 
         if (new_rx_data && rx_data == "h") begin
           go_home_d=1'b1;
-          tdc_enable_d=1'b0;
+          // tdc_enable_d=1'b0;
           // pause_d=1'b1;
         end 
 

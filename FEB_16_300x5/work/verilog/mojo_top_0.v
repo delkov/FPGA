@@ -160,7 +160,7 @@ module mojo_top_0(
   localparam MEMS_SPI_SPEED=800000;  // max is 50MHZ
 
   // FIFO
-  localparam FIFO_WIDTH=6; // 128 is fine means count of elements is 2^FIFO_WIDTH
+  localparam FIFO_WIDTH=6; // 128 is fine means count of elements(points=pixels) is 2^FIFO_WIDTH
   localparam BAUD_RATE_SPEED= 4000000; // in Hz, CAN BE ANY
 
   // OTHER
@@ -437,7 +437,7 @@ module mojo_top_0(
     // debug
     // .w_empty(FIFO_EMPTY), // debugging
     // .w_full(FIFO_FULL), // debugging
-    // .t_rd_en(t_rd_en) // debugging
+    // .t_rd_en(t_rd_en) // debugg2ing
   );
 
 
