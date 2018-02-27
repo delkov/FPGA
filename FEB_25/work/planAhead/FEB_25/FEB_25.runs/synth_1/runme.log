@@ -252,13 +252,7 @@ Unit <new_clk> synthesized.
 
 Synthesizing Unit <mems_rom_3>.
     Related source file is "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mems_rom_3.v".
-WARNING:Xst:647 - Input <f4_addr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <f5_addr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <f6_addr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:653 - Signal <f4_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <f5_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <f6_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 16-bit register for signal <f1_CH_B_q>.
     Found 16-bit register for signal <f1_CH_C_q>.
     Found 16-bit register for signal <f1_CH_D_q>.
@@ -270,115 +264,214 @@ WARNING:Xst:653 - Signal <f6_data> is used but never assigned. This sourceless s
     Found 16-bit register for signal <f3_CH_B_q>.
     Found 16-bit register for signal <f3_CH_C_q>.
     Found 16-bit register for signal <f3_CH_D_q>.
+    Found 16-bit register for signal <f4_CH_A_q>.
+    Found 16-bit register for signal <f4_CH_B_q>.
+    Found 16-bit register for signal <f4_CH_C_q>.
+    Found 16-bit register for signal <f4_CH_D_q>.
+    Found 16-bit register for signal <f5_CH_A_q>.
+    Found 16-bit register for signal <f5_CH_B_q>.
+    Found 16-bit register for signal <f5_CH_C_q>.
+    Found 16-bit register for signal <f5_CH_D_q>.
+    Found 16-bit register for signal <f6_CH_A_q>.
+    Found 16-bit register for signal <f6_CH_B_q>.
+    Found 16-bit register for signal <f6_CH_C_q>.
+    Found 16-bit register for signal <f6_CH_D_q>.
     Found 14-bit register for signal <addrs_q>.
     Found 3-bit register for signal <state_q>.
     Found 11-bit register for signal <cnt_q>.
     Found 24-bit register for signal <f1_data_q>.
     Found 24-bit register for signal <f2_data_q>.
     Found 24-bit register for signal <f3_data_q>.
+    Found 24-bit register for signal <f4_data_q>.
+    Found 24-bit register for signal <f5_data_q>.
+    Found 24-bit register for signal <f6_data_q>.
     Found 16-bit register for signal <f1_CH_A_q>.
     Found finite state machine <FSM_4> for signal <state_q>.
     -----------------------------------------------------------------------
-    | States             | 3                                              |
-    | Transitions        | 9                                              |
+    | States             | 6                                              |
+    | Transitions        | 18                                             |
     | Inputs             | 2                                              |
-    | Outputs            | 5                                              |
+    | Outputs            | 3                                              |
     | Clock              | clk (rising_edge)                              |
     | Power Up State     | 000                                            |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 16-bit subtractor for signal <f1_CH_A_q[15]_GND_17_o_sub_8_OUT> created at line 119.
-    Found 16-bit subtractor for signal <f1_CH_C_q[15]_GND_17_o_sub_14_OUT> created at line 126.
-    Found 16-bit subtractor for signal <f1_CH_B_q[15]_GND_17_o_sub_20_OUT> created at line 133.
-    Found 16-bit subtractor for signal <f1_CH_D_q[15]_GND_17_o_sub_26_OUT> created at line 140.
-    Found 16-bit subtractor for signal <f2_CH_A_q[15]_GND_17_o_sub_36_OUT> created at line 152.
-    Found 16-bit subtractor for signal <f2_CH_C_q[15]_GND_17_o_sub_42_OUT> created at line 159.
-    Found 16-bit subtractor for signal <f2_CH_B_q[15]_GND_17_o_sub_48_OUT> created at line 166.
-    Found 16-bit subtractor for signal <f2_CH_D_q[15]_GND_17_o_sub_54_OUT> created at line 173.
-    Found 16-bit subtractor for signal <f3_CH_A_q[15]_GND_17_o_sub_64_OUT> created at line 185.
-    Found 16-bit subtractor for signal <f3_CH_C_q[15]_GND_17_o_sub_70_OUT> created at line 192.
-    Found 16-bit subtractor for signal <f3_CH_B_q[15]_GND_17_o_sub_76_OUT> created at line 199.
-    Found 16-bit subtractor for signal <f3_CH_D_q[15]_GND_17_o_sub_82_OUT> created at line 206.
-    Found 8-bit subtractor for signal <PWR_18_o_ROM_DOUT[7]_sub_107_OUT> created at line 229.
-    Found 16-bit adder for signal <f1_CH_A_q[15]_GND_17_o_add_9_OUT> created at line 121.
-    Found 16-bit adder for signal <f1_CH_C_q[15]_GND_17_o_add_15_OUT> created at line 128.
-    Found 16-bit adder for signal <f1_CH_B_q[15]_GND_17_o_add_21_OUT> created at line 135.
-    Found 16-bit adder for signal <f1_CH_D_q[15]_GND_17_o_add_27_OUT> created at line 142.
-    Found 16-bit adder for signal <f2_CH_A_q[15]_GND_17_o_add_37_OUT> created at line 154.
-    Found 16-bit adder for signal <f2_CH_C_q[15]_GND_17_o_add_43_OUT> created at line 161.
-    Found 16-bit adder for signal <f2_CH_B_q[15]_GND_17_o_add_49_OUT> created at line 168.
-    Found 16-bit adder for signal <f2_CH_D_q[15]_GND_17_o_add_55_OUT> created at line 175.
-    Found 16-bit adder for signal <f3_CH_A_q[15]_GND_17_o_add_65_OUT> created at line 187.
-    Found 16-bit adder for signal <f3_CH_C_q[15]_GND_17_o_add_71_OUT> created at line 194.
-    Found 16-bit adder for signal <f3_CH_B_q[15]_GND_17_o_add_77_OUT> created at line 201.
-    Found 16-bit adder for signal <f3_CH_D_q[15]_GND_17_o_add_83_OUT> created at line 208.
-    Found 11-bit adder for signal <cnt_d> created at line 222.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[15]_Mux_211_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[14]_Mux_212_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[13]_Mux_213_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[12]_Mux_214_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[11]_Mux_215_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[10]_Mux_216_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[9]_Mux_217_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[8]_Mux_218_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[7]_Mux_219_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[6]_Mux_220_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[5]_Mux_221_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[4]_Mux_222_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[3]_Mux_223_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[2]_Mux_224_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[1]_Mux_225_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[0]_Mux_226_o> created at line 293.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[15]_Mux_233_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[14]_Mux_234_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[13]_Mux_235_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[12]_Mux_236_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[11]_Mux_237_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[10]_Mux_238_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[9]_Mux_239_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[8]_Mux_240_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[7]_Mux_241_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[6]_Mux_242_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[5]_Mux_243_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[4]_Mux_244_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[3]_Mux_245_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[2]_Mux_246_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[1]_Mux_247_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[0]_Mux_248_o> created at line 319.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[15]_Mux_255_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[14]_Mux_256_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[13]_Mux_257_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[12]_Mux_258_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[11]_Mux_259_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[10]_Mux_260_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[9]_Mux_261_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[8]_Mux_262_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[7]_Mux_263_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[6]_Mux_264_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[5]_Mux_265_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[4]_Mux_266_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[3]_Mux_267_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[2]_Mux_268_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[1]_Mux_269_o> created at line 345.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[0]_Mux_270_o> created at line 345.
-    Found 16-bit comparator greater for signal <GND_17_o_f1_CH_A_q[15]_LessThan_7_o> created at line 118
-    Found 16-bit comparator greater for signal <GND_17_o_f1_CH_C_q[15]_LessThan_13_o> created at line 125
-    Found 16-bit comparator greater for signal <GND_17_o_f1_CH_B_q[15]_LessThan_19_o> created at line 132
-    Found 16-bit comparator greater for signal <GND_17_o_f1_CH_D_q[15]_LessThan_25_o> created at line 139
-    Found 16-bit comparator greater for signal <GND_17_o_f2_CH_A_q[15]_LessThan_35_o> created at line 151
-    Found 16-bit comparator greater for signal <GND_17_o_f2_CH_C_q[15]_LessThan_41_o> created at line 158
-    Found 16-bit comparator greater for signal <GND_17_o_f2_CH_B_q[15]_LessThan_47_o> created at line 165
-    Found 16-bit comparator greater for signal <GND_17_o_f2_CH_D_q[15]_LessThan_53_o> created at line 172
-    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_A_q[15]_LessThan_63_o> created at line 184
-    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_C_q[15]_LessThan_69_o> created at line 191
-    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_B_q[15]_LessThan_75_o> created at line 198
-    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_D_q[15]_LessThan_81_o> created at line 205
+    Found 16-bit subtractor for signal <f1_CH_A_q[15]_GND_17_o_sub_11_OUT> created at line 139.
+    Found 16-bit subtractor for signal <f1_CH_C_q[15]_GND_17_o_sub_17_OUT> created at line 146.
+    Found 16-bit subtractor for signal <f1_CH_B_q[15]_GND_17_o_sub_23_OUT> created at line 153.
+    Found 16-bit subtractor for signal <f1_CH_D_q[15]_GND_17_o_sub_29_OUT> created at line 160.
+    Found 16-bit subtractor for signal <f2_CH_A_q[15]_GND_17_o_sub_39_OUT> created at line 172.
+    Found 16-bit subtractor for signal <f2_CH_C_q[15]_GND_17_o_sub_45_OUT> created at line 179.
+    Found 16-bit subtractor for signal <f2_CH_B_q[15]_GND_17_o_sub_51_OUT> created at line 186.
+    Found 16-bit subtractor for signal <f2_CH_D_q[15]_GND_17_o_sub_57_OUT> created at line 193.
+    Found 16-bit subtractor for signal <f3_CH_A_q[15]_GND_17_o_sub_67_OUT> created at line 205.
+    Found 16-bit subtractor for signal <f3_CH_C_q[15]_GND_17_o_sub_73_OUT> created at line 212.
+    Found 16-bit subtractor for signal <f3_CH_B_q[15]_GND_17_o_sub_79_OUT> created at line 219.
+    Found 16-bit subtractor for signal <f3_CH_D_q[15]_GND_17_o_sub_85_OUT> created at line 226.
+    Found 16-bit subtractor for signal <f4_CH_A_q[15]_GND_17_o_sub_95_OUT> created at line 238.
+    Found 16-bit subtractor for signal <f4_CH_C_q[15]_GND_17_o_sub_101_OUT> created at line 245.
+    Found 16-bit subtractor for signal <f4_CH_B_q[15]_GND_17_o_sub_107_OUT> created at line 252.
+    Found 16-bit subtractor for signal <f4_CH_D_q[15]_GND_17_o_sub_113_OUT> created at line 259.
+    Found 16-bit subtractor for signal <f5_CH_A_q[15]_GND_17_o_sub_123_OUT> created at line 271.
+    Found 16-bit subtractor for signal <f5_CH_C_q[15]_GND_17_o_sub_129_OUT> created at line 278.
+    Found 16-bit subtractor for signal <f5_CH_B_q[15]_GND_17_o_sub_135_OUT> created at line 285.
+    Found 16-bit subtractor for signal <f5_CH_D_q[15]_GND_17_o_sub_141_OUT> created at line 292.
+    Found 16-bit subtractor for signal <f6_CH_A_q[15]_GND_17_o_sub_151_OUT> created at line 304.
+    Found 16-bit subtractor for signal <f6_CH_C_q[15]_GND_17_o_sub_157_OUT> created at line 311.
+    Found 16-bit subtractor for signal <f6_CH_B_q[15]_GND_17_o_sub_163_OUT> created at line 318.
+    Found 16-bit subtractor for signal <f6_CH_D_q[15]_GND_17_o_sub_169_OUT> created at line 325.
+    Found 8-bit subtractor for signal <PWR_18_o_ROM_DOUT[7]_sub_206_OUT> created at line 348.
+    Found 16-bit adder for signal <f1_CH_A_q[15]_GND_17_o_add_12_OUT> created at line 141.
+    Found 16-bit adder for signal <f1_CH_C_q[15]_GND_17_o_add_18_OUT> created at line 148.
+    Found 16-bit adder for signal <f1_CH_B_q[15]_GND_17_o_add_24_OUT> created at line 155.
+    Found 16-bit adder for signal <f1_CH_D_q[15]_GND_17_o_add_30_OUT> created at line 162.
+    Found 16-bit adder for signal <f2_CH_A_q[15]_GND_17_o_add_40_OUT> created at line 174.
+    Found 16-bit adder for signal <f2_CH_C_q[15]_GND_17_o_add_46_OUT> created at line 181.
+    Found 16-bit adder for signal <f2_CH_B_q[15]_GND_17_o_add_52_OUT> created at line 188.
+    Found 16-bit adder for signal <f2_CH_D_q[15]_GND_17_o_add_58_OUT> created at line 195.
+    Found 16-bit adder for signal <f3_CH_A_q[15]_GND_17_o_add_68_OUT> created at line 207.
+    Found 16-bit adder for signal <f3_CH_C_q[15]_GND_17_o_add_74_OUT> created at line 214.
+    Found 16-bit adder for signal <f3_CH_B_q[15]_GND_17_o_add_80_OUT> created at line 221.
+    Found 16-bit adder for signal <f3_CH_D_q[15]_GND_17_o_add_86_OUT> created at line 228.
+    Found 16-bit adder for signal <f4_CH_A_q[15]_GND_17_o_add_96_OUT> created at line 240.
+    Found 16-bit adder for signal <f4_CH_C_q[15]_GND_17_o_add_102_OUT> created at line 247.
+    Found 16-bit adder for signal <f4_CH_B_q[15]_GND_17_o_add_108_OUT> created at line 254.
+    Found 16-bit adder for signal <f4_CH_D_q[15]_GND_17_o_add_114_OUT> created at line 261.
+    Found 16-bit adder for signal <f5_CH_A_q[15]_GND_17_o_add_124_OUT> created at line 273.
+    Found 16-bit adder for signal <f5_CH_C_q[15]_GND_17_o_add_130_OUT> created at line 280.
+    Found 16-bit adder for signal <f5_CH_B_q[15]_GND_17_o_add_136_OUT> created at line 287.
+    Found 16-bit adder for signal <f5_CH_D_q[15]_GND_17_o_add_142_OUT> created at line 294.
+    Found 16-bit adder for signal <f6_CH_A_q[15]_GND_17_o_add_152_OUT> created at line 306.
+    Found 16-bit adder for signal <f6_CH_C_q[15]_GND_17_o_add_158_OUT> created at line 313.
+    Found 16-bit adder for signal <f6_CH_B_q[15]_GND_17_o_add_164_OUT> created at line 320.
+    Found 16-bit adder for signal <f6_CH_D_q[15]_GND_17_o_add_170_OUT> created at line 327.
+    Found 11-bit adder for signal <cnt_d> created at line 426.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[15]_Mux_402_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[14]_Mux_403_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[13]_Mux_404_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[12]_Mux_405_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[11]_Mux_406_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[10]_Mux_407_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[9]_Mux_408_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[8]_Mux_409_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[7]_Mux_410_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[6]_Mux_411_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[5]_Mux_412_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[4]_Mux_413_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[3]_Mux_414_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[2]_Mux_415_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[1]_Mux_416_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[0]_Mux_417_o> created at line 461.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[15]_Mux_424_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[14]_Mux_425_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[13]_Mux_426_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[12]_Mux_427_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[11]_Mux_428_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[10]_Mux_429_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[9]_Mux_430_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[8]_Mux_431_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[7]_Mux_432_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[6]_Mux_433_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[5]_Mux_434_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[4]_Mux_435_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[3]_Mux_436_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[2]_Mux_437_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[1]_Mux_438_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[0]_Mux_439_o> created at line 486.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[15]_Mux_446_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[14]_Mux_447_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[13]_Mux_448_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[12]_Mux_449_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[11]_Mux_450_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[10]_Mux_451_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[9]_Mux_452_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[8]_Mux_453_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[7]_Mux_454_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[6]_Mux_455_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[5]_Mux_456_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[4]_Mux_457_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[3]_Mux_458_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[2]_Mux_459_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[1]_Mux_460_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[0]_Mux_461_o> created at line 511.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[15]_Mux_468_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[14]_Mux_469_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[13]_Mux_470_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[12]_Mux_471_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[11]_Mux_472_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[10]_Mux_473_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[9]_Mux_474_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[8]_Mux_475_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[7]_Mux_476_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[6]_Mux_477_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[5]_Mux_478_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[4]_Mux_479_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[3]_Mux_480_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[2]_Mux_481_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[1]_Mux_482_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[0]_Mux_483_o> created at line 536.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[15]_Mux_490_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[14]_Mux_491_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[13]_Mux_492_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[12]_Mux_493_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[11]_Mux_494_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[10]_Mux_495_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[9]_Mux_496_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[8]_Mux_497_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[7]_Mux_498_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[6]_Mux_499_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[5]_Mux_500_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[4]_Mux_501_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[3]_Mux_502_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[2]_Mux_503_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[1]_Mux_504_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[0]_Mux_505_o> created at line 561.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[15]_Mux_512_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[14]_Mux_513_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[13]_Mux_514_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[12]_Mux_515_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[11]_Mux_516_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[10]_Mux_517_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[9]_Mux_518_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[8]_Mux_519_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[7]_Mux_520_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[6]_Mux_521_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[5]_Mux_522_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[4]_Mux_523_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[3]_Mux_524_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[2]_Mux_525_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[1]_Mux_526_o> created at line 586.
+    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[0]_Mux_527_o> created at line 586.
+    Found 16-bit comparator greater for signal <GND_17_o_f1_CH_A_q[15]_LessThan_10_o> created at line 138
+    Found 16-bit comparator greater for signal <GND_17_o_f1_CH_C_q[15]_LessThan_16_o> created at line 145
+    Found 16-bit comparator greater for signal <GND_17_o_f1_CH_B_q[15]_LessThan_22_o> created at line 152
+    Found 16-bit comparator greater for signal <GND_17_o_f1_CH_D_q[15]_LessThan_28_o> created at line 159
+    Found 16-bit comparator greater for signal <GND_17_o_f2_CH_A_q[15]_LessThan_38_o> created at line 171
+    Found 16-bit comparator greater for signal <GND_17_o_f2_CH_C_q[15]_LessThan_44_o> created at line 178
+    Found 16-bit comparator greater for signal <GND_17_o_f2_CH_B_q[15]_LessThan_50_o> created at line 185
+    Found 16-bit comparator greater for signal <GND_17_o_f2_CH_D_q[15]_LessThan_56_o> created at line 192
+    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_A_q[15]_LessThan_66_o> created at line 204
+    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_C_q[15]_LessThan_72_o> created at line 211
+    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_B_q[15]_LessThan_78_o> created at line 218
+    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_D_q[15]_LessThan_84_o> created at line 225
+    Found 16-bit comparator greater for signal <GND_17_o_f4_CH_A_q[15]_LessThan_94_o> created at line 237
+    Found 16-bit comparator greater for signal <GND_17_o_f4_CH_C_q[15]_LessThan_100_o> created at line 244
+    Found 16-bit comparator greater for signal <GND_17_o_f4_CH_B_q[15]_LessThan_106_o> created at line 251
+    Found 16-bit comparator greater for signal <GND_17_o_f4_CH_D_q[15]_LessThan_112_o> created at line 258
+    Found 16-bit comparator greater for signal <GND_17_o_f5_CH_A_q[15]_LessThan_122_o> created at line 270
+    Found 16-bit comparator greater for signal <GND_17_o_f5_CH_C_q[15]_LessThan_128_o> created at line 277
+    Found 16-bit comparator greater for signal <GND_17_o_f5_CH_B_q[15]_LessThan_134_o> created at line 284
+    Found 16-bit comparator greater for signal <GND_17_o_f5_CH_D_q[15]_LessThan_140_o> created at line 291
+    Found 16-bit comparator greater for signal <GND_17_o_f6_CH_A_q[15]_LessThan_150_o> created at line 303
+    Found 16-bit comparator greater for signal <GND_17_o_f6_CH_C_q[15]_LessThan_156_o> created at line 310
+    Found 16-bit comparator greater for signal <GND_17_o_f6_CH_B_q[15]_LessThan_162_o> created at line 317
+    Found 16-bit comparator greater for signal <GND_17_o_f6_CH_D_q[15]_LessThan_168_o> created at line 324
     Summary:
-	inferred  14 Adder/Subtractor(s).
-	inferred 289 D-type flip-flop(s).
-	inferred  12 Comparator(s).
-	inferred  68 Multiplexer(s).
+	inferred  26 Adder/Subtractor(s).
+	inferred 553 D-type flip-flop(s).
+	inferred  24 Comparator(s).
+	inferred 137 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <mems_rom_3> synthesized.
 
@@ -557,11 +650,11 @@ Macro Statistics
 # RAMs                                                 : 7
  32x8-bit single-port Read Only RAM                    : 6
  64x48-bit dual-port RAM                               : 1
-# Adders/Subtractors                                   : 79
+# Adders/Subtractors                                   : 91
  11-bit adder                                          : 1
  12-bit adder                                          : 1
  16-bit adder                                          : 12
- 16-bit addsub                                         : 12
+ 16-bit addsub                                         : 24
  16-bit subtractor                                     : 6
  20-bit adder                                          : 1
  3-bit adder                                           : 9
@@ -572,15 +665,15 @@ Macro Statistics
  7-bit adder                                           : 1
  7-bit addsub                                          : 1
  8-bit subtractor                                      : 1
-# Registers                                            : 205
+# Registers                                            : 220
  1-bit register                                        : 76
  11-bit register                                       : 1
  12-bit register                                       : 1
  14-bit register                                       : 1
- 16-bit register                                       : 42
+ 16-bit register                                       : 54
  2-bit register                                        : 1
  20-bit register                                       : 1
- 24-bit register                                       : 9
+ 24-bit register                                       : 12
  3-bit register                                        : 9
  32-bit register                                       : 6
  4-bit register                                        : 7
@@ -592,22 +685,22 @@ Macro Statistics
  8-bit register                                        : 19
 # Latches                                              : 6
  1-bit latch                                           : 6
-# Comparators                                          : 14
+# Comparators                                          : 26
  12-bit comparator greater                             : 1
- 16-bit comparator greater                             : 12
+ 16-bit comparator greater                             : 24
  3-bit comparator greater                              : 1
-# Multiplexers                                         : 807
+# Multiplexers                                         : 876
  1-bit 2-to-1 multiplexer                              : 306
- 1-bit 4-to-1 multiplexer                              : 54
+ 1-bit 4-to-1 multiplexer                              : 102
  1-bit 48-to-1 multiplexer                             : 1
- 14-bit 2-to-1 multiplexer                             : 2
- 16-bit 2-to-1 multiplexer                             : 126
+ 14-bit 2-to-1 multiplexer                             : 5
+ 16-bit 2-to-1 multiplexer                             : 138
  16-bit 4-to-1 multiplexer                             : 6
  2-bit 2-to-1 multiplexer                              : 9
  2-bit 4-to-1 multiplexer                              : 1
  20-bit 2-to-1 multiplexer                             : 2
  20-bit 4-to-1 multiplexer                             : 1
- 24-bit 2-to-1 multiplexer                             : 12
+ 24-bit 2-to-1 multiplexer                             : 18
  3-bit 2-to-1 multiplexer                              : 50
  4-bit 2-to-1 multiplexer                              : 76
  40-bit 2-to-1 multiplexer                             : 4
@@ -702,9 +795,9 @@ Macro Statistics
 # RAMs                                                 : 7
  32x8-bit single-port distributed Read Only RAM        : 6
  64x48-bit dual-port distributed RAM                   : 1
-# Adders/Subtractors                                   : 58
+# Adders/Subtractors                                   : 70
  16-bit adder                                          : 12
- 16-bit addsub                                         : 12
+ 16-bit addsub                                         : 24
  16-bit subtractor                                     : 6
  20-bit adder                                          : 1
  3-bit adder                                           : 6
@@ -721,24 +814,24 @@ Macro Statistics
  6-bit up counter                                      : 2
  7-bit up counter                                      : 1
  7-bit updown counter                                  : 1
-# Registers                                            : 1640
- Flip-Flops                                            : 1640
-# Comparators                                          : 14
+# Registers                                            : 1904
+ Flip-Flops                                            : 1904
+# Comparators                                          : 26
  12-bit comparator greater                             : 1
- 16-bit comparator greater                             : 12
+ 16-bit comparator greater                             : 24
  3-bit comparator greater                              : 1
-# Multiplexers                                         : 834
+# Multiplexers                                         : 903
  1-bit 2-to-1 multiplexer                              : 354
- 1-bit 4-to-1 multiplexer                              : 54
+ 1-bit 4-to-1 multiplexer                              : 102
  1-bit 48-to-1 multiplexer                             : 1
- 14-bit 2-to-1 multiplexer                             : 2
- 16-bit 2-to-1 multiplexer                             : 126
+ 14-bit 2-to-1 multiplexer                             : 5
+ 16-bit 2-to-1 multiplexer                             : 138
  16-bit 4-to-1 multiplexer                             : 6
  2-bit 2-to-1 multiplexer                              : 9
  2-bit 4-to-1 multiplexer                              : 1
  20-bit 2-to-1 multiplexer                             : 2
  20-bit 4-to-1 multiplexer                             : 1
- 24-bit 2-to-1 multiplexer                             : 12
+ 24-bit 2-to-1 multiplexer                             : 18
  3-bit 2-to-1 multiplexer                              : 48
  4-bit 2-to-1 multiplexer                              : 76
  40-bit 2-to-1 multiplexer                             : 4
@@ -815,13 +908,16 @@ Optimizing FSM <fifo_manager/serial_tx_TDC/FSM_3> on signal <state_q[1:2]> with 
  11    | 11
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <mems_rom/FSM_4> on signal <state_q[1:2]> with sequential encoding.
+Optimizing FSM <mems_rom/FSM_4> on signal <state_q[1:3]> with user encoding.
 -------------------
  State | Encoding
 -------------------
- 000   | 00
- 001   | 01
- 010   | 10
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 100   | 100
+ 101   | 101
 -------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <f1_mems_control/FSM_7> on signal <state_q[1:2]> with user encoding.
@@ -854,6 +950,7 @@ Optimizing FSM <f6_mems_spi_master/FSM_8> on signal <state_q[1:3]> with user enc
  011   | 011
  100   | 100
 -------------------
+WARNING:Xst:1710 - FF/Latch <f2_soft_reset> (without init value) has a constant value of 0 in block <main_control_1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <data_TO_FIFO_q_3> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_4> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_5> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
@@ -867,18 +964,30 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_12> 
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_13> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_14> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_15> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f1_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f5_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f5_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f5_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f5_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f4_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f4_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f4_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f4_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f6_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f6_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f6_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f6_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <mojo_top_0> ...
 
@@ -903,97 +1012,327 @@ Optimizing unit <mems_rom_3> ...
 Optimizing unit <mems_control_8> ...
 
 Optimizing unit <mems_spi_9> ...
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f4_mems_spi_master/data_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f5_mems_spi_master/data_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_mems_spi_master/data_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f5_mems_spi_master/mosi_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f4_mems_spi_master/mosi_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f6_mems_spi_master/mosi_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <mems_rom/f3_CH_D_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <mems_rom/f3_CH_C_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1426 - The value init of the FF/Latch f2_mems_spi_master/CS_q hinder the constant cleaning in the block mojo_top_0.
+   You should achieve better results by setting this init to 0.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f3_CH_A_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f3_CH_B_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f4_CH_B_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f4_CH_A_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f5_CH_A_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f5_CH_B_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f6_CH_A_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f6_CH_B_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f1_CH_A_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <mems_rom/f1_CH_C_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <mems_rom/f1_CH_D_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <mems_rom/f1_CH_A_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <mems_rom/f3_CH_B_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <mems_rom/f3_CH_A_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_A_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_C_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/data_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/data_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/data_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_D_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f3_CH_C_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f3_CH_D_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f4_CH_C_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f4_CH_D_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f5_CH_C_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f5_CH_D_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f6_CH_C_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f6_CH_D_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_data_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/sck_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/sck_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/sck_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/sck_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/sck_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/state_q_FSM_FFd3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/state_q_FSM_FFd2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/state_q_FSM_FFd1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/ctr_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/ctr_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/ctr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/ctr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/data_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/state_q_FSM_FFd1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <mems_rom/f1_CH_B_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mems_rom/f2_CH_B_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_spi_master/ctr_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/mems_SPI_start_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/addr_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/state_q_FSM_FFd2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/addr_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_31> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_30> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_29> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_28> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_27> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_26> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_25> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_24> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_23> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_22> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_21> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_20> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/data_TO_FIFO_q_19> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib2_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib2_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib2_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib2_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib2_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib2_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib2_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib1_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib1_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib1_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib1_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib1_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib1_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib1_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/state_q_FSM_FFd1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/state_q_FSM_FFd2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/state_q_FSM_FFd3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/state_q_FSM_FFd4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_END_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/Byte_countr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/Byte_countr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/Byte_countr_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/CS_countr_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/addr_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/addr_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/addr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/addr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/addr_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/time1_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/time1_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/time1_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/start_signal_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/start_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/wr_en_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/tdc_rom/data_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/tdc_rom/data_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/tdc_rom/data_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/tdc_rom/data_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/tdc_rom/data_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/tdc_rom/data_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/ctr_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/ctr_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/ctr_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/ctr_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/ctr_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/state_q_FSM_FFd1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/state_q_FSM_FFd3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/state_q_FSM_FFd2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <f2_tdc_spi_master/CS_q> has a constant value of 1 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/sck_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/sck_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/sck_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/data_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/data_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/data_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/data_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_spi_master/data_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/time1_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/time1_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/time1_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/time1_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/time1_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib1_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib1_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_tdc_control/calib1_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/time1_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib2_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib2_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_mems_spi_master/mosi_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <f2_mems_spi_master/CS_q> has a constant value of 1 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib1_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib2_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib2_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib2_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib2_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib1_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib1_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib1_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib1_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib1_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_spi_master/data_out_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_spi_master/data_out_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_spi_master/data_out_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_spi_master/data_out_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_spi_master/data_out_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_spi_master/data_out_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_spi_master/data_out_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_spi_master/data_out_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_spi_master/mosi_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_12> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_15> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_8> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_7> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_6> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_4> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/time1_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/time1_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/time1_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/time1_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/time1_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib2_q_14> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib2_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/time1_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/calib2_q_10> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/time1_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_3> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_5> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_9> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_11> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_13> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_16> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_17> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_18> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_2> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_1> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_tdc_control/data_TO_FIFO_q_0> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <f2_tdc_control/tdc_rom/data_q_6> is unconnected in block <mojo_top_0>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <f2_tdc_control/tdc_rom/data_q_0> is unconnected in block <mojo_top_0>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <mems_rom/f2_data_q_21> is unconnected in block <mojo_top_0>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <mems_rom/f2_data_q_0> is unconnected in block <mojo_top_0>.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/new_frame_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_mems_control/new_line_q> (without init value) has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <f2_tdc_control/Byte_countr_q_0> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_15> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_14> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_13> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_12> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_11> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_10> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_9> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_8> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_7> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_6> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_5> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_4> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_3> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_2> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_1> of sequential type is unconnected in block <mojo_top_0>.
+WARNING:Xst:2677 - Node <mems_rom/f2_CH_A_q_0> of sequential type is unconnected in block <mojo_top_0>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 68.
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 70.
 
 Final Macro Processing ...
 
@@ -1001,8 +1340,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1720
- Flip-Flops                                            : 1720
+# Registers                                            : 1745
+ Flip-Flops                                            : 1745
 
 =========================================================================
 
@@ -1026,9 +1365,9 @@ Clock Information:
 -------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                                                                         | Clock buffer(FF name)                                                                                                                 | Load  |
 -------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+-------+
-clk                                                                                  | DCM_SP:CLKFX                                                                                                                          | 1787  |
+clk                                                                                  | DCM_SP:CLKFX                                                                                                                          | 1812  |
 mems_rom/ROM7/N1                                                                     | NONE(mems_rom/ROM7/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram)| 15    |
-main_control/state_q[1]_PWR_4_o_Mux_33_o(main_control/state_q[1]_PWR_4_o_Mux_33_o3:O)| NONE(*)(main_control/f5_soft_reset)                                                                                                   | 6     |
+main_control/state_q[1]_PWR_4_o_Mux_33_o(main_control/state_q[1]_PWR_4_o_Mux_33_o4:O)| NONE(*)(main_control/f5_soft_reset)                                                                                                   | 5     |
 -------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
@@ -1043,8 +1382,8 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 9.138ns (Maximum Frequency: 109.427MHz)
-   Minimum input arrival time before clock: 6.344ns
+   Minimum period: 9.499ns (Maximum Frequency: 105.275MHz)
+   Minimum input arrival time before clock: 6.328ns
    Maximum output required time after clock: 6.187ns
    Maximum combinational path delay: No path found
 

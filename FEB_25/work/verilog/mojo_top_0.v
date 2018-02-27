@@ -6,7 +6,7 @@ module mojo_top_0(
 
 
   // AVR 
-//  input cclk,
+  //  input cclk,
   //input spi_ss,
   //input spi_mosi,
   //input spi_sck,

@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Tue Feb 27 11:47:07 2018
+// Written by: Map P.20131013 on Tue Feb 27 12:47:35 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -254,19 +254,43 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f4_mems_spi_master/state_q_FSM_FFd3" BEL "f4_mems_spi_master/sck_q_4"
         BEL "f4_mems_spi_master/sck_q_3" BEL "f4_mems_spi_master/sck_q_2" BEL
         "f4_mems_spi_master/sck_q_1" BEL "f4_mems_spi_master/sck_q_0" BEL
-        "f4_mems_spi_master/CS_q" BEL "f5_mems_spi_master/ctr_q_4" BEL
-        "f5_mems_spi_master/ctr_q_3" BEL "f5_mems_spi_master/ctr_q_2" BEL
-        "f5_mems_spi_master/ctr_q_1" BEL "f5_mems_spi_master/ctr_q_0" BEL
-        "f5_mems_spi_master/state_q_FSM_FFd1" BEL
-        "f5_mems_spi_master/state_q_FSM_FFd2" BEL
+        "f4_mems_spi_master/data_q_23" BEL "f4_mems_spi_master/data_q_22" BEL
+        "f4_mems_spi_master/data_q_21" BEL "f4_mems_spi_master/data_q_20" BEL
+        "f4_mems_spi_master/data_q_19" BEL "f4_mems_spi_master/data_q_18" BEL
+        "f4_mems_spi_master/data_q_17" BEL "f4_mems_spi_master/data_q_16" BEL
+        "f4_mems_spi_master/data_q_15" BEL "f4_mems_spi_master/data_q_14" BEL
+        "f4_mems_spi_master/data_q_13" BEL "f4_mems_spi_master/data_q_12" BEL
+        "f4_mems_spi_master/data_q_11" BEL "f4_mems_spi_master/data_q_10" BEL
+        "f4_mems_spi_master/data_q_9" BEL "f4_mems_spi_master/data_q_8" BEL
+        "f4_mems_spi_master/data_q_7" BEL "f4_mems_spi_master/data_q_6" BEL
+        "f4_mems_spi_master/data_q_5" BEL "f4_mems_spi_master/data_q_4" BEL
+        "f4_mems_spi_master/data_q_3" BEL "f4_mems_spi_master/data_q_2" BEL
+        "f4_mems_spi_master/data_q_1" BEL "f4_mems_spi_master/data_q_0" BEL
+        "f4_mems_spi_master/mosi_q" BEL "f4_mems_spi_master/CS_q" BEL
+        "f5_mems_spi_master/ctr_q_4" BEL "f5_mems_spi_master/ctr_q_3" BEL
+        "f5_mems_spi_master/ctr_q_2" BEL "f5_mems_spi_master/ctr_q_1" BEL
+        "f5_mems_spi_master/ctr_q_0" BEL "f5_mems_spi_master/state_q_FSM_FFd1"
+        BEL "f5_mems_spi_master/state_q_FSM_FFd2" BEL
         "f5_mems_spi_master/state_q_FSM_FFd3" BEL "f5_mems_spi_master/sck_q_4"
         BEL "f5_mems_spi_master/sck_q_3" BEL "f5_mems_spi_master/sck_q_2" BEL
         "f5_mems_spi_master/sck_q_1" BEL "f5_mems_spi_master/sck_q_0" BEL
-        "f5_mems_spi_master/CS_q" BEL "f1_mems_spi_master/ctr_q_4" BEL
-        "f1_mems_spi_master/ctr_q_3" BEL "f1_mems_spi_master/ctr_q_2" BEL
-        "f1_mems_spi_master/ctr_q_1" BEL "f1_mems_spi_master/ctr_q_0" BEL
-        "f1_mems_spi_master/state_q_FSM_FFd1" BEL
-        "f1_mems_spi_master/state_q_FSM_FFd2" BEL
+        "f5_mems_spi_master/data_q_23" BEL "f5_mems_spi_master/data_q_22" BEL
+        "f5_mems_spi_master/data_q_21" BEL "f5_mems_spi_master/data_q_20" BEL
+        "f5_mems_spi_master/data_q_19" BEL "f5_mems_spi_master/data_q_18" BEL
+        "f5_mems_spi_master/data_q_17" BEL "f5_mems_spi_master/data_q_16" BEL
+        "f5_mems_spi_master/data_q_15" BEL "f5_mems_spi_master/data_q_14" BEL
+        "f5_mems_spi_master/data_q_13" BEL "f5_mems_spi_master/data_q_12" BEL
+        "f5_mems_spi_master/data_q_11" BEL "f5_mems_spi_master/data_q_10" BEL
+        "f5_mems_spi_master/data_q_9" BEL "f5_mems_spi_master/data_q_8" BEL
+        "f5_mems_spi_master/data_q_7" BEL "f5_mems_spi_master/data_q_6" BEL
+        "f5_mems_spi_master/data_q_5" BEL "f5_mems_spi_master/data_q_4" BEL
+        "f5_mems_spi_master/data_q_3" BEL "f5_mems_spi_master/data_q_2" BEL
+        "f5_mems_spi_master/data_q_1" BEL "f5_mems_spi_master/data_q_0" BEL
+        "f5_mems_spi_master/mosi_q" BEL "f5_mems_spi_master/CS_q" BEL
+        "f1_mems_spi_master/ctr_q_4" BEL "f1_mems_spi_master/ctr_q_3" BEL
+        "f1_mems_spi_master/ctr_q_2" BEL "f1_mems_spi_master/ctr_q_1" BEL
+        "f1_mems_spi_master/ctr_q_0" BEL "f1_mems_spi_master/state_q_FSM_FFd1"
+        BEL "f1_mems_spi_master/state_q_FSM_FFd2" BEL
         "f1_mems_spi_master/state_q_FSM_FFd3" BEL "f1_mems_spi_master/sck_q_4"
         BEL "f1_mems_spi_master/sck_q_3" BEL "f1_mems_spi_master/sck_q_2" BEL
         "f1_mems_spi_master/sck_q_1" BEL "f1_mems_spi_master/sck_q_0" BEL
@@ -300,21 +324,21 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f3_tdc_spi_master/data_q_3" BEL "f3_tdc_spi_master/data_q_2" BEL
         "f3_tdc_spi_master/data_q_1" BEL "f3_tdc_spi_master/data_q_0" BEL
         "f3_tdc_spi_master/mosi_q" BEL "f3_tdc_spi_master/CS_q" BEL
-        "mems_rom/cnt_q_10" BEL "mems_rom/f3_CH_C_q_1" BEL
-        "mems_rom/f1_CH_B_q_1" BEL "mems_rom/f3_CH_C_q_2" BEL
-        "mems_rom/f1_CH_B_q_2" BEL "mems_rom/f3_CH_C_q_3" BEL
-        "mems_rom/f1_CH_B_q_3" BEL "mems_rom/f3_CH_C_q_4" BEL
-        "mems_rom/f1_CH_B_q_4" BEL "mems_rom/f3_CH_C_q_5" BEL
-        "mems_rom/f1_CH_B_q_5" BEL "mems_rom/f3_CH_C_q_6" BEL
-        "mems_rom/f1_CH_B_q_6" BEL "mems_rom/f3_CH_C_q_7" BEL
-        "mems_rom/f1_CH_B_q_7" BEL "mems_rom/f3_CH_C_q_8" BEL
-        "mems_rom/f1_CH_B_q_8" BEL "mems_rom/f3_CH_C_q_9" BEL
-        "mems_rom/f1_CH_B_q_9" BEL "mems_rom/f1_data_q_0" BEL
-        "mems_rom/f1_data_q_1" BEL "mems_rom/f1_data_q_2" BEL
-        "mems_rom/f1_data_q_3" BEL "mems_rom/f1_data_q_4" BEL
-        "mems_rom/f1_data_q_5" BEL "mems_rom/f1_data_q_6" BEL
-        "mems_rom/f1_data_q_7" BEL "mems_rom/f1_data_q_8" BEL
-        "mems_rom/f1_data_q_9" BEL
+        "mems_rom/state_q_FSM_FFd1" BEL "mems_rom/state_q_FSM_FFd2" BEL
+        "mems_rom/state_q_FSM_FFd3" BEL "mems_rom/f3_CH_D_q_1" BEL
+        "mems_rom/f3_CH_D_q_2" BEL "mems_rom/f3_CH_D_q_3" BEL
+        "mems_rom/f3_CH_D_q_4" BEL "mems_rom/f3_CH_D_q_5" BEL
+        "mems_rom/f3_CH_D_q_6" BEL "mems_rom/f3_CH_D_q_7" BEL
+        "mems_rom/f3_CH_D_q_8" BEL "mems_rom/f3_CH_D_q_9" BEL
+        "mems_rom/f6_CH_D_q_1" BEL "mems_rom/f6_CH_D_q_2" BEL
+        "mems_rom/f6_CH_D_q_3" BEL "mems_rom/f6_CH_D_q_4" BEL
+        "mems_rom/f6_CH_D_q_5" BEL "mems_rom/f6_CH_D_q_6" BEL
+        "mems_rom/f6_CH_D_q_7" BEL "mems_rom/f6_CH_D_q_8" BEL
+        "mems_rom/f6_CH_D_q_9" BEL "mems_rom/f5_CH_A_q_1" BEL
+        "mems_rom/f5_CH_A_q_2" BEL "mems_rom/f5_CH_A_q_3" BEL
+        "mems_rom/f5_CH_A_q_4" BEL "mems_rom/f5_CH_A_q_5" BEL
+        "mems_rom/f5_CH_A_q_6" BEL "mems_rom/f5_CH_A_q_7" BEL
+        "mems_rom/f5_CH_A_q_8" BEL "mems_rom/f5_CH_A_q_9" BEL
         "mems_rom/ROM7/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_0"
         BEL
         "mems_rom/ROM7/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_1"
@@ -352,123 +376,203 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "mems_rom/ROM7/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>"
         PIN
         "mems_rom/ROM7/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>"
-        BEL "mems_rom/f3_CH_A_q_1" BEL "mems_rom/f3_CH_A_q_2" BEL
-        "mems_rom/f3_CH_A_q_3" BEL "mems_rom/f3_CH_A_q_4" BEL
-        "mems_rom/f3_CH_A_q_5" BEL "mems_rom/f3_CH_A_q_6" BEL
-        "mems_rom/f3_CH_A_q_7" BEL "mems_rom/f3_CH_A_q_8" BEL
-        "mems_rom/f3_CH_A_q_9" BEL "mems_rom/f2_CH_C_q_1" BEL
-        "mems_rom/f2_CH_C_q_2" BEL "mems_rom/f2_CH_C_q_3" BEL
-        "mems_rom/f2_CH_C_q_4" BEL "mems_rom/f2_CH_C_q_5" BEL
-        "mems_rom/f2_CH_C_q_6" BEL "mems_rom/f2_CH_C_q_7" BEL
-        "mems_rom/f2_CH_C_q_8" BEL "mems_rom/f2_CH_C_q_9" BEL
-        "mems_rom/f2_CH_A_q_1" BEL "mems_rom/f2_CH_A_q_2" BEL
-        "mems_rom/f2_CH_A_q_3" BEL "mems_rom/f2_CH_A_q_4" BEL
-        "mems_rom/f2_CH_A_q_5" BEL "mems_rom/f2_CH_A_q_6" BEL
-        "mems_rom/f2_CH_A_q_7" BEL "mems_rom/f2_CH_A_q_8" BEL
-        "mems_rom/f2_CH_A_q_9" BEL "mems_rom/f3_CH_D_q_1" BEL
-        "mems_rom/f1_CH_C_q_1" BEL "mems_rom/f3_CH_D_q_2" BEL
-        "mems_rom/f1_CH_C_q_2" BEL "mems_rom/f3_CH_D_q_3" BEL
-        "mems_rom/f1_CH_C_q_3" BEL "mems_rom/f3_CH_D_q_4" BEL
-        "mems_rom/f1_CH_C_q_4" BEL "mems_rom/f3_CH_D_q_5" BEL
-        "mems_rom/f1_CH_C_q_5" BEL "mems_rom/f3_CH_D_q_6" BEL
-        "mems_rom/f1_CH_C_q_6" BEL "mems_rom/f3_CH_D_q_7" BEL
-        "mems_rom/f1_CH_C_q_7" BEL "mems_rom/f3_CH_D_q_8" BEL
-        "mems_rom/f1_CH_C_q_8" BEL "mems_rom/f3_CH_D_q_9" BEL
-        "mems_rom/f1_CH_C_q_9" BEL "mems_rom/f3_CH_A_q_10" BEL
-        "mems_rom/f3_CH_A_q_11" BEL "mems_rom/f3_CH_A_q_12" BEL
-        "mems_rom/f3_CH_A_q_13" BEL "mems_rom/f3_CH_A_q_14" BEL
-        "mems_rom/f3_CH_A_q_15" BEL "mems_rom/f2_CH_A_q_10" BEL
-        "mems_rom/f2_CH_A_q_11" BEL "mems_rom/f2_CH_A_q_12" BEL
-        "mems_rom/f2_CH_A_q_13" BEL "mems_rom/f2_CH_A_q_14" BEL
-        "mems_rom/f2_CH_A_q_15" BEL "mems_rom/f3_CH_B_q_10" BEL
-        "mems_rom/f3_CH_B_q_11" BEL "mems_rom/f3_CH_B_q_12" BEL
-        "mems_rom/f3_CH_B_q_13" BEL "mems_rom/f3_CH_B_q_14" BEL
-        "mems_rom/f1_CH_A_q_10" BEL "mems_rom/f3_CH_B_q_15" BEL
-        "mems_rom/f1_CH_A_q_11" BEL "mems_rom/f1_CH_A_q_12" BEL
-        "mems_rom/f1_CH_A_q_13" BEL "mems_rom/f1_CH_A_q_14" BEL
-        "mems_rom/f1_CH_A_q_15" BEL "mems_rom/f2_CH_B_q_10" BEL
-        "mems_rom/f2_CH_B_q_11" BEL "mems_rom/f2_CH_B_q_12" BEL
-        "mems_rom/f2_CH_B_q_13" BEL "mems_rom/f2_CH_B_q_14" BEL
-        "mems_rom/f2_CH_B_q_15" BEL "mems_rom/f3_CH_C_q_10" BEL
-        "mems_rom/f3_CH_C_q_11" BEL "mems_rom/f3_CH_C_q_12" BEL
-        "mems_rom/f3_CH_C_q_13" BEL "mems_rom/f3_CH_C_q_14" BEL
-        "mems_rom/f1_CH_B_q_10" BEL "mems_rom/f3_CH_C_q_15" BEL
-        "mems_rom/f1_CH_B_q_11" BEL "mems_rom/f1_CH_B_q_12" BEL
-        "mems_rom/f1_CH_B_q_13" BEL "mems_rom/f1_CH_B_q_14" BEL
-        "mems_rom/f1_CH_B_q_15" BEL "mems_rom/f2_CH_C_q_10" BEL
-        "mems_rom/f2_CH_C_q_11" BEL "mems_rom/f2_CH_C_q_12" BEL
-        "mems_rom/f2_CH_C_q_13" BEL "mems_rom/f2_CH_C_q_14" BEL
-        "mems_rom/f2_CH_C_q_15" BEL "mems_rom/f3_CH_D_q_10" BEL
-        "mems_rom/f3_CH_D_q_11" BEL "mems_rom/f3_CH_D_q_12" BEL
-        "mems_rom/f3_CH_D_q_13" BEL "mems_rom/f3_CH_D_q_14" BEL
-        "mems_rom/f1_CH_C_q_10" BEL "mems_rom/f3_CH_D_q_15" BEL
-        "mems_rom/f1_CH_C_q_11" BEL "mems_rom/f1_CH_C_q_12" BEL
-        "mems_rom/f1_CH_C_q_13" BEL "mems_rom/f1_CH_C_q_14" BEL
-        "mems_rom/f1_CH_C_q_15" BEL "mems_rom/f2_CH_D_q_10" BEL
-        "mems_rom/f2_CH_D_q_11" BEL "mems_rom/f2_CH_D_q_12" BEL
-        "mems_rom/f2_CH_D_q_13" BEL "mems_rom/f2_CH_D_q_14" BEL
-        "mems_rom/f2_CH_D_q_15" BEL "mems_rom/f1_CH_D_q_10" BEL
-        "mems_rom/f1_CH_D_q_11" BEL "mems_rom/f1_CH_D_q_12" BEL
-        "mems_rom/f1_CH_D_q_13" BEL "mems_rom/f1_CH_D_q_14" BEL
-        "mems_rom/f1_CH_D_q_15" BEL "mems_rom/f3_CH_B_q_1" BEL
-        "mems_rom/f1_CH_A_q_1" BEL "mems_rom/f3_CH_B_q_2" BEL
-        "mems_rom/f1_CH_A_q_2" BEL "mems_rom/f3_CH_B_q_3" BEL
-        "mems_rom/f1_CH_A_q_3" BEL "mems_rom/f3_CH_B_q_4" BEL
-        "mems_rom/f1_CH_A_q_4" BEL "mems_rom/f3_CH_B_q_5" BEL
-        "mems_rom/f1_CH_A_q_5" BEL "mems_rom/f3_CH_B_q_6" BEL
-        "mems_rom/f1_CH_A_q_6" BEL "mems_rom/f3_CH_B_q_7" BEL
-        "mems_rom/f1_CH_A_q_7" BEL "mems_rom/f3_CH_B_q_8" BEL
-        "mems_rom/f1_CH_A_q_8" BEL "mems_rom/f3_CH_B_q_9" BEL
-        "mems_rom/f1_CH_A_q_9" BEL "mems_rom/f2_CH_D_q_1" BEL
-        "mems_rom/f2_CH_D_q_2" BEL "mems_rom/f2_CH_D_q_3" BEL
-        "mems_rom/f2_CH_D_q_4" BEL "mems_rom/f2_CH_D_q_5" BEL
-        "mems_rom/f2_CH_D_q_6" BEL "mems_rom/f2_CH_D_q_7" BEL
-        "mems_rom/f2_CH_D_q_8" BEL "mems_rom/f2_CH_D_q_9" BEL
-        "mems_rom/state_q_FSM_FFd1" BEL "mems_rom/state_q_FSM_FFd2" BEL
-        "mems_rom/f3_data_q_0" BEL "mems_rom/f3_data_q_1" BEL
+        BEL "mems_rom/f3_data_q_0" BEL "mems_rom/f3_data_q_1" BEL
         "mems_rom/f3_data_q_2" BEL "mems_rom/f3_data_q_3" BEL
         "mems_rom/f3_data_q_4" BEL "mems_rom/f3_data_q_5" BEL
         "mems_rom/f3_data_q_6" BEL "mems_rom/f3_data_q_7" BEL
         "mems_rom/f3_data_q_8" BEL "mems_rom/f3_data_q_9" BEL
-        "mems_rom/cnt_q_0" BEL "mems_rom/cnt_q_1" BEL "mems_rom/cnt_q_2" BEL
-        "mems_rom/cnt_q_3" BEL "mems_rom/cnt_q_4" BEL "mems_rom/cnt_q_5" BEL
-        "mems_rom/cnt_q_6" BEL "mems_rom/cnt_q_7" BEL "mems_rom/cnt_q_8" BEL
-        "mems_rom/cnt_q_9" BEL "mems_rom/addrs_q_10" BEL "mems_rom/addrs_q_11"
-        BEL "mems_rom/addrs_q_12" BEL "mems_rom/addrs_q_13" BEL
-        "mems_rom/f2_CH_B_q_1" BEL "mems_rom/f2_CH_B_q_2" BEL
-        "mems_rom/f2_CH_B_q_3" BEL "mems_rom/f2_CH_B_q_4" BEL
-        "mems_rom/f2_CH_B_q_5" BEL "mems_rom/f2_CH_B_q_6" BEL
-        "mems_rom/f2_CH_B_q_7" BEL "mems_rom/f2_CH_B_q_8" BEL
-        "mems_rom/f2_CH_B_q_9" BEL "mems_rom/f1_CH_D_q_1" BEL
+        "mems_rom/addrs_q_10" BEL "mems_rom/addrs_q_11" BEL
+        "mems_rom/addrs_q_12" BEL "mems_rom/addrs_q_13" BEL
+        "mems_rom/f6_data_q_0" BEL "mems_rom/f6_data_q_1" BEL
+        "mems_rom/f6_data_q_2" BEL "mems_rom/f6_data_q_3" BEL
+        "mems_rom/f6_data_q_4" BEL "mems_rom/f6_data_q_5" BEL
+        "mems_rom/f6_data_q_6" BEL "mems_rom/f6_data_q_7" BEL
+        "mems_rom/f6_data_q_8" BEL "mems_rom/f6_data_q_9" BEL
+        "mems_rom/f3_CH_A_q_10" BEL "mems_rom/f3_CH_A_q_11" BEL
+        "mems_rom/f3_CH_A_q_12" BEL "mems_rom/f1_CH_C_q_1" BEL
+        "mems_rom/f3_CH_A_q_13" BEL "mems_rom/f1_CH_C_q_2" BEL
+        "mems_rom/f3_CH_A_q_14" BEL "mems_rom/f1_CH_C_q_3" BEL
+        "mems_rom/f3_CH_A_q_15" BEL "mems_rom/f1_CH_C_q_4" BEL
+        "mems_rom/f1_CH_C_q_5" BEL "mems_rom/f1_CH_C_q_6" BEL
+        "mems_rom/f1_CH_C_q_7" BEL "mems_rom/f1_CH_C_q_8" BEL
+        "mems_rom/f1_CH_C_q_9" BEL "mems_rom/f4_CH_C_q_1" BEL
+        "mems_rom/f4_CH_C_q_2" BEL "mems_rom/f4_CH_C_q_3" BEL
+        "mems_rom/f4_CH_C_q_4" BEL "mems_rom/f4_CH_C_q_5" BEL
+        "mems_rom/f4_CH_C_q_6" BEL "mems_rom/f4_CH_C_q_7" BEL
+        "mems_rom/f3_CH_B_q_10" BEL "mems_rom/f4_CH_C_q_8" BEL
+        "mems_rom/f3_CH_B_q_11" BEL "mems_rom/f4_CH_C_q_9" BEL
+        "mems_rom/f3_CH_B_q_12" BEL "mems_rom/f3_CH_B_q_13" BEL
+        "mems_rom/f3_CH_B_q_14" BEL "mems_rom/f3_CH_B_q_15" BEL
+        "mems_rom/f3_CH_C_q_10" BEL "mems_rom/f3_CH_C_q_11" BEL
+        "mems_rom/f3_CH_C_q_12" BEL "mems_rom/f3_CH_C_q_13" BEL
+        "mems_rom/f3_CH_C_q_14" BEL "mems_rom/f3_CH_C_q_15" BEL
+        "mems_rom/f3_CH_D_q_10" BEL "mems_rom/f3_CH_D_q_11" BEL
+        "mems_rom/f3_CH_D_q_12" BEL "mems_rom/f3_CH_D_q_13" BEL
+        "mems_rom/f3_CH_D_q_14" BEL "mems_rom/f3_CH_D_q_15" BEL
+        "mems_rom/f1_data_q_10" BEL "mems_rom/f1_data_q_11" BEL
+        "mems_rom/f1_data_q_12" BEL "mems_rom/f1_data_q_13" BEL
+        "mems_rom/f1_data_q_14" BEL "mems_rom/f1_data_q_15" BEL
+        "mems_rom/f1_data_q_20" BEL "mems_rom/f1_data_q_16" BEL
+        "mems_rom/f1_data_q_21" BEL "mems_rom/f1_data_q_17" BEL
+        "mems_rom/f6_CH_A_q_10" BEL "mems_rom/f6_CH_A_q_11" BEL
+        "mems_rom/f6_CH_A_q_12" BEL "mems_rom/f6_CH_A_q_13" BEL
+        "mems_rom/f6_CH_A_q_14" BEL "mems_rom/f6_CH_A_q_15" BEL
+        "mems_rom/f6_CH_B_q_10" BEL "mems_rom/f6_CH_B_q_11" BEL
+        "mems_rom/f6_CH_B_q_12" BEL "mems_rom/f6_CH_B_q_13" BEL
+        "mems_rom/f6_CH_B_q_14" BEL "mems_rom/f6_CH_B_q_15" BEL
+        "mems_rom/f6_CH_C_q_10" BEL "mems_rom/f6_CH_C_q_11" BEL
+        "mems_rom/f6_CH_C_q_12" BEL "mems_rom/f6_CH_C_q_13" BEL
+        "mems_rom/f6_CH_C_q_14" BEL "mems_rom/f6_CH_C_q_15" BEL
+        "mems_rom/f6_CH_D_q_10" BEL "mems_rom/f6_CH_D_q_11" BEL
+        "mems_rom/f6_CH_D_q_12" BEL "mems_rom/f6_CH_D_q_13" BEL
+        "mems_rom/f6_CH_D_q_14" BEL "mems_rom/f6_CH_D_q_15" BEL
+        "mems_rom/f4_data_q_10" BEL "mems_rom/f4_data_q_11" BEL
+        "mems_rom/f4_data_q_12" BEL "mems_rom/f4_data_q_13" BEL
+        "mems_rom/f4_data_q_14" BEL "mems_rom/f4_data_q_15" BEL
+        "mems_rom/f4_data_q_20" BEL "mems_rom/f4_data_q_16" BEL
+        "mems_rom/f4_data_q_21" BEL "mems_rom/f4_data_q_17" BEL
+        "mems_rom/f5_CH_B_q_1" BEL "mems_rom/f5_CH_B_q_2" BEL
+        "mems_rom/f5_CH_B_q_3" BEL "mems_rom/f5_CH_B_q_4" BEL
+        "mems_rom/f5_CH_B_q_5" BEL "mems_rom/f5_CH_B_q_6" BEL
+        "mems_rom/f5_CH_B_q_7" BEL "mems_rom/f5_CH_B_q_8" BEL
+        "mems_rom/f5_CH_B_q_9" BEL "mems_rom/f1_CH_D_q_1" BEL
         "mems_rom/f1_CH_D_q_2" BEL "mems_rom/f1_CH_D_q_3" BEL
         "mems_rom/f1_CH_D_q_4" BEL "mems_rom/f1_CH_D_q_5" BEL
         "mems_rom/f1_CH_D_q_6" BEL "mems_rom/f1_CH_D_q_7" BEL
         "mems_rom/f1_CH_D_q_8" BEL "mems_rom/f1_CH_D_q_9" BEL
-        "mems_rom/f3_data_q_10" BEL "mems_rom/f3_data_q_11" BEL
-        "mems_rom/f3_data_q_12" BEL "mems_rom/f3_data_q_13" BEL
-        "mems_rom/f3_data_q_14" BEL "mems_rom/f3_data_q_15" BEL
-        "mems_rom/f3_data_q_20" BEL "mems_rom/f3_data_q_21" BEL
-        "mems_rom/f3_data_q_16" BEL "mems_rom/f3_data_q_17" BEL
-        "mems_rom/addrs_q_0" BEL "mems_rom/addrs_q_1" BEL "mems_rom/addrs_q_2"
-        BEL "mems_rom/addrs_q_3" BEL "mems_rom/addrs_q_4" BEL
-        "mems_rom/addrs_q_5" BEL "mems_rom/addrs_q_6" BEL "mems_rom/addrs_q_7"
-        BEL "mems_rom/addrs_q_8" BEL "mems_rom/f2_data_q_10" BEL
-        "mems_rom/addrs_q_9" BEL "mems_rom/f2_data_q_11" BEL
-        "mems_rom/f2_data_q_12" BEL "mems_rom/f2_data_q_13" BEL
-        "mems_rom/f2_data_q_14" BEL "mems_rom/f2_data_q_15" BEL
-        "mems_rom/f2_data_q_20" BEL "mems_rom/f2_data_q_16" BEL
-        "mems_rom/f2_data_q_21" BEL "mems_rom/f2_data_q_17" BEL
-        "mems_rom/f1_data_q_10" BEL "mems_rom/f1_data_q_11" BEL
-        "mems_rom/f1_data_q_12" BEL "mems_rom/f1_data_q_13" BEL
-        "mems_rom/f1_data_q_14" BEL "mems_rom/f2_data_q_0" BEL
-        "mems_rom/f1_data_q_15" BEL "mems_rom/f1_data_q_20" BEL
-        "mems_rom/f2_data_q_1" BEL "mems_rom/f1_data_q_21" BEL
-        "mems_rom/f1_data_q_16" BEL "mems_rom/f2_data_q_2" BEL
-        "mems_rom/f1_data_q_17" BEL "mems_rom/f2_data_q_3" BEL
-        "mems_rom/f2_data_q_4" BEL "mems_rom/f2_data_q_5" BEL
-        "mems_rom/f2_data_q_6" BEL "mems_rom/f2_data_q_7" BEL
-        "mems_rom/f2_data_q_8" BEL "mems_rom/f2_data_q_9" BEL
-        "f3_mems_control/state_q_FSM_FFd1" BEL
+        "mems_rom/f4_CH_D_q_1" BEL "mems_rom/f4_CH_D_q_2" BEL
+        "mems_rom/f4_CH_D_q_3" BEL "mems_rom/f4_CH_D_q_4" BEL
+        "mems_rom/f4_CH_D_q_5" BEL "mems_rom/f4_CH_D_q_6" BEL
+        "mems_rom/f4_CH_D_q_7" BEL "mems_rom/f4_CH_D_q_8" BEL
+        "mems_rom/f4_CH_D_q_9" BEL "mems_rom/f3_CH_A_q_1" BEL
+        "mems_rom/f3_CH_A_q_2" BEL "mems_rom/f3_CH_A_q_3" BEL
+        "mems_rom/f3_CH_A_q_4" BEL "mems_rom/f3_CH_A_q_5" BEL
+        "mems_rom/f3_CH_A_q_6" BEL "mems_rom/f3_CH_A_q_7" BEL
+        "mems_rom/f3_CH_A_q_8" BEL "mems_rom/f3_CH_A_q_9" BEL
+        "mems_rom/f1_data_q_0" BEL "mems_rom/f1_data_q_1" BEL
+        "mems_rom/f1_data_q_2" BEL "mems_rom/f1_data_q_3" BEL
+        "mems_rom/f6_CH_A_q_1" BEL "mems_rom/f1_data_q_4" BEL
+        "mems_rom/f6_CH_A_q_2" BEL "mems_rom/f1_data_q_5" BEL
+        "mems_rom/f6_CH_A_q_3" BEL "mems_rom/f1_data_q_6" BEL
+        "mems_rom/f6_CH_A_q_4" BEL "mems_rom/f1_data_q_7" BEL
+        "mems_rom/f6_CH_A_q_5" BEL "mems_rom/f1_data_q_8" BEL
+        "mems_rom/f6_CH_A_q_6" BEL "mems_rom/f1_data_q_9" BEL
+        "mems_rom/f6_CH_A_q_7" BEL "mems_rom/f6_CH_A_q_8" BEL
+        "mems_rom/f6_CH_A_q_9" BEL "mems_rom/f4_data_q_0" BEL
+        "mems_rom/f4_data_q_1" BEL "mems_rom/f4_data_q_2" BEL
+        "mems_rom/f4_data_q_3" BEL "mems_rom/f4_data_q_4" BEL
+        "mems_rom/f4_data_q_5" BEL "mems_rom/f4_data_q_6" BEL
+        "mems_rom/f4_data_q_7" BEL "mems_rom/f4_data_q_8" BEL
+        "mems_rom/f4_data_q_9" BEL "mems_rom/f5_CH_C_q_1" BEL
+        "mems_rom/f5_CH_C_q_2" BEL "mems_rom/f5_CH_C_q_3" BEL
+        "mems_rom/f5_CH_C_q_4" BEL "mems_rom/f5_CH_C_q_5" BEL
+        "mems_rom/f5_CH_C_q_6" BEL "mems_rom/f5_CH_C_q_7" BEL
+        "mems_rom/f5_CH_C_q_8" BEL "mems_rom/f5_CH_C_q_9" BEL
+        "mems_rom/f5_CH_A_q_10" BEL "mems_rom/f5_CH_A_q_11" BEL
+        "mems_rom/f5_CH_A_q_12" BEL "mems_rom/f5_CH_A_q_13" BEL
+        "mems_rom/f5_CH_A_q_14" BEL "mems_rom/f5_CH_A_q_15" BEL
+        "mems_rom/cnt_q_10" BEL "mems_rom/f5_CH_B_q_10" BEL
+        "mems_rom/f5_CH_B_q_11" BEL "mems_rom/f5_CH_B_q_12" BEL
+        "mems_rom/f5_CH_B_q_13" BEL "mems_rom/f5_CH_B_q_14" BEL
+        "mems_rom/f5_CH_B_q_15" BEL "mems_rom/f5_CH_C_q_10" BEL
+        "mems_rom/f5_CH_C_q_11" BEL "mems_rom/f5_CH_C_q_12" BEL
+        "mems_rom/f5_CH_C_q_13" BEL "mems_rom/f5_CH_C_q_14" BEL
+        "mems_rom/f5_CH_C_q_15" BEL "mems_rom/f5_CH_D_q_10" BEL
+        "mems_rom/f5_CH_D_q_11" BEL "mems_rom/f5_CH_D_q_12" BEL
+        "mems_rom/f5_CH_D_q_13" BEL "mems_rom/f5_CH_D_q_14" BEL
+        "mems_rom/f5_CH_D_q_15" BEL "mems_rom/f3_data_q_10" BEL
+        "mems_rom/f3_data_q_11" BEL "mems_rom/f3_data_q_12" BEL
+        "mems_rom/f3_data_q_13" BEL "mems_rom/f3_data_q_14" BEL
+        "mems_rom/f3_data_q_20" BEL "mems_rom/f3_data_q_15" BEL
+        "mems_rom/f3_data_q_21" BEL "mems_rom/f3_data_q_16" BEL
+        "mems_rom/f3_data_q_17" BEL "mems_rom/addrs_q_0" BEL
+        "mems_rom/addrs_q_1" BEL "mems_rom/addrs_q_2" BEL "mems_rom/addrs_q_3"
+        BEL "mems_rom/addrs_q_4" BEL "mems_rom/addrs_q_5" BEL
+        "mems_rom/addrs_q_6" BEL "mems_rom/addrs_q_7" BEL "mems_rom/addrs_q_8"
+        BEL "mems_rom/addrs_q_9" BEL "mems_rom/f3_CH_B_q_1" BEL
+        "mems_rom/f3_CH_B_q_2" BEL "mems_rom/f3_CH_B_q_3" BEL
+        "mems_rom/f3_CH_B_q_4" BEL "mems_rom/f3_CH_B_q_5" BEL
+        "mems_rom/f3_CH_B_q_6" BEL "mems_rom/f3_CH_B_q_7" BEL
+        "mems_rom/f3_CH_B_q_8" BEL "mems_rom/f3_CH_B_q_9" BEL
+        "mems_rom/f6_CH_B_q_1" BEL "mems_rom/f6_CH_B_q_2" BEL
+        "mems_rom/f6_CH_B_q_3" BEL "mems_rom/f6_CH_B_q_4" BEL
+        "mems_rom/f6_CH_B_q_5" BEL "mems_rom/f6_CH_B_q_6" BEL
+        "mems_rom/f6_CH_B_q_7" BEL "mems_rom/f6_CH_B_q_8" BEL
+        "mems_rom/f6_CH_B_q_9" BEL "mems_rom/f6_data_q_10" BEL
+        "mems_rom/f6_data_q_11" BEL "mems_rom/f6_data_q_12" BEL
+        "mems_rom/f6_data_q_13" BEL "mems_rom/f6_data_q_14" BEL
+        "mems_rom/f6_data_q_15" BEL "mems_rom/f6_data_q_20" BEL
+        "mems_rom/f6_data_q_16" BEL "mems_rom/f6_data_q_21" BEL
+        "mems_rom/f6_data_q_17" BEL "mems_rom/f5_CH_D_q_1" BEL
+        "mems_rom/f5_CH_D_q_2" BEL "mems_rom/f5_CH_D_q_3" BEL
+        "mems_rom/f5_CH_D_q_4" BEL "mems_rom/f5_CH_D_q_5" BEL
+        "mems_rom/f5_CH_D_q_6" BEL "mems_rom/f5_CH_D_q_7" BEL
+        "mems_rom/f5_CH_D_q_8" BEL "mems_rom/f5_CH_D_q_9" BEL
+        "mems_rom/f1_CH_A_q_1" BEL "mems_rom/f1_CH_A_q_2" BEL
+        "mems_rom/f1_CH_A_q_3" BEL "mems_rom/f1_CH_A_q_4" BEL
+        "mems_rom/f1_CH_A_q_5" BEL "mems_rom/f1_CH_A_q_6" BEL
+        "mems_rom/f1_CH_A_q_7" BEL "mems_rom/f1_CH_A_q_8" BEL
+        "mems_rom/f1_CH_A_q_9" BEL "mems_rom/f4_CH_A_q_1" BEL
+        "mems_rom/f4_CH_A_q_2" BEL "mems_rom/f4_CH_A_q_3" BEL
+        "mems_rom/f4_CH_A_q_4" BEL "mems_rom/f4_CH_A_q_5" BEL
+        "mems_rom/f4_CH_A_q_6" BEL "mems_rom/f4_CH_A_q_7" BEL
+        "mems_rom/f4_CH_A_q_8" BEL "mems_rom/f4_CH_A_q_9" BEL
+        "mems_rom/f1_CH_A_q_10" BEL "mems_rom/f1_CH_A_q_11" BEL
+        "mems_rom/f1_CH_A_q_12" BEL "mems_rom/f1_CH_A_q_13" BEL
+        "mems_rom/f1_CH_A_q_14" BEL "mems_rom/f1_CH_A_q_15" BEL
+        "mems_rom/f5_data_q_0" BEL "mems_rom/f5_data_q_1" BEL
+        "mems_rom/f5_data_q_2" BEL "mems_rom/f5_data_q_3" BEL
+        "mems_rom/f5_data_q_4" BEL "mems_rom/f5_data_q_5" BEL
+        "mems_rom/f5_data_q_6" BEL "mems_rom/f5_data_q_7" BEL
+        "mems_rom/f5_data_q_8" BEL "mems_rom/f5_data_q_9" BEL
+        "mems_rom/f1_CH_B_q_10" BEL "mems_rom/f1_CH_B_q_11" BEL
+        "mems_rom/f1_CH_B_q_12" BEL "mems_rom/f1_CH_B_q_13" BEL
+        "mems_rom/f1_CH_B_q_14" BEL "mems_rom/f1_CH_B_q_15" BEL
+        "mems_rom/f1_CH_C_q_10" BEL "mems_rom/f1_CH_C_q_11" BEL
+        "mems_rom/f1_CH_C_q_12" BEL "mems_rom/f1_CH_C_q_13" BEL
+        "mems_rom/f1_CH_C_q_14" BEL "mems_rom/f1_CH_C_q_15" BEL
+        "mems_rom/f1_CH_D_q_10" BEL "mems_rom/f1_CH_D_q_11" BEL
+        "mems_rom/f1_CH_D_q_12" BEL "mems_rom/f1_CH_D_q_13" BEL
+        "mems_rom/f1_CH_D_q_14" BEL "mems_rom/f1_CH_D_q_15" BEL
+        "mems_rom/f3_CH_C_q_1" BEL "mems_rom/f3_CH_C_q_2" BEL
+        "mems_rom/f3_CH_C_q_3" BEL "mems_rom/f3_CH_C_q_4" BEL
+        "mems_rom/f3_CH_C_q_5" BEL "mems_rom/f3_CH_C_q_6" BEL
+        "mems_rom/f3_CH_C_q_7" BEL "mems_rom/f3_CH_C_q_8" BEL
+        "mems_rom/f3_CH_C_q_9" BEL "mems_rom/f4_CH_A_q_10" BEL
+        "mems_rom/f4_CH_A_q_11" BEL "mems_rom/f4_CH_A_q_12" BEL
+        "mems_rom/f6_CH_C_q_1" BEL "mems_rom/f4_CH_A_q_13" BEL
+        "mems_rom/f6_CH_C_q_2" BEL "mems_rom/f4_CH_A_q_14" BEL
+        "mems_rom/f6_CH_C_q_3" BEL "mems_rom/f4_CH_A_q_15" BEL
+        "mems_rom/f6_CH_C_q_4" BEL "mems_rom/f6_CH_C_q_5" BEL
+        "mems_rom/f6_CH_C_q_6" BEL "mems_rom/f6_CH_C_q_7" BEL
+        "mems_rom/f6_CH_C_q_8" BEL "mems_rom/f6_CH_C_q_9" BEL
+        "mems_rom/f4_CH_B_q_10" BEL "mems_rom/f4_CH_B_q_11" BEL
+        "mems_rom/f4_CH_B_q_12" BEL "mems_rom/f4_CH_B_q_13" BEL
+        "mems_rom/f4_CH_B_q_14" BEL "mems_rom/f4_CH_B_q_15" BEL
+        "mems_rom/f4_CH_C_q_10" BEL "mems_rom/f4_CH_C_q_11" BEL
+        "mems_rom/f4_CH_C_q_12" BEL "mems_rom/f4_CH_C_q_13" BEL
+        "mems_rom/f4_CH_C_q_14" BEL "mems_rom/f4_CH_C_q_15" BEL
+        "mems_rom/f4_CH_D_q_10" BEL "mems_rom/f4_CH_D_q_11" BEL
+        "mems_rom/f4_CH_D_q_12" BEL "mems_rom/f4_CH_D_q_13" BEL
+        "mems_rom/f4_CH_D_q_14" BEL "mems_rom/f4_CH_D_q_15" BEL
+        "mems_rom/cnt_q_0" BEL "mems_rom/cnt_q_1" BEL "mems_rom/cnt_q_2" BEL
+        "mems_rom/cnt_q_3" BEL "mems_rom/cnt_q_4" BEL "mems_rom/cnt_q_5" BEL
+        "mems_rom/cnt_q_6" BEL "mems_rom/cnt_q_7" BEL "mems_rom/cnt_q_8" BEL
+        "mems_rom/cnt_q_9" BEL "mems_rom/f1_CH_B_q_1" BEL
+        "mems_rom/f1_CH_B_q_2" BEL "mems_rom/f1_CH_B_q_3" BEL
+        "mems_rom/f1_CH_B_q_4" BEL "mems_rom/f1_CH_B_q_5" BEL
+        "mems_rom/f1_CH_B_q_6" BEL "mems_rom/f1_CH_B_q_7" BEL
+        "mems_rom/f1_CH_B_q_8" BEL "mems_rom/f1_CH_B_q_9" BEL
+        "mems_rom/f5_data_q_10" BEL "mems_rom/f5_data_q_11" BEL
+        "mems_rom/f5_data_q_12" BEL "mems_rom/f5_data_q_13" BEL
+        "mems_rom/f5_data_q_14" BEL "mems_rom/f5_data_q_15" BEL
+        "mems_rom/f5_data_q_20" BEL "mems_rom/f5_data_q_16" BEL
+        "mems_rom/f5_data_q_21" BEL "mems_rom/f5_data_q_17" BEL
+        "mems_rom/f4_CH_B_q_1" BEL "mems_rom/f4_CH_B_q_2" BEL
+        "mems_rom/f4_CH_B_q_3" BEL "mems_rom/f4_CH_B_q_4" BEL
+        "mems_rom/f4_CH_B_q_5" BEL "mems_rom/f4_CH_B_q_6" BEL
+        "mems_rom/f4_CH_B_q_7" BEL "mems_rom/f4_CH_B_q_8" BEL
+        "mems_rom/f4_CH_B_q_9" BEL "f3_mems_control/state_q_FSM_FFd1" BEL
         "f3_mems_control/state_q_FSM_FFd2" BEL "f3_mems_control/addr_q_15" BEL
         "f3_mems_control/addr_q_14" BEL "f3_mems_control/addr_q_13" BEL
         "f3_mems_control/addr_q_12" BEL "f3_mems_control/addr_q_11" BEL
@@ -479,42 +583,6 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f3_mems_control/addr_q_2" BEL "f3_mems_control/addr_q_1" BEL
         "f3_mems_control/addr_q_0" BEL "f3_mems_control/mems_SPI_start_q" BEL
         "f3_mems_control/new_frame_q" BEL "f3_mems_control/new_line_q" BEL
-        "f2_mems_spi_master/ctr_q_4" BEL "f2_mems_spi_master/ctr_q_3" BEL
-        "f2_mems_spi_master/ctr_q_2" BEL "f2_mems_spi_master/ctr_q_1" BEL
-        "f2_mems_spi_master/ctr_q_0" BEL "f2_mems_spi_master/state_q_FSM_FFd1"
-        BEL "f2_mems_spi_master/state_q_FSM_FFd2" BEL
-        "f2_mems_spi_master/state_q_FSM_FFd3" BEL "f2_mems_spi_master/sck_q_4"
-        BEL "f2_mems_spi_master/sck_q_3" BEL "f2_mems_spi_master/sck_q_2" BEL
-        "f2_mems_spi_master/sck_q_1" BEL "f2_mems_spi_master/sck_q_0" BEL
-        "f2_mems_spi_master/data_q_23" BEL "f2_mems_spi_master/data_q_22" BEL
-        "f2_mems_spi_master/data_q_21" BEL "f2_mems_spi_master/data_q_20" BEL
-        "f2_mems_spi_master/data_q_19" BEL "f2_mems_spi_master/data_q_18" BEL
-        "f2_mems_spi_master/data_q_17" BEL "f2_mems_spi_master/data_q_16" BEL
-        "f2_mems_spi_master/data_q_15" BEL "f2_mems_spi_master/data_q_14" BEL
-        "f2_mems_spi_master/data_q_13" BEL "f2_mems_spi_master/data_q_12" BEL
-        "f2_mems_spi_master/data_q_11" BEL "f2_mems_spi_master/data_q_10" BEL
-        "f2_mems_spi_master/data_q_9" BEL "f2_mems_spi_master/data_q_8" BEL
-        "f2_mems_spi_master/data_q_7" BEL "f2_mems_spi_master/data_q_6" BEL
-        "f2_mems_spi_master/data_q_5" BEL "f2_mems_spi_master/data_q_4" BEL
-        "f2_mems_spi_master/data_q_3" BEL "f2_mems_spi_master/data_q_2" BEL
-        "f2_mems_spi_master/data_q_1" BEL "f2_mems_spi_master/data_q_0" BEL
-        "f2_mems_spi_master/mosi_q" BEL "f2_mems_spi_master/CS_q" BEL
-        "f2_tdc_spi_master/ctr_q_4" BEL "f2_tdc_spi_master/ctr_q_3" BEL
-        "f2_tdc_spi_master/ctr_q_2" BEL "f2_tdc_spi_master/ctr_q_1" BEL
-        "f2_tdc_spi_master/ctr_q_0" BEL "f2_tdc_spi_master/state_q_FSM_FFd1"
-        BEL "f2_tdc_spi_master/state_q_FSM_FFd3" BEL
-        "f2_tdc_spi_master/state_q_FSM_FFd2" BEL "f2_tdc_spi_master/sck_q_2"
-        BEL "f2_tdc_spi_master/sck_q_1" BEL "f2_tdc_spi_master/sck_q_0" BEL
-        "f2_tdc_spi_master/data_out_q_7" BEL "f2_tdc_spi_master/data_out_q_6"
-        BEL "f2_tdc_spi_master/data_out_q_5" BEL
-        "f2_tdc_spi_master/data_out_q_4" BEL "f2_tdc_spi_master/data_out_q_3"
-        BEL "f2_tdc_spi_master/data_out_q_2" BEL
-        "f2_tdc_spi_master/data_out_q_1" BEL "f2_tdc_spi_master/data_out_q_0"
-        BEL "f2_tdc_spi_master/data_q_7" BEL "f2_tdc_spi_master/data_q_6" BEL
-        "f2_tdc_spi_master/data_q_5" BEL "f2_tdc_spi_master/data_q_4" BEL
-        "f2_tdc_spi_master/data_q_3" BEL "f2_tdc_spi_master/data_q_2" BEL
-        "f2_tdc_spi_master/data_q_1" BEL "f2_tdc_spi_master/data_q_0" BEL
-        "f2_tdc_spi_master/mosi_q" BEL "f2_tdc_spi_master/CS_q" BEL
         "FCLK/cnt_q_0" BEL "FCLK/cnt_q_1" BEL "FCLK/cnt_q_2" BEL
         "FCLK/cnt_q_3" BEL "FCLK/cnt_q_4" BEL "FCLK/cnt_q_5" BEL
         "FCLK/cnt_q_6" BEL "FCLK/cnt_q_7" BEL "FCLK/cnt_q_8" BEL
@@ -566,17 +634,6 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f1_mems_control/addr_q_2" BEL "f1_mems_control/addr_q_1" BEL
         "f1_mems_control/addr_q_0" BEL "f1_mems_control/mems_SPI_start_q" BEL
         "f1_mems_control/new_frame_q" BEL "f1_mems_control/new_line_q" BEL
-        "f2_mems_control/state_q_FSM_FFd1" BEL
-        "f2_mems_control/state_q_FSM_FFd2" BEL "f2_mems_control/addr_q_15" BEL
-        "f2_mems_control/addr_q_14" BEL "f2_mems_control/addr_q_13" BEL
-        "f2_mems_control/addr_q_12" BEL "f2_mems_control/addr_q_11" BEL
-        "f2_mems_control/addr_q_10" BEL "f2_mems_control/addr_q_9" BEL
-        "f2_mems_control/addr_q_8" BEL "f2_mems_control/addr_q_7" BEL
-        "f2_mems_control/addr_q_6" BEL "f2_mems_control/addr_q_5" BEL
-        "f2_mems_control/addr_q_4" BEL "f2_mems_control/addr_q_3" BEL
-        "f2_mems_control/addr_q_2" BEL "f2_mems_control/addr_q_1" BEL
-        "f2_mems_control/addr_q_0" BEL "f2_mems_control/mems_SPI_start_q" BEL
-        "f2_mems_control/new_frame_q" BEL "f2_mems_control/new_line_q" BEL
         "f6_mems_control/state_q_FSM_FFd1" BEL
         "f6_mems_control/state_q_FSM_FFd2" BEL "f6_mems_control/addr_q_15" BEL
         "f6_mems_control/addr_q_14" BEL "f6_mems_control/addr_q_13" BEL
@@ -627,11 +684,23 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f6_mems_spi_master/state_q_FSM_FFd3" BEL "f6_mems_spi_master/sck_q_4"
         BEL "f6_mems_spi_master/sck_q_3" BEL "f6_mems_spi_master/sck_q_2" BEL
         "f6_mems_spi_master/sck_q_1" BEL "f6_mems_spi_master/sck_q_0" BEL
-        "f6_mems_spi_master/CS_q" BEL "f6_tdc_spi_master/ctr_q_4" BEL
-        "f6_tdc_spi_master/ctr_q_3" BEL "f6_tdc_spi_master/ctr_q_2" BEL
-        "f6_tdc_spi_master/ctr_q_1" BEL "f6_tdc_spi_master/ctr_q_0" BEL
-        "f6_tdc_spi_master/state_q_FSM_FFd1" BEL
-        "f6_tdc_spi_master/state_q_FSM_FFd3" BEL
+        "f6_mems_spi_master/data_q_23" BEL "f6_mems_spi_master/data_q_22" BEL
+        "f6_mems_spi_master/data_q_21" BEL "f6_mems_spi_master/data_q_20" BEL
+        "f6_mems_spi_master/data_q_19" BEL "f6_mems_spi_master/data_q_18" BEL
+        "f6_mems_spi_master/data_q_17" BEL "f6_mems_spi_master/data_q_16" BEL
+        "f6_mems_spi_master/data_q_15" BEL "f6_mems_spi_master/data_q_14" BEL
+        "f6_mems_spi_master/data_q_13" BEL "f6_mems_spi_master/data_q_12" BEL
+        "f6_mems_spi_master/data_q_11" BEL "f6_mems_spi_master/data_q_10" BEL
+        "f6_mems_spi_master/data_q_9" BEL "f6_mems_spi_master/data_q_8" BEL
+        "f6_mems_spi_master/data_q_7" BEL "f6_mems_spi_master/data_q_6" BEL
+        "f6_mems_spi_master/data_q_5" BEL "f6_mems_spi_master/data_q_4" BEL
+        "f6_mems_spi_master/data_q_3" BEL "f6_mems_spi_master/data_q_2" BEL
+        "f6_mems_spi_master/data_q_1" BEL "f6_mems_spi_master/data_q_0" BEL
+        "f6_mems_spi_master/mosi_q" BEL "f6_mems_spi_master/CS_q" BEL
+        "f6_tdc_spi_master/ctr_q_4" BEL "f6_tdc_spi_master/ctr_q_3" BEL
+        "f6_tdc_spi_master/ctr_q_2" BEL "f6_tdc_spi_master/ctr_q_1" BEL
+        "f6_tdc_spi_master/ctr_q_0" BEL "f6_tdc_spi_master/state_q_FSM_FFd1"
+        BEL "f6_tdc_spi_master/state_q_FSM_FFd3" BEL
         "f6_tdc_spi_master/state_q_FSM_FFd2" BEL "f6_tdc_spi_master/sck_q_2"
         BEL "f6_tdc_spi_master/sck_q_1" BEL "f6_tdc_spi_master/sck_q_0" BEL
         "f6_tdc_spi_master/data_out_q_7" BEL "f6_tdc_spi_master/data_out_q_6"
@@ -930,88 +999,6 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f5_tdc_control/addr_q_0" BEL "f5_tdc_control/addr_q_1" BEL
         "f5_tdc_control/addr_q_2" BEL "f5_tdc_control/addr_q_3" BEL
         "f5_tdc_control/addr_q_4" BEL "f5_tdc_control/addr_q_5" BEL
-        "f2_tdc_control/start_signal_q" BEL "f2_tdc_control/Byte_countr_q_0"
-        BEL "f2_tdc_control/Byte_countr_q_1" BEL
-        "f2_tdc_control/Byte_countr_q_2" BEL "f2_tdc_control/Byte_countr_q_3"
-        BEL "f2_tdc_control/calib1_q_0" BEL "f2_tdc_control/calib1_q_1" BEL
-        "f2_tdc_control/calib1_q_2" BEL "f2_tdc_control/calib1_q_3" BEL
-        "f2_tdc_control/calib1_q_4" BEL "f2_tdc_control/calib1_q_5" BEL
-        "f2_tdc_control/calib1_q_6" BEL "f2_tdc_control/calib1_q_7" BEL
-        "f2_tdc_control/calib1_q_8" BEL "f2_tdc_control/calib1_q_9" BEL
-        "f2_tdc_control/CS_countr_q_10" BEL "f2_tdc_control/CS_countr_q_11"
-        BEL "f2_tdc_control/CS_countr_q_12" BEL
-        "f2_tdc_control/CS_countr_q_13" BEL "f2_tdc_control/CS_countr_q_14"
-        BEL "f2_tdc_control/CS_countr_q_15" BEL
-        "f2_tdc_control/tdc_rom/data_q_7" BEL
-        "f2_tdc_control/tdc_rom/data_q_6" BEL
-        "f2_tdc_control/tdc_rom/data_q_5" BEL
-        "f2_tdc_control/tdc_rom/data_q_4" BEL
-        "f2_tdc_control/tdc_rom/data_q_3" BEL
-        "f2_tdc_control/tdc_rom/data_q_2" BEL
-        "f2_tdc_control/tdc_rom/data_q_1" BEL
-        "f2_tdc_control/tdc_rom/data_q_0" BEL "f2_tdc_control/time1_q_10" BEL
-        "f2_tdc_control/time1_q_11" BEL "f2_tdc_control/time1_q_12" BEL
-        "f2_tdc_control/time1_q_13" BEL "f2_tdc_control/time1_q_14" BEL
-        "f2_tdc_control/time1_q_15" BEL "f2_tdc_control/data_TO_FIFO_q_10" BEL
-        "f2_tdc_control/data_TO_FIFO_q_11" BEL
-        "f2_tdc_control/data_TO_FIFO_q_12" BEL
-        "f2_tdc_control/data_TO_FIFO_q_13" BEL
-        "f2_tdc_control/data_TO_FIFO_q_14" BEL
-        "f2_tdc_control/data_TO_FIFO_q_15" BEL
-        "f2_tdc_control/data_TO_FIFO_q_20" BEL
-        "f2_tdc_control/data_TO_FIFO_q_16" BEL
-        "f2_tdc_control/data_TO_FIFO_q_21" BEL
-        "f2_tdc_control/data_TO_FIFO_q_17" BEL
-        "f2_tdc_control/data_TO_FIFO_q_22" BEL
-        "f2_tdc_control/data_TO_FIFO_q_23" BEL
-        "f2_tdc_control/data_TO_FIFO_q_18" BEL
-        "f2_tdc_control/data_TO_FIFO_q_19" BEL
-        "f2_tdc_control/data_TO_FIFO_q_24" BEL
-        "f2_tdc_control/data_TO_FIFO_q_25" BEL
-        "f2_tdc_control/data_TO_FIFO_q_30" BEL
-        "f2_tdc_control/data_TO_FIFO_q_26" BEL
-        "f2_tdc_control/data_TO_FIFO_q_31" BEL
-        "f2_tdc_control/data_TO_FIFO_q_27" BEL
-        "f2_tdc_control/data_TO_FIFO_q_28" BEL
-        "f2_tdc_control/data_TO_FIFO_q_29" BEL "f2_tdc_control/calib1_q_10"
-        BEL "f2_tdc_control/calib1_q_11" BEL "f2_tdc_control/calib1_q_12" BEL
-        "f2_tdc_control/calib1_q_13" BEL "f2_tdc_control/calib1_q_14" BEL
-        "f2_tdc_control/calib1_q_15" BEL "f2_tdc_control/start_q" BEL
-        "f2_tdc_control/CS_countr_q_0" BEL "f2_tdc_control/CS_countr_q_1" BEL
-        "f2_tdc_control/CS_countr_q_2" BEL "f2_tdc_control/CS_countr_q_3" BEL
-        "f2_tdc_control/CS_countr_q_4" BEL "f2_tdc_control/CS_countr_q_5" BEL
-        "f2_tdc_control/CS_countr_q_6" BEL "f2_tdc_control/CS_countr_q_7" BEL
-        "f2_tdc_control/CS_countr_q_8" BEL "f2_tdc_control/CS_countr_q_9" BEL
-        "f2_tdc_control/calib2_q_10" BEL "f2_tdc_control/calib2_q_11" BEL
-        "f2_tdc_control/calib2_q_12" BEL "f2_tdc_control/calib2_q_13" BEL
-        "f2_tdc_control/calib2_q_14" BEL "f2_tdc_control/calib2_q_15" BEL
-        "f2_tdc_control/wr_en_q" BEL "f2_tdc_control/data_TO_FIFO_q_0" BEL
-        "f2_tdc_control/data_TO_FIFO_q_1" BEL
-        "f2_tdc_control/data_TO_FIFO_q_2" BEL
-        "f2_tdc_control/data_TO_FIFO_q_3" BEL
-        "f2_tdc_control/data_TO_FIFO_q_4" BEL
-        "f2_tdc_control/data_TO_FIFO_q_5" BEL
-        "f2_tdc_control/data_TO_FIFO_q_6" BEL
-        "f2_tdc_control/data_TO_FIFO_q_7" BEL
-        "f2_tdc_control/data_TO_FIFO_q_8" BEL
-        "f2_tdc_control/data_TO_FIFO_q_9" BEL
-        "f2_tdc_control/state_q_FSM_FFd1" BEL
-        "f2_tdc_control/state_q_FSM_FFd2" BEL
-        "f2_tdc_control/state_q_FSM_FFd3" BEL
-        "f2_tdc_control/state_q_FSM_FFd4" BEL "f2_tdc_control/time1_q_0" BEL
-        "f2_tdc_control/time1_q_1" BEL "f2_tdc_control/time1_q_2" BEL
-        "f2_tdc_control/time1_q_3" BEL "f2_tdc_control/time1_q_4" BEL
-        "f2_tdc_control/time1_q_5" BEL "f2_tdc_control/time1_q_6" BEL
-        "f2_tdc_control/time1_q_7" BEL "f2_tdc_control/time1_q_8" BEL
-        "f2_tdc_control/time1_q_9" BEL "f2_tdc_control/calib2_q_0" BEL
-        "f2_tdc_control/calib2_q_1" BEL "f2_tdc_control/calib2_q_2" BEL
-        "f2_tdc_control/calib2_q_3" BEL "f2_tdc_control/calib2_q_4" BEL
-        "f2_tdc_control/calib2_q_5" BEL "f2_tdc_control/calib2_q_6" BEL
-        "f2_tdc_control/calib2_q_7" BEL "f2_tdc_control/calib2_q_8" BEL
-        "f2_tdc_control/calib2_q_9" BEL "f2_tdc_control/CS_END_q" BEL
-        "f2_tdc_control/addr_q_0" BEL "f2_tdc_control/addr_q_1" BEL
-        "f2_tdc_control/addr_q_2" BEL "f2_tdc_control/addr_q_3" BEL
-        "f2_tdc_control/addr_q_4" BEL "f2_tdc_control/addr_q_5" BEL
         "f1_tdc_control/start_signal_q" BEL "f1_tdc_control/Byte_countr_q_0"
         BEL "f1_tdc_control/Byte_countr_q_1" BEL
         "f1_tdc_control/Byte_countr_q_2" BEL "f1_tdc_control/Byte_countr_q_3"
@@ -1258,8 +1245,6 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f3_tdc_control/addr_q_0" BEL "f3_tdc_control/addr_q_1" BEL
         "f3_tdc_control/addr_q_2" BEL "f3_tdc_control/addr_q_3" BEL
         "f3_tdc_control/addr_q_4" BEL "f3_tdc_control/addr_q_5" BEL
-        "fifo_manager/fifo/Mram_buf_mem1/SP" BEL
-        "fifo_manager/fifo/Mram_buf_mem1/DP" BEL
         "fifo_manager/fifo/Mram_buf_mem47/SP" BEL
         "fifo_manager/fifo/Mram_buf_mem47/DP" BEL
         "fifo_manager/fifo/Mram_buf_mem46/SP" BEL
@@ -1353,7 +1338,9 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "fifo_manager/fifo/Mram_buf_mem3/SP" BEL
         "fifo_manager/fifo/Mram_buf_mem3/DP" BEL
         "fifo_manager/fifo/Mram_buf_mem2/SP" BEL
-        "fifo_manager/fifo/Mram_buf_mem2/DP";
+        "fifo_manager/fifo/Mram_buf_mem2/DP" BEL
+        "fifo_manager/fifo/Mram_buf_mem1/SP" BEL
+        "fifo_manager/fifo/Mram_buf_mem1/DP";
 PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
         PINNAME DIVCLK;
 PIN new_clk/dcm_sp_inst_pins<3> = BEL "new_clk/dcm_sp_inst" PINNAME CLKIN;
