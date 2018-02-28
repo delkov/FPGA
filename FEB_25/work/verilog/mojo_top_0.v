@@ -155,7 +155,7 @@ module mojo_top_0(
   localparam TDC_SPI_SPEED=12500000; // 6250000, max is  20Mhz
   // MEMS
   localparam FCLK_FREQUENCY=16000; // 15.625kHz/2^n; 100:1 Hz, 150Hz recommend cut off for MEMS.
-  localparam MEMS_SPI_SPEED=3200000;  // max is 50MHZ
+  localparam MEMS_SPI_SPEED=800000;  // max is 50MHZ
   // FIFO
   localparam FIFO_WIDTH=6; // ~128 is fine means count of elements(points=pixels) is 2^FIFO_WIDTH
   localparam BAUD_RATE_SPEED= 4000000; // in Hz,  will be rounded.
@@ -195,7 +195,7 @@ module mojo_top_0(
   wire [31:0] f1_din;
   wire f1_FIFO_writing_done;
 
-  wire [15:0] f1_addr;
+  wire [16:0] f1_addr;
   wire f1_mems_SPI_start;
   wire f1_mems_SPI_busy;
   wire [23:0] f1_mems_data_in;
@@ -215,7 +215,7 @@ module mojo_top_0(
   wire [31:0] f2_din;
   wire f2_FIFO_writing_done;
   
-  wire [15:0] f2_addr;
+  wire [16:0] f2_addr;
   wire f2_mems_SPI_start;
   wire f2_mems_SPI_busy;
   wire [23:0] f2_mems_data_in;
@@ -235,7 +235,7 @@ module mojo_top_0(
   wire [31:0] f3_din;
   wire f3_FIFO_writing_done;
   
-  wire [15:0] f3_addr;
+  wire [16:0] f3_addr;
   wire f3_mems_SPI_start;
   wire f3_mems_SPI_busy;
   wire [23:0] f3_mems_data_in;
@@ -255,7 +255,7 @@ module mojo_top_0(
   wire [31:0] f4_din;
   wire f4_FIFO_writing_done;
   
-  wire [15:0] f4_addr;
+  wire [16:0] f4_addr;
   wire f4_mems_SPI_start;
   wire f4_mems_SPI_busy;
   wire [23:0] f4_mems_data_in;
@@ -275,7 +275,7 @@ module mojo_top_0(
   wire [31:0] f5_din;
   wire f5_FIFO_writing_done;
 
-  wire [15:0] f5_addr;
+  wire [16:0] f5_addr;
   wire f5_mems_SPI_start;
   wire f5_mems_SPI_busy;
   wire [23:0] f5_mems_data_in;
@@ -295,7 +295,7 @@ module mojo_top_0(
   wire [31:0] f6_din;
   wire f6_FIFO_writing_done;
   
-  wire [15:0] f6_addr;
+  wire [16:0] f6_addr;
   wire f6_mems_SPI_start;
   wire f6_mems_SPI_busy;
   wire [23:0] f6_mems_data_in;

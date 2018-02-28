@@ -5,14 +5,10 @@ Loading device for application Rf_Device from file '6slx9.nph' in environment
    "mojo_top_0" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
 Opened constraints file mojo_top_0.pcf.
 
-Tue Feb 27 12:48:21 2018
+Wed Feb 28 12:22:06 2018
 
 /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -g Binary:Yes -g Compress -w -intstyle pa mojo_top_0_routed.ncd mojo_top_0.bit mojo_top_0.pcf 
 
-INFO:Bitgen:341 - This design is using one or more 9K Block RAMs (RAMB8BWER). 
-   9K Block RAM initialization data, both user defined and default, requires a
-   special bit stream format.  For more information, please reference Xilinx
-   Answer Record 39999.
 Summary of Bitgen Options:
 +----------------------+----------------------+
 | Option Name          | Current Setting      |
@@ -139,14 +135,10 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
 INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
    with the CLKFX and CLKFX180 outputs of the DCM comp new_clk/dcm_sp_inst,
    consult the device Data Sheet.
-WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
-   (RAMB8BWER).  9K Block RAM initialization data, both user defined and
-   default, may be incorrect and should not be used.  For more information,
-   please reference Xilinx Answer Record 39999.
-DRC detected 0 errors and 2 warnings.  Please see the previously displayed
+DRC detected 0 errors and 1 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
 Creating bit map...
 Saving bit stream in "mojo_top_0.bit".
-Bitstream compression saved 165872 bits.
+Bitstream compression saved 160112 bits.
 Saving bit stream in "mojo_top_0.bin".
 Bitstream generation is complete.

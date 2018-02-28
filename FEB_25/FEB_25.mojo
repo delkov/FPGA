@@ -48,9 +48,59 @@
       <src>ROM3.v</src>
       <src>ROM3.ngc</src>
     </core>
+    <core name="ROM_39x120_min2">
+      <src>ROM_39x120_min2.v</src>
+      <src>ROM_39x120_min2.ngc</src>
+    </core>
     <core name="clk_wiz_v3_6">
       <src>clk_wiz_v3_6.v</src>
     </core>
+    <core name="ROM_59x160_16b">
+      <src>ROM_59x160_16b.ngc</src>
+      <src>ROM_59x160_16b.v</src>
+    </core>
+    <core name="ROM_59x160_min7">
+      <src>ROM_59x160_min7.v</src>
+      <src>ROM_59x160_min7.ngc</src>
+    </core>
+    <core name="ROM_9x120_16b">
+      <src>ROM_9x120_16b.v</src>
+      <src>ROM_9x120_16b.ngc</src>
+    </core>
+    <core name="ROM_39x120_16b">
+      <src>ROM_39x120_16b.v</src>
+      <src>ROM_39x120_16b.ngc</src>
+    </core>
+    <core name="ROM_59x120_16b">
+      <src>ROM_59x120_16b.ngc</src>
+      <src>ROM_59x120_16b.v</src>
+    </core>
+    <core name="ROM_9x160_min0">
+      <src>ROM_9x160_min0.ngc</src>
+      <src>ROM_9x160_min0.v</src>
+    </core>
+    <core name="NEW_ROM_39x120">
+      <src>NEW_ROM_39x120.ngc</src>
+      <src>NEW_ROM_39x120.v</src>
+    </core>
+    <core name="ROM_39x140">
+      <src>ROM_39x140.v</src>
+      <src>ROM_39x140.ngc</src>
+    </core>
     <core name="blk_mem_gen_v7_3" />
+    <core name="ROM_39x120">
+      <src>ROM_39x120.v</src>
+      <src>ROM_39x120.ngc</src>
+    </core>
+    <core name="ROM_9x120">
+      <src>ROM_9x120.v</src>
+      <src>ROM_9x120_16b.v</src>
+      <src>ROM_9x120_16b.ngc</src>
+      <src>ROM_9x120.ngc</src>
+    </core>
+    <core name="ROM_9x160_16b">
+      <src>ROM_9x160_16b.v</src>
+      <src>ROM_9x160_16b.ngc</src>
+    </core>
   </files>
 </project>

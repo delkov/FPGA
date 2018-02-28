@@ -1,0 +1,447 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'mojo_top_0'
+
+Design Information
+------------------
+Command Line   : map -intstyle pa -w -pr b -mt on mojo_top_0.ngd 
+Target Device  : xc6slx9
+Target Package : tqg144
+Target Speed   : -2
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Tue Feb 27 19:07:28 2018
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    1
+Slice Logic Utilization:
+  Number of Slice Registers:                 2,055 out of  11,440   17%
+    Number used as Flip Flops:               2,049
+    Number used as Latches:                      6
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                      3,577 out of   5,720   62%
+    Number used as logic:                    3,461 out of   5,720   60%
+      Number using O6 output only:           2,674
+      Number using O5 output only:             268
+      Number using O5 and O6:                  519
+      Number used as ROM:                        0
+    Number used as Memory:                      96 out of   1,440    6%
+      Number used as Dual Port RAM:             96
+        Number using O6 output only:            96
+        Number using O5 output only:             0
+        Number using O5 and O6:                  0
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:             0
+    Number used exclusively as route-thrus:     20
+      Number with same-slice register load:      4
+      Number with same-slice carry load:        16
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                 1,162 out of   1,430   81%
+  Number of MUXCYs used:                       768 out of   2,860   26%
+  Number of LUT Flip Flop pairs used:        3,748
+    Number with an unused Flip Flop:         1,987 out of   3,748   53%
+    Number with an unused LUT:                 171 out of   3,748    4%
+    Number of fully used LUT-FF pairs:       1,590 out of   3,748   42%
+    Number of unique control sets:             113
+    Number of slice register sites lost
+      to control set restrictions:             241 out of  11,440    2%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        76 out of     102   74%
+    Number of LOCed IOBs:                       76 out of      76  100%
+    IOB Flip Flops:                              2
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         5 out of      32   15%
+  Number of RAMB8BWERs:                          0 out of      64    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
+    Number used as BUFIO2s:                      1
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
+    Number used as BUFIO2FBs:                    1
+    Number used as BUFIO2FB_2CLKs:               0
+  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
+    Number used as BUFGs:                        2
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     1 out of       4   25%
+    Number used as DCMs:                         1
+    Number used as DCM_CLKGENs:                  0
+  Number of ILOGIC2/ISERDES2s:                   1 out of     200    1%
+    Number used as ILOGIC2s:                     1
+    Number used as ISERDES2s:                    0
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
+  Number of OLOGIC2/OSERDES2s:                   1 out of     200    1%
+    Number used as OLOGIC2s:                     1
+    Number used as OSERDES2s:                    0
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            0 out of      16    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                4.50
+
+Peak Memory Usage:  861 MB
+Total REAL time to MAP completion:  37 secs 
+Total CPU time to MAP completion (all processors):   39 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   main_control/state_q[1]_PWR_4_o_Mux_33_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+
+Section 3 - Informational
+-------------------------
+INFO:Map:284 - Map is running with the multi-threading option on. Map currently
+   supports the use of up to 2 processors. Based on the the user options and
+   machine load, Map will use 2 processors during this run.
+INFO:LIT:243 - Logical network f6_TDC_INTB_IBUF has no load.
+INFO:LIT:395 - The above info message is repeated 13 more times for the
+   following (max. 5 shown):
+   f5_TDC_INTB_IBUF,
+   f2_TDC_INTB_IBUF,
+   f3_TDC_INTB_IBUF,
+   f1_TDC_INTB_IBUF,
+   f4_TDC_INTB_IBUF
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp new_clk/dcm_sp_inst,
+   consult the device Data Sheet.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  13 block(s) removed
+  35 block(s) optimized away
+  25 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "mems_rom/ROM_9x120/douta[15]" is sourceless and has been removed.
+The signal "mems_rom/ROM_9x120/douta[14]" is sourceless and has been removed.
+The signal "mems_rom/ROM_9x120/douta[13]" is sourceless and has been removed.
+The signal "mems_rom/ROM_9x120/douta[12]" is sourceless and has been removed.
+The signal "mems_rom/ROM_9x120/douta[11]" is sourceless and has been removed.
+The signal "mems_rom/ROM_9x120/douta[10]" is sourceless and has been removed.
+The signal "mems_rom/ROM_9x120/douta[9]" is sourceless and has been removed.
+The signal "mems_rom/ROM_9x120/douta[8]" is sourceless and has been removed.
+The signal "mems_rom/ROM_9x120/N0" is sourceless and has been removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[7].ram.ram_douta[0]" is sourceless and has been removed.
+ Sourceless block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/has_mux_a.A/Mmux_dout_mux21" (ROM) removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[6].ram.ram_douta[2]" is sourceless and has been removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[7].ram.ram_douta[1]" is sourceless and has been removed.
+ Sourceless block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/has_mux_a.A/Mmux_dout_mux31" (ROM) removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[6].ram.ram_douta[3]" is sourceless and has been removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[8].ram.ram_douta[0]" is sourceless and has been removed.
+ Sourceless block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/has_mux_a.A/Mmux_dout_mux41" (ROM) removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[6].ram.ram_douta[4]" is sourceless and has been removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[8].ram.ram_douta[1]" is sourceless and has been removed.
+ Sourceless block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/has_mux_a.A/Mmux_dout_mux51" (ROM) removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[6].ram.ram_douta[5]" is sourceless and has been removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[9].ram.ram_douta[0]" is sourceless and has been removed.
+ Sourceless block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/has_mux_a.A/Mmux_dout_mux61" (ROM) removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[6].ram.ram_douta[6]" is sourceless and has been removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[9].ram.ram_douta[1]" is sourceless and has been removed.
+ Sourceless block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/has_mux_a.A/Mmux_dout_mux71" (ROM) removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[6].ram.ram_douta[7]" is sourceless and has been removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[5].ram.ram_douta[0]" is sourceless and has been removed.
+ Sourceless block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/has_mux_a.A/Mmux_dout_mux151" (ROM) removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[6].ram.ram_douta[0]" is sourceless and has been removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[5].ram.ram_douta[1]" is sourceless and has been removed.
+ Sourceless block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/has_mux_a.A/Mmux_dout_mux161" (ROM) removed.
+The signal
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[6].ram.ram_douta[1]" is sourceless and has been removed.
+Unused block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[5].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram" (RAMB16BWER) removed.
+Unused block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[6].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram" (RAMB16BWER) removed.
+Unused block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[7].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram" (RAMB16BWER) removed.
+Unused block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[8].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram" (RAMB16BWER) removed.
+Unused block
+"mems_rom/ROM_9x120/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+.cstr/ramloop[9].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram" (RAMB16BWER) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+VCC 		FCLK/CC
+GND 		FCLK/ND
+GND 		f1_mems_control/XST_GND
+VCC 		f1_mems_control/XST_VCC
+GND 		f1_tdc_control/XST_GND
+VCC 		f1_tdc_control/XST_VCC
+GND 		f2_mems_control/XST_GND
+VCC 		f2_mems_control/XST_VCC
+GND 		f2_tdc_control/XST_GND
+VCC 		f2_tdc_control/XST_VCC
+GND 		f3_mems_control/XST_GND
+VCC 		f3_mems_control/XST_VCC
+GND 		f3_tdc_control/XST_GND
+VCC 		f3_tdc_control/XST_VCC
+GND 		f4_mems_control/XST_GND
+VCC 		f4_mems_control/XST_VCC
+GND 		f4_tdc_control/XST_GND
+VCC 		f4_tdc_control/XST_VCC
+GND 		f5_mems_control/XST_GND
+VCC 		f5_mems_control/XST_VCC
+GND 		f5_tdc_control/XST_GND
+VCC 		f5_tdc_control/XST_VCC
+GND 		f6_mems_control/XST_GND
+VCC 		f6_mems_control/XST_VCC
+GND 		f6_tdc_control/XST_GND
+VCC 		f6_tdc_control/XST_VCC
+GND 		fifo_manager/serial_tx_TDC/XST_GND
+VCC 		fifo_manager/serial_tx_TDC/XST_VCC
+GND 		main_control/XST_GND
+VCC 		main_control/XST_VCC
+GND 		mems_rom/ROM_9x120/XST_GND
+VCC 		mems_rom/ROM_9x120/XST_VCC
+GND 		mems_rom/XST_GND
+VCC 		mems_rom/XST_VCC
+GND 		new_clk/XST_GND
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| SERIAL_IN                          | IOB              | INPUT     | LVTTL                |       |          |      | IFF          |          |          |
+| SERIAL_OUT_TDC                     | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW | OFF          |          |          |
+| clk                                | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f1_ENABLE                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f1_MEMS_CS                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f1_MEMS_FCLK                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f1_MEMS_MOSI                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f1_MEMS_SPI_CLOCK                  | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f1_TDC_CS                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f1_TDC_DOUT                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f1_TDC_INTB                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f1_TDC_MOSI                        | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f1_TDC_REF_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f1_TDC_SPI_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f1_TDC_START_SIGNAL                | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f2_ENABLE                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f2_MEMS_CS                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f2_MEMS_FCLK                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f2_MEMS_MOSI                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f2_MEMS_SPI_CLOCK                  | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f2_TDC_CS                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f2_TDC_DOUT                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f2_TDC_INTB                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f2_TDC_MOSI                        | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f2_TDC_REF_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f2_TDC_SPI_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f2_TDC_START_SIGNAL                | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f3_ENABLE                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f3_MEMS_CS                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f3_MEMS_FCLK                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f3_MEMS_MOSI                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f3_MEMS_SPI_CLOCK                  | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f3_TDC_CS                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f3_TDC_DOUT                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f3_TDC_INTB                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f3_TDC_MOSI                        | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f3_TDC_REF_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f3_TDC_SPI_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f3_TDC_START_SIGNAL                | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f4_ENABLE                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f4_MEMS_CS                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f4_MEMS_FCLK                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f4_MEMS_MOSI                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f4_MEMS_SPI_CLOCK                  | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f4_TDC_CS                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f4_TDC_DOUT                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f4_TDC_INTB                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f4_TDC_MOSI                        | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f4_TDC_REF_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f4_TDC_SPI_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f4_TDC_START_SIGNAL                | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f5_ENABLE                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f5_MEMS_CS                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f5_MEMS_FCLK                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f5_MEMS_MOSI                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f5_MEMS_SPI_CLOCK                  | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f5_TDC_CS                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f5_TDC_DOUT                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f5_TDC_INTB                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f5_TDC_MOSI                        | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f5_TDC_REF_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f5_TDC_SPI_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f5_TDC_START_SIGNAL                | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f6_ENABLE                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f6_MEMS_CS                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f6_MEMS_FCLK                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f6_MEMS_MOSI                       | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f6_MEMS_SPI_CLOCK                  | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f6_TDC_CS                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f6_TDC_DOUT                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f6_TDC_INTB                        | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
+| f6_TDC_MOSI                        | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f6_TDC_REF_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f6_TDC_SPI_CLOCK                   | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| f6_TDC_START_SIGNAL                | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |
+| rst_n                              | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

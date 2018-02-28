@@ -8,23 +8,23 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Tue Feb 27 12:46:49 2018
+Mapped Date    : Wed Feb 28 12:20:49 2018
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    2
+Number of warnings:    1
 Slice Logic Utilization:
-  Number of Slice Registers:                 1,752 out of  11,440   15%
-    Number used as Flip Flops:               1,747
-    Number used as Latches:                      5
+  Number of Slice Registers:                 2,098 out of  11,440   18%
+    Number used as Flip Flops:               2,092
+    Number used as Latches:                      6
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      2,927 out of   5,720   51%
-    Number used as logic:                    2,817 out of   5,720   49%
-      Number using O6 output only:           2,006
-      Number using O5 output only:             236
-      Number using O5 and O6:                  575
+  Number of Slice LUTs:                      3,237 out of   5,720   56%
+    Number used as logic:                    3,113 out of   5,720   54%
+      Number using O6 output only:           2,227
+      Number using O5 output only:             249
+      Number using O5 and O6:                  637
       Number used as ROM:                        0
     Number used as Memory:                      96 out of   1,440    6%
       Number used as Dual Port RAM:             96
@@ -33,21 +33,21 @@ Slice Logic Utilization:
         Number using O5 and O6:                  0
       Number used as Single Port RAM:            0
       Number used as Shift Register:             0
-    Number used exclusively as route-thrus:     14
+    Number used exclusively as route-thrus:     28
       Number with same-slice register load:      0
-      Number with same-slice carry load:        14
+      Number with same-slice carry load:        28
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   972 out of   1,430   67%
-  Number of MUXCYs used:                       656 out of   2,860   22%
-  Number of LUT Flip Flop pairs used:        3,084
-    Number with an unused Flip Flop:         1,702 out of   3,084   55%
-    Number with an unused LUT:                 157 out of   3,084    5%
-    Number of fully used LUT-FF pairs:       1,225 out of   3,084   39%
-    Number of unique control sets:              97
+  Number of occupied Slices:                 1,055 out of   1,430   73%
+  Number of MUXCYs used:                       792 out of   2,860   27%
+  Number of LUT Flip Flop pairs used:        3,405
+    Number with an unused Flip Flop:         1,601 out of   3,405   47%
+    Number with an unused LUT:                 168 out of   3,405    4%
+    Number of fully used LUT-FF pairs:       1,636 out of   3,405   48%
+    Number of unique control sets:             121
     Number of slice register sites lost
-      to control set restrictions:             136 out of  11,440    1%
+      to control set restrictions:             158 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -61,8 +61,8 @@ IO Utilization:
     IOB Flip Flops:                              2
 
 Specific Feature Utilization:
-  Number of RAMB16BWERs:                         0 out of      32    0%
-  Number of RAMB8BWERs:                         15 out of      64   23%
+  Number of RAMB16BWERs:                        10 out of      32   31%
+  Number of RAMB8BWERs:                          0 out of      64    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
     Number used as BUFIO2s:                      1
     Number used as BUFIO2_2CLKs:                 0
@@ -95,11 +95,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                4.43
+Average Fanout of Non-Clock Nets:                4.35
 
-Peak Memory Usage:  848 MB
-Total REAL time to MAP completion:  47 secs 
-Total CPU time to MAP completion (all processors):   48 secs 
+Peak Memory Usage:  857 MB
+Total REAL time to MAP completion:  41 secs 
+Total CPU time to MAP completion (all processors):   42 secs 
 
 Table of Contents
 -----------------
@@ -126,10 +126,6 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    main_control/state_q[1]_PWR_4_o_Mux_33_o is sourced by a combinatorial pin.
    This is not good design practice. Use the CE pin to control the loading of
    data into the flip-flop.
-WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
-   (RAMB8BWER).  9K Block RAM initialization data, both user defined and
-   default, may be incorrect and should not be used.  For more information,
-   please reference Xilinx Answer Record 39999.
 
 Section 3 - Informational
 -------------------------
@@ -137,13 +133,13 @@ INFO:Map:284 - Map is running with the multi-threading option on. Map currently
    supports the use of up to 2 processors. Based on the the user options and
    machine load, Map will use 2 processors during this run.
 INFO:LIT:243 - Logical network f6_TDC_INTB_IBUF has no load.
-INFO:LIT:395 - The above info message is repeated 6 more times for the following
+INFO:LIT:395 - The above info message is repeated 5 more times for the following
    (max. 5 shown):
    f5_TDC_INTB_IBUF,
-   f2_TDC_DOUT_IBUF,
    f2_TDC_INTB_IBUF,
    f3_TDC_INTB_IBUF,
-   f1_TDC_INTB_IBUF
+   f1_TDC_INTB_IBUF,
+   f4_TDC_INTB_IBUF
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
@@ -162,7 +158,7 @@ INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-  33 block(s) optimized away
+  35 block(s) optimized away
    1 signal(s) removed
 
 Section 5 - Removed Logic
@@ -178,18 +174,20 @@ To quickly locate the original cause for the removal of a chain of logic, look
 above the place where that logic is listed in the trimming report, then locate
 the lines that are least indented (begin at the leftmost edge).
 
-The signal "mems_rom/ROM7/N0" is sourceless and has been removed.
+The signal "mems_rom/ROM_39x120_min2/N0" is sourceless and has been removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
 VCC 		FCLK/CC
 GND 		FCLK/ND
-GND 		XST_GND
-VCC 		XST_VCC
 GND 		f1_mems_control/XST_GND
 VCC 		f1_mems_control/XST_VCC
 GND 		f1_tdc_control/XST_GND
 VCC 		f1_tdc_control/XST_VCC
+GND 		f2_mems_control/XST_GND
+VCC 		f2_mems_control/XST_VCC
+GND 		f2_tdc_control/XST_GND
+VCC 		f2_tdc_control/XST_VCC
 GND 		f3_mems_control/XST_GND
 VCC 		f3_mems_control/XST_VCC
 GND 		f3_tdc_control/XST_GND
@@ -210,8 +208,8 @@ GND 		fifo_manager/serial_tx_TDC/XST_GND
 VCC 		fifo_manager/serial_tx_TDC/XST_VCC
 GND 		main_control/XST_GND
 VCC 		main_control/XST_VCC
-GND 		mems_rom/ROM7/XST_GND
-VCC 		mems_rom/ROM7/XST_VCC
+GND 		mems_rom/ROM_39x120_min2/XST_GND
+VCC 		mems_rom/ROM_39x120_min2/XST_VCC
 GND 		mems_rom/XST_GND
 VCC 		mems_rom/XST_VCC
 GND 		new_clk/XST_GND

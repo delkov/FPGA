@@ -130,7 +130,7 @@ module main_control_1 #(
           f4_soft_reset=1'b0;
           f5_soft_reset=1'b0;
           f6_soft_reset=1'b0;  
-        end else if (countr_q == 20'd1000) begin
+        end else if (countr_q == 20'd2000) begin
           f1_soft_reset=1'b0;
           f2_soft_reset=1'b1;
           f3_soft_reset=1'b0;
