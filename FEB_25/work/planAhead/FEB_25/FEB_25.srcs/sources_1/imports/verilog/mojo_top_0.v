@@ -155,12 +155,12 @@ module mojo_top_0(
   localparam TDC_SPI_SPEED=12500000; // 6250000, max is  20Mhz
   // MEMS
   localparam FCLK_FREQUENCY=16000; // 15.625kHz/2^n; 100:1 Hz, 150Hz recommend cut off for MEMS.
-  localparam MEMS_SPI_SPEED=800000;  // max is 50MHZ
+  localparam MEMS_SPI_SPEED=1600000;  // max is 50MHZcf
   // FIFO
   localparam FIFO_WIDTH=6; // ~128 is fine means count of elements(points=pixels) is 2^FIFO_WIDTH
   localparam BAUD_RATE_SPEED= 4000000; // in Hz,  will be rounded.
   // OTHER
-  localparam SHOOTING_FREQUENCY= 12600; //(y=ax+b, a=0.66, b=1.65)5550,8315 no shift.. 8325 9250 wa fine! in Hz, CAN BE ANY. PAY ATTENTION, THAT AT 70khz, the real speed will be only 36 at TDC SPI SPEED 12.5kk. since after couner we have others deals. 
+  localparam SHOOTING_FREQUENCY= 12715; // 12715 for 39x240; 12562 is good for 59linesNOW 12.6k <-> 10.095k ,WAS (y=ax+b, a=0.66, b=1.65)5550,8315 no shift.. 8325 9250 wa fine! in Hz, CAN BE ANY. PAY ATTENTION, THAT AT 70khz, the real speed will be only 36 at TDC SPI SPEED 12.5kk. since after couner we have others deals. 
     
   // CONVERTED PARAMS  
   localparam FCLK_FREQUENCY_PARAM=MOJO_FREQUENCY/FCLK_FREQUENCY; 
@@ -174,7 +174,7 @@ module mojo_top_0(
 
   // GLOBAL
   wire rst = ~rst_n; // make reset active high
-  wire go_home; // go to bias voltage
+  wire exit; // go to bias voltage & stop shooting
   wire pause; // to control play/pause
 
   // // MY AVR
@@ -195,7 +195,7 @@ module mojo_top_0(
   wire [31:0] f1_din;
   wire f1_FIFO_writing_done;
 
-  wire [16:0] f1_addr;
+  wire [17:0] f1_addr;
   wire f1_mems_SPI_start;
   wire f1_mems_SPI_busy;
   wire [23:0] f1_mems_data_in;
@@ -215,7 +215,7 @@ module mojo_top_0(
   wire [31:0] f2_din;
   wire f2_FIFO_writing_done;
   
-  wire [16:0] f2_addr;
+  wire [17:0] f2_addr;
   wire f2_mems_SPI_start;
   wire f2_mems_SPI_busy;
   wire [23:0] f2_mems_data_in;
@@ -235,7 +235,7 @@ module mojo_top_0(
   wire [31:0] f3_din;
   wire f3_FIFO_writing_done;
   
-  wire [16:0] f3_addr;
+  wire [17:0] f3_addr;
   wire f3_mems_SPI_start;
   wire f3_mems_SPI_busy;
   wire [23:0] f3_mems_data_in;
@@ -255,7 +255,7 @@ module mojo_top_0(
   wire [31:0] f4_din;
   wire f4_FIFO_writing_done;
   
-  wire [16:0] f4_addr;
+  wire [17:0] f4_addr;
   wire f4_mems_SPI_start;
   wire f4_mems_SPI_busy;
   wire [23:0] f4_mems_data_in;
@@ -275,7 +275,7 @@ module mojo_top_0(
   wire [31:0] f5_din;
   wire f5_FIFO_writing_done;
 
-  wire [16:0] f5_addr;
+  wire [17:0] f5_addr;
   wire f5_mems_SPI_start;
   wire f5_mems_SPI_busy;
   wire [23:0] f5_mems_data_in;
@@ -295,7 +295,7 @@ module mojo_top_0(
   wire [31:0] f6_din;
   wire f6_FIFO_writing_done;
   
-  wire [16:0] f6_addr;
+  wire [17:0] f6_addr;
   wire f6_mems_SPI_start;
   wire f6_mems_SPI_busy;
   wire [23:0] f6_mems_data_in;
@@ -365,7 +365,7 @@ module mojo_top_0(
     .f6_soft_reset(f6_soft_reset),
 
     .SERIAL_IN(SERIAL_IN),
-    .go_home(go_home),
+    .exit(exit),
     .pause(pause) // global pause
   );
 
@@ -451,7 +451,7 @@ module mojo_top_0(
   // INPUT
   .rst(rst),
   .clk(clk_64mhz),
-  .go_home(go_home),
+  .exit(exit),
 
   .f1_addr(f1_addr),  
   .f2_addr(f2_addr),
@@ -501,6 +501,7 @@ module mojo_top_0(
     .tdc_SPI_busy(f1_tdc_SPI_busy),
     .fifo_writing_done(f1_FIFO_writing_done), // FIFO feedback
     .pause(pause),
+    .exit(exit),
 
     // OUTPUT
     .start_signal(f1_TDC_START_SIGNAL),
@@ -569,6 +570,8 @@ module mojo_top_0(
     .tdc_SPI_busy(f2_tdc_SPI_busy),
     .fifo_writing_done(f2_FIFO_writing_done),
     .pause(pause),
+    .exit(exit),
+
 
     // OUTPUT
     .start_signal(f2_TDC_START_SIGNAL),
@@ -623,270 +626,278 @@ module mojo_top_0(
     .CS(f2_MEMS_CS)
   );
 
-  // F3
-  tdc_control_6 #(.SHOOTING_PARAM(SHOOTING_PARAM)) f3_tdc_control (
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .tdc_MISO(f3_tdc_data_out),
-    .tdc_soft_reset(f3_soft_reset),
-    .TDC_INTB(f3_TDC_INTB),
-    .tdc_SPI_busy(f3_tdc_SPI_busy),
-    .fifo_writing_done(f3_FIFO_writing_done),
-    .pause(pause),
+  // // F3
+  // tdc_control #(.SHOOTING_PARAM(SHOOTING_PARAM)) f3_tdc_control (
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .tdc_MISO(f3_tdc_data_out),
+  //   .tdc_soft_reset(f3_soft_reset),
+  //   .TDC_INTB(f3_TDC_INTB),
+  //   .tdc_SPI_busy(f3_tdc_SPI_busy),
+  //   .fifo_writing_done(f3_FIFO_writing_done),
+  //   .pause(pause),
+  //   .exit(exit),
 
-    // OUTPUT
-    .start_signal(f3_TDC_START_SIGNAL),
-    .CS_END(f3_CS_END),
-    .start(f3_tdc_SPI_start),
-    .tdc_MOSI(f3_tdc_data_in),
-    .w_wr_en(f3_wr_en),
-    .data_TO_FIFO(f3_din)
-  );
-  tdc_spi_master_7 #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) f3_tdc_spi_master(
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .miso(f3_TDC_DOUT),
-    .start(f3_tdc_SPI_start), // for SPI
-    .data_in(f3_tdc_data_in),
-    .CS_END(f3_CS_END), // manage up/down real CS pin -- f1_TDC_CS
+
+  //   // OUTPUT
+  //   .start_signal(f3_TDC_START_SIGNAL),
+  //   .CS_END(f3_CS_END),
+  //   .start(f3_tdc_SPI_start),
+  //   .tdc_MOSI(f3_tdc_data_in),
+  //   .w_wr_en(f3_wr_en),
+  //   .data_TO_FIFO(f3_din)
+  // );
+  // tdc_spi_master #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) f3_tdc_spi_master(
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .miso(f3_TDC_DOUT),
+  //   .start(f3_tdc_SPI_start), // for SPI
+  //   .data_in(f3_tdc_data_in),
+  //   .CS_END(f3_CS_END), // manage up/down real CS pin -- f1_TDC_CS
     
-    // OUTPUT
-    .mosi(f3_TDC_MOSI),
-    .sck(f3_TDC_SPI_CLOCK),
-    .data_out(f3_tdc_data_out),
-    .busy(f3_tdc_SPI_busy),
-    .CS(f3_TDC_CS)
-  );
-  mems_control_8 f3_mems_control (
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .pause(pause),
-    .mems_SPI_busy(f3_mems_SPI_busy),
-    .mems_soft_reset(f3_soft_reset),
-    .new_line_FIFO_done(f3_new_line_FIFO_done),
-    .new_frame_FIFO_done(f3_new_frame_FIFO_done),
+  //   // OUTPUT
+  //   .mosi(f3_TDC_MOSI),
+  //   .sck(f3_TDC_SPI_CLOCK),
+  //   .data_out(f3_tdc_data_out),
+  //   .busy(f3_tdc_SPI_busy),
+  //   .CS(f3_TDC_CS)
+  // );
+  // mems_control f3_mems_control (
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .pause(pause),
+  //   .mems_SPI_busy(f3_mems_SPI_busy),
+  //   .mems_soft_reset(f3_soft_reset),
+  //   .new_line_FIFO_done(f3_new_line_FIFO_done),
+  //   .new_frame_FIFO_done(f3_new_frame_FIFO_done),
 
-    // OUTPUT
-    .mems_SPI_start(f3_mems_SPI_start),
-    .addr(f3_addr),
-    .new_line(f3_new_line),
-    .new_frame(f3_new_frame)
-  );
-  mems_spi_9 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f3_mems_spi_master(
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .data_in(f3_mems_data_in),
-    .start(f3_mems_SPI_start),
+  //   // OUTPUT
+  //   .mems_SPI_start(f3_mems_SPI_start),
+  //   .addr(f3_addr),
+  //   .new_line(f3_new_line),
+  //   .new_frame(f3_new_frame)
+  // );
+  // mems_spi #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f3_mems_spi_master(
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .data_in(f3_mems_data_in),
+  //   .start(f3_mems_SPI_start),
 
-    // OUTPUT
-    .mosi(f3_MEMS_MOSI),
-    .sck(f3_MEMS_SPI_CLOCK),
-    .busy(f3_mems_SPI_busy),
-    .CS(f3_MEMS_CS)
-  );
+  //   // OUTPUT
+  //   .mosi(f3_MEMS_MOSI),
+  //   .sck(f3_MEMS_SPI_CLOCK),
+  //   .busy(f3_mems_SPI_busy),
+  //   .CS(f3_MEMS_CS)
+  // );
   
-  // // F4
-  tdc_control_6 #(.SHOOTING_PARAM(SHOOTING_PARAM)) f4_tdc_control (
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .tdc_MISO(f4_tdc_data_out),
-    .tdc_soft_reset(f4_soft_reset),
-    .TDC_INTB(f4_TDC_INTB),
-    .tdc_SPI_busy(f4_tdc_SPI_busy),
-    .fifo_writing_done(f4_FIFO_writing_done),
-    .pause(pause),
+  // // // F4
+  // tdc_control #(.SHOOTING_PARAM(SHOOTING_PARAM)) f4_tdc_control (
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .tdc_MISO(f4_tdc_data_out),
+  //   .tdc_soft_reset(f4_soft_reset),
+  //   .TDC_INTB(f4_TDC_INTB),
+  //   .tdc_SPI_busy(f4_tdc_SPI_busy),
+  //   .fifo_writing_done(f4_FIFO_writing_done),
+  //   .pause(pause),
+  //   .exit(exit),
 
-    // OUTPUT
-    .start_signal(f4_TDC_START_SIGNAL),
-    .CS_END(f4_CS_END),
-    .start(f4_tdc_SPI_start),
-    .tdc_MOSI(f4_tdc_data_in),
-    .w_wr_en(f4_wr_en),
-    .data_TO_FIFO(f4_din)
-  );
-  tdc_spi_master_7 #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) f4_tdc_spi_master(
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .miso(f4_TDC_DOUT),
-    .start(f4_tdc_SPI_start), // for SPI
-    .data_in(f4_tdc_data_in),
-    .CS_END(f4_CS_END), // manage up/down real CS pin -- f1_TDC_CS
+
+  //   // OUTPUT
+  //   .start_signal(f4_TDC_START_SIGNAL),
+  //   .CS_END(f4_CS_END),
+  //   .start(f4_tdc_SPI_start),
+  //   .tdc_MOSI(f4_tdc_data_in),
+  //   .w_wr_en(f4_wr_en),
+  //   .data_TO_FIFO(f4_din)
+  // );
+  // tdc_spi_master #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) f4_tdc_spi_master(
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .miso(f4_TDC_DOUT),
+  //   .start(f4_tdc_SPI_start), // for SPI
+  //   .data_in(f4_tdc_data_in),
+  //   .CS_END(f4_CS_END), // manage up/down real CS pin -- f1_TDC_CS
     
-    // OUTPUT
-    .mosi(f4_TDC_MOSI),
-    .sck(f4_TDC_SPI_CLOCK),
-    .data_out(f4_tdc_data_out),
-    .busy(f4_tdc_SPI_busy),
-    .CS(f4_TDC_CS)
-  );
-  mems_control_8 f4_mems_control (
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .pause(pause),
-    .mems_SPI_busy(f4_mems_SPI_busy),
-    .mems_soft_reset(f4_soft_reset),
-    .new_line_FIFO_done(f4_new_line_FIFO_done),
-    .new_frame_FIFO_done(f4_new_frame_FIFO_done),
+  //   // OUTPUT
+  //   .mosi(f4_TDC_MOSI),
+  //   .sck(f4_TDC_SPI_CLOCK),
+  //   .data_out(f4_tdc_data_out),
+  //   .busy(f4_tdc_SPI_busy),
+  //   .CS(f4_TDC_CS)
+  // );
+  // mems_control f4_mems_control (
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .pause(pause),
+  //   .mems_SPI_busy(f4_mems_SPI_busy),
+  //   .mems_soft_reset(f4_soft_reset),
+  //   .new_line_FIFO_done(f4_new_line_FIFO_done),
+  //   .new_frame_FIFO_done(f4_new_frame_FIFO_done),
 
-    // OUTPUT
-    .mems_SPI_start(f4_mems_SPI_start),
-    .addr(f4_addr),
+  //   // OUTPUT
+  //   .mems_SPI_start(f4_mems_SPI_start),
+  //   .addr(f4_addr),
 
-    .new_line(f4_new_line),
-    .new_frame(f4_new_frame)
-  );
-  mems_spi_9 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f4_mems_spi_master(
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .data_in(f4_mems_data_in),
-    .start(f4_mems_SPI_start),
+  //   .new_line(f4_new_line),
+  //   .new_frame(f4_new_frame)
+  // );
+  // mems_spi #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f4_mems_spi_master(
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .data_in(f4_mems_data_in),
+  //   .start(f4_mems_SPI_start),
 
-    // OUTPUT
-    .mosi(f4_MEMS_MOSI),
-    .sck(f4_MEMS_SPI_CLOCK),
-    .busy(f4_mems_SPI_busy),
-    .CS(f4_MEMS_CS)
-  );
+  //   // OUTPUT
+  //   .mosi(f4_MEMS_MOSI),
+  //   .sck(f4_MEMS_SPI_CLOCK),
+  //   .busy(f4_mems_SPI_busy),
+  //   .CS(f4_MEMS_CS)
+  // );
   
-  // // F5
-  tdc_control_6 #(.SHOOTING_PARAM(SHOOTING_PARAM)) f5_tdc_control (
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .tdc_MISO(f5_tdc_data_out),
-    .tdc_soft_reset(f5_soft_reset),
-    .TDC_INTB(f5_TDC_INTB),
-    .tdc_SPI_busy(f5_tdc_SPI_busy),
-    .fifo_writing_done(f5_FIFO_writing_done),
-    .pause(pause),
+  // // // F5
+  // tdc_control #(.SHOOTING_PARAM(SHOOTING_PARAM)) f5_tdc_control (
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .tdc_MISO(f5_tdc_data_out),
+  //   .tdc_soft_reset(f5_soft_reset),
+  //   .TDC_INTB(f5_TDC_INTB),
+  //   .tdc_SPI_busy(f5_tdc_SPI_busy),
+  //   .fifo_writing_done(f5_FIFO_writing_done),
+  //   .pause(pause),
+  //   .exit(exit),
 
-    // OUTPUT
-    .start_signal(f5_TDC_START_SIGNAL),
-    .CS_END(f5_CS_END),
-    .start(f5_tdc_SPI_start),
-    .tdc_MOSI(f5_tdc_data_in),
-    .w_wr_en(f5_wr_en),
-    .data_TO_FIFO(f5_din)
-  );
-  tdc_spi_master_7 #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) f5_tdc_spi_master(
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .miso(f5_TDC_DOUT),
-    .start(f5_tdc_SPI_start), // for SPI
-    .data_in(f5_tdc_data_in),
-    .CS_END(f5_CS_END), // manage up/down real CS pin -- f1_TDC_CS
+
+  //   // OUTPUT
+  //   .start_signal(f5_TDC_START_SIGNAL),
+  //   .CS_END(f5_CS_END),
+  //   .start(f5_tdc_SPI_start),
+  //   .tdc_MOSI(f5_tdc_data_in),
+  //   .w_wr_en(f5_wr_en),
+  //   .data_TO_FIFO(f5_din)
+  // );
+  // tdc_spi_master #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) f5_tdc_spi_master(
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .miso(f5_TDC_DOUT),
+  //   .start(f5_tdc_SPI_start), // for SPI
+  //   .data_in(f5_tdc_data_in),
+  //   .CS_END(f5_CS_END), // manage up/down real CS pin -- f1_TDC_CS
     
-    // OUTPUT
-    .mosi(f5_TDC_MOSI),
-    .sck(f5_TDC_SPI_CLOCK),
-    .data_out(f5_tdc_data_out),
-    .busy(f5_tdc_SPI_busy),
-    .CS(f5_TDC_CS)
-  );
-  mems_control_8 f5_mems_control (
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .pause(pause),
-    .mems_SPI_busy(f5_mems_SPI_busy),
-    .mems_soft_reset(f5_soft_reset),
-    .new_line_FIFO_done(f5_new_line_FIFO_done),
-    .new_frame_FIFO_done(f5_new_frame_FIFO_done),
+  //   // OUTPUT
+  //   .mosi(f5_TDC_MOSI),
+  //   .sck(f5_TDC_SPI_CLOCK),
+  //   .data_out(f5_tdc_data_out),
+  //   .busy(f5_tdc_SPI_busy),
+  //   .CS(f5_TDC_CS)
+  // );
+  // mems_control f5_mems_control (
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .pause(pause),
+  //   .mems_SPI_busy(f5_mems_SPI_busy),
+  //   .mems_soft_reset(f5_soft_reset),
+  //   .new_line_FIFO_done(f5_new_line_FIFO_done),
+  //   .new_frame_FIFO_done(f5_new_frame_FIFO_done),
 
-    // OUTPUT
-    .mems_SPI_start(f5_mems_SPI_start),
-    .addr(f5_addr),
-    .new_line(f5_new_line),
-    .new_frame(f5_new_frame)
-  );
-  mems_spi_9 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f5_mems_spi_master(
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .data_in(f5_mems_data_in),
-    .start(f5_mems_SPI_start),
+  //   // OUTPUT
+  //   .mems_SPI_start(f5_mems_SPI_start),
+  //   .addr(f5_addr),
+  //   .new_line(f5_new_line),
+  //   .new_frame(f5_new_frame)
+  // );
+  // mems_spi #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f5_mems_spi_master(
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .data_in(f5_mems_data_in),
+  //   .start(f5_mems_SPI_start),
 
-    // OUTPUT
-    .mosi(f5_MEMS_MOSI),
-    .sck(f5_MEMS_SPI_CLOCK),
-    .busy(f5_mems_SPI_busy),
-    .CS(f5_MEMS_CS)
-  );
+  //   // OUTPUT
+  //   .mosi(f5_MEMS_MOSI),
+  //   .sck(f5_MEMS_SPI_CLOCK),
+  //   .busy(f5_mems_SPI_busy),
+  //   .CS(f5_MEMS_CS)
+  // );
   
-  // F6
-  tdc_control_6 #(.SHOOTING_PARAM(SHOOTING_PARAM)) f6_tdc_control (
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .tdc_MISO(f6_tdc_data_out),
-    .tdc_soft_reset(f6_soft_reset),
-    .TDC_INTB(f6_TDC_INTB),
-    .tdc_SPI_busy(f6_tdc_SPI_busy),
-    .fifo_writing_done(f6_FIFO_writing_done),
-    .pause(pause),
+  // // F6
+  // tdc_control #(.SHOOTING_PARAM(SHOOTING_PARAM)) f6_tdc_control (
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .tdc_MISO(f6_tdc_data_out),
+  //   .tdc_soft_reset(f6_soft_reset),
+  //   .TDC_INTB(f6_TDC_INTB),
+  //   .tdc_SPI_busy(f6_tdc_SPI_busy),
+  //   .fifo_writing_done(f6_FIFO_writing_done),
+  //   .pause(pause),
+  //   .exit(exit),
 
-    // OUTPUT
-    .start_signal(f6_TDC_START_SIGNAL),
-    .CS_END(f6_CS_END),
-    .start(f6_tdc_SPI_start),
-    .tdc_MOSI(f6_tdc_data_in),
-    .w_wr_en(f6_wr_en),
-    .data_TO_FIFO(f6_din)
-  );
-  tdc_spi_master_7 #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) f6_tdc_spi_master(
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .miso(f6_TDC_DOUT),
-    .start(f6_tdc_SPI_start), // for SPI
-    .data_in(f6_tdc_data_in),
-    .CS_END(f6_CS_END), // manage up/down real CS pin -- f1_TDC_CS
+
+  //   // OUTPUT
+  //   .start_signal(f6_TDC_START_SIGNAL),
+  //   .CS_END(f6_CS_END),
+  //   .start(f6_tdc_SPI_start),
+  //   .tdc_MOSI(f6_tdc_data_in),
+  //   .w_wr_en(f6_wr_en),
+  //   .data_TO_FIFO(f6_din)
+  // );
+  // tdc_spi_master #(.CLK_DIV(TDC_SPI_SPEED_PARAM)) f6_tdc_spi_master(
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .miso(f6_TDC_DOUT),
+  //   .start(f6_tdc_SPI_start), // for SPI
+  //   .data_in(f6_tdc_data_in),
+  //   .CS_END(f6_CS_END), // manage up/down real CS pin -- f1_TDC_CS
     
-    // OUTPUT
-    .mosi(f6_TDC_MOSI),
-    .sck(f6_TDC_SPI_CLOCK),
-    .data_out(f6_tdc_data_out),
-    .busy(f6_tdc_SPI_busy),
-    .CS(f6_TDC_CS)
-  );
-  mems_control_8 f6_mems_control (
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .pause(pause),
-    .mems_SPI_busy(f6_mems_SPI_busy),
-    .mems_soft_reset(f6_soft_reset),
-    .new_line_FIFO_done(f6_new_line_FIFO_done),
-    .new_frame_FIFO_done(f6_new_frame_FIFO_done),
+  //   // OUTPUT
+  //   .mosi(f6_TDC_MOSI),
+  //   .sck(f6_TDC_SPI_CLOCK),
+  //   .data_out(f6_tdc_data_out),
+  //   .busy(f6_tdc_SPI_busy),
+  //   .CS(f6_TDC_CS)
+  // );
+  // mems_control f6_mems_control (
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .pause(pause),
+  //   .mems_SPI_busy(f6_mems_SPI_busy),
+  //   .mems_soft_reset(f6_soft_reset),
+  //   .new_line_FIFO_done(f6_new_line_FIFO_done),
+  //   .new_frame_FIFO_done(f6_new_frame_FIFO_done),
 
-    // OUTPUT
-    .mems_SPI_start(f6_mems_SPI_start),
-    .addr(f6_addr),
-    .new_line(f6_new_line),
-    .new_frame(f6_new_frame)
-  );
-  mems_spi_9 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f6_mems_spi_master(
-    // INPUT
-    .clk(clk_64mhz),
-    .rst(rst),
-    .data_in(f6_mems_data_in),
-    .start(f6_mems_SPI_start),
+  //   // OUTPUT
+  //   .mems_SPI_start(f6_mems_SPI_start),
+  //   .addr(f6_addr),
+  //   .new_line(f6_new_line),
+  //   .new_frame(f6_new_frame)
+  // );
+  // mems_spi #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f6_mems_spi_master(
+  //   // INPUT
+  //   .clk(clk_64mhz),
+  //   .rst(rst),
+  //   .data_in(f6_mems_data_in),
+  //   .start(f6_mems_SPI_start),
 
-    // OUTPUT
-    .mosi(f6_MEMS_MOSI),
-    .sck(f6_MEMS_SPI_CLOCK),
-    .busy(f6_mems_SPI_busy),
-    .CS(f6_MEMS_CS)
-  );
+  //   // OUTPUT
+  //   .mosi(f6_MEMS_MOSI),
+  //   .sck(f6_MEMS_SPI_CLOCK),
+  //   .busy(f6_mems_SPI_busy),
+  //   .CS(f6_MEMS_CS)
+  // );
 
 
   // fake_tdc fake_tdc1 (

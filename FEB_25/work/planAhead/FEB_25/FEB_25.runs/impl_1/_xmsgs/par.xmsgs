@@ -11,23 +11,11 @@
 <msg type="warning" file="Par" num="288" delta="new" >The signal <arg fmt="%s" index="1">f2_TDC_INTB_IBUF</arg> has no load.  PAR will not attempt to route this signal.
 </msg>
 
-<msg type="warning" file="Par" num="288" delta="new" >The signal <arg fmt="%s" index="1">f3_TDC_INTB_IBUF</arg> has no load.  PAR will not attempt to route this signal.
-</msg>
-
-<msg type="warning" file="Par" num="288" delta="new" >The signal <arg fmt="%s" index="1">f4_TDC_INTB_IBUF</arg> has no load.  PAR will not attempt to route this signal.
-</msg>
-
-<msg type="warning" file="Par" num="288" delta="new" >The signal <arg fmt="%s" index="1">f5_TDC_INTB_IBUF</arg> has no load.  PAR will not attempt to route this signal.
-</msg>
-
-<msg type="warning" file="Par" num="288" delta="new" >The signal <arg fmt="%s" index="1">f6_TDC_INTB_IBUF</arg> has no load.  PAR will not attempt to route this signal.
-</msg>
-
-<msg type="warning" file="ParHelpers" num="361" delta="new" >There are <arg fmt="%d" index="1">6</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+<msg type="warning" file="ParHelpers" num="361" delta="new" >There are <arg fmt="%d" index="1">2</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 </msg>
 
-<msg type="warning" file="Par" num="283" delta="new" >There are <arg fmt="%d" index="1">6</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+<msg type="warning" file="Par" num="283" delta="new" >There are <arg fmt="%d" index="1">2</arg> loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 </msg>
 

@@ -8,7 +8,7 @@ if(~exist('s','Var'))
     serial_port=ser_list(1)
     % getting data by bytes, so 8 bits
     % 3.5Mhz is working!!
-    s = serial(serial_port,'BaudRate',1000000,'DataBits',8,'InputBufferSize',480000); %20k is 1250points * 4 byte each, so take 40k.
+    s = serial(serial_port,'BaudRate',1000000,'DataBits',8,'InputBufferSize',4800000); %20k is 1250points * 4 byte each, so take 40k.
     fopen(s);     
 end
 
@@ -20,19 +20,20 @@ delay_ms(1000);
 left_out=[]
 start_ok=false;
 
-% fileID = fopen('serial_checking_tt.txt','w');
+fileID = fopen('serial_checking_tt.txt','w');
 while 1
      if (s.BytesAvailable>7)
           % [out, count] = fread(s,s.BytesAvailable,'uint16')
             % out = [left_out; fread(s,s.BytesAvailable,'uint16')]; % both of them 16 bit -> it also 16bit; PREALLOCATED is not needed in such cases
 
-            out=fread(s,s.BytesAvailable,'uint16');
+            out=fread(s,s.BytesAvailable,'uint16')
+            % find(out==0)
             out(1:3)
-            find(out==1792)
+            % find(out==1792)
 
 
 
-            % fprintf(fi1leID,'%d\n',out);
+            fprintf(fileID,'%d\n',out);
 
 
             % if out(2) > 400

@@ -23,7 +23,7 @@ module main_control_1 #(
     output reg f5_soft_reset, // flag to make TDC soft reset
     output reg f6_soft_reset, // flag to make TDC soft reset
 
-    output go_home,
+    output exit,
     output pause
   );
 
@@ -37,7 +37,7 @@ module main_control_1 #(
 
   // reg play_d, play_q;
   reg pause_d, pause_q=1'b0;
-  reg go_home_d, go_home_q=1'b0;
+  reg exit_d, exit_q=1'b0;
   reg tdc_enable_d, tdc_enable_q=1'b0; // by default 
   reg [19:0] countr_d, countr_q; // to count ud to 2ms approx, 1.7ms is needed for booting TDC
 
@@ -48,7 +48,7 @@ module main_control_1 #(
   assign f5_tdc_enable = tdc_enable_q;
   assign f6_tdc_enable = tdc_enable_q;
 
-  assign go_home = go_home_q;
+  assign exit = exit_q;
   assign pause = pause_q;
 
 
@@ -71,7 +71,7 @@ module main_control_1 #(
   tdc_enable_d = tdc_enable_q;
   countr_d = countr_q;
   state_d = state_q;
-  go_home_d=go_home_q;
+  exit_d=exit_q;
 
 
 
@@ -80,12 +80,12 @@ module main_control_1 #(
           tdc_enable_d=1'b0;
           state_d = ENABLE_HIGH;
           countr_d = 20'd1;
-          go_home_d=1'b0;
+          exit_d=1'b0;
         end 
 
 
         if (new_rx_data && rx_data == "h") begin
-          go_home_d=1'b1;
+          exit_d=1'b1;
           // tdc_enable_d=1'b0; // if uncomment shutdown is not working...
           // pause_d=1'b1; // to power off laser also
         end 
@@ -93,9 +93,9 @@ module main_control_1 #(
         // if (new_rx_data && rx_data == "s") begin
         //   pause_d=1'b1;
         // end 
-        // if (new_rx_data && rx_data == "p") begin
-        //   pause_d=1'b0;
-        // end
+        if (new_rx_data && rx_data == "p") begin
+          pause_d=~pause_q;
+        end
 
 
     case (state_q)
@@ -125,47 +125,47 @@ module main_control_1 #(
 
         if (countr_q == 20'd1000) begin
           f1_soft_reset=1'b1;
-          f2_soft_reset=1'b0;
-          f3_soft_reset=1'b0;
-          f4_soft_reset=1'b0;
-          f5_soft_reset=1'b0;
-          f6_soft_reset=1'b0;  
-        end else if (countr_q == 20'd2000) begin
-          f1_soft_reset=1'b0;
           f2_soft_reset=1'b1;
-          f3_soft_reset=1'b0;
-          f4_soft_reset=1'b0;
-          f5_soft_reset=1'b0;
-          f6_soft_reset=1'b0; 
-        end else if (countr_q == 20'd7000) begin
-          f1_soft_reset=1'b0;
-          f2_soft_reset=1'b0;
           f3_soft_reset=1'b1;
-          f4_soft_reset=1'b0;
-          f5_soft_reset=1'b0;
-          f6_soft_reset=1'b0; 
-        end else if (countr_q == 20'd11000) begin
-          f1_soft_reset=1'b0;
-          f2_soft_reset=1'b0;
-          f3_soft_reset=1'b0;
           f4_soft_reset=1'b1;
-          f5_soft_reset=1'b0;
-          f6_soft_reset=1'b0; 
-        end else if (countr_q == 20'd25000) begin
-          f1_soft_reset=1'b0;
-          f2_soft_reset=1'b0;
-          f3_soft_reset=1'b0;
-          f4_soft_reset=1'b0;
           f5_soft_reset=1'b1;
-          f6_soft_reset=1'b0; 
-        end else if (countr_q == 20'd28000) begin
-          f1_soft_reset=1'b0;
-          f2_soft_reset=1'b0;
-          f3_soft_reset=1'b0;
-          f4_soft_reset=1'b0;
-          f5_soft_reset=1'b0;
-          f6_soft_reset=1'b1; 
-        end else if (countr_q == 20'd31000) begin
+          f6_soft_reset=1'b1;  
+        // end else if (countr_q == 20'd2000) begin
+        //   f1_soft_reset=1'b0;
+        //   f2_soft_reset=1'b1;
+        //   f3_soft_reset=1'b0;
+        //   f4_soft_reset=1'b0;
+        //   f5_soft_reset=1'b0;
+        //   f6_soft_reset=1'b0; 
+        // end else if (countr_q == 20'd7000) begin
+        //   f1_soft_reset=1'b0;
+        //   f2_soft_reset=1'b0;
+        //   f3_soft_reset=1'b1;
+        //   f4_soft_reset=1'b0;
+        //   f5_soft_reset=1'b0;
+        //   f6_soft_reset=1'b0; 
+        // end else if (countr_q == 20'd11000) begin
+        //   f1_soft_reset=1'b0;
+        //   f2_soft_reset=1'b0;
+        //   f3_soft_reset=1'b0;
+        //   f4_soft_reset=1'b1;
+        //   f5_soft_reset=1'b0;
+        //   f6_soft_reset=1'b0; 
+        // end else if (countr_q == 20'd25000) begin
+        //   f1_soft_reset=1'b0;
+        //   f2_soft_reset=1'b0;
+        //   f3_soft_reset=1'b0;
+        //   f4_soft_reset=1'b0;
+        //   f5_soft_reset=1'b1;
+        //   f6_soft_reset=1'b0; 
+        // end else if (countr_q == 20'd28000) begin
+        //   f1_soft_reset=1'b0;
+        //   f2_soft_reset=1'b0;
+        //   f3_soft_reset=1'b0;
+        //   f4_soft_reset=1'b0;
+        //   f5_soft_reset=1'b0;
+        //   f6_soft_reset=1'b1; 
+        // end else if (countr_q == 20'd31000) begin
           state_d = IDLE;
         end
 
@@ -196,7 +196,7 @@ module main_control_1 #(
       countr_q <= countr_d;
       state_q <= state_d;
       pause_q <= pause_d;
-      go_home_q <= go_home_d;
+      exit_q <= exit_d;
     end
   end
   

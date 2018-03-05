@@ -17,8 +17,8 @@ Parsing module <serial_rx_10>.
 INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/serial_rx_10.v" Line 12. parameter declaration becomes local in serial_rx_10 with formal parameter declaration list
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/FIFO_12.v" into library work
 Parsing module <fifo_12>.
-Analyzing Verilog file "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/coreGen/ROM_39x120_min2.v" into library work
-Parsing module <ROM_39x120_min2>.
+Analyzing Verilog file "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/coreGen/ROM_39x240_70Vx110V_N20.v" into library work
+Parsing module <ROM_39x240_70Vx110V_N20>.
 Analyzing Verilog file "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_spi_master_7.v" into library work
 Parsing module <tdc_spi_master_7>.
 INFO:HDLCompiler:693 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_spi_master_7.v" Line 21. parameter declaration becomes local in tdc_spi_master_7 with formal parameter declaration list
@@ -55,6 +55,10 @@ Elaborating module <mojo_top_0>.
 Elaborating module <main_control_1(BAUD_RATE_PARAM=32'sb010000)>.
 
 Elaborating module <serial_rx_10(CLK_PER_BIT=32'sb010000)>.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 356: Assignment to f3_soft_reset ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 359: Assignment to f4_soft_reset ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 362: Assignment to f5_soft_reset ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 365: Assignment to f6_soft_reset ignored, since the identifier is never used
 
 Elaborating module <fifo_manager_2(BAUD_RATE_PARAM=32'sb010000,FIFO_WIDTH=6)>.
 WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/fifo_manager_2.v" Line 84: Assignment to new_data_FROM_FIFO_TO_SERIAL ignored, since the identifier is never used
@@ -67,6 +71,18 @@ WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/FIFO_12.v" Line 78: Result of 7-bit expression is truncated to fit in 6-bit target.
 WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/FIFO_12.v" Line 81: Result of 7-bit expression is truncated to fit in 6-bit target.
 WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/fifo_manager_2.v" Line 115: Assignment to w_full ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 398: Assignment to f3_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 401: Assignment to f3_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 402: Assignment to f3_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 407: Assignment to f4_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 410: Assignment to f4_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 411: Assignment to f4_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 416: Assignment to f5_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 419: Assignment to f5_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 420: Assignment to f5_new_frame_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 425: Assignment to f6_FIFO_writing_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 428: Assignment to f6_new_line_FIFO_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 429: Assignment to f6_new_frame_FIFO_done ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 434: Assignment to tx_busy_TDC ignored, since the identifier is never used
 
 Elaborating module <new_clk>.
@@ -81,29 +97,53 @@ Elaborating module <BUFG>.
 
 Elaborating module <mems_rom_3>.
 
-Elaborating module <ROM_39x120_min2>.
-WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mems_rom_3.v" Line 91: Size mismatch in connection of port <addra>. Formal port size is 14-bit while actual signal size is 15-bit.
+Elaborating module <ROM_39x240_70Vx110V_N20>.
+WARNING:HDLCompiler:189 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mems_rom_3.v" Line 91: Size mismatch in connection of port <addra>. Formal port size is 15-bit while actual signal size is 16-bit.
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 466: Assignment to f3_mems_data_in ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 467: Assignment to f4_mems_data_in ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 468: Assignment to f5_mems_data_in ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 469: Assignment to f6_mems_data_in ignored, since the identifier is never used
 
 Elaborating module <my_clk_4(CLK_DIV=32'sb0101)>.
 
 Elaborating module <my_clk_5(CLK_DIV=32'sb0111110100000)>.
 
-Elaborating module <tdc_control_6(SHOOTING_PARAM=32'sb01001111010111)>.
+Elaborating module <tdc_control_6(SHOOTING_PARAM=32'sb01001110101001)>.
 
 Elaborating module <tdc_rom_13>.
-WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v" Line 136: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v" Line 178: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v" Line 232: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v" Line 260: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v" Line 286: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v" Line 135: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v" Line 177: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v" Line 231: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v" Line 259: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v" Line 285: Result of 5-bit expression is truncated to fit in 4-bit target.
 
 Elaborating module <tdc_spi_master_7(CLK_DIV=32'sb0101)>.
 WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_spi_master_7.v" Line 45: Assignment to new_data ignored, since the identifier is never used
 
 Elaborating module <mems_control_8>.
 
-Elaborating module <mems_spi_9(CLK_DIV=32'sb01010000)>.
+Elaborating module <mems_spi_9(CLK_DIV=32'sb0101000)>.
 WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mems_spi_9.v" Line 42: Assignment to new_data ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 229: Net <f3_wr_en> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 235: Net <f3_din[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 238: Net <f3_addr[17]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 242: Net <f3_new_line> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 243: Net <f3_new_frame> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 249: Net <f4_wr_en> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 255: Net <f4_din[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 258: Net <f4_addr[17]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 262: Net <f4_new_line> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 263: Net <f4_new_frame> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 269: Net <f5_wr_en> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 275: Net <f5_din[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 278: Net <f5_addr[17]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 282: Net <f5_new_line> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 283: Net <f5_new_frame> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 289: Net <f6_wr_en> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 295: Net <f6_din[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 298: Net <f6_addr[17]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 302: Net <f6_new_line> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 303: Net <f6_new_frame> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -111,7 +151,55 @@ WARNING:HDLCompiler:1127 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_2
 
 Synthesizing Unit <mojo_top_0>.
     Related source file is "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v".
+WARNING:Xst:647 - Input <f3_TDC_INTB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <f3_TDC_DOUT> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <f4_TDC_INTB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <f4_TDC_DOUT> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <f5_TDC_INTB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <f5_TDC_DOUT> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <f6_TDC_INTB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <f6_TDC_DOUT> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 342: Output port <f3_soft_reset> of the instance <main_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 342: Output port <f4_soft_reset> of the instance <main_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 342: Output port <f5_soft_reset> of the instance <main_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 342: Output port <f6_soft_reset> of the instance <main_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f3_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f3_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f3_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f4_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f4_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f4_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f5_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f5_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f5_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f6_FIFO_writing_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f6_new_line_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <f6_new_frame_FIFO_done> of the instance <fifo_manager> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 372: Output port <tx_busy_TDC> of the instance <fifo_manager> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 450: Output port <f3_data> of the instance <mems_rom> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 450: Output port <f4_data> of the instance <mems_rom> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 450: Output port <f5_data> of the instance <mems_rom> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mojo_top_0.v" line 450: Output port <f6_data> of the instance <mems_rom> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <f3_din> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f3_addr> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f4_din> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f4_addr> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f5_din> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f5_addr> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f6_din> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f6_addr> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f3_wr_en> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f3_new_line> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f3_new_frame> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f4_wr_en> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f4_new_line> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f4_new_frame> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f5_wr_en> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f5_new_line> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f5_new_frame> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f6_wr_en> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f6_new_line> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <f6_new_frame> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Summary:
 	no macro.
 Unit <mojo_top_0> synthesized.
@@ -123,22 +211,19 @@ Synthesizing Unit <main_control_1>.
     Found 20-bit register for signal <countr_q>.
     Found 2-bit register for signal <state_q>.
     Found 1-bit register for signal <pause_q>.
-    Found 1-bit register for signal <go_home_q>.
-    Found 20-bit adder for signal <countr_q[19]_GND_2_o_add_8_OUT> created at line 123.
+    Found 1-bit register for signal <exit_q>.
+    Found 20-bit adder for signal <countr_q[19]_GND_2_o_add_9_OUT> created at line 123.
+    Found 4x1-bit Read Only RAM for signal <state_q[1]_GND_2_o_Mux_21_o>
     Found 2-bit 4-to-1 multiplexer for signal <state_d> created at line 101.
     Found 20-bit 4-to-1 multiplexer for signal <countr_d> created at line 101.
 WARNING:Xst:737 - Found 1-bit latch for signal <f2_soft_reset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <f3_soft_reset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <f4_soft_reset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <f5_soft_reset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <f6_soft_reset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <f1_soft_reset>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     HDL ADVISOR - Describing an operational reset or an explicit power-up state for register <state_q> would allow inference of a finite state machine and as consequence better performance and smaller area.
     Summary:
+	inferred   1 RAM(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred  25 D-type flip-flop(s).
-	inferred   6 Latch(s).
-	inferred  33 Multiplexer(s).
+	inferred   1 Latch(s).
+	inferred   7 Multiplexer(s).
 Unit <main_control_1> synthesized.
 
 Synthesizing Unit <serial_rx_10>.
@@ -184,7 +269,7 @@ INFO:Xst:3210 - "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.sr
     Found 1-bit register for signal <wr_en_q>.
     Summary:
 	inferred  50 D-type flip-flop(s).
-	inferred 185 Multiplexer(s).
+	inferred  19 Multiplexer(s).
 Unit <fifo_manager_2> synthesized.
 
 Synthesizing Unit <serial_tx2_11>.
@@ -261,31 +346,11 @@ WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and lef
     Found 16-bit register for signal <f2_CH_B_q>.
     Found 16-bit register for signal <f2_CH_C_q>.
     Found 16-bit register for signal <f2_CH_D_q>.
-    Found 16-bit register for signal <f3_CH_A_q>.
-    Found 16-bit register for signal <f3_CH_B_q>.
-    Found 16-bit register for signal <f3_CH_C_q>.
-    Found 16-bit register for signal <f3_CH_D_q>.
-    Found 16-bit register for signal <f4_CH_A_q>.
-    Found 16-bit register for signal <f4_CH_B_q>.
-    Found 16-bit register for signal <f4_CH_C_q>.
-    Found 16-bit register for signal <f4_CH_D_q>.
-    Found 16-bit register for signal <f5_CH_A_q>.
-    Found 16-bit register for signal <f5_CH_B_q>.
-    Found 16-bit register for signal <f5_CH_C_q>.
-    Found 16-bit register for signal <f5_CH_D_q>.
-    Found 16-bit register for signal <f6_CH_A_q>.
-    Found 16-bit register for signal <f6_CH_B_q>.
-    Found 16-bit register for signal <f6_CH_C_q>.
-    Found 16-bit register for signal <f6_CH_D_q>.
-    Found 15-bit register for signal <addrs_q>.
+    Found 16-bit register for signal <addrs_q>.
     Found 3-bit register for signal <state_q>.
     Found 11-bit register for signal <cnt_q>.
     Found 24-bit register for signal <f1_data_q>.
     Found 24-bit register for signal <f2_data_q>.
-    Found 24-bit register for signal <f3_data_q>.
-    Found 24-bit register for signal <f4_data_q>.
-    Found 24-bit register for signal <f5_data_q>.
-    Found 24-bit register for signal <f6_data_q>.
     Found 16-bit register for signal <f1_CH_A_q>.
     Found finite state machine <FSM_4> for signal <state_q>.
     -----------------------------------------------------------------------
@@ -306,22 +371,6 @@ WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and lef
     Found 16-bit subtractor for signal <f2_CH_C_q[15]_GND_17_o_sub_45_OUT> created at line 185.
     Found 16-bit subtractor for signal <f2_CH_B_q[15]_GND_17_o_sub_51_OUT> created at line 192.
     Found 16-bit subtractor for signal <f2_CH_D_q[15]_GND_17_o_sub_57_OUT> created at line 199.
-    Found 16-bit subtractor for signal <f3_CH_A_q[15]_GND_17_o_sub_67_OUT> created at line 211.
-    Found 16-bit subtractor for signal <f3_CH_C_q[15]_GND_17_o_sub_73_OUT> created at line 218.
-    Found 16-bit subtractor for signal <f3_CH_B_q[15]_GND_17_o_sub_79_OUT> created at line 225.
-    Found 16-bit subtractor for signal <f3_CH_D_q[15]_GND_17_o_sub_85_OUT> created at line 232.
-    Found 16-bit subtractor for signal <f4_CH_A_q[15]_GND_17_o_sub_95_OUT> created at line 244.
-    Found 16-bit subtractor for signal <f4_CH_C_q[15]_GND_17_o_sub_101_OUT> created at line 251.
-    Found 16-bit subtractor for signal <f4_CH_B_q[15]_GND_17_o_sub_107_OUT> created at line 258.
-    Found 16-bit subtractor for signal <f4_CH_D_q[15]_GND_17_o_sub_113_OUT> created at line 265.
-    Found 16-bit subtractor for signal <f5_CH_A_q[15]_GND_17_o_sub_123_OUT> created at line 277.
-    Found 16-bit subtractor for signal <f5_CH_C_q[15]_GND_17_o_sub_129_OUT> created at line 284.
-    Found 16-bit subtractor for signal <f5_CH_B_q[15]_GND_17_o_sub_135_OUT> created at line 291.
-    Found 16-bit subtractor for signal <f5_CH_D_q[15]_GND_17_o_sub_141_OUT> created at line 298.
-    Found 16-bit subtractor for signal <f6_CH_A_q[15]_GND_17_o_sub_151_OUT> created at line 310.
-    Found 16-bit subtractor for signal <f6_CH_C_q[15]_GND_17_o_sub_157_OUT> created at line 317.
-    Found 16-bit subtractor for signal <f6_CH_B_q[15]_GND_17_o_sub_163_OUT> created at line 324.
-    Found 16-bit subtractor for signal <f6_CH_D_q[15]_GND_17_o_sub_169_OUT> created at line 331.
     Found 16-bit subtractor for signal <PWR_18_o_ROM_DOUT[15]_sub_206_OUT> created at line 351.
     Found 16-bit adder for signal <f1_CH_A_q[15]_GND_17_o_add_12_OUT> created at line 147.
     Found 16-bit adder for signal <f1_CH_C_q[15]_GND_17_o_add_18_OUT> created at line 154.
@@ -331,22 +380,6 @@ WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and lef
     Found 16-bit adder for signal <f2_CH_C_q[15]_GND_17_o_add_46_OUT> created at line 187.
     Found 16-bit adder for signal <f2_CH_B_q[15]_GND_17_o_add_52_OUT> created at line 194.
     Found 16-bit adder for signal <f2_CH_D_q[15]_GND_17_o_add_58_OUT> created at line 201.
-    Found 16-bit adder for signal <f3_CH_A_q[15]_GND_17_o_add_68_OUT> created at line 213.
-    Found 16-bit adder for signal <f3_CH_C_q[15]_GND_17_o_add_74_OUT> created at line 220.
-    Found 16-bit adder for signal <f3_CH_B_q[15]_GND_17_o_add_80_OUT> created at line 227.
-    Found 16-bit adder for signal <f3_CH_D_q[15]_GND_17_o_add_86_OUT> created at line 234.
-    Found 16-bit adder for signal <f4_CH_A_q[15]_GND_17_o_add_96_OUT> created at line 246.
-    Found 16-bit adder for signal <f4_CH_C_q[15]_GND_17_o_add_102_OUT> created at line 253.
-    Found 16-bit adder for signal <f4_CH_B_q[15]_GND_17_o_add_108_OUT> created at line 260.
-    Found 16-bit adder for signal <f4_CH_D_q[15]_GND_17_o_add_114_OUT> created at line 267.
-    Found 16-bit adder for signal <f5_CH_A_q[15]_GND_17_o_add_124_OUT> created at line 279.
-    Found 16-bit adder for signal <f5_CH_C_q[15]_GND_17_o_add_130_OUT> created at line 286.
-    Found 16-bit adder for signal <f5_CH_B_q[15]_GND_17_o_add_136_OUT> created at line 293.
-    Found 16-bit adder for signal <f5_CH_D_q[15]_GND_17_o_add_142_OUT> created at line 300.
-    Found 16-bit adder for signal <f6_CH_A_q[15]_GND_17_o_add_152_OUT> created at line 312.
-    Found 16-bit adder for signal <f6_CH_C_q[15]_GND_17_o_add_158_OUT> created at line 319.
-    Found 16-bit adder for signal <f6_CH_B_q[15]_GND_17_o_add_164_OUT> created at line 326.
-    Found 16-bit adder for signal <f6_CH_D_q[15]_GND_17_o_add_170_OUT> created at line 333.
     Found 11-bit adder for signal <cnt_d> created at line 429.
     Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[15]_Mux_402_o> created at line 462.
     Found 1-bit 4-to-1 multiplexer for signal <f1_addr[2]_f1_CH_D_q[14]_Mux_403_o> created at line 462.
@@ -380,70 +413,6 @@ WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and lef
     Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[2]_Mux_437_o> created at line 487.
     Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[1]_Mux_438_o> created at line 487.
     Found 1-bit 4-to-1 multiplexer for signal <f2_addr[2]_f2_CH_D_q[0]_Mux_439_o> created at line 487.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[15]_Mux_446_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[14]_Mux_447_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[13]_Mux_448_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[12]_Mux_449_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[11]_Mux_450_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[10]_Mux_451_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[9]_Mux_452_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[8]_Mux_453_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[7]_Mux_454_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[6]_Mux_455_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[5]_Mux_456_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[4]_Mux_457_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[3]_Mux_458_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[2]_Mux_459_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[1]_Mux_460_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f3_addr[2]_f3_CH_D_q[0]_Mux_461_o> created at line 512.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[15]_Mux_468_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[14]_Mux_469_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[13]_Mux_470_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[12]_Mux_471_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[11]_Mux_472_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[10]_Mux_473_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[9]_Mux_474_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[8]_Mux_475_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[7]_Mux_476_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[6]_Mux_477_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[5]_Mux_478_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[4]_Mux_479_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[3]_Mux_480_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[2]_Mux_481_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[1]_Mux_482_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f4_addr[2]_f4_CH_D_q[0]_Mux_483_o> created at line 537.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[15]_Mux_490_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[14]_Mux_491_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[13]_Mux_492_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[12]_Mux_493_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[11]_Mux_494_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[10]_Mux_495_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[9]_Mux_496_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[8]_Mux_497_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[7]_Mux_498_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[6]_Mux_499_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[5]_Mux_500_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[4]_Mux_501_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[3]_Mux_502_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[2]_Mux_503_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[1]_Mux_504_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f5_addr[2]_f5_CH_D_q[0]_Mux_505_o> created at line 562.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[15]_Mux_512_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[14]_Mux_513_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[13]_Mux_514_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[12]_Mux_515_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[11]_Mux_516_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[10]_Mux_517_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[9]_Mux_518_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[8]_Mux_519_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[7]_Mux_520_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[6]_Mux_521_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[5]_Mux_522_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[4]_Mux_523_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[3]_Mux_524_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[2]_Mux_525_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[1]_Mux_526_o> created at line 587.
-    Found 1-bit 4-to-1 multiplexer for signal <f6_addr[2]_f6_CH_D_q[0]_Mux_527_o> created at line 587.
     Found 16-bit comparator greater for signal <GND_17_o_f1_CH_A_q[15]_LessThan_10_o> created at line 144
     Found 16-bit comparator greater for signal <GND_17_o_f1_CH_C_q[15]_LessThan_16_o> created at line 151
     Found 16-bit comparator greater for signal <GND_17_o_f1_CH_B_q[15]_LessThan_22_o> created at line 158
@@ -452,27 +421,35 @@ WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and lef
     Found 16-bit comparator greater for signal <GND_17_o_f2_CH_C_q[15]_LessThan_44_o> created at line 184
     Found 16-bit comparator greater for signal <GND_17_o_f2_CH_B_q[15]_LessThan_50_o> created at line 191
     Found 16-bit comparator greater for signal <GND_17_o_f2_CH_D_q[15]_LessThan_56_o> created at line 198
-    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_A_q[15]_LessThan_66_o> created at line 210
-    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_C_q[15]_LessThan_72_o> created at line 217
-    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_B_q[15]_LessThan_78_o> created at line 224
-    Found 16-bit comparator greater for signal <GND_17_o_f3_CH_D_q[15]_LessThan_84_o> created at line 231
-    Found 16-bit comparator greater for signal <GND_17_o_f4_CH_A_q[15]_LessThan_94_o> created at line 243
-    Found 16-bit comparator greater for signal <GND_17_o_f4_CH_C_q[15]_LessThan_100_o> created at line 250
-    Found 16-bit comparator greater for signal <GND_17_o_f4_CH_B_q[15]_LessThan_106_o> created at line 257
-    Found 16-bit comparator greater for signal <GND_17_o_f4_CH_D_q[15]_LessThan_112_o> created at line 264
-    Found 16-bit comparator greater for signal <GND_17_o_f5_CH_A_q[15]_LessThan_122_o> created at line 276
-    Found 16-bit comparator greater for signal <GND_17_o_f5_CH_C_q[15]_LessThan_128_o> created at line 283
-    Found 16-bit comparator greater for signal <GND_17_o_f5_CH_B_q[15]_LessThan_134_o> created at line 290
-    Found 16-bit comparator greater for signal <GND_17_o_f5_CH_D_q[15]_LessThan_140_o> created at line 297
-    Found 16-bit comparator greater for signal <GND_17_o_f6_CH_A_q[15]_LessThan_150_o> created at line 309
-    Found 16-bit comparator greater for signal <GND_17_o_f6_CH_C_q[15]_LessThan_156_o> created at line 316
-    Found 16-bit comparator greater for signal <GND_17_o_f6_CH_B_q[15]_LessThan_162_o> created at line 323
-    Found 16-bit comparator greater for signal <GND_17_o_f6_CH_D_q[15]_LessThan_168_o> created at line 330
+    WARNING:Xst:2404 -  FFs/Latches <f3_data_q<23:22>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f3_data_q<22:22>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f3_data_q<22:22>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f3_data_q<22:22>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f3_data_q<22:5>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f3_data_q<5:5>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f6_data_q<23:22>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f6_data_q<22:22>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f6_data_q<22:22>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f6_data_q<22:22>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f6_data_q<22:5>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f6_data_q<5:5>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f4_data_q<23:22>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f4_data_q<22:22>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f4_data_q<22:22>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f4_data_q<22:22>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f4_data_q<22:5>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f4_data_q<5:5>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f5_data_q<23:22>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f5_data_q<22:22>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f5_data_q<22:22>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f5_data_q<22:22>> (without init value) have a constant value of 1 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f5_data_q<22:5>> (without init value) have a constant value of 0 in block <mems_rom_3>.
+    WARNING:Xst:2404 -  FFs/Latches <f5_data_q<5:5>> (without init value) have a constant value of 1 in block <mems_rom_3>.
     Summary:
-	inferred  25 Adder/Subtractor(s).
-	inferred 554 D-type flip-flop(s).
-	inferred  24 Comparator(s).
-	inferred 161 Multiplexer(s).
+	inferred   9 Adder/Subtractor(s).
+	inferred 203 D-type flip-flop(s).
+	inferred   8 Comparator(s).
+	inferred  55 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <mems_rom_3> synthesized.
 
@@ -502,9 +479,8 @@ Unit <my_clk_5> synthesized.
 
 Synthesizing Unit <tdc_control_6>.
     Related source file is "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/tdc_control_6.v".
-        SHOOTING_PARAM = 5079
+        SHOOTING_PARAM = 5033
 WARNING:Xst:647 - Input <TDC_INTB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <pause> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 1-bit register for signal <start_signal_q>.
     Found 32-bit register for signal <data_TO_FIFO_q>.
     Found 1-bit register for signal <wr_en_q>.
@@ -519,9 +495,9 @@ WARNING:Xst:647 - Input <pause> is never used. This port will be preserved and l
     Found 4-bit register for signal <state_q>.
     Found finite state machine <FSM_5> for signal <state_q>.
     -----------------------------------------------------------------------
-    | States             | 12                                             |
-    | Transitions        | 32                                             |
-    | Inputs             | 12                                             |
+    | States             | 13                                             |
+    | Transitions        | 73                                             |
+    | Inputs             | 14                                             |
     | Outputs            | 6                                              |
     | Clock              | clk (rising_edge)                              |
     | Reset              | rst (positive)                                 |
@@ -530,10 +506,10 @@ WARNING:Xst:647 - Input <pause> is never used. This port will be preserved and l
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 16-bit subtractor for signal <calib2_q[15]_calib1_q[15]_sub_108_OUT> created at line 315.
-    Found 16-bit adder for signal <CS_countr_q[15]_GND_21_o_add_45_OUT> created at line 208.
-    Found 4-bit adder for signal <Byte_countr_q[3]_GND_21_o_add_86_OUT> created at line 286.
-    Found 6-bit adder for signal <addr_q[5]_GND_21_o_add_93_OUT> created at line 301.
+    Found 16-bit subtractor for signal <calib2_q[15]_calib1_q[15]_sub_114_OUT> created at line 314.
+    Found 16-bit adder for signal <CS_countr_q[15]_GND_21_o_add_51_OUT> created at line 207.
+    Found 4-bit adder for signal <Byte_countr_q[3]_GND_21_o_add_92_OUT> created at line 285.
+    Found 6-bit adder for signal <addr_q[5]_GND_21_o_add_99_OUT> created at line 300.
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred 110 D-type flip-flop(s).
@@ -588,7 +564,7 @@ Synthesizing Unit <mems_control_8>.
     Found 1-bit register for signal <new_line_q>.
     Found 1-bit register for signal <new_frame_q>.
     Found 1-bit register for signal <mems_SPI_start_q>.
-    Found 17-bit register for signal <addr_q>.
+    Found 18-bit register for signal <addr_q>.
     Found 2-bit register for signal <state_q>.
     Found finite state machine <FSM_7> for signal <state_q>.
     -----------------------------------------------------------------------
@@ -603,21 +579,21 @@ Synthesizing Unit <mems_control_8>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 17-bit adder for signal <addr_q[16]_GND_24_o_add_19_OUT> created at line 115.
+    Found 18-bit adder for signal <addr_q[17]_GND_24_o_add_95_OUT> created at line 114.
     Found 1-bit 4-to-1 multiplexer for signal <mems_SPI_start_d> created at line 60.
-    Found 17-bit 4-to-1 multiplexer for signal <addr_d> created at line 60.
+    Found 18-bit 4-to-1 multiplexer for signal <addr_d> created at line 60.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  20 D-type flip-flop(s).
+	inferred  21 D-type flip-flop(s).
 	inferred   6 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <mems_control_8> synthesized.
 
 Synthesizing Unit <mems_spi_9>.
     Related source file is "/home/delkov/mojo/SIMPLE/FEB_25/work/planAhead/FEB_25/FEB_25.srcs/sources_1/imports/verilog/mems_spi_9.v".
-        CLK_DIV = 80
+        CLK_DIV = 40
     Found 24-bit register for signal <data_q>.
-    Found 7-bit register for signal <sck_q>.
+    Found 6-bit register for signal <sck_q>.
     Found 1-bit register for signal <mosi_q>.
     Found 3-bit register for signal <state_q>.
     Found 1-bit register for signal <CS_q>.
@@ -636,10 +612,10 @@ Synthesizing Unit <mems_spi_9>.
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 5-bit adder for signal <ctr_q[4]_GND_25_o_add_12_OUT> created at line 85.
-    Found 7-bit adder for signal <sck_q[6]_GND_25_o_add_8_OUT> created at line 107.
+    Found 6-bit adder for signal <sck_q[5]_GND_25_o_add_8_OUT> created at line 107.
     Summary:
 	inferred   2 Adder/Subtractor(s).
-	inferred  38 D-type flip-flop(s).
+	inferred  37 D-type flip-flop(s).
 	inferred  12 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <mems_spi_9> synthesized.
@@ -648,72 +624,71 @@ Unit <mems_spi_9> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 7
- 32x8-bit single-port Read Only RAM                    : 6
+# RAMs                                                 : 4
+ 32x8-bit single-port Read Only RAM                    : 2
+ 4x1-bit single-port Read Only RAM                     : 1
  64x48-bit dual-port RAM                               : 1
-# Adders/Subtractors                                   : 90
+# Adders/Subtractors                                   : 38
  11-bit adder                                          : 1
  12-bit adder                                          : 1
- 16-bit adder                                          : 6
- 16-bit addsub                                         : 24
- 16-bit subtractor                                     : 6
- 17-bit adder                                          : 6
+ 16-bit adder                                          : 2
+ 16-bit addsub                                         : 8
+ 16-bit subtractor                                     : 2
+ 18-bit adder                                          : 2
  20-bit adder                                          : 1
- 3-bit adder                                           : 9
- 4-bit adder                                           : 7
+ 3-bit adder                                           : 5
+ 4-bit adder                                           : 3
  40-bit adder                                          : 1
- 5-bit adder                                           : 12
- 6-bit adder                                           : 8
- 7-bit adder                                           : 7
+ 5-bit adder                                           : 4
+ 6-bit adder                                           : 6
+ 7-bit adder                                           : 1
  7-bit addsub                                          : 1
-# Registers                                            : 220
- 1-bit register                                        : 76
+# Registers                                            : 92
+ 1-bit register                                        : 32
  11-bit register                                       : 1
  12-bit register                                       : 1
- 15-bit register                                       : 1
- 16-bit register                                       : 48
- 17-bit register                                       : 6
+ 16-bit register                                       : 17
+ 18-bit register                                       : 2
  2-bit register                                        : 1
  20-bit register                                       : 1
- 24-bit register                                       : 12
- 3-bit register                                        : 9
- 32-bit register                                       : 6
- 4-bit register                                        : 7
+ 24-bit register                                       : 4
+ 3-bit register                                        : 5
+ 32-bit register                                       : 2
+ 4-bit register                                        : 3
  40-bit register                                       : 1
  48-bit register                                       : 3
- 5-bit register                                        : 12
- 6-bit register                                        : 8
- 7-bit register                                        : 8
- 8-bit register                                        : 19
-# Latches                                              : 6
- 1-bit latch                                           : 6
-# Comparators                                          : 26
+ 5-bit register                                        : 4
+ 6-bit register                                        : 6
+ 7-bit register                                        : 2
+ 8-bit register                                        : 7
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 10
  12-bit comparator greater                             : 1
- 16-bit comparator greater                             : 24
+ 16-bit comparator greater                             : 8
  3-bit comparator greater                              : 1
-# Multiplexers                                         : 900
- 1-bit 2-to-1 multiplexer                              : 318
- 1-bit 4-to-1 multiplexer                              : 102
+# Multiplexers                                         : 266
+ 1-bit 2-to-1 multiplexer                              : 60
+ 1-bit 4-to-1 multiplexer                              : 34
  1-bit 48-to-1 multiplexer                             : 1
- 15-bit 2-to-1 multiplexer                             : 5
- 16-bit 2-to-1 multiplexer                             : 126
- 17-bit 2-to-1 multiplexer                             : 24
- 17-bit 4-to-1 multiplexer                             : 6
- 2-bit 2-to-1 multiplexer                              : 9
+ 16-bit 2-to-1 multiplexer                             : 45
+ 18-bit 2-to-1 multiplexer                             : 8
+ 18-bit 4-to-1 multiplexer                             : 2
+ 2-bit 2-to-1 multiplexer                              : 3
  2-bit 4-to-1 multiplexer                              : 1
  20-bit 2-to-1 multiplexer                             : 2
  20-bit 4-to-1 multiplexer                             : 1
- 24-bit 2-to-1 multiplexer                             : 18
- 3-bit 2-to-1 multiplexer                              : 50
- 4-bit 2-to-1 multiplexer                              : 76
+ 24-bit 2-to-1 multiplexer                             : 6
+ 3-bit 2-to-1 multiplexer                              : 18
+ 4-bit 2-to-1 multiplexer                              : 28
  40-bit 2-to-1 multiplexer                             : 4
  40-bit 4-to-1 multiplexer                             : 1
- 48-bit 2-to-1 multiplexer                             : 17
- 5-bit 2-to-1 multiplexer                              : 12
- 6-bit 2-to-1 multiplexer                              : 60
- 7-bit 2-to-1 multiplexer                              : 61
- 8-bit 2-to-1 multiplexer                              : 6
-# FSMs                                                 : 27
+ 48-bit 2-to-1 multiplexer                             : 5
+ 5-bit 2-to-1 multiplexer                              : 4
+ 6-bit 2-to-1 multiplexer                              : 40
+ 7-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 2
+# FSMs                                                 : 11
 
 =========================================================================
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
@@ -722,8 +697,8 @@ INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmet
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-Reading core <../../FEB_25.srcs/sources_1/imports/coreGen/ROM_39x120_min2.ngc>.
-Loading core <ROM_39x120_min2> for timing and area information for instance <ROM_39x120_min2>.
+Reading core <../../FEB_25.srcs/sources_1/imports/coreGen/ROM_39x240_70Vx110V_N20.ngc>.
+Loading core <ROM_39x240_70Vx110V_N20> for timing and area information for instance <ROM_39x240_70Vx110V_N20>.
 
 Synthesizing (advanced) Unit <fifo_12>.
 The following registers are absorbed into counter <wr_ptr>: 1 register on signal <wr_ptr>.
@@ -748,6 +723,20 @@ INFO:Xst:3217 - HDL ADVISOR - Register <buf_out> currently described with an asy
     -----------------------------------------------------------------------
 INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_buf_mem> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
 Unit <fifo_12> synthesized (advanced).
+
+Synthesizing (advanced) Unit <main_control_1>.
+INFO:Xst:3231 - The small RAM <Mram_state_q[1]_GND_2_o_Mux_21_o> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 1-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <state_q>       |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <main_control_1> synthesized (advanced).
 
 Synthesizing (advanced) Unit <mems_rom_3>.
 The following registers are absorbed into counter <cnt_q>: 1 register on signal <cnt_q>.
@@ -791,99 +780,89 @@ Unit <tdc_rom_13> synthesized (advanced).
 Synthesizing (advanced) Unit <tdc_spi_master_7>.
 The following registers are absorbed into counter <ctr_q>: 1 register on signal <ctr_q>.
 Unit <tdc_spi_master_7> synthesized (advanced).
-WARNING:Xst:2677 - Node <addrs_q_14> of sequential type is unconnected in block <mems_rom_3>.
+WARNING:Xst:2677 - Node <addrs_q_15> of sequential type is unconnected in block <mems_rom_3>.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 7
- 32x8-bit single-port distributed Read Only RAM        : 6
+# RAMs                                                 : 4
+ 32x8-bit single-port distributed Read Only RAM        : 2
+ 4x1-bit single-port distributed Read Only RAM         : 1
  64x48-bit dual-port distributed RAM                   : 1
-# Adders/Subtractors                                   : 69
- 16-bit adder                                          : 6
- 16-bit addsub                                         : 24
- 16-bit subtractor                                     : 6
- 17-bit adder                                          : 6
+# Adders/Subtractors                                   : 25
+ 16-bit adder                                          : 2
+ 16-bit addsub                                         : 8
+ 16-bit subtractor                                     : 2
+ 18-bit adder                                          : 2
  20-bit adder                                          : 1
- 3-bit adder                                           : 6
- 4-bit adder                                           : 7
+ 3-bit adder                                           : 2
+ 4-bit adder                                           : 3
  40-bit adder                                          : 1
- 6-bit adder                                           : 6
- 7-bit adder                                           : 6
-# Counters                                             : 21
+ 6-bit adder                                           : 4
+# Counters                                             : 13
  11-bit up counter                                     : 1
  12-bit up counter                                     : 1
  3-bit up counter                                      : 3
- 5-bit up counter                                      : 12
+ 5-bit up counter                                      : 4
  6-bit up counter                                      : 2
  7-bit up counter                                      : 1
  7-bit updown counter                                  : 1
-# Registers                                            : 1922
- Flip-Flops                                            : 1922
-# Comparators                                          : 26
+# Registers                                            : 803
+ Flip-Flops                                            : 803
+# Comparators                                          : 10
  12-bit comparator greater                             : 1
- 16-bit comparator greater                             : 24
+ 16-bit comparator greater                             : 8
  3-bit comparator greater                              : 1
-# Multiplexers                                         : 927
- 1-bit 2-to-1 multiplexer                              : 366
- 1-bit 4-to-1 multiplexer                              : 102
+# Multiplexers                                         : 273
+ 1-bit 2-to-1 multiplexer                              : 76
+ 1-bit 4-to-1 multiplexer                              : 34
  1-bit 48-to-1 multiplexer                             : 1
- 15-bit 2-to-1 multiplexer                             : 5
- 16-bit 2-to-1 multiplexer                             : 126
- 17-bit 2-to-1 multiplexer                             : 24
- 17-bit 4-to-1 multiplexer                             : 6
- 2-bit 2-to-1 multiplexer                              : 9
+ 16-bit 2-to-1 multiplexer                             : 45
+ 18-bit 2-to-1 multiplexer                             : 8
+ 18-bit 4-to-1 multiplexer                             : 2
+ 2-bit 2-to-1 multiplexer                              : 3
  2-bit 4-to-1 multiplexer                              : 1
  20-bit 2-to-1 multiplexer                             : 2
  20-bit 4-to-1 multiplexer                             : 1
- 24-bit 2-to-1 multiplexer                             : 18
- 3-bit 2-to-1 multiplexer                              : 48
- 4-bit 2-to-1 multiplexer                              : 76
+ 24-bit 2-to-1 multiplexer                             : 6
+ 3-bit 2-to-1 multiplexer                              : 16
+ 4-bit 2-to-1 multiplexer                              : 28
  40-bit 2-to-1 multiplexer                             : 4
  40-bit 4-to-1 multiplexer                             : 1
- 48-bit 2-to-1 multiplexer                             : 17
- 6-bit 2-to-1 multiplexer                              : 60
- 7-bit 2-to-1 multiplexer                              : 60
-# FSMs                                                 : 27
+ 48-bit 2-to-1 multiplexer                             : 5
+ 6-bit 2-to-1 multiplexer                              : 40
+# FSMs                                                 : 11
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <pause_q> has a constant value of 0 in block <main_control_1>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2146 - In block <mojo_top_0>, Counter <FCLK/cnt_q> <tdc_ref_clk/cnt_q> are equivalent, XST will keep only <FCLK/cnt_q>.
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <f1_tdc_control/FSM_5> on signal <state_q[1:4]> with user encoding.
-Optimizing FSM <f2_tdc_control/FSM_5> on signal <state_q[1:4]> with user encoding.
-Optimizing FSM <f3_tdc_control/FSM_5> on signal <state_q[1:4]> with user encoding.
-Optimizing FSM <f4_tdc_control/FSM_5> on signal <state_q[1:4]> with user encoding.
-Optimizing FSM <f5_tdc_control/FSM_5> on signal <state_q[1:4]> with user encoding.
-Optimizing FSM <f6_tdc_control/FSM_5> on signal <state_q[1:4]> with user encoding.
--------------------
+Optimizing FSM <f1_tdc_control/FSM_5> on signal <state_q[1:13]> with one-hot encoding.
+Optimizing FSM <f2_tdc_control/FSM_5> on signal <state_q[1:13]> with one-hot encoding.
+------------------------
  State | Encoding
--------------------
- 0000  | 0000
- 0001  | 0001
- 0101  | 0101
- 0011  | 0011
- 0100  | 0100
- 0110  | 0110
- 0010  | 0010
- 0111  | 0111
- 1000  | 1000
- 1001  | 1001
- 1101  | 1101
- 1011  | 1011
--------------------
+------------------------
+ 0000  | 0000000000001
+ 1110  | 0000000000010
+ 0001  | 0000000000100
+ 0101  | 0000000001000
+ 0011  | 0000000010000
+ 0100  | 0000000100000
+ 0110  | 0000001000000
+ 0010  | 0000010000000
+ 0111  | 0000100000000
+ 1000  | 0001000000000
+ 1001  | 0010000000000
+ 1101  | 0100000000000
+ 1011  | 1000000000000
+------------------------
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <f1_tdc_spi_master/FSM_6> on signal <state_q[1:3]> with user encoding.
 Optimizing FSM <f2_tdc_spi_master/FSM_6> on signal <state_q[1:3]> with user encoding.
-Optimizing FSM <f3_tdc_spi_master/FSM_6> on signal <state_q[1:3]> with user encoding.
-Optimizing FSM <f4_tdc_spi_master/FSM_6> on signal <state_q[1:3]> with user encoding.
-Optimizing FSM <f5_tdc_spi_master/FSM_6> on signal <state_q[1:3]> with user encoding.
-Optimizing FSM <f6_tdc_spi_master/FSM_6> on signal <state_q[1:3]> with user encoding.
 -------------------
  State | Encoding
 -------------------
@@ -928,10 +907,6 @@ Optimizing FSM <mems_rom/FSM_4> on signal <state_q[1:3]> with user encoding.
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <f1_mems_control/FSM_7> on signal <state_q[1:2]> with user encoding.
 Optimizing FSM <f2_mems_control/FSM_7> on signal <state_q[1:2]> with user encoding.
-Optimizing FSM <f3_mems_control/FSM_7> on signal <state_q[1:2]> with user encoding.
-Optimizing FSM <f4_mems_control/FSM_7> on signal <state_q[1:2]> with user encoding.
-Optimizing FSM <f5_mems_control/FSM_7> on signal <state_q[1:2]> with user encoding.
-Optimizing FSM <f6_mems_control/FSM_7> on signal <state_q[1:2]> with user encoding.
 -------------------
  State | Encoding
 -------------------
@@ -943,10 +918,6 @@ Optimizing FSM <f6_mems_control/FSM_7> on signal <state_q[1:2]> with user encodi
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <f1_mems_spi_master/FSM_8> on signal <state_q[1:3]> with user encoding.
 Optimizing FSM <f2_mems_spi_master/FSM_8> on signal <state_q[1:3]> with user encoding.
-Optimizing FSM <f3_mems_spi_master/FSM_8> on signal <state_q[1:3]> with user encoding.
-Optimizing FSM <f4_mems_spi_master/FSM_8> on signal <state_q[1:3]> with user encoding.
-Optimizing FSM <f5_mems_spi_master/FSM_8> on signal <state_q[1:3]> with user encoding.
-Optimizing FSM <f6_mems_spi_master/FSM_8> on signal <state_q[1:3]> with user encoding.
 -------------------
  State | Encoding
 -------------------
@@ -956,7 +927,8 @@ Optimizing FSM <f6_mems_spi_master/FSM_8> on signal <state_q[1:3]> with user enc
  011   | 011
  100   | 100
 -------------------
-WARNING:Xst:1710 - FF/Latch <data_TO_FIFO_q_3> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_TO_FIFO_q_2> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_3> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_4> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_5> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_6> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
@@ -969,30 +941,14 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_12> 
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_13> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_14> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_TO_FIFO_q_15> (without init value) has a constant value of 0 in block <fifo_manager_2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <f6_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f6_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f6_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f6_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f5_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f5_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f5_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f5_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f4_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f4_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f4_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f4_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f3_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <f2_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f2_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_18> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_19> (without init value) has a constant value of 1 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_22> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <f1_data_q_23> (without init value) has a constant value of 0 in block <mems_rom_3>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <mojo_top_0> ...
 
@@ -1017,23 +973,60 @@ Optimizing unit <mems_rom_3> ...
 Optimizing unit <mems_control_8> ...
 
 Optimizing unit <mems_spi_9> ...
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_10> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_10> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_11> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_11> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_12> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_12> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_13> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_13> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_14> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_14> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_15> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_15> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_16> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_16> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_17> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_17> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/mems_SPI_start_q> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/mems_SPI_start_q> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/CS_q> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/CS_q> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/ctr_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/ctr_q_0> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/ctr_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/ctr_q_1> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/ctr_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/ctr_q_2> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/ctr_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/ctr_q_3> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/ctr_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/ctr_q_4> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_0> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/state_q_FSM_FFd1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/state_q_FSM_FFd1> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_1> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/state_q_FSM_FFd2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/state_q_FSM_FFd2> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_2> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/state_q_FSM_FFd3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/state_q_FSM_FFd3> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_3> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_4> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_5> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_5> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_6> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_6> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_7> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_7> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_8> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_8> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/addr_q_9> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/addr_q_9> 
+INFO:Xst:2261 - The FF/Latch <mems_rom/f1_data_q_20> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_rom/f2_data_q_20> 
+INFO:Xst:2261 - The FF/Latch <mems_rom/f1_data_q_21> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_rom/f2_data_q_21> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/state_q_FSM_FFd1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/state_q_FSM_FFd1> 
+INFO:Xst:2261 - The FF/Latch <mems_rom/f1_data_q_16> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_rom/f2_data_q_16> 
+INFO:Xst:2261 - The FF/Latch <mems_rom/f1_data_q_17> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <mems_rom/f2_data_q_17> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_control/state_q_FSM_FFd2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_control/state_q_FSM_FFd2> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/sck_q_0> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/sck_q_0> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/sck_q_1> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/sck_q_1> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/sck_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/sck_q_2> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/sck_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/sck_q_3> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/sck_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/sck_q_4> 
+INFO:Xst:2261 - The FF/Latch <f2_mems_spi_master/sck_q_5> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <f1_mems_spi_master/sck_q_5> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 83.
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 36.
+FlipFlop f1_tdc_control/state_q_FSM_FFd1 has been replicated 1 time(s)
 FlipFlop f1_tdc_control/state_q_FSM_FFd3 has been replicated 1 time(s)
-FlipFlop f1_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
+FlipFlop f1_tdc_control/state_q_FSM_FFd5 has been replicated 1 time(s)
+FlipFlop f1_tdc_spi_master/state_q_FSM_FFd2 has been replicated 1 time(s)
+FlipFlop f2_mems_control/addr_q_5 has been replicated 1 time(s)
+FlipFlop f2_mems_control/addr_q_7 has been replicated 1 time(s)
+FlipFlop f2_tdc_control/state_q_FSM_FFd1 has been replicated 1 time(s)
 FlipFlop f2_tdc_control/state_q_FSM_FFd3 has been replicated 1 time(s)
-FlipFlop f2_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
-FlipFlop f3_tdc_control/state_q_FSM_FFd3 has been replicated 1 time(s)
-FlipFlop f3_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
-FlipFlop f4_tdc_control/state_q_FSM_FFd3 has been replicated 1 time(s)
-FlipFlop f4_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
-FlipFlop f5_tdc_control/state_q_FSM_FFd3 has been replicated 1 time(s)
-FlipFlop f5_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
-FlipFlop f5_tdc_control/wr_en_q has been replicated 1 time(s)
-FlipFlop f6_tdc_control/state_q_FSM_FFd3 has been replicated 1 time(s)
-FlipFlop f6_tdc_control/state_q_FSM_FFd4 has been replicated 1 time(s)
+FlipFlop f2_tdc_control/state_q_FSM_FFd5 has been replicated 1 time(s)
+FlipFlop f2_tdc_spi_master/state_q_FSM_FFd2 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -1041,8 +1034,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 2091
- Flip-Flops                                            : 2091
+# Registers                                            : 875
+ Flip-Flops                                            : 875
 
 =========================================================================
 
@@ -1063,13 +1056,13 @@ Partition Implementation Status
 
 Clock Information:
 ------------------
--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-Clock Signal                                                                         | Clock buffer(FF name)                                                                                                                             | Load  |
--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-clk                                                                                  | DCM_SP:CLKFX                                                                                                                                      | 2152  |
-mems_rom/ROM_39x120_min2/N1                                                          | NONE(mems_rom/ROM_39x120_min2/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram)| 10    |
-main_control/state_q[1]_PWR_4_o_Mux_33_o(main_control/state_q[1]_PWR_4_o_Mux_33_o4:O)| NONE(*)(main_control/f5_soft_reset)                                                                                                               | 6     |
--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+Clock Signal                                                                         | Clock buffer(FF name)                                                                                                                                     | Load  |
+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+clk                                                                                  | DCM_SP:CLKFX                                                                                                                                              | 945   |
+mems_rom/ROM_39x240_70Vx110V_N20/N1                                                  | NONE(mems_rom/ROM_39x240_70Vx110V_N20/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram)| 17    |
+main_control/state_q[1]_PWR_4_o_Mux_22_o(main_control/state_q[1]_PWR_4_o_Mux_22_o1:O)| NONE(*)(main_control/f2_soft_reset)                                                                                                                       | 1     |
+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
@@ -1083,9 +1076,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 9.249ns (Maximum Frequency: 108.117MHz)
-   Minimum input arrival time before clock: 6.366ns
-   Maximum output required time after clock: 6.187ns
+   Minimum period: 9.594ns (Maximum Frequency: 104.236MHz)
+   Minimum input arrival time before clock: 7.227ns
+   Maximum output required time after clock: 6.440ns
    Maximum combinational path delay: No path found
 
 =========================================================================

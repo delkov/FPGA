@@ -2,14 +2,14 @@ module mems_rom_3 (
     // INPUT
     input rst,
     input clk,
-    input [16:0] f1_addr,
-    input [16:0] f2_addr,
-    input [16:0] f3_addr,
-    input [16:0] f4_addr,
-    input [16:0] f5_addr,
-    input [16:0] f6_addr,
+    input [17:0] f1_addr,
+    input [17:0] f2_addr,
+    input [17:0] f3_addr,
+    input [17:0] f4_addr,
+    input [17:0] f5_addr,
+    input [17:0] f6_addr,
 
-    input go_home,
+    input exit,
 
     // OUTPUT
     output [23:0] f1_data,
@@ -25,7 +25,7 @@ localparam home_bias=16'd23250;
 localparam home_bias_debug=16'd13250;
 // localparam home_bias_x2_8bit=8'hB4; // from oscillo, exp.data
 
-localparam home_bias_x2_16bit=16'hB650; // from oscillo, exp.data B950
+localparam home_bias_x2_16bit=16'hB900; // from oscillo, exp.data B950
 
 localparam STATE_SIZE = 3;
 localparam READ_F1 = 3'd0,
@@ -37,7 +37,7 @@ localparam READ_F1 = 3'd0,
 
 reg [10:0] cnt_d, cnt_q; 
 reg [STATE_SIZE-1:0] state_d, state_q=READ_F1;
-reg [14:0] addrs_d, addrs_q;
+reg [15:0] addrs_d, addrs_q;
 
 reg [23:0] f1_data_d, f1_data_q;
 reg [23:0] f2_data_d, f2_data_q;
@@ -86,7 +86,7 @@ assign f6_data = f6_data_q;
 wire [15:0] ROM_DOUT;
 
 // manually make RAMB8BWERs, much more better then auto-wires (goes to ROM, but not optimally && there is distributed RAM, so takes 16K not 8K..), and much much better then reg (goes to RAM).
-ROM_39x120_min2 ROM_39x120_min2(
+ROM_39x240_70Vx110V_N20 ROM_39x240_70Vx110V_N20 (
   .clka(clk),
   .addra(addrs_q),
   .douta(ROM_DOUT)
@@ -135,7 +135,7 @@ always @(*) begin
     f6_CH_C_d=f6_CH_C_q;
     f6_CH_D_d=f6_CH_D_q;
 
-    if (go_home==1'b1) begin
+    if (exit==1'b1) begin
         cnt_d=cnt_q+1'b1;
         if (cnt_q==11'b0) begin
             // F1
@@ -340,7 +340,7 @@ always @(*) begin
     end else begin // if NOT go home
         case (state_q)
             READ_F1: begin
-                    addrs_d=f1_addr[16:2];
+                    addrs_d=f1_addr[17:2];
                     cnt_d=cnt_q+1'b1;
                     if (cnt_q==11'd2) begin
                         cnt_d=11'b0;
@@ -357,7 +357,7 @@ always @(*) begin
                     end
             end // READ_F1
             READ_F2: begin
-                    addrs_d=f2_addr[16:2];
+                    addrs_d=f2_addr[17:2];
                     cnt_d=cnt_q+1'b1;
                     if (cnt_q==11'd2) begin
                         cnt_d=11'b0;
@@ -374,7 +374,7 @@ always @(*) begin
                     end
             end // READ_F2
             READ_F3: begin
-                    addrs_d=f3_addr[16:2];
+                    addrs_d=f3_addr[17:2];
                     cnt_d=cnt_q+1'b1;
                     if (cnt_q==11'd2) begin
                         cnt_d=11'b0;
@@ -391,7 +391,7 @@ always @(*) begin
                     end 
             end // READ_F3
             READ_F4: begin
-                    addrs_d=f4_addr[16:2];
+                    addrs_d=f4_addr[17:2];
                     cnt_d=cnt_q+1'b1;
                     if (cnt_q==11'd2) begin
                         cnt_d=11'b0;
@@ -408,7 +408,7 @@ always @(*) begin
                     end 
             end // READ_F4
             READ_F5: begin
-                    addrs_d=f5_addr[16:2];
+                    addrs_d=f5_addr[17:2];
                     cnt_d=cnt_q+1'b1;
                     if (cnt_q==11'd2) begin
                         cnt_d=11'b0;
@@ -425,7 +425,7 @@ always @(*) begin
                     end 
             end // READ_F5
             READ_F6: begin
-                    addrs_d=f6_addr[16:2];
+                    addrs_d=f6_addr[17:2];
                     cnt_d=cnt_q+1'b1;
                     if (cnt_q==11'd2) begin
                         cnt_d=11'b0;

@@ -1,5 +1,3 @@
-// 1) removed pause
-
  module tdc_control #(
     parameter SHOOTING_PARAM = 5000000
     )(
@@ -13,6 +11,7 @@
     input tdc_SPI_busy,
     input fifo_writing_done, // FIFO feedback
     input pause,
+    input exit,
 
     // OUTPUT
     output start_signal,
@@ -38,7 +37,8 @@
     CALCULATE_CALIB_DIFF = 4'd10,
     WRITE_FIFO = 4'd11,
     WAIT_FIFO_WRITING = 4'd12,
-    CHECK_DATA = 4'd13;
+    CHECK_DATA = 4'd13,
+    PAUSE=4'd14;
 
   reg [STATE_SIZE-1:0] state_d, state_q;
   reg [5:0] addr_d, addr_q;
@@ -86,29 +86,28 @@
     data_TO_FIFO_d = data_TO_FIFO_q;
     wr_en_d = wr_en_q;
 
-    // if (exit) begin
-    //   state_d=IDLE;
-    // end
+    if (exit==1'b1) begin
+      state_d=IDLE;
+    end
+
+    if (pause==1'b1) begin
+      state_d=PAUSE;
+    end
 
 
-   // WAIT_FIFO_WRITING: begin
-        // CS_countr_d=16'd0;
-        // to make shoots uniform, so outside the case
-        if (fifo_writing_done==1'b1) begin //s1_fifi_writing e.g
-          // state_d=DELAY; // VERY IMPORTANT, otherwise will be meandr wr_en
-          wr_en_d = 1'b0;  // s1_wr_en e.g
-        end
-      // end  // WAIT_FIFO_WRITING
-
+    // to make shooting uniform, so outside the case
+    if (fifo_writing_done==1'b1) begin //s1_fifi_writing e.g
+      wr_en_d = 1'b0;  // s1_wr_en e.g
+    end
 
 
     case (state_q)
 
-      // PAUSE: begin
-      //   if (pause==1'b0) begin
-      //     state_d=DELAY;
-      //   end
-      // end // PAUSE
+      PAUSE: begin
+        if (pause==1'b0) begin
+          state_d=DELAY;
+        end
+      end // PAUSE
 
       IDLE: begin
         addr_d = 6'd0;
@@ -206,8 +205,8 @@
       end
       INTB_WAIT: begin
           CS_countr_d = CS_countr_q+1'b1;
-          // if (TDC_INTB == 1'b0 && CS_countr_q==16'd99) begin // second codition to make it unformaly.. somtimes INTB faster, sometimes slower.
-          if (CS_countr_q==16'd99) begin // second codition to make it unformaly.. somtimes INTB faster, sometimes slower.
+          // if (TDC_INTB == 1'b0 && CS_countr_q==16'd199) begin // second codition to make it unformaly.. somtimes INTB faster, sometimes slower.
+          if (CS_countr_q==16'd149) begin // second codition to make it unformaly.. somtimes INTB faster, sometimes slower.
             state_d = READ_TIME1;
             addr_d = 6'd20;
             start_d = 1'b1;
@@ -315,10 +314,21 @@
         data_TO_FIFO_d = {calib2_q-calib1_q, time1_q}; // 32bit
         wr_en_d=1'b1;
         state_d=DELAY;
-        CS_countr_d=16'd0;
+        // CS_countr_d=16'd0;
       end  // WRITE_FIFO
       // ALREADY SENT DATA, WAIT UNTIL it will be written to FIFO
    
+      // WAIT_FIFO_WRITING: begin
+      //   CS_countr_d=16'd0;
+      //   // to make shoots uniform, so outside the case
+      //   if (fifo_writing_done==1'b1) begin //s1_fifi_writing e.g
+      //     state_d=DELAY; // VERY IMPORTANT, otherwise will be meandr wr_en
+      //     wr_en_d = 1'b0;  // s1_wr_en e.g
+      //   end
+      // end  // WAIT_FIFO_WRITING
+
+
+
 
 
       // MEASUREMENT CYCLE END //

@@ -12,7 +12,7 @@ module mems_control_8 (
     output mems_SPI_start,
     output new_line,
     output new_frame,
-    output [16:0] addr
+    output [17:0] addr
   );
   
   reg new_line_d, new_line_q;//=1'b0;
@@ -32,7 +32,7 @@ module mems_control_8 (
     SET_CHANNEL = 2'd3;
  
   reg [STATE_SIZE-1:0] state_d, state_q;
-  reg [16:0] addr_d, addr_q;
+  reg [17:0] addr_d, addr_q;
   reg mems_SPI_start_d, mems_SPI_start_q; 
   reg play_d, play_q;
   wire rom_scan_is_done;
@@ -90,21 +90,20 @@ module mems_control_8 (
                     mems_SPI_start_d = 1'b1;    
 
                     // begin from the beginning if end reached.         
-                    if (addr_q==17'd37444) begin //75524 fro 59x160 //37444 for 39x120
+                    if (addr_q==18'd66148) begin //75524 fro 59x160 //37444 for 39x120 // 74884 for 39x240
                          addr_d = 17'd8;  
                     end else begin
                     
-    if (addr_q == 16'd463 || addr_q==16'd7183) begin
+    if (addr_q == 17'd547 || addr_q==17'd33611) begin
 
 
                             new_frame_d = 1'b1;
                     end else 
 
 
+if (addr_q == 18'd547 || addr_q == 18'd2243 || addr_q == 18'd3939 || addr_q == 18'd5635 || addr_q == 18'd7331 || addr_q == 18'd9027 || addr_q == 18'd10723 || addr_q == 18'd12419 || addr_q == 18'd14115 || addr_q == 18'd15811 || addr_q == 18'd17507 || addr_q == 18'd19203 || addr_q == 18'd20899 || addr_q == 18'd22595 || addr_q == 18'd24291 || addr_q == 18'd25987 || addr_q == 18'd27683 || addr_q == 18'd29379 || addr_q == 18'd31075 || addr_q == 18'd32771 || addr_q == 18'd34459 || addr_q == 18'd36155 || addr_q == 18'd37851 || addr_q == 18'd39547 || addr_q == 18'd41243 || addr_q == 18'd42939 || addr_q == 18'd44635 || addr_q == 18'd46331 || addr_q == 18'd48027 || addr_q == 18'd49723 || addr_q == 18'd51419 || addr_q == 18'd53115 || addr_q == 18'd54811 || addr_q == 18'd56507 || addr_q == 18'd58203 || addr_q == 18'd59899 || addr_q == 18'd61595 || addr_q == 18'd63291 || addr_q == 18'd64987 || addr_q == 18'd1395 || addr_q == 18'd3091 || addr_q == 18'd4787 || addr_q == 18'd6483 || addr_q == 18'd8179 || addr_q == 18'd9875 || addr_q == 18'd11571 || addr_q == 18'd13267 || addr_q == 18'd14963 || addr_q == 18'd16659 || addr_q == 18'd18355 || addr_q == 18'd20051 || addr_q == 18'd21747 || addr_q == 18'd23443 || addr_q == 18'd25139 || addr_q == 18'd26835 || addr_q == 18'd28531 || addr_q == 18'd30227 || addr_q == 18'd31923 || addr_q == 18'd33611 || addr_q == 18'd35307 || addr_q == 18'd37003 || addr_q == 18'd38699 || addr_q == 18'd40395 || addr_q == 18'd42091 || addr_q == 18'd43787 || addr_q == 18'd45483 || addr_q == 18'd47179 || addr_q == 18'd48875 || addr_q == 18'd50571 || addr_q == 18'd52267 || addr_q == 18'd53963 || addr_q == 18'd55659 || addr_q == 18'd57355 || addr_q == 18'd59051 || addr_q == 18'd60747 || addr_q == 18'd62443 || addr_q == 18'd64139 || addr_q==18'd65835) begin
 
-if (addr_q == 16'd463 || addr_q == 16'd1423) begin // || addr_q == 16'd2383 || addr_q == 16'd3343 || addr_q == 16'd4303 || addr_q == 16'd5263 || addr_q == 16'd6223 || addr_q == 16'd7183 || addr_q == 16'd8143 || addr_q == 16'd9103 || addr_q == 16'd10063 || addr_q == 16'd11023 || addr_q == 16'd11983 || addr_q == 16'd12943 || addr_q == 16'd13903 || addr_q == 16'd14863 || addr_q == 16'd15823 || addr_q == 16'd16783 || addr_q == 16'd17743 || addr_q == 16'd18703 || addr_q == 16'd19663 || addr_q == 16'd20623 || addr_q == 16'd21583 || addr_q == 16'd22543 || addr_q == 16'd23503 || addr_q == 16'd24463 || addr_q == 16'd25423 || addr_q == 16'd26383 || addr_q == 16'd27343 || addr_q == 16'd28303 || addr_q == 16'd29263 || addr_q == 16'd30223 || addr_q == 16'd31183 || addr_q == 16'd32143 || addr_q == 16'd33103 || addr_q == 16'd34063 || addr_q == 16'd35023 || addr_q == 16'd35983 || addr_q == 16'd36943 || addr_q == 16'd943 || addr_q == 16'd1903 || addr_q == 16'd2863 || addr_q == 16'd3823 || addr_q == 16'd4783 || addr_q == 16'd5743 || addr_q == 16'd6703 || addr_q == 16'd7663 || addr_q == 16'd8623 || addr_q == 16'd9583 || addr_q == 16'd10543 || addr_q == 16'd11503 || addr_q == 16'd12463 || addr_q == 16'd13423 || addr_q == 16'd14383 || addr_q == 16'd15343 || addr_q == 16'd16303 || addr_q == 16'd17263 || addr_q == 16'd18223 || addr_q == 16'd19183 || addr_q == 16'd20143 || addr_q == 16'd21103 || addr_q == 16'd22063 || addr_q == 16'd23023 || addr_q == 16'd23983 || addr_q == 16'd24943 || addr_q == 16'd25903 || addr_q == 16'd26863 || addr_q == 16'd27823 || addr_q == 16'd28783 || addr_q == 16'd29743 || addr_q == 16'd30703 || addr_q == 16'd31663 || addr_q == 16'd32623 || addr_q == 16'd33583 || addr_q == 16'd34543 || addr_q == 16'd35503 || addr_q == 16'd36463 || addr_q==16'd37423) begin
-
-                        new_line_d=1'b1;
+                     new_line_d=1'b1;
                    end 
 
 
