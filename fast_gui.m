@@ -4,6 +4,8 @@ delete(instrfindall); % remove already opened serial
 main();
 
 function main()
+
+    % global MODE_NOT_CHAGED=true;
     % EXIT=0;
     % % parallel processing initialization
     % if ~exist('p','Var')   
@@ -17,27 +19,27 @@ function main()
     baud_rate=4000000;
     buffer_size=30000; % in bytes
     % VERY IMPORTANT PARAM! should be num_of_frames*size_of_frame*~0.8
-    size_to_read=5000; % read when reached in buffer. the bigger -> the bigger chance to get 2 error -  even/odd elements after reading
+    size_to_read=12000; % read when reached in buffer. the bigger -> the bigger chance to get 2 error -  even/odd elements after reading
     record_time=600; % profile time
     
     % GLOBAL
     % x_size=210;
     % y_size=32;
 
-    % x_size=180;
-    % y_size=12;
+    x_size=320;
+    y_size=5;
  
-    x_size=260;
-    y_size=65;
+    % x_size=260;
+    % y_size=65;
 
     % plot settings
     type_of_M='double'; 
     type_of_A='double'; % can be uint32 & double() below.. but not much speed increased
 
-    number_of_sub=2;
+    number_of_sub=3;
     first_frame_reverse=false;
     first_line_reverse=true;
-    show_x_min=0;
+    show_x_min=1;
     show_x_max=x_size;
     show_y_min=0;
     show_y_max=y_size;
@@ -113,7 +115,8 @@ function main()
 
     % fileID = fopen('serial_checking.txt','w');
     if ~exist('h','Var')   
-        h=figure('Name','LViewer','NumberTitle','off','MenuBar', 'none', 'ToolBar','none','units','normalized','outerposition',[0 0 1 1], 'color', 'black');
+        % h=figure('Name','LViewer','NumberTitle','off','MenuBar', 'none', 'ToolBar','none','units','normalized','outerposition',[0 0 1 1], 'color', 'black');
+        h=figure('MenuBar', 'none', 'ToolBar','none','units','normalized','outerposition',[0 0 1 1], 'color', 'black');
         
         bg = uibuttongroup(h, 'Visible','off',...
                   'Position',[0 0 1 .075],...
@@ -124,19 +127,23 @@ function main()
                           'String','Option 1',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.05 0 0.5 0.8],...
-                          'HandleVisibility','off');
+                          'HandleVisibility','off',...
+                          'Callback', @r1_callback);
                       
         S.r2 = uicontrol(bg,'Style','radiobutton',...
                           'String','Option 2',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.15 0 0.5 0.8],...
-                          'HandleVisibility','off');
+                          'Value',0,...
+                          'HandleVisibility','off',...
+                          'Callback', @r2_callback);
 
         S.r3 = uicontrol(bg,'Style','radiobutton',...
                           'String','Option 3',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.25 0 0.5 0.8],...
-                          'HandleVisibility','off');
+                          'HandleVisibility','off',...
+                          'Callback', @r3_callback);
 
         S.sl = uicontrol(bg,'Style','slider',...
                           'String','Distance range',...
@@ -236,28 +243,28 @@ function main()
         ax.YLim=[show_y_min, show_y_max];
         % set(ha,'YTickLabel',[]) 
         % % F3
-        % axes(ha(3));
-        % pl(3)=image(M_3,'CDataMapping','scaled');
-        % if (~show_separated_lines)
-        %     axis off;
-        % end
-        % ax=gca;
-        % % to make drawnow faster, since defined already
-        % set(ax, 'xlimmode','manual',...
-        %    'ylimmode','manual',...
-        %    'zlimmode','manual',...
-        %    'climmode','manual',...
-        %    'alimmode','manual');
-        % ax.CLim = [color(1) color(2)]; % color limit
-        % ax.Color=[0 0 0];
-        % ax.YTick = [0:y_tick_step:show_y_max];
-        % ax.XTick = [0:x_tick_step:show_x_max];
-        % ax.YAxisLocation = 'left';
-        % ax.XColor=[1,1,1];
-        % ax.YColor=[1,1,1];
-        % ax.XLim=[show_x_min, show_x_max];
-        % ax.YLim=[show_y_min, show_y_max];
-        % % set(ha,'YTickLabel',[]) 
+        axes(ha(3));
+        pl(3)=image(M_3,'CDataMapping','scaled');
+        if (~show_separated_lines)
+            axis off;
+        end
+        ax=gca;
+        % to make drawnow faster, since defined already
+        set(ax, 'xlimmode','manual',...
+           'ylimmode','manual',...
+           'zlimmode','manual',...
+           'climmode','manual',...
+           'alimmode','manual');
+        ax.CLim = [color(1) color(2)]; % color limit
+        ax.Color=[0 0 0];
+        ax.YTick = [0:y_tick_step:show_y_max];
+        ax.XTick = [0:x_tick_step:show_x_max];
+        ax.YAxisLocation = 'left';
+        ax.XColor=[1,1,1];
+        ax.YColor=[1,1,1];
+        ax.XLim=[show_x_min, show_x_max];
+        ax.YLim=[show_y_min, show_y_max];
+        % set(ha,'YTickLabel',[]) 
         % % F4
         % axes(ha(4));
         % pl(4)=image(M_4,'CDataMapping','scaled');
@@ -326,7 +333,7 @@ function main()
         % ax.YColor=[1,1,1];
         % ax.XLim=[show_x_min, show_x_max];
         % ax.YLim=[show_y_min, show_y_max];
-        % % set(ha,'YTickLabel',[]) 
+        % % % % set(ha,'YTickLabel',[]) 
         
 
 
@@ -386,6 +393,8 @@ function main()
         s.BytesAvailableFcnMode = 'byte';
         s.BytesAvailableFcn = {@READY_TO_READ};
         fopen(s); 
+        % fwrite(s,uint8('s'),'uint8')
+        % delay_ms(100);
         % send start command
         fwrite(s,uint8('d'),'uint8')
     
@@ -408,7 +417,8 @@ function main()
             delay_ms(10000);
         end
 
-        % both of them 16 bit -> it also 16bit; PREALLOCATED for out can be done...
+        try
+        % both of them 8 bit -> it also 8bit; PREALLOCATED for out can be done...
         new = [left_new; uint16(fread(s,size_to_read,'uint8'))];
 
         zeros_amount=6;
@@ -429,12 +439,12 @@ function main()
         end
 
             
+
         left_new=new(idx_last-1:end);
         new = new(idx_begin-1:idx_last-2);
         % size(new);
         % fprintf(fileID,'%d\n', new); 
         new_length=length(new)/2;
-        try
             good_out=zeros(1,new_length,'uint16');
         catch
             % fileID = fopen('serial_checking.txt','w');
@@ -443,6 +453,7 @@ function main()
 
             bad_counter=bad_counter+1;
             disp('bad data..')
+            flushinput(s)
             A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array. Don't forget about x4;
             A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % uint32 is fine. CALIB2 is ~32000
             A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % 
@@ -524,18 +535,19 @@ function main()
         try
             % line_reversed
             % first_line_reverse
-            % X1();
+            X1();
             X2();
-            % X3();
+            X3();
             % X4();
             % X5();
             % X6();
             
         catch
             disp('smth wrong in X()..')
+            flushinput(s)
         end
 
-            if (redraw_1==true || redraw_2==true  || redraw_3==true ||redraw_4==true || redraw_5==true || redraw_6==true)
+            if (redraw_1==true) % &&  redraw_2==true  && redraw_3==true)% ||redraw_4==true || redraw_5==true || redraw_6==true)
             % if (redraw_1==true && redraw_2==true  && redraw_3==true && redraw_4==true && redraw_5==true && redraw_6==true) 
                 counter=counter+1;
                 redraw_1=false;
@@ -562,7 +574,6 @@ function main()
 
 
     %% NESTED FOR READY_TO_READ %%%
-                %% A2 contains all point for sub #2
         function X1()
             find_1_all_idx = find(good_out==1); % find indexes of all points 
             if (new_frame_1_idx == 0) % no new frame for sub_1
@@ -572,7 +583,6 @@ function main()
                     A_1(3*i-2:3*i) = good_out(find_1_all_idx(i-len_1_before):find_1_all_idx(i-len_1_before)+2);
                 end
                 len_1_before=len_1_before+len_1;
-
             else % we have new frame, so first fill before new_line, process it  and then fill data after new_line
                 len_1=find(find_1_all_idx==new_frame_1_idx)-1; % how many points until new frame
                 for i=len_1_before+1:len_1_before+len_1
@@ -627,8 +637,8 @@ function main()
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if we dont need to reverse
                                     % disp('not reversed')
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_1(temp_row_1,j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_1(temp_row_1,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -641,8 +651,8 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_1(temp_row_1,size_A_sepi+1-j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_1(temp_row_1,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -674,8 +684,8 @@ function main()
                             % loop within selected line
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if not reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_1(temp_row_1,j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_1(temp_row_1,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -685,8 +695,8 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_1(temp_row_1,size_A_sepi+1-j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_1(temp_row_1,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -716,11 +726,6 @@ function main()
 
                 set(pl(1),'CData',M_1);
                 redraw_1=true;    
-
-
-
-                % only for testing
-                % M_1_backup=M_1;
 
                 %% Previous frame is done -> A_1 is complete -> prcess it
                 M_1=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M);
@@ -753,7 +758,6 @@ function main()
                     A_2(3*i-2:3*i) = good_out(find_2_all_idx(i-len_2_before):find_2_all_idx(i-len_2_before)+2);
                 end
                 len_2_before=len_2_before+len_2;
-
             else % we have new frame, so first fill before new_line, process it  and then fill data after new_line
                 len_2=find(find_2_all_idx==new_frame_2_idx)-1; % how many points until new frame
                 for i=len_2_before+1:len_2_before+len_2
@@ -962,7 +966,7 @@ function main()
 
 
     %% A2 contains all point for sub #2
-        function X3()
+         function X3()
             find_3_all_idx = find(good_out==3); % find indexes of all points 
             if (new_frame_3_idx == 0) % no new frame for sub_3
                 len_3 = length(find_3_all_idx); % how many points in this package
@@ -971,7 +975,6 @@ function main()
                     A_3(3*i-2:3*i) = good_out(find_3_all_idx(i-len_3_before):find_3_all_idx(i-len_3_before)+2);
                 end
                 len_3_before=len_3_before+len_3;
-
             else % we have new frame, so first fill before new_line, process it  and then fill data after new_line
                 len_3=find(find_3_all_idx==new_frame_3_idx)-1; % how many points until new frame
                 for i=len_3_before+1:len_3_before+len_3
@@ -982,6 +985,7 @@ function main()
                 %%% SEPARATION %%%
                 new_lines=find(A_3==13);
                 len=length(new_lines)/2;
+
                 if (len~=0) % sometimes we can read only new frame, without new_line
                     % remove last 2 digits from 13 13 13, % overflow sometimes.. for clean_new_lines                    
                     clean_new_lines=zeros(1,len,'uint32');
@@ -997,17 +1001,21 @@ function main()
                     for i=2:len % if <1 not processing.
                         A_sep{i} = A_3(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
                     end
+                    % zero_index_all=find(A_3==0,number_of_zeros,'first')-1; % we have keeping MORE!!! some times we have 0 in REAL data (ALREADY FIXED IN FPGA.., but anyway keep it)
+                    
+                    % try % sometimes we start from case, when first line is empty -> wrong zero_first..
+                    % zero_index=zero_index_all(end); % take real matrix zeros..
+                    
+
                     [~,size_asep]=size(A_sep{len});
                     % zero_index - clean_new_lines(len)+2
                     % if ((zero_index - clean_new_lines(len)+2)> size_asep)
                     % clean_new_lines(len)
                     % clean_new_lines(len-1)
                     zero_index = clean_new_lines(len)+size_asep;
-
-                    % [~,size_asep]=size(A_sep{len});
-                    % if ((zero_index - clean_new_lines(len)+2)> size_asep)
-                       % zero_index = clean_new_lines(len)+2 + size_asep;
                     % end
+
+
 
                     A_sep{len+1}=A_3(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
                     % catch           
@@ -1026,25 +1034,44 @@ function main()
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if we dont need to reverse
                                     % disp('not reversed')
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_3(temp_row_3,j)=replace_zero_to;
+
+
+                                 % if (A_sep{i}(3*(j-1)+2)>500)
+
+                                 %        A_sep{i}(3*(j-1)+2:3*(j-1)+3)
+                                 %        % M_3(temp_row_3,size_A_sepi+1-j)=0;
+                                 % end
+
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_3(temp_row_3,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
                                             % M_3(temp_row_3, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
-                                            M_3(temp_row_3, j)=A_sep{i}(3*(j-1)+2)*720*0.15 / ( A_sep{i}(3*(j-1)+3) ); % in
+                                            M_3(temp_row_3, j)=  A_sep{i}(3*(j-1)+2)*720*0.15 /   A_sep{i}(3*(j-1)+3)     ; % in
+
+                                            % double(A_sep{i}(3*(j-1)+2)*720*0.15) / ( A_sep{i}(3*(j-1)+3) )) % in
                                             % A_sep{i}(3*(j-1)+2)*720*0.15/ ( A_sep{i}(3*(j-1)+3) )
                                         % catch
                                             % disp('wasted M_3');
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_3(temp_row_3,size_A_sepi+1-j)=replace_zero_to;
+
+      
+                                 % if (A_sep{i}(3*(j-1)+2)>500)
+
+                                 %        A_sep{i}(3*(j-1)+2:3*(j-1)+3)
+                                 %        % M_3(temp_row_3,size_A_sepi+1-j)=0;
+                                 % end
+
+
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_3(temp_row_3,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
-                                            M_3(temp_row_3, size_A_sepi+1-j)=A_sep{i}(3*(j-1)+2)*720*0.15  / ( A_sep{i}(3*(j-1)+3) ); % in
+                                            M_3(temp_row_3, size_A_sepi+1-j)= A_sep{i}(3*(j-1)+2)*720*0.15 / A_sep{i}(3*(j-1)+3) ; % in
                                         % catch
                                             % disp('wasted M_3');
                                         % end % try
@@ -1069,26 +1096,41 @@ function main()
                         M_3(len+2,:)=M_3_not_reversed_frame_last_line;
                         for i=len+1:-1:1
                             size_A_sepi=fix(length(A_sep{i})/3);
-                            % loop within selected line
                             for j=1:size_A_sepi
-                                if (~line_reversed) % if not reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_3(temp_row_3,j)=replace_zero_to;
+                                if (~line_reversed) % if not reversed1
+
+                                 % if (A_sep{i}(3*(j-1)+2)>500)
+
+                                 %        A_sep{i}(3*(j-1)+2:3*(j-1)+3)
+                                 %        % M_3(temp_row_3,size_A_sepi+1-j)=0;
+                                 % end
+
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_3(temp_row_3,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
-                                            M_3(temp_row_3, j)=A_sep{i}(3*(j-1)+2)*720*0.15 / ( A_sep{i}(3*(j-1)+3) ); % in
+                                            M_3(temp_row_3, j)=A_sep{i}(3*(j-1)+2)*720*0.15 /  A_sep{i}(3*(j-1)+3) ; % in
                                         % catch
                                             % disp('wasted M_3');
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_3(temp_row_3,size_A_sepi+1-j)=replace_zero_to;
+                                 
+
+                                 % if (A_sep{i}(3*(j-1)+2)>500)
+                                 %        A_sep{i}(3*(j-1)+2:3*(j-1)+3)
+
+                                 %        % M_3(temp_row_3,size_A_sepi+1-j)=0;
+                                 % end
+
+
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_3(temp_row_3,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
-                                            M_3(temp_row_3, size_A_sepi+1-j)=A_sep{i}(3*(j-1)+2)*720*0.15 / ( A_sep{i}(3*(j-1)+3) ); % in
+                                            M_3(temp_row_3, size_A_sepi+1-j)=A_sep{i}(3*(j-1)+2)*720*0.15 /  A_sep{i}(3*(j-1)+3) ; % in
                                         % catch
                                             % disp('wasted M_3');
                                         % end % try
@@ -1112,11 +1154,16 @@ function main()
                 set(pl(3),'CData',M_3);
                 redraw_3=true;    
 
-
-
                 % only for testing
-                % M_3_backup=M_3;
+                % disp('min')
+                % max(min(M_3))
+                % disp('max')
+                % max(max(M_3))
+                % M_3_backup=M_3
+                % A_3
 
+                % delay_ms(10000)
+                % break
                 %% Previous frame is done -> A_3 is complete -> prcess it
                 M_3=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M);
                 A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % +1 since new line saved in this array
@@ -1133,6 +1180,8 @@ function main()
             end % new_frame_3
 
         end % function X3
+
+
 
     %% A2 contains all point for sub #2
         function X4()
@@ -1197,8 +1246,8 @@ function main()
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if we dont need to reverse
                                     % disp('not reversed')
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_4(temp_row_4,j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_4(temp_row_4,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1210,8 +1259,8 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_4(temp_row_4,size_A_sepi+1-j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_4(temp_row_4,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1243,8 +1292,8 @@ function main()
                             % loop within selected line
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if not reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_4(temp_row_4,j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_4(temp_row_4,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1254,8 +1303,8 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_4(temp_row_4,size_A_sepi+1-j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_4(temp_row_4,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1372,8 +1421,8 @@ function main()
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if we dont need to reverse
                                     % disp('not reversed')
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_5(temp_row_5,j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_5(temp_row_5,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1385,8 +1434,8 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_5(temp_row_5,size_A_sepi+1-j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_5(temp_row_5,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1418,8 +1467,8 @@ function main()
                             % loop within selected line
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if not reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_5(temp_row_5,j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_5(temp_row_5,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1429,8 +1478,8 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_5(temp_row_5,size_A_sepi+1-j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_5(temp_row_5,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1542,8 +1591,8 @@ function main()
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if we dont need to reverse
                                     % disp('not reversed')
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_6(temp_row_6,j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_6(temp_row_6,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1555,8 +1604,8 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_6(temp_row_6,size_A_sepi+1-j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_6(temp_row_6,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1588,8 +1637,8 @@ function main()
                             % loop within selected line
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if not reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_6(temp_row_6,j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_6(temp_row_6,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1599,8 +1648,8 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==0)
-                                        M_6(temp_row_6,size_A_sepi+1-j)=replace_zero_to;
+                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                        M_6(temp_row_6,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
                                         % try
@@ -1686,8 +1735,225 @@ function main()
     end % function
 
 
+    function r1_callback(source, event)
+
+        % MODE_NOT_CHAGED=false;
+                % flushinput(s);
+
+
+        left_new=uint16([]);
+        disp('mode 1');
+
+
+        x_size=320;
+        y_size=5;
+        show_x_min=1;
+        show_x_max=x_size;
+        show_y_min=0;
+        show_y_max=y_size;
+
+        set(ha(:),'XLim',[show_x_min show_x_max]);
+        set(ha(:),'YLim',[show_y_min show_y_max]);
+        set(ha(:), 'XTick', [0:x_tick_step:show_x_max]);
+        set(ha(:), 'YTick', [0:y_tick_step:show_y_max]);
+
+
+        %X1
+        maximum_x_points_1= x_size; % make it bigger 5% 
+        maximum_y_points_1= y_size; % make it bigger 5%
+        temp_row_1=1;
+        len_1_before=0;
+        new_frame_1_idx=0;
+        redraw_1=false;
+
+        M_1=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M);
+        A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array
+        M_1_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_1_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+
+        %X2
+        maximum_x_points_2= x_size; % make it bigger 5% 
+        maximum_y_points_2= y_size; % make it bigger 5%
+        temp_row_2=1;
+        len_2_before=0;
+        new_frame_2_idx=0;
+        redraw_2=false;
+
+        M_2=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M);
+        A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % +1 since new line saved in this array
+        M_2_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        % drawnow
+
+        %X3
+        maximum_x_points_3= x_size; % make it bigger 5% 
+        maximum_y_points_3= y_size; % make it bigger 5%
+        temp_row_3=1;
+        len_3_before=0;
+        new_frame_3_idx=0;
+        redraw_3=false;
+
+        M_3=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M);
+        A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % +1 since new line saved in this array
+        M_3_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_3_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        % MODE_NOT_CHAGED=true;
+
+        fwrite(s,uint8('h'),'uint8');
+        delay_ms(50); % wait to get bias
+        flushinput(s);
+        fwrite(s,uint8('d'),'uint8');
+
+    end
+
+
+    function r2_callback(source, event)
+        % MODE_NOT_CHAGED=false;
+            % flushinput(s);
+        left_new=uint16([]);
+
+        % serialbreak(s,5000);
+        disp('mode 2');
+
+        % x_size=140;
+        % y_size=10;
+        
+        x_size=280;
+        y_size=35;
+
+        show_x_min=1;
+        show_x_max=x_size;
+        show_y_min=0;
+        show_y_max=y_size;
+
+
+        set(ha(:),'XLim',[show_x_min show_x_max]);
+        set(ha(:),'YLim',[show_y_min show_y_max]);
+        set(ha(:), 'XTick', [0:x_tick_step:show_x_max]);
+        set(ha(:), 'YTick', [0:y_tick_step:show_y_max]);
+
+        %X1
+        maximum_x_points_1= x_size; % make it bigger 5% 
+        maximum_y_points_1= y_size; % make it bigger 5%
+        temp_row_1=1;
+        len_1_before=0;
+        new_frame_1_idx=0;
+        redraw_1=false;
+
+        M_1=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M);
+        A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array
+        M_1_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_1_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+
+        %X2
+        maximum_x_points_2= x_size; % make it bigger 5% 
+        maximum_y_points_2= y_size; % make it bigger 5%
+        temp_row_2=1;
+        len_2_before=0;
+        new_frame_2_idx=0;
+        redraw_2=false;
+
+        M_2=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M);
+        A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % +1 since new line saved in this array
+        M_2_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+
+        %X3
+        maximum_x_points_3= x_size; % make it bigger 5% 
+        maximum_y_points_3= y_size; % make it bigger 5%
+        temp_row_3=1;
+        len_3_before=0;
+        new_frame_3_idx=0;
+        redraw_3=false;
+
+        M_3=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M);
+        A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % +1 since new line saved in this array
+        M_3_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_3_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+
+        % MODE_NOT_CHAGED=true;
+
+        % set(pl(2),'CData',M_2);
+
+
+        fwrite(s,uint8('h'),'uint8');
+        delay_ms(50); % wait to get bias
+        flushinput(s);
+        fwrite(s,uint8('f'),'uint8');
+    end
+
+
+    function r3_callback(source, event)
+        left_new=uint16([]);
+
+        % serialbreak(s,5000);
+        disp('mode 3');
+
+        x_size=280;
+        y_size=35;
+
+        show_x_min=1;
+        show_x_max=x_size;
+        show_y_min=0;
+        show_y_max=y_size;
+
+
+        set(ha(:),'XLim',[show_x_min show_x_max]);
+        set(ha(:),'YLim',[show_y_min show_y_max]);
+        set(ha(:), 'XTick', [0:x_tick_step:show_x_max]);
+        set(ha(:), 'YTick', [0:y_tick_step:show_y_max]);
+
+        %X1
+        maximum_x_points_1= x_size; % make it bigger 5% 
+        maximum_y_points_1= y_size; % make it bigger 5%
+        temp_row_1=1;
+        len_1_before=0;
+        new_frame_1_idx=0;
+        redraw_1=false;
+
+        M_1=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M);
+        A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array
+        M_1_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_1_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+
+        %X2
+        maximum_x_points_2= x_size; % make it bigger 5% 
+        maximum_y_points_2= y_size; % make it bigger 5%
+        temp_row_2=1;
+        len_2_before=0;
+        new_frame_2_idx=0;
+        redraw_2=false;
+
+        M_2=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M);
+        A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % +1 since new line saved in this array
+        M_2_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+
+        %X3
+        maximum_x_points_3= x_size; % make it bigger 5% 
+        maximum_y_points_3= y_size; % make it bigger 5%
+        temp_row_3=1;
+        len_3_before=0;
+        new_frame_3_idx=0;
+        redraw_3=false;
+
+        M_3=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M);
+        A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % +1 since new line saved in this array
+        M_3_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_3_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+
+
+        fwrite(s,uint8('h'),'uint8');
+        delay_ms(50);
+        flushinput(s);
+        fwrite(s,uint8('g'),'uint8');
+    end
+
+
     function reverse_image(source, event)
+        frame_reversed_1=~frame_reversed_1;
         frame_reversed_2=~frame_reversed_2;
+        frame_reversed_3=~frame_reversed_3;
     end
 
 
@@ -1709,6 +1975,7 @@ function main()
     function exit_callback(source,event)
         % EXIT=1;
         fwrite(s,uint8('h'),'uint8');
+        fclose(s);
         close
         clear
         return
