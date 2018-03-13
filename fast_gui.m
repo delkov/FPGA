@@ -19,24 +19,29 @@ function main()
     baud_rate=4000000;
     buffer_size=30000; % in bytes
     % VERY IMPORTANT PARAM! should be num_of_frames*size_of_frame*~0.8
-    size_to_read=12000; % read when reached in buffer. the bigger -> the bigger chance to get 2 error -  even/odd elements after reading
+    size_to_read=4000; % read when reached in buffer. the bigger -> the bigger chance to get 2 error -  even/odd elements after reading
     record_time=600; % profile time
     
     % GLOBAL
-    % x_size=210;
-    % y_size=32;
+    start_command='f';
 
-    x_size=320;
-    y_size=5;
+    x_size=140;
+    y_size=30;
  
-    % x_size=260;
-    % y_size=65;
+
+    % image_correction
+    filter_data=0;
+    corr_on=0;
+    max_shift=1000;
 
     % plot settings
-    type_of_M='double'; 
-    type_of_A='double'; % can be uint32 & double() below.. but not much speed increased
-
     number_of_sub=3;
+    replace_if_bigger_than=40; 
+    color=[0 5];
+
+
+
+    show_separated_lines = 1;
     first_frame_reverse=false;
     first_line_reverse=true;
     show_x_min=1;
@@ -45,13 +50,13 @@ function main()
     show_y_max=y_size;
     y_tick_step=1;
     x_tick_step=40;
-    color=[0 8];
     show_colorbar = 0;
-    show_separated_lines = 1;
+    type_of_M='double'; 
+    type_of_A='double'; % can be uint32 & double() below.. but not much speed increased
 
-    show_dimenshions=1;
+    show_dimenshions_in_terminal=1;
 
-    replace_what=1488; 
+
     replace_to=100; % replace "overflow/bad_data" because of bad connecton
 
     %X1
@@ -169,7 +174,22 @@ function main()
                           'Callback', @reverse_image);      
 
 
-        S.btn2 = uicontrol(bg, 'Style', 'pushbutton', 'String', 'Pause',...
+        S.btn2 = uicontrol(bg, 'Style', 'checkbox', 'String', 'Filter',...
+                          'Units', 'normalized',...
+                          'OuterPosition',[0.68 0.2 0.05 0.4],...
+                          'HandleVisibility','on',...
+                          'Callback', @filter_data_callback);    
+
+
+
+        S.btn3 = uicontrol(bg, 'Style', 'checkbox', 'String', 'CORR',...
+                          'Units', 'normalized',...
+                          'OuterPosition',[0.72 0.2 0.05 0.4],...
+                          'HandleVisibility','on',...
+                          'Callback', @corr_on_callback);    
+
+
+        S.btn4 = uicontrol(bg, 'Style', 'pushbutton', 'String', 'Pause',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.82 0.2 0.05 0.4],...
                           'HandleVisibility','on',...
@@ -177,7 +197,7 @@ function main()
                           'Callback', @pause_callback); 
 
 
-        S.btn3 = uicontrol(bg, 'Style', 'pushbutton', 'String', 'EXIT',...
+        S.btn5 = uicontrol(bg, 'Style', 'pushbutton', 'String', 'EXIT',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.875 0.2 0.05 0.4],...
                           'HandleVisibility','on',...
@@ -195,12 +215,17 @@ function main()
 
         % cla
         ax = axes('Parent', h);        
-        [ha, pos] = tight_subplot(1,number_of_sub,[0 0],[.09 .02],[.01 .01]);
+        [ha, pos] = tight_subplot(1,number_of_sub,[0 0],[.1 0.01],[.02 .01]);
         % F1
         axes(ha(1));
         pl(1)=image(M_1,'CDataMapping','scaled');
         if (~show_separated_lines)
-            axis off;
+            ax.XTick=[];
+            ax.YTick=[];
+            axis off
+        else
+            ax.YTick = [0:y_tick_step:show_y_max];
+            ax.XTick = [0:x_tick_step:show_x_max];
         end
         ax=gca;
         % to make drawnow faster, since defined already
@@ -211,8 +236,9 @@ function main()
            'alimmode','manual');
         ax.CLim = [color(1) color(2)]; % color limit
         ax.Color=[0 0 0];
-        ax.YTick = [0:y_tick_step:show_y_max];
-        ax.XTick = [0:x_tick_step:show_x_max];
+
+        % ax.YTick = [0:y_tick_step:show_y_max];
+        % ax.XTick = [0:x_tick_step:show_x_max];
         ax.YAxisLocation = 'left';
         ax.XColor=[1,1,1];
         ax.YColor=[1,1,1];
@@ -223,7 +249,12 @@ function main()
         axes(ha(2));
         pl(2)=image(M_2,'CDataMapping','scaled');
         if (~show_separated_lines)
-            axis off;
+            ax.XTick=[];
+            ax.YTick=[];
+            axis off
+        else
+            ax.YTick = [0:y_tick_step:show_y_max];
+            ax.XTick = [0:x_tick_step:show_x_max];
         end
         ax=gca;
         % to make drawnow faster, since defined already
@@ -234,8 +265,7 @@ function main()
            'alimmode','manual');
         ax.CLim = [color(1) color(2)]; % color limit
         ax.Color=[0 0 0];
-        ax.YTick = [0:y_tick_step:show_y_max];
-        ax.XTick = [0:x_tick_step:show_x_max];
+
         ax.YAxisLocation = 'left';
         ax.XColor=[1,1,1];
         ax.YColor=[1,1,1];
@@ -246,7 +276,12 @@ function main()
         axes(ha(3));
         pl(3)=image(M_3,'CDataMapping','scaled');
         if (~show_separated_lines)
-            axis off;
+            ax.XTick=[];
+            ax.YTick=[];
+            axis off
+        else
+            ax.YTick = [0:y_tick_step:show_y_max];
+            ax.XTick = [0:x_tick_step:show_x_max];
         end
         ax=gca;
         % to make drawnow faster, since defined already
@@ -257,8 +292,8 @@ function main()
            'alimmode','manual');
         ax.CLim = [color(1) color(2)]; % color limit
         ax.Color=[0 0 0];
-        ax.YTick = [0:y_tick_step:show_y_max];
-        ax.XTick = [0:x_tick_step:show_x_max];
+        % ax.YTick = [0:y_tick_step:show_y_max];
+        % ax.XTick = [0:x_tick_step:show_x_max];
         ax.YAxisLocation = 'left';
         ax.XColor=[1,1,1];
         ax.YColor=[1,1,1];
@@ -378,13 +413,11 @@ function main()
     start=tic;
     if(~exist('s','Var'))
         ser_list=seriallist()
-
         for i=1:1:length(ser_list)
             if (contains(ser_list(i), '/dev/ttyUSB'))
                 ser_number=i;
             end
         end
-
         serial_port=ser_list(ser_number)
         s = serial(serial_port,'BaudRate',baud_rate,'DataBits',8,'InputBufferSize',buffer_size); 
         % callback genetration
@@ -396,11 +429,10 @@ function main()
         % fwrite(s,uint8('s'),'uint8')
         % delay_ms(100);
         % send start command
-        fwrite(s,uint8('d'),'uint8')
+        fwrite(s,uint8(start_command),'uint8')
     
     end
 
-    % disp('11')/
     %% NESTED to MAIN %%
     function READY_TO_READ(~,~)
         % if(EXIT)
@@ -532,22 +564,22 @@ function main()
         % fetchOutputs(F)
         % completedIdx = fetchNext(F)
 
-        try
+        % try
             % line_reversed
             % first_line_reverse
-            X1();
+            % X1();
             X2();
-            X3();
+            % X3();
             % X4();
             % X5();
             % X6();
             
-        catch
-            disp('smth wrong in X()..')
-            flushinput(s)
-        end
+        % catch
+        %     disp('smth wrong in X()..')
+        %     flushinput(s)
+        % end
 
-            if (redraw_1==true) % &&  redraw_2==true  && redraw_3==true)% ||redraw_4==true || redraw_5==true || redraw_6==true)
+            if (redraw_2==true &&  redraw_2==true  && redraw_3==true)% ||redraw_4==true || redraw_5==true || redraw_6==true)
             % if (redraw_1==true && redraw_2==true  && redraw_3==true && redraw_4==true && redraw_5==true && redraw_6==true) 
                 counter=counter+1;
                 redraw_1=false;
@@ -557,9 +589,17 @@ function main()
                 redraw_5=false;
                 redraw_6=false;
 
-                % if(counter==15)
+                % try
+                %     M_2(30,:)
+                % size(find(M_2(30,:)==0,1,'first'))
+                % size(find(M_2(31,:)==0,1,'first'))
+
+                % catch
+                % end
+                % if(counter==5)
                 %     dlmwrite('real_corr_test.txt',M_2_backup);
-                %     find(M_2_backup(2,:)==0,5,'first')
+                %     disp('done')
+                %     % find(M_2_backup(2,:)==0,5,'first')
                 % end
 
                 drawnow nocallbacks %% more faster (25%) than just drawnow.
@@ -637,7 +677,7 @@ function main()
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if we dont need to reverse
                                     % disp('not reversed')
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_1(temp_row_1,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -651,7 +691,7 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_1(temp_row_1,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -684,7 +724,7 @@ function main()
                             % loop within selected line
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if not reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_1(temp_row_1,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -695,7 +735,7 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_1(temp_row_1,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -714,7 +754,7 @@ function main()
 
 
                         M_1_reversed_frame_last_line=M_1(1,:);
-                        if (show_dimenshions)
+                        if (show_dimenshions_in_terminal)
                             find(M_1(1,:)==0,1,'first')
                         end
                     end % frame reversed
@@ -785,10 +825,8 @@ function main()
                         A_sep{i} = A_2(clean_new_lines(i-1)+2:clean_new_lines(i)-2);
                     end
                     % zero_index_all=find(A_2==0,number_of_zeros,'first')-1; % we have keeping MORE!!! some times we have 0 in REAL data (ALREADY FIXED IN FPGA.., but anyway keep it)
-                    
                     % try % sometimes we start from case, when first line is empty -> wrong zero_first..
                     % zero_index=zero_index_all(end); % take real matrix zeros..
-                    
 
                     [~,size_asep]=size(A_sep{len});
                     % zero_index - clean_new_lines(len)+2
@@ -798,12 +836,15 @@ function main()
                     zero_index = clean_new_lines(len)+size_asep;
                     % end
 
-
-
                     A_sep{len+1}=A_2(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
                     % catch           
                     % end
                     % start from the beggining both for reversde & not reversed frames
+
+
+
+
+
 
                     if (~frame_reversed_2) % we dont need to reverse frame..
                         M_2(1,:)=M_2_reversed_frame_last_line;
@@ -813,140 +854,230 @@ function main()
                         % loop for all lines
                         for i=1:len+1
                             size_A_sepi=fix(length(A_sep{i})/3); % sometimes we have zero in data (so we use line 483) and this size is not divided by 3..
-                            % loop within selected line
+                            
+                            % loop for selected line
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if we dont need to reverse
-                                    % disp('not reversed')
+
+                                    M_2(temp_row_2, j)=  A_sep{i}(3*(j-1)+2)*720*0.15 /   A_sep{i}(3*(j-1)+3)     ; % in
 
 
-                                 % if (A_sep{i}(3*(j-1)+2)>500)
+                                    if filter_data
+                                        if (M_2(temp_row_2, j) >= replace_if_bigger_than)
+                                            replace_idx=find(M_2(temp_row_2,j-1:-1:1)<replace_if_bigger_than,1,'first');
+                                            if replace_idx>0
+                                                replace_idx=j-replace_idx;
+                                                M_2(temp_row_2,j)=M_2(temp_row_2, replace_idx);
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 1')
+                                            end
+                                        elseif (M_2(temp_row_2, j) == 0)
+                                            replace_idx=find(M_2(temp_row_2,j-1:-1:1) ~= 0,1,'first');
+                                            if replace_idx>0
+                                                replace_idx=j-replace_idx;
+                                                M_2(temp_row_2,j)=M_2(temp_row_2, replace_idx);
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 1')
+                                            end
+                                        end
+                                    end
 
-                                 %        A_sep{i}(3*(j-1)+2:3*(j-1)+3)
-                                 %        % M_2(temp_row_2,size_A_sepi+1-j)=0;
-                                 % end
+                                else   % if we must reversed line
+                                    M_2(temp_row_2, size_A_sepi+1-j)= A_sep{i}(3*(j-1)+2)*720*0.15 / A_sep{i}(3*(j-1)+3) ; % in
 
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
-                                        M_2(temp_row_2,j)=replace_to;
-                                    else
-                                        % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                                        % try
-                                            % M_2(temp_row_2, j)=A_sep{i}(3*(j-1)+2)*80*(10-1) / ( A_sep{i}(3*(j-1)+3) ); % in
-                                            M_2(temp_row_2, j)=  A_sep{i}(3*(j-1)+2)*720*0.15 /   A_sep{i}(3*(j-1)+3)     ; % in
+                                    if filter_data
+                                        if (M_2(temp_row_2, size_A_sepi+1-j) >= replace_if_bigger_than)
+                                            replace_idx=find(M_2(temp_row_2, size_A_sepi+1-j:end)<replace_if_bigger_than,1,'first');
+                                            if replace_idx>0
+                                                replace_idx=replace_idx+size_A_sepi+1-j;
+                                                M_2(temp_row_2,size_A_sepi+1-j)=M_2(temp_row_2, replace_idx);
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 2')
+                                            end
+                                        elseif (M_2(temp_row_2, size_A_sepi+1-j) == 0)
+                                            replace_idx=find(M_2(temp_row_2, size_A_sepi+1-j:end)>0,1,'first');
+                                            if replace_idx>0
+                                                replace_idx=replace_idx+size_A_sepi+1-j;
+                                                M_2(temp_row_2,size_A_sepi+1-j)=M_2(temp_row_2, replace_idx);
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 2')
+                                            end
+                                        end
+                                    end
 
-                                            % double(A_sep{i}(3*(j-1)+2)*720*0.15) / ( A_sep{i}(3*(j-1)+3) )) % in
-                                            % A_sep{i}(3*(j-1)+2)*720*0.15/ ( A_sep{i}(3*(j-1)+3) )
-                                        % catch
-                                            % disp('wasted M_2');
-                                        % end % try
-                                    end     
-                                else   % if we must reversed
-
-      
-                                 % if (A_sep{i}(3*(j-1)+2)>500)
-
-                                 %        A_sep{i}(3*(j-1)+2:3*(j-1)+3)
-                                 %        % M_2(temp_row_2,size_A_sepi+1-j)=0;
-                                 % end
-
-
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
-                                        M_2(temp_row_2,size_A_sepi+1-j)=replace_to;
-                                    else
-                                        % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                                        % try
-                                            M_2(temp_row_2, size_A_sepi+1-j)= A_sep{i}(3*(j-1)+2)*720*0.15 / A_sep{i}(3*(j-1)+3) ; % in
-                                        % catch
-                                            % disp('wasted M_2');
-                                        % end % try
-                                    end 
                                 end % reversed
                             end % for j
 
-
-                            % if(i>1 && i<len+1)
-                            %     [c,lags]=xcorr(M_2(temp_row_2,:),M_2(temp_row_2-1,:))   
-                            % end
-
                             line_reversed=~line_reversed; % change polarity
                             temp_row_2=temp_row_2+1; % next line
+
                         end  % for i
                         M_2_not_reversed_frame_last_line=M_2(temp_row_2-1,:);
+
 
                     else % we need to reverse frame
                         temp_row_2=1;
                         line_reversed=~first_line_reverse;
-                        % loop for all lines
+
+                        % % loop for all lines
                         M_2(len+2,:)=M_2_not_reversed_frame_last_line;
-                        for i=len+1:-1:1
+                        for i=len+1:-1:1                            
                             size_A_sepi=fix(length(A_sep{i})/3);
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if not reversed1
 
-                                 % if (A_sep{i}(3*(j-1)+2)>500)
+                                    M_2(temp_row_2, j)=A_sep{i}(3*(j-1)+2)*720*0.15 /  A_sep{i}(3*(j-1)+3) ; % in
 
-                                 %        A_sep{i}(3*(j-1)+2:3*(j-1)+3)
-                                 %        % M_2(temp_row_2,size_A_sepi+1-j)=0;
-                                 % end
+                                    if filter_data
+                                        if (M_2(temp_row_2, j) >= replace_if_bigger_than)
+                                            replace_idx=find(M_2(temp_row_2, j-1:-1:1)<replace_if_bigger_than,1,'first');
+                                            if replace_idx>0
+                                                replace_idx=j-replace_idx;
+                                                M_2(temp_row_2,j)=M_2(temp_row_2, replace_idx);
+                                            else 
+                                                j
+                                                disp('no place bigger - 1')
+                                            end
+                                        
+                                        elseif  (M_2(temp_row_2, j) == 0)
+                                            replace_idx=find(M_2(temp_row_2, j-1:-1:1) > 0,1,'first');
+                                            if replace_idx>0
+                                                replace_idx=j-replace_idx;
+                                                M_2(temp_row_2,j)=M_2(temp_row_2, replace_idx);
+                                            else 
+                                                j
+                                                disp('no place 0 - 1')
+                                            end
+                                        end
+                                    end
 
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
-                                        M_2(temp_row_2,j)=replace_to;
-                                    else
-                                        % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                                        % try
-                                            M_2(temp_row_2, j)=A_sep{i}(3*(j-1)+2)*720*0.15 /  A_sep{i}(3*(j-1)+3) ; % in
-                                        % catch
-                                            % disp('wasted M_2');
-                                        % end % try
-                                    end     
-                                else   % if we must reversed
-                                 
+                                else   % if we must reversed line                                 
+                                    M_2(temp_row_2, size_A_sepi+1-j)=A_sep{i}(3*(j-1)+2)*720*0.15 /  A_sep{i}(3*(j-1)+3) ; % in
 
-                                 % if (A_sep{i}(3*(j-1)+2)>500)
-                                 %        A_sep{i}(3*(j-1)+2:3*(j-1)+3)
+                                    if filter_data
+                                        if (M_2(temp_row_2, size_A_sepi+1-j) >= replace_if_bigger_than)
+                                            replace_idx=find(M_2(temp_row_2, size_A_sepi+1-j:end)<replace_if_bigger_than,1,'first');
+                                            if replace_idx>0
+                                                replace_idx=replace_idx+size_A_sepi+1-j;
+                                                M_2(temp_row_2,size_A_sepi+1-j)=M_2(temp_row_2, replace_idx);
+                                            else 
+                                                j
+                                                disp('no place bigger - 2')
+                                            end
+                                        elseif (M_2(temp_row_2, size_A_sepi+1-j) == 0)
+                                            replace_idx=find(M_2(temp_row_2, size_A_sepi+1-j:end)>0,1,'first');
+                                            if replace_idx>0
+                                                replace_idx=replace_idx+size_A_sepi+1-j;
+                                                M_2(temp_row_2,size_A_sepi+1-j)=M_2(temp_row_2, replace_idx);
+                                            else 
+                                                j
+                                                disp('no place 0 - 2')
+                                            end
+                                        end
+                                    end
 
-                                 %        % M_2(temp_row_2,size_A_sepi+1-j)=0;
-                                 % end
-
-
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
-                                        M_2(temp_row_2,size_A_sepi+1-j)=replace_to;
-                                    else
-                                        % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
-                                        % try
-                                            M_2(temp_row_2, size_A_sepi+1-j)=A_sep{i}(3*(j-1)+2)*720*0.15 /  A_sep{i}(3*(j-1)+3) ; % in
-                                        % catch
-                                            % disp('wasted M_2');
-                                        % end % try
-                                    end 
                                 end % reversed
                             end % for j
 
                             line_reversed=~line_reversed; % change polarity
                             temp_row_2=temp_row_2+1; % next line
                         end  % for i
-
-
                         M_2_reversed_frame_last_line=M_2(1,:);
+
+
                     end % frame reversed
                     frame_reversed_2=~frame_reversed_2;
                         
+
+
                     % disp(['Matrix is ',  num2str(length(A_sep{1})/2) 'x' num2str(len)  ]);
                 end % len ~=0
                 %%% END SEPARATION %%%
 
+
+
+                        % stay=find(M_2(1:8,1:100)>replace_if_bigger_than);
+                        % if(stay)
+                        %     disp('biger')
+                        %     disp(stay)
+                        %     % delay_ms(2000)
+                        % end
+
+                        % stay=find(M_2(1:8,1:100)==0);
+                        % if(stay)
+                        %     disp('0')
+                        %     disp(stay)
+                        %     % delay_ms(2000)
+                        % end
+
+
+
+
+
+ 
+
+                % if(counter==50)
+                %     dlmwrite('real_corr_test.txt',M_2);
+                %     disp('done')
+                %     % find(M_2_backup(2,:)==0,5,'first')
+                % end
+
+
+
+
+                if (corr_on)
+                    start_from=1;
+                    % max_shift=1000;
+                    for i=1:len+1 % excep last line
+                        size_A_sepi=fix(length(A_sep{1})/3); % minus 2 since sometimes number of points can be -1,-2..
+                        finish_to=size_A_sepi;
+
+                        [lags,c]=CXCORR(M_2(i,start_from:finish_to), M_2(i+1,start_from:finish_to));
+                        [~,idx]=max(c); %% can analyze only half, or even only first 10.. (in case of HR).
+                        % lags(idx)
+                        % disp('CORR')
+                        if (lags(idx)<max_shift)
+                            M_2(i+1,start_from:finish_to)=circshift(M_2(i+1,start_from:finish_to),[0 lags(idx)]);
+                        end
+                    end
+                end
+
+
+
+                % if(counter==50)
+                %     dlmwrite('real_corr_test_2.txt',M_2);
+                %     disp('done')
+                %     % find(M_2_backup(2,:)==0,5,'first')
+                % end
+
+
+                % txt=[]
+                % total_points=0;
+                % for i=2:30
+                %     total_points=total_points+find(M_2(i,:)==0,1,'first');
+                %     txt=[txt strcat(    num2str(find(M_2(i,:)==0,1,'first')) ,'_')    ];
+                % end
+                % total_points=total_points+ find(arrayfun(@isnan, M_2(31,:)), 1,'first');
+                % last_txt=num2str(find(arrayfun(@isnan, M_2(31,:)), 1,'first'));
+
+                % disp([txt last_txt])
+                % disp(total_points)
+                % disp(['sizes ',num2str( [find(M_2(2,:)==0,1,'first') find(arrayfun(@isnan, M_2(31,:)), 1,'first') find(M_2(16,:)==0,1,'first')  ]) ])
+                % disp(['sum', num2str(    find(M_2(2,:)==0,1,'first') + find(arrayfun(@isnan, M_2(31,:)), 1,'first') +find(M_2(16,:)==0,1,'first')  )   ])
+                % M_2(25,:)
+                % M_2(31,:)
+                
+                % find(M_2(2,:)==0,1,'first')
+                % find(arrayfun(@isnan, M_2(31,:)), 1,'first')
+
                 set(pl(2),'CData',M_2);
-                redraw_2=true;    
+                redraw_2=true;  
 
-                % only for testing
-                % disp('min')
-                % max(min(M_2))
-                % disp('max')
-                % max(max(M_2))
-                % M_2_backup=M_2
-                % A_2
 
-                % delay_ms(10000)
-                % break
                 %% Previous frame is done -> A_2 is complete -> prcess it
                 M_2=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M);
                 A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % +1 since new line saved in this array
@@ -1042,7 +1173,7 @@ function main()
                                  %        % M_3(temp_row_3,size_A_sepi+1-j)=0;
                                  % end
 
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_3(temp_row_3,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1066,7 +1197,7 @@ function main()
                                  % end
 
 
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_3(temp_row_3,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1105,7 +1236,7 @@ function main()
                                  %        % M_3(temp_row_3,size_A_sepi+1-j)=0;
                                  % end
 
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_3(temp_row_3,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1125,7 +1256,7 @@ function main()
                                  % end
 
 
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_3(temp_row_3,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1246,7 +1377,7 @@ function main()
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if we dont need to reverse
                                     % disp('not reversed')
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_4(temp_row_4,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1259,7 +1390,7 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_4(temp_row_4,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1292,7 +1423,7 @@ function main()
                             % loop within selected line
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if not reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_4(temp_row_4,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1303,7 +1434,7 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_4(temp_row_4,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1421,7 +1552,7 @@ function main()
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if we dont need to reverse
                                     % disp('not reversed')
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_5(temp_row_5,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1434,7 +1565,7 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_5(temp_row_5,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1467,7 +1598,7 @@ function main()
                             % loop within selected line
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if not reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_5(temp_row_5,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1478,7 +1609,7 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_5(temp_row_5,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1591,7 +1722,7 @@ function main()
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if we dont need to reverse
                                     % disp('not reversed')
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_6(temp_row_6,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1604,7 +1735,7 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_6(temp_row_6,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1637,7 +1768,7 @@ function main()
                             % loop within selected line
                             for j=1:size_A_sepi
                                 if (~line_reversed) % if not reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_6(temp_row_6,j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1648,7 +1779,7 @@ function main()
                                         % end % try
                                     end     
                                 else   % if we must reversed
-                                    if (A_sep{i}(3*(j-1)+2)==replace_what)
+                                    if (A_sep{i}(3*(j-1)+2)==replace_if_bigger_than)
                                         M_6(temp_row_6,size_A_sepi+1-j)=replace_to;
                                     else
                                         % REMOVE 10, %% -> ACCURACY is no more, than 1/256, since M_! is uin8
@@ -1782,7 +1913,7 @@ function main()
         M_2=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M);
         A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % +1 since new line saved in this array
         M_2_reversed_frame_last_line=zeros(1,x_size,type_of_M);
-        M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);1
         % drawnow
 
         %X3
@@ -1815,11 +1946,11 @@ function main()
         % serialbreak(s,5000);
         disp('mode 2');
 
-        % x_size=140;
-        % y_size=10;
+        x_size=140;
+        y_size=30;
         
-        x_size=280;
-        y_size=35;
+        % x_size=280;
+        % y_size=35;
 
         show_x_min=1;
         show_x_max=x_size;
@@ -1890,7 +2021,7 @@ function main()
         disp('mode 3');
 
         x_size=280;
-        y_size=35;
+        y_size=62;
 
         show_x_min=1;
         show_x_max=x_size;
@@ -1957,6 +2088,28 @@ function main()
     end
 
 
+    function corr_on_callback(source,event)
+      val=get(source, 'Value');
+      if (val)
+        corr_on=1;
+      else
+        corr_on=0;
+      end
+
+    end
+
+    function filter_data_callback(source,event)
+      val=get(source, 'Value');
+      if (val)
+        filter_data=1;
+      else
+        filter_data=0;
+      end
+
+    end
+
+
+
     function pause_callback(source,event)
       str=get(source,'String');
       fwrite(s,uint8('p'),'uint8');
@@ -1981,6 +2134,93 @@ function main()
         return
         % exit
     end
+
+
+    function [x,c]=CXCORR(a,b)
+        % na=norm(a);
+        % nb=norm(b);
+        % a=a/na; %normalization
+        % b=b/nb;
+        b_size=length(b);
+        c=zeros(1,b_size);
+        for k=1:b_size
+            c(k)=a*b';
+            b=[b(end),b(1:end-1)]; %circular shift
+        end
+        x=[0:length(b)-1]; %lags
+    end
+
+
+
+    function [ha, pos] = tight_subplot(Nh, Nw, gap, marg_h, marg_w)
+
+        % tight_subplot creates "subplot" axes with adjustable gaps and margins
+        %
+        % [ha, pos] = tight_subplot(Nh, Nw, gap, marg_h, marg_w)
+        %
+        %   in:  Nh      number of axes in hight (vertical direction)
+        %        Nw      number of axes in width (horizontaldirection)
+        %        gap     gaps between the axes in normalized units (0...1)
+        %                   or [gap_h gap_w] for different gaps in height and width 
+        %        marg_h  margins in height in normalized units (0...1)
+        %                   or [lower upper] for different lower and upper margins 
+        %        marg_w  margins in width in normalized units (0...1)
+        %                   or [left right] for different left and right margins 
+        %
+        %  out:  ha     array of handles of the axes objects
+        %                   starting from upper left corner, going row-wise as in
+        %                   subplot
+        %        pos    positions of the axes objects
+        %
+        %  Example: ha = tight_subplot(3,2,[.01 .03],[.1 .01],[.01 .01])
+        %           for ii = 1:6; axes(ha(ii)); plot(randn(10,ii)); end
+        %           set(ha(1:4),'XTickLabel',''); set(ha,'YTickLabel','')
+
+        % Pekka Kumpulainen 21.5.2012   @tut.fi
+        % Tampere University of Technology / Automation Science and Engineering
+
+
+        if nargin<3; gap = .02; end
+        if nargin<4 || isempty(marg_h); marg_h = .05; end
+        if nargin<5; marg_w = .05; end
+
+        if numel(gap)==1; 
+            gap = [gap gap];
+        end
+        if numel(marg_w)==1; 
+            marg_w = [marg_w marg_w];
+        end
+        if numel(marg_h)==1; 
+            marg_h = [marg_h marg_h];
+        end
+
+        axh = (1-sum(marg_h)-(Nh-1)*gap(1))/Nh; 
+        axw = (1-sum(marg_w)-(Nw-1)*gap(2))/Nw;
+
+        py = 1-marg_h(2)-axh; 
+
+        % ha = zeros(Nh*Nw,1);
+        ii = 0;
+        for ih = 1:Nh
+            px = marg_w(1);
+            
+            for ix = 1:Nw
+                ii = ii+1;
+                ha(ii) = axes('Units','normalized', ...
+                    'Position',[px py axw axh], ...
+                    'XTickLabel','', ...
+                    'YTickLabel','');
+                px = px+axw+gap(2);
+            end
+            py = py-axh-gap(1);
+        end
+        if nargout > 1
+            pos = get(ha,'Position');
+        end
+        ha = ha(:);
+
+    end
+
 
 
     % function pause the program
