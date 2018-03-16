@@ -1,0 +1,8 @@
+INTSTYLE=pa
+INFILE=/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.runs/impl_1/mojo_top_0_routed.ncd
+OUTFILE=/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.runs/impl_1/mojo_top_0.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.runs/impl_1
+LICENSE=WebPack
+USER_INFO=211436456_0_0_674
