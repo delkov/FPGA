@@ -12,6 +12,7 @@ module fifo_manager_2 #(
     input f1_wr_en,
     input f1_new_line,
     input f1_new_frame,
+    input f1_reversed_frame,
     output reg f1_FIFO_writing_done,
     output reg f1_new_line_FIFO_done,
     output reg f1_new_frame_FIFO_done,
@@ -21,6 +22,7 @@ module fifo_manager_2 #(
     input f2_wr_en,
     input f2_new_line,
     input f2_new_frame,
+    input f2_reversed_frame,
     output reg f2_FIFO_writing_done,
     output reg f2_new_line_FIFO_done,
     output reg f2_new_frame_FIFO_done,
@@ -30,6 +32,7 @@ module fifo_manager_2 #(
     input f3_wr_en,
     input f3_new_line,
     input f3_new_frame,
+    input f3_reversed_frame,
     output reg f3_FIFO_writing_done,
     output reg f3_new_line_FIFO_done,
     output reg f3_new_frame_FIFO_done,
@@ -39,6 +42,7 @@ module fifo_manager_2 #(
     input f4_wr_en,
     input f4_new_line,
     input f4_new_frame,
+    input f4_reversed_frame,
     output reg f4_FIFO_writing_done,
     output reg f4_new_line_FIFO_done,
     output reg f4_new_frame_FIFO_done,
@@ -48,6 +52,7 @@ module fifo_manager_2 #(
     input f5_wr_en,
     input f5_new_line,
     input f5_new_frame,
+    input f5_reversed_frame,
     output reg f5_FIFO_writing_done,
     output reg f5_new_line_FIFO_done,
     output reg f5_new_frame_FIFO_done,
@@ -57,6 +62,7 @@ module fifo_manager_2 #(
     input f6_wr_en,
     input f6_new_line,
     input f6_new_frame,
+    input f6_reversed_frame,
     output reg f6_FIFO_writing_done,
     output reg f6_new_line_FIFO_done,
     output reg f6_new_frame_FIFO_done,
@@ -75,14 +81,9 @@ module fifo_manager_2 #(
   reg wr_en_d, wr_en_q;
   reg [47:0] data_TO_FIFO_d, data_TO_FIFO_q;
   reg new_data_FROM_FIFO_TO_SERIAL_d, new_data_FROM_FIFO_TO_SERIAL_q;
-  
-
   wire [47:0] w_data_FROM_FIFO_TO_SERIAL;
   
   assign new_data_FROM_FIFO_TO_SERIAL = new_data_FROM_FIFO_TO_SERIAL_q;
-
-
-
 
 
 
@@ -185,7 +186,12 @@ module fifo_manager_2 #(
     
     end else if (f1_new_frame==1'b1) begin
       wr_en_d=1'b1; // write TO FIFO
-      data_TO_FIFO_d = {16'h000E,16'h000E,16'h0001};
+      if (f1_reversed_frame==1'b1) begin
+        data_TO_FIFO_d = {16'h000E,16'h000E,16'h0001};
+      end else begin
+        data_TO_FIFO_d = {16'h000F,16'h000F,16'h0001};
+      end
+      
       
       f1_FIFO_writing_done=1'b0;
       f1_new_line_FIFO_done=1'b0;
@@ -273,7 +279,11 @@ module fifo_manager_2 #(
     
     end else if (f2_new_frame==1'b1) begin
       wr_en_d=1'b1; // write TO FIFO
-      data_TO_FIFO_d = {16'h000E,16'h000E,16'h0002};
+      if (f2_reversed_frame==1'b1) begin
+        data_TO_FIFO_d = {16'h000E,16'h000E,16'h0002};
+      end else begin
+        data_TO_FIFO_d = {16'h000F,16'h000F,16'h0002};
+      end
       
       f1_FIFO_writing_done=1'b0;
       f1_new_line_FIFO_done=1'b0;
@@ -361,7 +371,12 @@ module fifo_manager_2 #(
 
     end else if (f3_new_frame==1'b1) begin
       wr_en_d=1'b1; // write TO FIFO
-      data_TO_FIFO_d = {16'h000E,16'h000E,16'h0003};
+      if (f3_reversed_frame==1'b1) begin
+        data_TO_FIFO_d = {16'h000E,16'h000E,16'h0003};
+      end else begin
+        data_TO_FIFO_d = {16'h000F,16'h000F,16'h0003};
+      end
+      
 
       f1_FIFO_writing_done=1'b0;
       f1_new_line_FIFO_done=1'b0;
@@ -448,7 +463,12 @@ module fifo_manager_2 #(
 
     end else if (f4_new_frame==1'b1) begin
       wr_en_d=1'b1; // write TO FIFO
-      data_TO_FIFO_d = {16'h000E,16'h000E,16'h0004};
+      if (f4_reversed_frame==1'b1) begin
+        data_TO_FIFO_d = {16'h000E,16'h000E,16'h0004};
+      end else begin
+        data_TO_FIFO_d = {16'h000F,16'h000F,16'h0004};
+      end
+      
 
       f1_FIFO_writing_done=1'b0;
       f1_new_line_FIFO_done=1'b0;
@@ -535,7 +555,12 @@ module fifo_manager_2 #(
 
     end else if (f5_new_frame==1'b1) begin
       wr_en_d=1'b1; // write TO FIFO
-      data_TO_FIFO_d = {16'h000E,16'h000E,16'h0005};
+      if (f5_reversed_frame==1'b1) begin
+        data_TO_FIFO_d = {16'h000E,16'h000E,16'h0005};
+      end else begin
+        data_TO_FIFO_d = {16'h000F,16'h000F,16'h0005};
+      end
+      
 
       f1_FIFO_writing_done=1'b0;
       f1_new_line_FIFO_done=1'b0;
@@ -622,7 +647,12 @@ module fifo_manager_2 #(
 
     end else if (f6_new_frame==1'b1) begin
       wr_en_d=1'b1; // write TO FIFO
-      data_TO_FIFO_d = {16'h000E,16'h000E,16'h0006};
+      if (f6_reversed_frame==1'b1) begin
+        data_TO_FIFO_d = {16'h000E,16'h000E,16'h0006};
+      end else begin
+        data_TO_FIFO_d = {16'h000F,16'h000F,16'h0006};
+      end
+      
 
       f1_FIFO_writing_done=1'b0;
       f1_new_line_FIFO_done=1'b0;

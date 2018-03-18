@@ -5,7 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/fifo_manager_2.v" Line 82: Assignment to <arg fmt="%s" index="1">new_data_FROM_FIFO_TO_SERIAL</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/fifo_manager_2.v" Line 86: Assignment to <arg fmt="%s" index="1">new_data_FROM_FIFO_TO_SERIAL</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/FIFO_12.v" Line 41: Result of <arg fmt="%d" index="1">8</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">7</arg>-bit target.
@@ -20,10 +20,10 @@
 <msg type="warning" file="HDLCompiler" num="413" delta="new" >"/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/FIFO_12.v" Line 81: Result of <arg fmt="%d" index="1">7</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">6</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/fifo_manager_2.v" Line 113: Assignment to <arg fmt="%s" index="1">w_full</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/fifo_manager_2.v" Line 114: Assignment to <arg fmt="%s" index="1">w_full</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 383: Assignment to <arg fmt="%s" index="1">tx_busy_TDC</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 394: Assignment to <arg fmt="%s" index="1">tx_busy_TDC</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/coreGen/new_clk.v" Line 126: Assignment to <arg fmt="%s" index="1">locked_int</arg> ignored, since the identifier is never used
@@ -56,7 +56,7 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/mems_spi_9.v" Line 42: Assignment to <arg fmt="%s" index="1">new_data</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">321</arg>: Output port &lt;<arg fmt="%s" index="3">tx_busy_TDC</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo_manager</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">327</arg>: Output port &lt;<arg fmt="%s" index="3">tx_busy_TDC</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo_manager</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="737" delta="new" >Found <arg fmt="%d" index="1">1</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">f2_soft_reset</arg>&gt;. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -77,10 +77,10 @@
 <msg type="warning" file="Xst" num="737" delta="new" >Found <arg fmt="%d" index="1">1</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">f1_soft_reset</arg>&gt;. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/fifo_manager_2.v</arg>&quot; line <arg fmt="%s" index="2">102</arg>: Output port &lt;<arg fmt="%s" index="3">fifo_counter</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/fifo_manager_2.v</arg>&quot; line <arg fmt="%s" index="2">103</arg>: Output port &lt;<arg fmt="%s" index="3">fifo_counter</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/fifo_manager_2.v</arg>&quot; line <arg fmt="%s" index="2">102</arg>: Output port &lt;<arg fmt="%s" index="3">buf_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/delkov/mojo/SIMPLE/MAR_14/work/planAhead/MAR_14/MAR_14.srcs/sources_1/imports/verilog/fifo_manager_2.v</arg>&quot; line <arg fmt="%s" index="2">103</arg>: Output port &lt;<arg fmt="%s" index="3">buf_full</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">fifo</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">rst</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.

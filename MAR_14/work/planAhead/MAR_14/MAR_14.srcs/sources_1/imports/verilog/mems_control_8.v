@@ -14,6 +14,7 @@ module mems_control_8 (
     output mems_SPI_start,
     output new_line,
     output new_frame,
+    output reversed_frame,
     output [17:0] addr
   );
   
@@ -24,6 +25,7 @@ module mems_control_8 (
 
   assign new_line = new_line_q;
   assign new_frame = new_frame_q;
+  assign reversed_frame = reversed_frame_q;
 
   assign addr = addr_q;
   
@@ -36,6 +38,7 @@ module mems_control_8 (
   reg [STATE_SIZE-1:0] state_d, state_q;
   reg [17:0] addr_d, addr_q;
   reg mems_SPI_start_d, mems_SPI_start_q; 
+  reg reversed_frame_d,reversed_frame_q;
 
   always @(*) begin
 
@@ -51,6 +54,7 @@ module mems_control_8 (
       new_frame_d = new_frame_q;
     end
 
+    reversed_frame_d=reversed_frame_q;
     state_d = state_q; // default values
     addr_d = addr_q;   // needed to prevent latches
     // play_d = play_q;
@@ -125,16 +129,18 @@ module mems_control_8 (
                         2'd0: begin
 
                           if (addr_q>=18'd13444) begin // 75524 fro 59x160 //37444 for 39x120 // 74884 for 39x240
-
-
                             addr_d = 17'd8;  
-                          
                           end else begin
                         
-                            if (addr_q == 17'd1353 || addr_q==17'd8065) begin
-                              
+                        
+                            if (addr_q == 17'd1353) begin
                               new_frame_d = 1'b1;
-                            end else 
+                              reversed_frame_d=1'b0;
+                            end else if (addr_q == 17'd8065) begin
+                              new_frame_d = 1'b1;
+                              reversed_frame_d=1'b1;
+                            end else
+                            
 
 
 if (addr_q == 18'd1353 || addr_q == 18'd5833 || addr_q == 18'd10305 || addr_q == 18'd3593 || addr_q == 18'd8065 || addr_q==18'd12545) begin
@@ -147,6 +153,23 @@ if (addr_q == 18'd1353 || addr_q == 18'd5833 || addr_q == 18'd10305 || addr_q ==
                           end // if end is reached
                         end // mode 1
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         // mode_2
                         2'd1: begin
 
@@ -154,10 +177,16 @@ if (addr_q == 18'd1353 || addr_q == 18'd5833 || addr_q == 18'd10305 || addr_q ==
                             addr_d = 17'd13448;  
                           end else begin
                         
-                            if (addr_q == 17'd14152 || addr_q==17'd20864) begin
-                              
+                            if (addr_q == 17'd14152) begin
                               new_frame_d = 1'b1;
-                            end else 
+                              reversed_frame_d=1'b0;
+                            end else if (addr_q == 17'd20864) begin
+                              new_frame_d = 1'b1;
+                              reversed_frame_d=1'b1;
+                            end else
+                            
+
+
                             
 
 if (addr_q == 18'd14152 || addr_q == 18'd16072 || addr_q == 18'd17992 || addr_q == 18'd19912 || addr_q == 18'd21824 || addr_q == 18'd23744 || addr_q == 18'd25664 || addr_q == 18'd15112 || addr_q == 18'd17032 || addr_q == 18'd18952 || addr_q == 18'd20864 || addr_q == 18'd22784 || addr_q == 18'd24704 || addr_q==18'd26624) begin
@@ -171,6 +200,25 @@ if (addr_q == 18'd14152 || addr_q == 18'd16072 || addr_q == 18'd17992 || addr_q 
                           end // if end is reached
 
                         end // mode_2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -194,10 +242,15 @@ if (addr_q == 18'd14152 || addr_q == 18'd16072 || addr_q == 18'd17992 || addr_q 
                             addr_d = 17'd26888;  
                           end else begin
                         
-                            if (addr_q == 17'd27540 || addr_q==17'd35084) begin
                               
+                            if (addr_q == 17'd27540) begin
                               new_frame_d = 1'b1;
-                            end else 
+                              reversed_frame_d=1'b0;
+                            end else if (addr_q == 17'd35084) begin
+                              new_frame_d = 1'b1;
+                              reversed_frame_d=1'b1;
+                            end else
+
                             
 if (addr_q == 18'd27540 || addr_q == 18'd29220 || addr_q == 18'd30900 || addr_q == 18'd32580 || addr_q == 18'd34260 || addr_q == 18'd35924 || addr_q == 18'd37604 || addr_q == 18'd39284 || addr_q == 18'd40964 || addr_q == 18'd28380 || addr_q == 18'd30060 || addr_q == 18'd31740 || addr_q == 18'd33420 || addr_q == 18'd35084 || addr_q == 18'd36764 || addr_q == 18'd38444 || addr_q == 18'd40124 || addr_q==18'd41804) begin
                                   new_line_d=1'b1;
@@ -249,8 +302,11 @@ if (addr_q == 18'd27540 || addr_q == 18'd29220 || addr_q == 18'd30900 || addr_q 
     end else begin
       state_q <= state_d;
     end
+
     new_line_q <= new_line_d; 
+    
     new_frame_q <= new_frame_d; 
+    reversed_frame_q <= reversed_frame_d;
     mems_SPI_start_q <= mems_SPI_start_d;
     addr_q <= addr_d;
   end

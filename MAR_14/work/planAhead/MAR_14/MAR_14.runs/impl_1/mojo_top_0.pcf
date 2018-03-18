@@ -1,25 +1,8 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Fri Mar 16 20:47:25 2018
+// Written by: Map P.20131013 on Sun Mar 18 17:15:56 2018
 //! **************************************************************************
 
 SCHEMATIC START;
-COMP "f2_MEMS_FCLK" LOCATE = SITE "P35" LEVEL 1;
-COMP "f4_MEMS_CS" LOCATE = SITE "P9" LEVEL 1;
-COMP "f2_MEMS_MOSI" LOCATE = SITE "P88" LEVEL 1;
-COMP "f6_TDC_START_SIGNAL" LOCATE = SITE "P116" LEVEL 1;
-COMP "f5_MEMS_CS" LOCATE = SITE "P140" LEVEL 1;
-COMP "f6_MEMS_CS" LOCATE = SITE "P105" LEVEL 1;
-COMP "f2_TDC_SPI_CLOCK" LOCATE = SITE "P34" LEVEL 1;
-COMP "f2_MEMS_SPI_CLOCK" LOCATE = SITE "P85" LEVEL 1;
-COMP "f3_MEMS_FCLK" LOCATE = SITE "P17" LEVEL 1;
-COMP "f3_MEMS_MOSI" LOCATE = SITE "P23" LEVEL 1;
-COMP "f4_TDC_REF_CLOCK" LOCATE = SITE "P12" LEVEL 1;
-COMP "f6_MEMS_SPI_CLOCK" LOCATE = SITE "P115" LEVEL 1;
-COMP "f4_MEMS_FCLK" LOCATE = SITE "P141" LEVEL 1;
-COMP "f4_MEMS_MOSI" LOCATE = SITE "P10" LEVEL 1;
-COMP "f1_TDC_REF_CLOCK" LOCATE = SITE "P74" LEVEL 1;
-COMP "SERIAL_OUT_TDC" LOCATE = SITE "P51" LEVEL 1;
-COMP "SERIAL_IN" LOCATE = SITE "P50" LEVEL 1;
 COMP "f5_MEMS_FCLK" LOCATE = SITE "P102" LEVEL 1;
 COMP "f5_MEMS_MOSI" LOCATE = SITE "P142" LEVEL 1;
 COMP "f4_TDC_SPI_CLOCK" LOCATE = SITE "P143" LEVEL 1;
@@ -79,6 +62,23 @@ COMP "f5_TDC_START_SIGNAL" LOCATE = SITE "P97" LEVEL 1;
 COMP "f2_MEMS_CS" LOCATE = SITE "P87" LEVEL 1;
 COMP "f5_TDC_SPI_CLOCK" LOCATE = SITE "P101" LEVEL 1;
 COMP "f3_MEMS_CS" LOCATE = SITE "P26" LEVEL 1;
+COMP "f2_MEMS_FCLK" LOCATE = SITE "P35" LEVEL 1;
+COMP "f4_MEMS_CS" LOCATE = SITE "P9" LEVEL 1;
+COMP "f2_MEMS_MOSI" LOCATE = SITE "P88" LEVEL 1;
+COMP "f6_TDC_START_SIGNAL" LOCATE = SITE "P116" LEVEL 1;
+COMP "f5_MEMS_CS" LOCATE = SITE "P140" LEVEL 1;
+COMP "f6_MEMS_CS" LOCATE = SITE "P105" LEVEL 1;
+COMP "f2_TDC_SPI_CLOCK" LOCATE = SITE "P34" LEVEL 1;
+COMP "f2_MEMS_SPI_CLOCK" LOCATE = SITE "P85" LEVEL 1;
+COMP "f3_MEMS_FCLK" LOCATE = SITE "P17" LEVEL 1;
+COMP "f3_MEMS_MOSI" LOCATE = SITE "P23" LEVEL 1;
+COMP "f4_TDC_REF_CLOCK" LOCATE = SITE "P12" LEVEL 1;
+COMP "f6_MEMS_SPI_CLOCK" LOCATE = SITE "P115" LEVEL 1;
+COMP "f4_MEMS_FCLK" LOCATE = SITE "P141" LEVEL 1;
+COMP "f4_MEMS_MOSI" LOCATE = SITE "P10" LEVEL 1;
+COMP "f1_TDC_REF_CLOCK" LOCATE = SITE "P74" LEVEL 1;
+COMP "SERIAL_OUT_TDC" LOCATE = SITE "P51" LEVEL 1;
+COMP "SERIAL_IN" LOCATE = SITE "P50" LEVEL 1;
 PIN
         mems_rom/ROM_COMBO_mode3_14deg/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SP.SIMPLE_PRIM9.ram_pins<26>
         = BEL
@@ -274,8 +274,8 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f4_tdc_control/addr_q_0" BEL "f4_tdc_control/addr_q_1" BEL
         "f4_tdc_control/addr_q_2" BEL "f4_tdc_control/addr_q_3" BEL
         "f4_tdc_control/addr_q_4" BEL "f4_tdc_control/addr_q_5" BEL
-        "f5_mems_control/state_q_FSM_FFd1" BEL
-        "f5_mems_control/state_q_FSM_FFd2" BEL "f5_mems_control/new_line_q"
+        "f5_mems_control/state_q_FSM_FFd2" BEL
+        "f5_mems_control/state_q_FSM_FFd1" BEL "f5_mems_control/new_line_q"
         BEL "f5_mems_control/new_frame_q" BEL "f5_mems_control/addr_q_17" BEL
         "f5_mems_control/addr_q_16" BEL "f5_mems_control/addr_q_15" BEL
         "f5_mems_control/addr_q_14" BEL "f5_mems_control/addr_q_13" BEL
@@ -285,9 +285,10 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f5_mems_control/addr_q_6" BEL "f5_mems_control/addr_q_5" BEL
         "f5_mems_control/addr_q_4" BEL "f5_mems_control/addr_q_3" BEL
         "f5_mems_control/addr_q_2" BEL "f5_mems_control/addr_q_1" BEL
-        "f5_mems_control/addr_q_0" BEL "f5_mems_control/mems_SPI_start_q" BEL
-        "f5_mems_control/addr_q_0_1" BEL "f5_mems_control/addr_q_8_1" BEL
-        "f5_mems_control/addr_q_10_1" BEL "f5_mems_control/addr_q_7_1" BEL
+        "f5_mems_control/addr_q_0" BEL "f5_mems_control/reversed_frame_q" BEL
+        "f5_mems_control/mems_SPI_start_q" BEL "f5_mems_control/addr_q_2_1"
+        BEL "f5_mems_control/addr_q_10_1" BEL "f5_mems_control/addr_q_9_1" BEL
+        "f5_mems_control/addr_q_7_1" BEL "f5_mems_control/addr_q_3_1" BEL
         "f4_mems_spi_master/ctr_q_4" BEL "f4_mems_spi_master/ctr_q_3" BEL
         "f4_mems_spi_master/ctr_q_2" BEL "f4_mems_spi_master/ctr_q_1" BEL
         "f4_mems_spi_master/ctr_q_0" BEL "f4_mems_spi_master/state_q_FSM_FFd1"
@@ -295,6 +296,7 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f4_mems_spi_master/state_q_FSM_FFd3" BEL "f4_mems_spi_master/sck_q_4"
         BEL "f4_mems_spi_master/sck_q_3" BEL "f4_mems_spi_master/sck_q_2" BEL
         "f4_mems_spi_master/sck_q_1" BEL "f4_mems_spi_master/sck_q_0" BEL
+        "f4_mems_spi_master/mosi_q" BEL "f4_mems_spi_master/CS_q" BEL
         "f4_mems_spi_master/data_q_23" BEL "f4_mems_spi_master/data_q_22" BEL
         "f4_mems_spi_master/data_q_21" BEL "f4_mems_spi_master/data_q_20" BEL
         "f4_mems_spi_master/data_q_19" BEL "f4_mems_spi_master/data_q_18" BEL
@@ -307,8 +309,6 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f4_mems_spi_master/data_q_5" BEL "f4_mems_spi_master/data_q_4" BEL
         "f4_mems_spi_master/data_q_3" BEL "f4_mems_spi_master/data_q_2" BEL
         "f4_mems_spi_master/data_q_1" BEL "f4_mems_spi_master/data_q_0" BEL
-        "f4_mems_spi_master/state_q_FSM_FFd2_1" BEL
-        "f4_mems_spi_master/mosi_q" BEL "f4_mems_spi_master/CS_q" BEL
         "f5_mems_spi_master/ctr_q_4" BEL "f5_mems_spi_master/ctr_q_3" BEL
         "f5_mems_spi_master/ctr_q_2" BEL "f5_mems_spi_master/ctr_q_1" BEL
         "f5_mems_spi_master/ctr_q_0" BEL "f5_mems_spi_master/state_q_FSM_FFd1"
@@ -316,6 +316,7 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f5_mems_spi_master/state_q_FSM_FFd3" BEL "f5_mems_spi_master/sck_q_4"
         BEL "f5_mems_spi_master/sck_q_3" BEL "f5_mems_spi_master/sck_q_2" BEL
         "f5_mems_spi_master/sck_q_1" BEL "f5_mems_spi_master/sck_q_0" BEL
+        "f5_mems_spi_master/mosi_q" BEL "f5_mems_spi_master/CS_q" BEL
         "f5_mems_spi_master/data_q_23" BEL "f5_mems_spi_master/data_q_22" BEL
         "f5_mems_spi_master/data_q_21" BEL "f5_mems_spi_master/data_q_20" BEL
         "f5_mems_spi_master/data_q_19" BEL "f5_mems_spi_master/data_q_18" BEL
@@ -329,7 +330,6 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f5_mems_spi_master/data_q_3" BEL "f5_mems_spi_master/data_q_2" BEL
         "f5_mems_spi_master/data_q_1" BEL "f5_mems_spi_master/data_q_0" BEL
         "f5_mems_spi_master/state_q_FSM_FFd2_1" BEL
-        "f5_mems_spi_master/mosi_q" BEL "f5_mems_spi_master/CS_q" BEL
         "f1_mems_spi_master/ctr_q_4" BEL "f1_mems_spi_master/ctr_q_3" BEL
         "f1_mems_spi_master/ctr_q_2" BEL "f1_mems_spi_master/ctr_q_1" BEL
         "f1_mems_spi_master/ctr_q_0" BEL "f1_mems_spi_master/state_q_FSM_FFd1"
@@ -337,6 +337,7 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f1_mems_spi_master/state_q_FSM_FFd3" BEL "f1_mems_spi_master/sck_q_4"
         BEL "f1_mems_spi_master/sck_q_3" BEL "f1_mems_spi_master/sck_q_2" BEL
         "f1_mems_spi_master/sck_q_1" BEL "f1_mems_spi_master/sck_q_0" BEL
+        "f1_mems_spi_master/mosi_q" BEL "f1_mems_spi_master/CS_q" BEL
         "f1_mems_spi_master/data_q_23" BEL "f1_mems_spi_master/data_q_22" BEL
         "f1_mems_spi_master/data_q_21" BEL "f1_mems_spi_master/data_q_20" BEL
         "f1_mems_spi_master/data_q_19" BEL "f1_mems_spi_master/data_q_18" BEL
@@ -349,25 +350,23 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f1_mems_spi_master/data_q_5" BEL "f1_mems_spi_master/data_q_4" BEL
         "f1_mems_spi_master/data_q_3" BEL "f1_mems_spi_master/data_q_2" BEL
         "f1_mems_spi_master/data_q_1" BEL "f1_mems_spi_master/data_q_0" BEL
-        "f1_mems_spi_master/state_q_FSM_FFd2_1" BEL
-        "f1_mems_spi_master/mosi_q" BEL "f1_mems_spi_master/CS_q" BEL
         "new_clk/clkout1_buf" BEL "f3_tdc_spi_master/ctr_q_4" BEL
         "f3_tdc_spi_master/ctr_q_3" BEL "f3_tdc_spi_master/ctr_q_2" BEL
         "f3_tdc_spi_master/ctr_q_1" BEL "f3_tdc_spi_master/ctr_q_0" BEL
         "f3_tdc_spi_master/state_q_FSM_FFd1" BEL
         "f3_tdc_spi_master/state_q_FSM_FFd3" BEL
-        "f3_tdc_spi_master/state_q_FSM_FFd2" BEL "f3_tdc_spi_master/sck_q_2"
-        BEL "f3_tdc_spi_master/sck_q_1" BEL "f3_tdc_spi_master/sck_q_0" BEL
-        "f3_tdc_spi_master/data_out_q_7" BEL "f3_tdc_spi_master/data_out_q_6"
-        BEL "f3_tdc_spi_master/data_out_q_5" BEL
-        "f3_tdc_spi_master/data_out_q_4" BEL "f3_tdc_spi_master/data_out_q_3"
-        BEL "f3_tdc_spi_master/data_out_q_2" BEL
-        "f3_tdc_spi_master/data_out_q_1" BEL "f3_tdc_spi_master/data_out_q_0"
-        BEL "f3_tdc_spi_master/data_q_7" BEL "f3_tdc_spi_master/data_q_6" BEL
+        "f3_tdc_spi_master/state_q_FSM_FFd2" BEL "f3_tdc_spi_master/CS_q" BEL
+        "f3_tdc_spi_master/sck_q_2" BEL "f3_tdc_spi_master/sck_q_1" BEL
+        "f3_tdc_spi_master/sck_q_0" BEL "f3_tdc_spi_master/data_out_q_7" BEL
+        "f3_tdc_spi_master/data_out_q_6" BEL "f3_tdc_spi_master/data_out_q_5"
+        BEL "f3_tdc_spi_master/data_out_q_4" BEL
+        "f3_tdc_spi_master/data_out_q_3" BEL "f3_tdc_spi_master/data_out_q_2"
+        BEL "f3_tdc_spi_master/data_out_q_1" BEL
+        "f3_tdc_spi_master/data_out_q_0" BEL "f3_tdc_spi_master/mosi_q" BEL
+        "f3_tdc_spi_master/data_q_7" BEL "f3_tdc_spi_master/data_q_6" BEL
         "f3_tdc_spi_master/data_q_5" BEL "f3_tdc_spi_master/data_q_4" BEL
         "f3_tdc_spi_master/data_q_3" BEL "f3_tdc_spi_master/data_q_2" BEL
         "f3_tdc_spi_master/data_q_1" BEL "f3_tdc_spi_master/data_q_0" BEL
-        "f3_tdc_spi_master/mosi_q" BEL "f3_tdc_spi_master/CS_q" BEL
         "mems_rom/state_q_FSM_FFd1" BEL "mems_rom/state_q_FSM_FFd2" BEL
         "mems_rom/state_q_FSM_FFd3" BEL "mems_rom/f3_CH_D_q_0" BEL
         "mems_rom/f3_CH_D_q_1" BEL "mems_rom/f3_CH_D_q_2" BEL
@@ -682,8 +681,8 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "mems_rom/f4_CH_B_q_3" BEL "mems_rom/f4_CH_B_q_4" BEL
         "mems_rom/f4_CH_B_q_5" BEL "mems_rom/f4_CH_B_q_6" BEL
         "mems_rom/f4_CH_B_q_7" BEL "mems_rom/f4_CH_B_q_8" BEL
-        "mems_rom/f4_CH_B_q_9" BEL "f3_mems_control/state_q_FSM_FFd1" BEL
-        "f3_mems_control/state_q_FSM_FFd2" BEL "f3_mems_control/new_line_q"
+        "mems_rom/f4_CH_B_q_9" BEL "f3_mems_control/state_q_FSM_FFd2" BEL
+        "f3_mems_control/state_q_FSM_FFd1" BEL "f3_mems_control/new_line_q"
         BEL "f3_mems_control/new_frame_q" BEL "f3_mems_control/addr_q_17" BEL
         "f3_mems_control/addr_q_16" BEL "f3_mems_control/addr_q_15" BEL
         "f3_mems_control/addr_q_14" BEL "f3_mems_control/addr_q_13" BEL
@@ -693,16 +692,17 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f3_mems_control/addr_q_6" BEL "f3_mems_control/addr_q_5" BEL
         "f3_mems_control/addr_q_4" BEL "f3_mems_control/addr_q_3" BEL
         "f3_mems_control/addr_q_2" BEL "f3_mems_control/addr_q_1" BEL
-        "f3_mems_control/addr_q_0" BEL "f3_mems_control/mems_SPI_start_q" BEL
-        "f3_mems_control/addr_q_0_1" BEL "f3_mems_control/addr_q_8_1" BEL
-        "f3_mems_control/addr_q_10_1" BEL "f3_mems_control/addr_q_7_1" BEL
-        "f2_mems_spi_master/ctr_q_4" BEL "f2_mems_spi_master/ctr_q_3" BEL
-        "f2_mems_spi_master/ctr_q_2" BEL "f2_mems_spi_master/ctr_q_1" BEL
-        "f2_mems_spi_master/ctr_q_0" BEL "f2_mems_spi_master/state_q_FSM_FFd1"
-        BEL "f2_mems_spi_master/state_q_FSM_FFd2" BEL
+        "f3_mems_control/addr_q_0" BEL "f3_mems_control/reversed_frame_q" BEL
+        "f3_mems_control/mems_SPI_start_q" BEL "f3_mems_control/addr_q_2_1"
+        BEL "f3_mems_control/addr_q_7_1" BEL "f2_mems_spi_master/ctr_q_4" BEL
+        "f2_mems_spi_master/ctr_q_3" BEL "f2_mems_spi_master/ctr_q_2" BEL
+        "f2_mems_spi_master/ctr_q_1" BEL "f2_mems_spi_master/ctr_q_0" BEL
+        "f2_mems_spi_master/state_q_FSM_FFd1" BEL
+        "f2_mems_spi_master/state_q_FSM_FFd2" BEL
         "f2_mems_spi_master/state_q_FSM_FFd3" BEL "f2_mems_spi_master/sck_q_4"
         BEL "f2_mems_spi_master/sck_q_3" BEL "f2_mems_spi_master/sck_q_2" BEL
         "f2_mems_spi_master/sck_q_1" BEL "f2_mems_spi_master/sck_q_0" BEL
+        "f2_mems_spi_master/mosi_q" BEL "f2_mems_spi_master/CS_q" BEL
         "f2_mems_spi_master/data_q_23" BEL "f2_mems_spi_master/data_q_22" BEL
         "f2_mems_spi_master/data_q_21" BEL "f2_mems_spi_master/data_q_20" BEL
         "f2_mems_spi_master/data_q_19" BEL "f2_mems_spi_master/data_q_18" BEL
@@ -715,24 +715,22 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f2_mems_spi_master/data_q_5" BEL "f2_mems_spi_master/data_q_4" BEL
         "f2_mems_spi_master/data_q_3" BEL "f2_mems_spi_master/data_q_2" BEL
         "f2_mems_spi_master/data_q_1" BEL "f2_mems_spi_master/data_q_0" BEL
-        "f2_mems_spi_master/state_q_FSM_FFd2_1" BEL
-        "f2_mems_spi_master/mosi_q" BEL "f2_mems_spi_master/CS_q" BEL
         "f2_tdc_spi_master/ctr_q_4" BEL "f2_tdc_spi_master/ctr_q_3" BEL
         "f2_tdc_spi_master/ctr_q_2" BEL "f2_tdc_spi_master/ctr_q_1" BEL
         "f2_tdc_spi_master/ctr_q_0" BEL "f2_tdc_spi_master/state_q_FSM_FFd1"
         BEL "f2_tdc_spi_master/state_q_FSM_FFd3" BEL
-        "f2_tdc_spi_master/state_q_FSM_FFd2" BEL "f2_tdc_spi_master/sck_q_2"
-        BEL "f2_tdc_spi_master/sck_q_1" BEL "f2_tdc_spi_master/sck_q_0" BEL
-        "f2_tdc_spi_master/data_out_q_7" BEL "f2_tdc_spi_master/data_out_q_6"
-        BEL "f2_tdc_spi_master/data_out_q_5" BEL
-        "f2_tdc_spi_master/data_out_q_4" BEL "f2_tdc_spi_master/data_out_q_3"
-        BEL "f2_tdc_spi_master/data_out_q_2" BEL
-        "f2_tdc_spi_master/data_out_q_1" BEL "f2_tdc_spi_master/data_out_q_0"
-        BEL "f2_tdc_spi_master/data_q_7" BEL "f2_tdc_spi_master/data_q_6" BEL
+        "f2_tdc_spi_master/state_q_FSM_FFd2" BEL "f2_tdc_spi_master/CS_q" BEL
+        "f2_tdc_spi_master/sck_q_2" BEL "f2_tdc_spi_master/sck_q_1" BEL
+        "f2_tdc_spi_master/sck_q_0" BEL "f2_tdc_spi_master/data_out_q_7" BEL
+        "f2_tdc_spi_master/data_out_q_6" BEL "f2_tdc_spi_master/data_out_q_5"
+        BEL "f2_tdc_spi_master/data_out_q_4" BEL
+        "f2_tdc_spi_master/data_out_q_3" BEL "f2_tdc_spi_master/data_out_q_2"
+        BEL "f2_tdc_spi_master/data_out_q_1" BEL
+        "f2_tdc_spi_master/data_out_q_0" BEL "f2_tdc_spi_master/mosi_q" BEL
+        "f2_tdc_spi_master/data_q_7" BEL "f2_tdc_spi_master/data_q_6" BEL
         "f2_tdc_spi_master/data_q_5" BEL "f2_tdc_spi_master/data_q_4" BEL
         "f2_tdc_spi_master/data_q_3" BEL "f2_tdc_spi_master/data_q_2" BEL
         "f2_tdc_spi_master/data_q_1" BEL "f2_tdc_spi_master/data_q_0" BEL
-        "f2_tdc_spi_master/mosi_q" BEL "f2_tdc_spi_master/CS_q" BEL
         "FCLK/cnt_q_0" BEL "FCLK/cnt_q_1" BEL "FCLK/cnt_q_2" BEL
         "FCLK/cnt_q_3" BEL "FCLK/cnt_q_4" BEL "FCLK/cnt_q_5" BEL
         "FCLK/cnt_q_6" BEL "FCLK/cnt_q_7" BEL "FCLK/cnt_q_8" BEL
@@ -741,18 +739,18 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f5_tdc_spi_master/ctr_q_2" BEL "f5_tdc_spi_master/ctr_q_1" BEL
         "f5_tdc_spi_master/ctr_q_0" BEL "f5_tdc_spi_master/state_q_FSM_FFd1"
         BEL "f5_tdc_spi_master/state_q_FSM_FFd3" BEL
-        "f5_tdc_spi_master/state_q_FSM_FFd2" BEL "f5_tdc_spi_master/sck_q_2"
-        BEL "f5_tdc_spi_master/sck_q_1" BEL "f5_tdc_spi_master/sck_q_0" BEL
-        "f5_tdc_spi_master/data_out_q_7" BEL "f5_tdc_spi_master/data_out_q_6"
-        BEL "f5_tdc_spi_master/data_out_q_5" BEL
-        "f5_tdc_spi_master/data_out_q_4" BEL "f5_tdc_spi_master/data_out_q_3"
-        BEL "f5_tdc_spi_master/data_out_q_2" BEL
-        "f5_tdc_spi_master/data_out_q_1" BEL "f5_tdc_spi_master/data_out_q_0"
-        BEL "f5_tdc_spi_master/data_q_7" BEL "f5_tdc_spi_master/data_q_6" BEL
+        "f5_tdc_spi_master/state_q_FSM_FFd2" BEL "f5_tdc_spi_master/CS_q" BEL
+        "f5_tdc_spi_master/sck_q_2" BEL "f5_tdc_spi_master/sck_q_1" BEL
+        "f5_tdc_spi_master/sck_q_0" BEL "f5_tdc_spi_master/data_out_q_7" BEL
+        "f5_tdc_spi_master/data_out_q_6" BEL "f5_tdc_spi_master/data_out_q_5"
+        BEL "f5_tdc_spi_master/data_out_q_4" BEL
+        "f5_tdc_spi_master/data_out_q_3" BEL "f5_tdc_spi_master/data_out_q_2"
+        BEL "f5_tdc_spi_master/data_out_q_1" BEL
+        "f5_tdc_spi_master/data_out_q_0" BEL "f5_tdc_spi_master/mosi_q" BEL
+        "f5_tdc_spi_master/data_q_7" BEL "f5_tdc_spi_master/data_q_6" BEL
         "f5_tdc_spi_master/data_q_5" BEL "f5_tdc_spi_master/data_q_4" BEL
         "f5_tdc_spi_master/data_q_3" BEL "f5_tdc_spi_master/data_q_2" BEL
         "f5_tdc_spi_master/data_q_1" BEL "f5_tdc_spi_master/data_q_0" BEL
-        "f5_tdc_spi_master/mosi_q" BEL "f5_tdc_spi_master/CS_q" BEL
         "f3_mems_spi_master/ctr_q_4" BEL "f3_mems_spi_master/ctr_q_3" BEL
         "f3_mems_spi_master/ctr_q_2" BEL "f3_mems_spi_master/ctr_q_1" BEL
         "f3_mems_spi_master/ctr_q_0" BEL "f3_mems_spi_master/state_q_FSM_FFd1"
@@ -760,6 +758,7 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f3_mems_spi_master/state_q_FSM_FFd3" BEL "f3_mems_spi_master/sck_q_4"
         BEL "f3_mems_spi_master/sck_q_3" BEL "f3_mems_spi_master/sck_q_2" BEL
         "f3_mems_spi_master/sck_q_1" BEL "f3_mems_spi_master/sck_q_0" BEL
+        "f3_mems_spi_master/mosi_q" BEL "f3_mems_spi_master/CS_q" BEL
         "f3_mems_spi_master/data_q_23" BEL "f3_mems_spi_master/data_q_22" BEL
         "f3_mems_spi_master/data_q_21" BEL "f3_mems_spi_master/data_q_20" BEL
         "f3_mems_spi_master/data_q_19" BEL "f3_mems_spi_master/data_q_18" BEL
@@ -772,10 +771,8 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f3_mems_spi_master/data_q_5" BEL "f3_mems_spi_master/data_q_4" BEL
         "f3_mems_spi_master/data_q_3" BEL "f3_mems_spi_master/data_q_2" BEL
         "f3_mems_spi_master/data_q_1" BEL "f3_mems_spi_master/data_q_0" BEL
-        "f3_mems_spi_master/state_q_FSM_FFd2_1" BEL
-        "f3_mems_spi_master/mosi_q" BEL "f3_mems_spi_master/CS_q" BEL
-        "f1_mems_control/state_q_FSM_FFd1" BEL
-        "f1_mems_control/state_q_FSM_FFd2" BEL "f1_mems_control/new_line_q"
+        "f1_mems_control/state_q_FSM_FFd2" BEL
+        "f1_mems_control/state_q_FSM_FFd1" BEL "f1_mems_control/new_line_q"
         BEL "f1_mems_control/new_frame_q" BEL "f1_mems_control/addr_q_17" BEL
         "f1_mems_control/addr_q_16" BEL "f1_mems_control/addr_q_15" BEL
         "f1_mems_control/addr_q_14" BEL "f1_mems_control/addr_q_13" BEL
@@ -785,11 +782,11 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f1_mems_control/addr_q_6" BEL "f1_mems_control/addr_q_5" BEL
         "f1_mems_control/addr_q_4" BEL "f1_mems_control/addr_q_3" BEL
         "f1_mems_control/addr_q_2" BEL "f1_mems_control/addr_q_1" BEL
-        "f1_mems_control/addr_q_0" BEL "f1_mems_control/mems_SPI_start_q" BEL
-        "f1_mems_control/addr_q_0_1" BEL "f1_mems_control/addr_q_8_1" BEL
-        "f1_mems_control/addr_q_10_1" BEL "f1_mems_control/addr_q_7_1" BEL
-        "f2_mems_control/state_q_FSM_FFd1" BEL
-        "f2_mems_control/state_q_FSM_FFd2" BEL "f2_mems_control/new_line_q"
+        "f1_mems_control/addr_q_0" BEL "f1_mems_control/reversed_frame_q" BEL
+        "f1_mems_control/mems_SPI_start_q" BEL "f1_mems_control/addr_q_2_1"
+        BEL "f1_mems_control/addr_q_1_1" BEL "f1_mems_control/addr_q_7_1" BEL
+        "f2_mems_control/state_q_FSM_FFd2" BEL
+        "f2_mems_control/state_q_FSM_FFd1" BEL "f2_mems_control/new_line_q"
         BEL "f2_mems_control/new_frame_q" BEL "f2_mems_control/addr_q_17" BEL
         "f2_mems_control/addr_q_16" BEL "f2_mems_control/addr_q_15" BEL
         "f2_mems_control/addr_q_14" BEL "f2_mems_control/addr_q_13" BEL
@@ -799,56 +796,56 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f2_mems_control/addr_q_6" BEL "f2_mems_control/addr_q_5" BEL
         "f2_mems_control/addr_q_4" BEL "f2_mems_control/addr_q_3" BEL
         "f2_mems_control/addr_q_2" BEL "f2_mems_control/addr_q_1" BEL
-        "f2_mems_control/addr_q_0" BEL "f2_mems_control/mems_SPI_start_q" BEL
-        "f2_mems_control/addr_q_0_1" BEL "f2_mems_control/addr_q_8_1" BEL
-        "f2_mems_control/addr_q_10_1" BEL "f2_mems_control/addr_q_7_1" BEL
-        "f6_mems_control/state_q_FSM_FFd1" BEL
-        "f6_mems_control/state_q_FSM_FFd2" BEL "f6_mems_control/new_line_q"
-        BEL "f6_mems_control/new_frame_q" BEL "f6_mems_control/addr_q_17" BEL
-        "f6_mems_control/addr_q_16" BEL "f6_mems_control/addr_q_15" BEL
-        "f6_mems_control/addr_q_14" BEL "f6_mems_control/addr_q_13" BEL
-        "f6_mems_control/addr_q_12" BEL "f6_mems_control/addr_q_11" BEL
-        "f6_mems_control/addr_q_10" BEL "f6_mems_control/addr_q_9" BEL
-        "f6_mems_control/addr_q_8" BEL "f6_mems_control/addr_q_7" BEL
-        "f6_mems_control/addr_q_6" BEL "f6_mems_control/addr_q_5" BEL
-        "f6_mems_control/addr_q_4" BEL "f6_mems_control/addr_q_3" BEL
-        "f6_mems_control/addr_q_2" BEL "f6_mems_control/addr_q_1" BEL
-        "f6_mems_control/addr_q_0" BEL "f6_mems_control/mems_SPI_start_q" BEL
-        "f6_mems_control/addr_q_0_1" BEL "f6_mems_control/addr_q_8_1" BEL
-        "f6_mems_control/addr_q_10_1" BEL "f6_mems_control/addr_q_7_1" BEL
-        "f6_mems_control/addr_q_3_1" BEL "f1_tdc_spi_master/ctr_q_4" BEL
+        "f2_mems_control/addr_q_0" BEL "f2_mems_control/reversed_frame_q" BEL
+        "f2_mems_control/mems_SPI_start_q" BEL "f2_mems_control/addr_q_2_1"
+        BEL "f2_mems_control/addr_q_1_1" BEL "f2_mems_control/addr_q_3_1" BEL
+        "f2_mems_control/addr_q_7_1" BEL "f6_mems_control/state_q_FSM_FFd2"
+        BEL "f6_mems_control/state_q_FSM_FFd1" BEL
+        "f6_mems_control/new_line_q" BEL "f6_mems_control/new_frame_q" BEL
+        "f6_mems_control/addr_q_17" BEL "f6_mems_control/addr_q_16" BEL
+        "f6_mems_control/addr_q_15" BEL "f6_mems_control/addr_q_14" BEL
+        "f6_mems_control/addr_q_13" BEL "f6_mems_control/addr_q_12" BEL
+        "f6_mems_control/addr_q_11" BEL "f6_mems_control/addr_q_10" BEL
+        "f6_mems_control/addr_q_9" BEL "f6_mems_control/addr_q_8" BEL
+        "f6_mems_control/addr_q_7" BEL "f6_mems_control/addr_q_6" BEL
+        "f6_mems_control/addr_q_5" BEL "f6_mems_control/addr_q_4" BEL
+        "f6_mems_control/addr_q_3" BEL "f6_mems_control/addr_q_2" BEL
+        "f6_mems_control/addr_q_1" BEL "f6_mems_control/addr_q_0" BEL
+        "f6_mems_control/reversed_frame_q" BEL
+        "f6_mems_control/mems_SPI_start_q" BEL "f6_mems_control/addr_q_2_1"
+        BEL "f6_mems_control/addr_q_7_1" BEL "f1_tdc_spi_master/ctr_q_4" BEL
         "f1_tdc_spi_master/ctr_q_3" BEL "f1_tdc_spi_master/ctr_q_2" BEL
         "f1_tdc_spi_master/ctr_q_1" BEL "f1_tdc_spi_master/ctr_q_0" BEL
         "f1_tdc_spi_master/state_q_FSM_FFd1" BEL
         "f1_tdc_spi_master/state_q_FSM_FFd3" BEL
-        "f1_tdc_spi_master/state_q_FSM_FFd2" BEL "f1_tdc_spi_master/sck_q_2"
-        BEL "f1_tdc_spi_master/sck_q_1" BEL "f1_tdc_spi_master/sck_q_0" BEL
-        "f1_tdc_spi_master/data_out_q_7" BEL "f1_tdc_spi_master/data_out_q_6"
-        BEL "f1_tdc_spi_master/data_out_q_5" BEL
-        "f1_tdc_spi_master/data_out_q_4" BEL "f1_tdc_spi_master/data_out_q_3"
-        BEL "f1_tdc_spi_master/data_out_q_2" BEL
-        "f1_tdc_spi_master/data_out_q_1" BEL "f1_tdc_spi_master/data_out_q_0"
-        BEL "f1_tdc_spi_master/data_q_7" BEL "f1_tdc_spi_master/data_q_6" BEL
+        "f1_tdc_spi_master/state_q_FSM_FFd2" BEL "f1_tdc_spi_master/CS_q" BEL
+        "f1_tdc_spi_master/sck_q_2" BEL "f1_tdc_spi_master/sck_q_1" BEL
+        "f1_tdc_spi_master/sck_q_0" BEL "f1_tdc_spi_master/data_out_q_7" BEL
+        "f1_tdc_spi_master/data_out_q_6" BEL "f1_tdc_spi_master/data_out_q_5"
+        BEL "f1_tdc_spi_master/data_out_q_4" BEL
+        "f1_tdc_spi_master/data_out_q_3" BEL "f1_tdc_spi_master/data_out_q_2"
+        BEL "f1_tdc_spi_master/data_out_q_1" BEL
+        "f1_tdc_spi_master/data_out_q_0" BEL "f1_tdc_spi_master/mosi_q" BEL
+        "f1_tdc_spi_master/data_q_7" BEL "f1_tdc_spi_master/data_q_6" BEL
         "f1_tdc_spi_master/data_q_5" BEL "f1_tdc_spi_master/data_q_4" BEL
         "f1_tdc_spi_master/data_q_3" BEL "f1_tdc_spi_master/data_q_2" BEL
         "f1_tdc_spi_master/data_q_1" BEL "f1_tdc_spi_master/data_q_0" BEL
-        "f1_tdc_spi_master/mosi_q" BEL "f1_tdc_spi_master/CS_q" BEL
         "f4_tdc_spi_master/ctr_q_4" BEL "f4_tdc_spi_master/ctr_q_3" BEL
         "f4_tdc_spi_master/ctr_q_2" BEL "f4_tdc_spi_master/ctr_q_1" BEL
         "f4_tdc_spi_master/ctr_q_0" BEL "f4_tdc_spi_master/state_q_FSM_FFd1"
         BEL "f4_tdc_spi_master/state_q_FSM_FFd3" BEL
-        "f4_tdc_spi_master/state_q_FSM_FFd2" BEL "f4_tdc_spi_master/sck_q_2"
-        BEL "f4_tdc_spi_master/sck_q_1" BEL "f4_tdc_spi_master/sck_q_0" BEL
-        "f4_tdc_spi_master/data_out_q_7" BEL "f4_tdc_spi_master/data_out_q_6"
-        BEL "f4_tdc_spi_master/data_out_q_5" BEL
-        "f4_tdc_spi_master/data_out_q_4" BEL "f4_tdc_spi_master/data_out_q_3"
-        BEL "f4_tdc_spi_master/data_out_q_2" BEL
-        "f4_tdc_spi_master/data_out_q_1" BEL "f4_tdc_spi_master/data_out_q_0"
-        BEL "f4_tdc_spi_master/data_q_7" BEL "f4_tdc_spi_master/data_q_6" BEL
+        "f4_tdc_spi_master/state_q_FSM_FFd2" BEL "f4_tdc_spi_master/CS_q" BEL
+        "f4_tdc_spi_master/sck_q_2" BEL "f4_tdc_spi_master/sck_q_1" BEL
+        "f4_tdc_spi_master/sck_q_0" BEL "f4_tdc_spi_master/data_out_q_7" BEL
+        "f4_tdc_spi_master/data_out_q_6" BEL "f4_tdc_spi_master/data_out_q_5"
+        BEL "f4_tdc_spi_master/data_out_q_4" BEL
+        "f4_tdc_spi_master/data_out_q_3" BEL "f4_tdc_spi_master/data_out_q_2"
+        BEL "f4_tdc_spi_master/data_out_q_1" BEL
+        "f4_tdc_spi_master/data_out_q_0" BEL "f4_tdc_spi_master/mosi_q" BEL
+        "f4_tdc_spi_master/data_q_7" BEL "f4_tdc_spi_master/data_q_6" BEL
         "f4_tdc_spi_master/data_q_5" BEL "f4_tdc_spi_master/data_q_4" BEL
         "f4_tdc_spi_master/data_q_3" BEL "f4_tdc_spi_master/data_q_2" BEL
         "f4_tdc_spi_master/data_q_1" BEL "f4_tdc_spi_master/data_q_0" BEL
-        "f4_tdc_spi_master/mosi_q" BEL "f4_tdc_spi_master/CS_q" BEL
         "f6_mems_spi_master/ctr_q_4" BEL "f6_mems_spi_master/ctr_q_3" BEL
         "f6_mems_spi_master/ctr_q_2" BEL "f6_mems_spi_master/ctr_q_1" BEL
         "f6_mems_spi_master/ctr_q_0" BEL "f6_mems_spi_master/state_q_FSM_FFd1"
@@ -856,6 +853,7 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f6_mems_spi_master/state_q_FSM_FFd3" BEL "f6_mems_spi_master/sck_q_4"
         BEL "f6_mems_spi_master/sck_q_3" BEL "f6_mems_spi_master/sck_q_2" BEL
         "f6_mems_spi_master/sck_q_1" BEL "f6_mems_spi_master/sck_q_0" BEL
+        "f6_mems_spi_master/mosi_q" BEL "f6_mems_spi_master/CS_q" BEL
         "f6_mems_spi_master/data_q_23" BEL "f6_mems_spi_master/data_q_22" BEL
         "f6_mems_spi_master/data_q_21" BEL "f6_mems_spi_master/data_q_20" BEL
         "f6_mems_spi_master/data_q_19" BEL "f6_mems_spi_master/data_q_18" BEL
@@ -868,26 +866,24 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f6_mems_spi_master/data_q_5" BEL "f6_mems_spi_master/data_q_4" BEL
         "f6_mems_spi_master/data_q_3" BEL "f6_mems_spi_master/data_q_2" BEL
         "f6_mems_spi_master/data_q_1" BEL "f6_mems_spi_master/data_q_0" BEL
-        "f6_mems_spi_master/state_q_FSM_FFd2_1" BEL
-        "f6_mems_spi_master/mosi_q" BEL "f6_mems_spi_master/CS_q" BEL
         "f6_tdc_spi_master/ctr_q_4" BEL "f6_tdc_spi_master/ctr_q_3" BEL
         "f6_tdc_spi_master/ctr_q_2" BEL "f6_tdc_spi_master/ctr_q_1" BEL
         "f6_tdc_spi_master/ctr_q_0" BEL "f6_tdc_spi_master/state_q_FSM_FFd1"
         BEL "f6_tdc_spi_master/state_q_FSM_FFd3" BEL
-        "f6_tdc_spi_master/state_q_FSM_FFd2" BEL "f6_tdc_spi_master/sck_q_2"
-        BEL "f6_tdc_spi_master/sck_q_1" BEL "f6_tdc_spi_master/sck_q_0" BEL
-        "f6_tdc_spi_master/data_out_q_7" BEL "f6_tdc_spi_master/data_out_q_6"
-        BEL "f6_tdc_spi_master/data_out_q_5" BEL
-        "f6_tdc_spi_master/data_out_q_4" BEL "f6_tdc_spi_master/data_out_q_3"
-        BEL "f6_tdc_spi_master/data_out_q_2" BEL
-        "f6_tdc_spi_master/data_out_q_1" BEL "f6_tdc_spi_master/data_out_q_0"
-        BEL "f6_tdc_spi_master/data_q_7" BEL "f6_tdc_spi_master/data_q_6" BEL
+        "f6_tdc_spi_master/state_q_FSM_FFd2" BEL "f6_tdc_spi_master/CS_q" BEL
+        "f6_tdc_spi_master/sck_q_2" BEL "f6_tdc_spi_master/sck_q_1" BEL
+        "f6_tdc_spi_master/sck_q_0" BEL "f6_tdc_spi_master/data_out_q_7" BEL
+        "f6_tdc_spi_master/data_out_q_6" BEL "f6_tdc_spi_master/data_out_q_5"
+        BEL "f6_tdc_spi_master/data_out_q_4" BEL
+        "f6_tdc_spi_master/data_out_q_3" BEL "f6_tdc_spi_master/data_out_q_2"
+        BEL "f6_tdc_spi_master/data_out_q_1" BEL
+        "f6_tdc_spi_master/data_out_q_0" BEL "f6_tdc_spi_master/mosi_q" BEL
+        "f6_tdc_spi_master/data_q_7" BEL "f6_tdc_spi_master/data_q_6" BEL
         "f6_tdc_spi_master/data_q_5" BEL "f6_tdc_spi_master/data_q_4" BEL
         "f6_tdc_spi_master/data_q_3" BEL "f6_tdc_spi_master/data_q_2" BEL
         "f6_tdc_spi_master/data_q_1" BEL "f6_tdc_spi_master/data_q_0" BEL
-        "f6_tdc_spi_master/mosi_q" BEL "f6_tdc_spi_master/CS_q" BEL
-        "f4_mems_control/state_q_FSM_FFd1" BEL
-        "f4_mems_control/state_q_FSM_FFd2" BEL "f4_mems_control/new_line_q"
+        "f4_mems_control/state_q_FSM_FFd2" BEL
+        "f4_mems_control/state_q_FSM_FFd1" BEL "f4_mems_control/new_line_q"
         BEL "f4_mems_control/new_frame_q" BEL "f4_mems_control/addr_q_17" BEL
         "f4_mems_control/addr_q_16" BEL "f4_mems_control/addr_q_15" BEL
         "f4_mems_control/addr_q_14" BEL "f4_mems_control/addr_q_13" BEL
@@ -897,39 +893,38 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "f4_mems_control/addr_q_6" BEL "f4_mems_control/addr_q_5" BEL
         "f4_mems_control/addr_q_4" BEL "f4_mems_control/addr_q_3" BEL
         "f4_mems_control/addr_q_2" BEL "f4_mems_control/addr_q_1" BEL
-        "f4_mems_control/addr_q_0" BEL "f4_mems_control/mems_SPI_start_q" BEL
-        "f4_mems_control/addr_q_0_1" BEL "f4_mems_control/addr_q_1_1" BEL
-        "f4_mems_control/addr_q_7_1" BEL "f4_mems_control/addr_q_2_1" BEL
-        "f4_mems_control/addr_q_10_1" BEL "fifo_manager/data_TO_FIFO_q_47" BEL
-        "fifo_manager/data_TO_FIFO_q_46" BEL "fifo_manager/data_TO_FIFO_q_45"
-        BEL "fifo_manager/data_TO_FIFO_q_44" BEL
-        "fifo_manager/data_TO_FIFO_q_43" BEL "fifo_manager/data_TO_FIFO_q_42"
-        BEL "fifo_manager/data_TO_FIFO_q_41" BEL
-        "fifo_manager/data_TO_FIFO_q_40" BEL "fifo_manager/data_TO_FIFO_q_39"
-        BEL "fifo_manager/data_TO_FIFO_q_38" BEL
-        "fifo_manager/data_TO_FIFO_q_37" BEL "fifo_manager/data_TO_FIFO_q_36"
-        BEL "fifo_manager/data_TO_FIFO_q_35" BEL
-        "fifo_manager/data_TO_FIFO_q_34" BEL "fifo_manager/data_TO_FIFO_q_33"
-        BEL "fifo_manager/data_TO_FIFO_q_32" BEL
-        "fifo_manager/data_TO_FIFO_q_31" BEL "fifo_manager/data_TO_FIFO_q_30"
-        BEL "fifo_manager/data_TO_FIFO_q_29" BEL
-        "fifo_manager/data_TO_FIFO_q_28" BEL "fifo_manager/data_TO_FIFO_q_27"
-        BEL "fifo_manager/data_TO_FIFO_q_26" BEL
-        "fifo_manager/data_TO_FIFO_q_25" BEL "fifo_manager/data_TO_FIFO_q_24"
-        BEL "fifo_manager/data_TO_FIFO_q_23" BEL
-        "fifo_manager/data_TO_FIFO_q_22" BEL "fifo_manager/data_TO_FIFO_q_21"
-        BEL "fifo_manager/data_TO_FIFO_q_20" BEL
-        "fifo_manager/data_TO_FIFO_q_19" BEL "fifo_manager/data_TO_FIFO_q_18"
-        BEL "fifo_manager/data_TO_FIFO_q_17" BEL
-        "fifo_manager/data_TO_FIFO_q_16" BEL "fifo_manager/data_TO_FIFO_q_2"
-        BEL "fifo_manager/data_TO_FIFO_q_1" BEL
-        "fifo_manager/data_TO_FIFO_q_0" BEL
+        "f4_mems_control/addr_q_0" BEL "f4_mems_control/reversed_frame_q" BEL
+        "f4_mems_control/mems_SPI_start_q" BEL
+        "fifo_manager/data_TO_FIFO_q_47" BEL "fifo_manager/data_TO_FIFO_q_46"
+        BEL "fifo_manager/data_TO_FIFO_q_45" BEL
+        "fifo_manager/data_TO_FIFO_q_44" BEL "fifo_manager/data_TO_FIFO_q_43"
+        BEL "fifo_manager/data_TO_FIFO_q_42" BEL
+        "fifo_manager/data_TO_FIFO_q_41" BEL "fifo_manager/data_TO_FIFO_q_40"
+        BEL "fifo_manager/data_TO_FIFO_q_39" BEL
+        "fifo_manager/data_TO_FIFO_q_38" BEL "fifo_manager/data_TO_FIFO_q_37"
+        BEL "fifo_manager/data_TO_FIFO_q_36" BEL
+        "fifo_manager/data_TO_FIFO_q_35" BEL "fifo_manager/data_TO_FIFO_q_34"
+        BEL "fifo_manager/data_TO_FIFO_q_33" BEL
+        "fifo_manager/data_TO_FIFO_q_32" BEL "fifo_manager/data_TO_FIFO_q_31"
+        BEL "fifo_manager/data_TO_FIFO_q_30" BEL
+        "fifo_manager/data_TO_FIFO_q_29" BEL "fifo_manager/data_TO_FIFO_q_28"
+        BEL "fifo_manager/data_TO_FIFO_q_27" BEL
+        "fifo_manager/data_TO_FIFO_q_26" BEL "fifo_manager/data_TO_FIFO_q_25"
+        BEL "fifo_manager/data_TO_FIFO_q_24" BEL
+        "fifo_manager/data_TO_FIFO_q_23" BEL "fifo_manager/data_TO_FIFO_q_22"
+        BEL "fifo_manager/data_TO_FIFO_q_21" BEL
+        "fifo_manager/data_TO_FIFO_q_20" BEL "fifo_manager/data_TO_FIFO_q_19"
+        BEL "fifo_manager/data_TO_FIFO_q_18" BEL
+        "fifo_manager/data_TO_FIFO_q_17" BEL "fifo_manager/data_TO_FIFO_q_16"
+        BEL "fifo_manager/data_TO_FIFO_q_2" BEL
+        "fifo_manager/data_TO_FIFO_q_1" BEL "fifo_manager/data_TO_FIFO_q_0"
+        BEL "fifo_manager/wr_en_q" BEL
         "fifo_manager/new_data_FROM_FIFO_TO_SERIAL_q" BEL
-        "fifo_manager/wr_en_q" BEL "fifo_manager/fifo/rd_ptr_5" BEL
-        "fifo_manager/fifo/rd_ptr_4" BEL "fifo_manager/fifo/rd_ptr_3" BEL
-        "fifo_manager/fifo/rd_ptr_2" BEL "fifo_manager/fifo/rd_ptr_1" BEL
-        "fifo_manager/fifo/rd_ptr_0" BEL "fifo_manager/fifo/fifo_counter_6"
-        BEL "fifo_manager/fifo/fifo_counter_5" BEL
+        "fifo_manager/fifo/rd_ptr_5" BEL "fifo_manager/fifo/rd_ptr_4" BEL
+        "fifo_manager/fifo/rd_ptr_3" BEL "fifo_manager/fifo/rd_ptr_2" BEL
+        "fifo_manager/fifo/rd_ptr_1" BEL "fifo_manager/fifo/rd_ptr_0" BEL
+        "fifo_manager/fifo/fifo_counter_6" BEL
+        "fifo_manager/fifo/fifo_counter_5" BEL
         "fifo_manager/fifo/fifo_counter_4" BEL
         "fifo_manager/fifo/fifo_counter_3" BEL
         "fifo_manager/fifo/fifo_counter_2" BEL
@@ -1075,11 +1070,11 @@ TIMEGRP new_clk_clkfx = BEL "f4_tdc_control/start_signal_q" BEL
         "main_control/countr_q_4" BEL "main_control/countr_q_3" BEL
         "main_control/countr_q_2" BEL "main_control/countr_q_1" BEL
         "main_control/countr_q_0" BEL "main_control/state_q_1" BEL
-        "main_control/state_q_0" BEL "main_control/mode_q_1" BEL
-        "main_control/mode_q_0" BEL "main_control/exit_q" BEL
-        "main_control/tdc_enable_q" BEL "main_control/pause_q" BEL
-        "main_control/serial_rx2/bit_ctr_q_2" BEL
-        "main_control/serial_rx2/bit_ctr_q_1" BEL
+        "main_control/state_q_0" BEL "main_control/pause_q" BEL
+        "main_control/mode_q_1" BEL "main_control/mode_q_0" BEL
+        "main_control/exit_q" BEL "main_control/tdc_enable_q" BEL
+        "main_control/mode_q_0_1" BEL "main_control/serial_rx2/bit_ctr_q_2"
+        BEL "main_control/serial_rx2/bit_ctr_q_1" BEL
         "main_control/serial_rx2/bit_ctr_q_0" BEL
         "main_control/serial_rx2/state_q_FSM_FFd1" BEL
         "main_control/serial_rx2/state_q_FSM_FFd2" BEL

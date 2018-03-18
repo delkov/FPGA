@@ -175,6 +175,7 @@ module mojo_top_0(
   wire [23:0] f1_mems_data_in;
   wire f1_new_line;
   wire f1_new_frame;
+  wire f1_reversed_frame;
   wire f1_new_line_FIFO_done;
   wire f1_new_frame_FIFO_done;
 
@@ -195,6 +196,7 @@ module mojo_top_0(
   wire [23:0] f2_mems_data_in;
   wire f2_new_line;
   wire f2_new_frame;
+  wire f2_reversed_frame;
   wire f2_new_line_FIFO_done;
   wire f2_new_frame_FIFO_done;
 
@@ -215,6 +217,7 @@ module mojo_top_0(
   wire [23:0] f3_mems_data_in;
   wire f3_new_line;
   wire f3_new_frame;
+  wire f3_reversed_frame;
   wire f3_new_line_FIFO_done;
   wire f3_new_frame_FIFO_done;
 
@@ -235,6 +238,7 @@ module mojo_top_0(
   wire [23:0] f4_mems_data_in;
   wire f4_new_line;
   wire f4_new_frame;
+  wire f4_reversed_frame;
   wire f4_new_line_FIFO_done;
   wire f4_new_frame_FIFO_done;
 
@@ -255,6 +259,7 @@ module mojo_top_0(
   wire [23:0] f5_mems_data_in;
   wire f5_new_line;
   wire f5_new_frame;
+  wire f5_reversed_frame;
   wire f5_new_line_FIFO_done;
   wire f5_new_frame_FIFO_done;
 
@@ -275,6 +280,7 @@ module mojo_top_0(
   wire [23:0] f6_mems_data_in;
   wire f6_new_line;
   wire f6_new_frame;  
+  wire f6_reversed_frame;
   wire f6_new_line_FIFO_done;
   wire f6_new_frame_FIFO_done;
 
@@ -331,8 +337,9 @@ module mojo_top_0(
     .f1_new_frame(f1_new_frame),
     .f1_new_line_FIFO_done(f1_new_line_FIFO_done),
     .f1_new_frame_FIFO_done(f1_new_frame_FIFO_done),
+    .f1_reversed_frame(f1_reversed_frame),
 
-    // F2
+    // F2`
     .f2_wr_en(f2_wr_en),
     .f2_din(f2_din),
     .f2_FIFO_writing_done(f2_FIFO_writing_done),
@@ -340,6 +347,7 @@ module mojo_top_0(
     .f2_new_frame(f2_new_frame),
     .f2_new_line_FIFO_done(f2_new_line_FIFO_done),
     .f2_new_frame_FIFO_done(f2_new_frame_FIFO_done),
+    .f2_reversed_frame(f2_reversed_frame),
 
     // F3
     .f3_wr_en(f3_wr_en),
@@ -349,6 +357,7 @@ module mojo_top_0(
     .f3_new_frame(f3_new_frame),
     .f3_new_line_FIFO_done(f3_new_line_FIFO_done),
     .f3_new_frame_FIFO_done(f3_new_frame_FIFO_done),
+    .f3_reversed_frame(f3_reversed_frame),
 
     // F4
     .f4_wr_en(f4_wr_en),
@@ -358,7 +367,8 @@ module mojo_top_0(
     .f4_new_frame(f4_new_frame),
     .f4_new_line_FIFO_done(f4_new_line_FIFO_done),
     .f4_new_frame_FIFO_done(f4_new_frame_FIFO_done),
-    
+    .f4_reversed_frame(f4_reversed_frame),
+
     // F5
     .f5_wr_en(f5_wr_en),
     .f5_din(f5_din),
@@ -367,6 +377,7 @@ module mojo_top_0(
     .f5_new_frame(f5_new_frame),
     .f5_new_line_FIFO_done(f5_new_line_FIFO_done),
     .f5_new_frame_FIFO_done(f5_new_frame_FIFO_done),
+    .f5_reversed_frame(f5_reversed_frame),
 
     // F6
     .f6_wr_en(f6_wr_en),
@@ -376,7 +387,7 @@ module mojo_top_0(
     .f6_new_frame(f6_new_frame),
     .f6_new_line_FIFO_done(f6_new_line_FIFO_done),
     .f6_new_frame_FIFO_done(f6_new_frame_FIFO_done),
-    
+    .f6_reversed_frame(f6_reversed_frame),
 
     // OTHERS
     .w_tx_OUT_TDC(SERIAL_OUT_TDC),
@@ -492,7 +503,9 @@ module mojo_top_0(
     .mems_SPI_start(f1_mems_SPI_start),
     .addr(f1_addr),
     .new_line(f1_new_line),
-    .new_frame(f1_new_frame)
+    .new_frame(f1_new_frame),
+    .reversed_frame(f1_reversed_frame)
+
   );
   mems_spi_9 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f1_mems_spi_master(
     // INPUT
@@ -562,7 +575,8 @@ module mojo_top_0(
     .mems_SPI_start(f2_mems_SPI_start),
     .addr(f2_addr),
     .new_line(f2_new_line),
-    .new_frame(f2_new_frame)
+    .new_frame(f2_new_frame),
+    .reversed_frame(f2_reversed_frame)
   );
   mems_spi_9 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f2_mems_spi_master(
     // INPUT
@@ -632,7 +646,9 @@ module mojo_top_0(
     .mems_SPI_start(f3_mems_SPI_start),
     .addr(f3_addr),
     .new_line(f3_new_line),
-    .new_frame(f3_new_frame)
+    .new_frame(f3_new_frame),
+    .reversed_frame(f3_reversed_frame)
+
   );
   mems_spi_9 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f3_mems_spi_master(
     // INPUT
@@ -702,7 +718,9 @@ module mojo_top_0(
     .mems_SPI_start(f4_mems_SPI_start),
     .addr(f4_addr),
     .new_line(f4_new_line),
-    .new_frame(f4_new_frame)
+    .new_frame(f4_new_frame),
+    .reversed_frame(f4_reversed_frame)
+
   );
   mems_spi_9 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f4_mems_spi_master(
     // INPUT
@@ -772,7 +790,9 @@ module mojo_top_0(
     .mems_SPI_start(f5_mems_SPI_start),
     .addr(f5_addr),
     .new_line(f5_new_line),
-    .new_frame(f5_new_frame)
+    .new_frame(f5_new_frame),
+    .reversed_frame(f5_reversed_frame)
+
   );
   mems_spi_9 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f5_mems_spi_master(
     // INPUT
@@ -842,7 +862,9 @@ module mojo_top_0(
     .mems_SPI_start(f6_mems_SPI_start),
     .addr(f6_addr),
     .new_line(f6_new_line),
-    .new_frame(f6_new_frame)
+    .new_frame(f6_new_frame),
+    .reversed_frame(f6_reversed_frame)
+
   );
   mems_spi_9 #(.CLK_DIV(MEMS_SPI_SPEED_PARAM)) f6_mems_spi_master(
     // INPUT
