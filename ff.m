@@ -413,13 +413,13 @@ function main()
 
     % PROFILING
     profile_on=1;
-    record_time=120; % profile time
+    record_time=60; % profile time
     
     % GLOBAL
-    start_command='f';
+    start_command='g';
 
-    x_size=140;
-    y_size=8;
+    x_size=240;
+    y_size=30;
  
 
     % IMAGE CORRECTIONS
@@ -433,7 +433,7 @@ function main()
     show_colorbar = 1;
     cmap_name=jet_black_end; % mine, parula_black, jet_black, jet_black_end, jet_white, hot
     matrix_default_value=0;
-    color=[0 45];
+    color=[0 7];
 
     show_separated_lines = 0;
     first_line_reverse=true;
@@ -807,19 +807,19 @@ function main()
 
 
     if(~exist('s','Var'))
-        ser_list=seriallist()
+        ser_list=seriallist();
         for i=1:1:length(ser_list)
             if (contains(ser_list(i), '/dev/ttyUSB'))
                 ser_number=i;
             end
         end
         serial_port=ser_list(ser_number)
-        s = serial(serial_port,'BaudRate',baud_rate,'DataBits',8,'InputBufferSize',buffer_size); 
+        s = serial(serial_port,'BaudRate',baud_rate,'DataBits',8,'InputBufferSize',buffer_size);
         s.ByteOrder = 'littleEndian';
         s.BytesAvailableFcnCount = size_to_read;
         s.BytesAvailableFcnMode = 'byte';
         s.BytesAvailableFcn = {@READY_TO_READ};
-        fopen(s)
+        fopen(s);
         % delay_ms(100);
         fwrite(s,uint8(start_command),'uint8')  % send start command
     
@@ -873,7 +873,7 @@ function main()
 
             % find all new frames for all subs
             find_new_frames=find(good_out==14);
-            if length(find_new_frames)==0
+            if isempty(find_new_frames)
                 find_new_frames=find(good_out==15);
                 frame_reversed_1=true;
                 frame_reversed_2=true;
@@ -2342,7 +2342,7 @@ function main()
     end % function
 
 
-    function r1_callback(source, event)
+    function r1_callback(~, event)
         left_new=uint16([]);
         disp('mode 1');
 
@@ -2448,7 +2448,7 @@ function main()
     end
 
 
-    function r2_callback(source, event)
+    function r2_callback(~, event)
         left_new=uint16([]);
         disp('mode 2');
 
@@ -2552,12 +2552,12 @@ function main()
     end
 
 
-    function r3_callback(source, event)
+    function r3_callback(~, event)
         left_new=uint16([]);
         disp('mode 3');
 
-        x_size=140;
-        y_size=10;
+        x_size=250;
+        y_size=30;
 
         show_x_min=1;
         show_x_max=x_size;
@@ -2655,14 +2655,14 @@ function main()
         fwrite(s,uint8('g'),'uint8');
     end
 
-    function reverse_image(source, event)
-        frame_reversed_1=~frame_reversed_1;
-        frame_reversed_2=~frame_reversed_2;
-        frame_reversed_3=~frame_reversed_3;
-        frame_reversed_4=~frame_reversed_4;
-        frame_reversed_5=~frame_reversed_5;
-        frame_reversed_6=~frame_reversed_6;
-    end
+    % function reverse_image(source, event)
+    %     frame_reversed_1=~frame_reversed_1;
+    %     frame_reversed_2=~frame_reversed_2;
+    %     frame_reversed_3=~frame_reversed_3;
+    %     frame_reversed_4=~frame_reversed_4;
+    %     frame_reversed_5=~frame_reversed_5;
+    %     frame_reversed_6=~frame_reversed_6;
+    % end
 
 
     function corr_on_callback(source,event)
@@ -2766,13 +2766,13 @@ function main()
         if nargin<4 || isempty(marg_h); marg_h = .05; end
         if nargin<5; marg_w = .05; end
 
-        if numel(gap)==1; 
+        if numel(gap)==1
             gap = [gap gap];
         end
-        if numel(marg_w)==1; 
+        if numel(marg_w)==1
             marg_w = [marg_w marg_w];
         end
-        if numel(marg_h)==1; 
+        if numel(marg_h)==1
             marg_h = [marg_h marg_h];
         end
 
