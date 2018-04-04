@@ -2,9 +2,8 @@ clear; clc
 delete(instrfindall); % remove already opened serial
 
 main();
-
 function main()
-    % cmaps
+
     mine=[
         1.0000         0         0
         1.0000    0.0572         0
@@ -412,11 +411,11 @@ function main()
     size_to_read=25000; % read when reached in buffer
 
     % PROFILING
-    profile_on=1;
+    profile_on=0;
     record_time=60; % profile time
     
     % GLOBAL
-    start_command='g';
+    start_command='f';
 
     x_size=240;
     y_size=30;
@@ -431,9 +430,9 @@ function main()
     % PLOT
     number_of_sub=6;
     show_colorbar = 1;
-    cmap_name=jet_black_end; % mine, parula_black, jet_black, jet_black_end, jet_white, hot
-    matrix_default_value=0;
-    color=[0 7];
+    cmap_name=jet_black; % mine, parula_black, jet_black, jet_black_end, jet_white, hot
+    matrix_default_value=100;
+    color=[1.5 40];
 
     show_separated_lines = 0;
     first_line_reverse=true;
@@ -490,7 +489,12 @@ function main()
     new_frame_6_idx=0;
     redraw_6=false;
 
-    % M_2_backup=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M); 
+    M_1_backup=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M); 
+    M_2_backup=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M); 
+    M_3_backup=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M); 
+    M_4_backup=zeros(maximum_y_points_4,maximum_x_points_4,type_of_M); 
+    M_5_backup=zeros(maximum_y_points_5,maximum_x_points_5,type_of_M); 
+    M_6_backup=zeros(maximum_y_points_6,maximum_x_points_6,type_of_M); 
 
     M_1=matrix_default_value*ones(maximum_y_points_1,maximum_x_points_1,type_of_M); % uint8 is fine, but will be rough
     M_2=matrix_default_value*ones(maximum_y_points_2,maximum_x_points_2,type_of_M);
@@ -498,6 +502,7 @@ function main()
     M_4=matrix_default_value*ones(maximum_y_points_4,maximum_x_points_4,type_of_M); 
     M_5=matrix_default_value*ones(maximum_y_points_5,maximum_x_points_5,type_of_M);
     M_6=matrix_default_value*ones(maximum_y_points_6,maximum_x_points_6,type_of_M);
+
     % all flow separated by this array, A_1 for X1 and so on..
     A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array. Don't forget about x4;
     A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % uint32 is fine. CALIB2 is ~32000
@@ -521,23 +526,24 @@ function main()
                   'HandleVisibility','off');
         S.r1 = uicontrol(bg,'Style',...
                           'radiobutton',...
-                          'String','Option 1',...
+                          'String','RFP (1800x4)',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.05 0 0.5 0.8],...
                           'HandleVisibility','off',...
                           'Callback', @r1_callback);
         S.r2 = uicontrol(bg,'Style','radiobutton',...
-                          'String','Option 2',...
+                          'String','CAR (760x8)',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.15 0 0.5 0.8],...
-                          'Value',1,...
+                          'Value',0,...
                           'HandleVisibility','off',...
                           'Callback', @r2_callback);
         S.r3 = uicontrol(bg,'Style','radiobutton',...
-                          'String','Option 3',...
+                          'String','HR (1440x30)',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.25 0 0.5 0.8],...
                           'HandleVisibility','off',...
+                          'Value',1,...
                           'Callback', @r3_callback);
         S.sl = uicontrol(bg,'Style','slider',...
                           'String','Distance range',...
@@ -1170,6 +1176,8 @@ function main()
                     end
                 end
 
+
+                M_1_backup=M_1;
                 set(pl(1),'CData',M_1);
                 redraw_1=true;  
 
@@ -1405,8 +1413,12 @@ function main()
                 %     disp('done')
                 %     % find(M_2_backup(2,:)==0,5,'first')
                 % end
-
-
+        
+                if (counter==200)
+                    name=strcat(strrep(datestr(now,'dd-mmm-yyyy-hh-MM-ss'),'-','_'),'.txt');
+                    dlmwrite(name, [M_1_backup M_2_backup M_3_backup M_4_backup M_5_backup M_6_backup]);
+                    disp('SCREEN IS DONE')
+                end
                 % txt=[]
                 % total_points=0;
                 % for i=2:30
@@ -1436,7 +1448,7 @@ function main()
                 %     % find(M_2_backup(2,:)==0,5,'first')
                 % end
 
-                % M_2_backup=M_2;
+                M_2_backup=M_2;
                 set(pl(2),'CData',M_2);
                 redraw_2=true;  
 
@@ -1651,6 +1663,8 @@ function main()
                     end
                 end
 
+
+                M_3_backup=M_3;
                 set(pl(3),'CData',M_3);
                 redraw_3=true;  
 
@@ -1865,6 +1879,8 @@ function main()
                     end
                 end
 
+
+                M_4_backup=M_4;
                 set(pl(4),'CData',M_4);
                 redraw_4=true;  
 
@@ -2079,6 +2095,8 @@ function main()
                     end
                 end
 
+
+                M_5_backup=M_5;
                 set(pl(5),'CData',M_5);
                 redraw_5=true;  
 
@@ -2292,6 +2310,8 @@ function main()
                     end
                 end
 
+
+                M_6_backup=M_6;
                 set(pl(6),'CData',M_6);
                 redraw_6=true;  
 
@@ -2711,7 +2731,12 @@ function main()
 
     function screen_callback(source,event)
         name=strcat(strrep(datestr(now,'dd-mmm-yyyy-hh-MM-ss'),'-','_'),'.txt');
-        dlmwrite(name, M_2_backup);
+        dlmwrite(name, [M_1_backup M_2_backup M_3_backup M_4_backup M_5_backup M_6_backup]);
+
+
+        % dlmwrite(name, [M_1 M_2 M_3 M_4 M_5 M_6]);
+
+
         disp('SCREEN IS DONE')
     end
 

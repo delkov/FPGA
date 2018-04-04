@@ -413,9 +413,9 @@ function main()
 
     % for serial
     baud_rate=4000000;
-    buffer_size=1000000; % in bytes
+    buffer_size=100000; % in bytes
     % VERY IMPORTANT PARAM! should be num_of_frames*size_of_frame*~0.8
-    size_to_read=15000; % read when reached in buffer. the bigger -> the bigger chance to get 2 error -  even/odd elements after reading
+    size_to_read=20000; % read when reached in buffer. the bigger -> the bigger chance to get 2 error -  even/odd elements after reading
     how_much_read_size_to_read=0;
 
     profile_on=0;
@@ -425,7 +425,7 @@ function main()
     start_command='f';
 
     x_size=140;
-    y_size=10;
+    y_size=8;
  
     % image_correction
     filter_data=0;
@@ -437,9 +437,10 @@ function main()
 
     % plot settings
     cmap_name=jet; % mine, parula_black, jet_black, jet_black_end, jet_white, hot
-    matrix_default_value=0;
+    matrix_default_value=100;
     number_of_sub=6;
     color=[0 7];
+
 
     show_separated_lines = 0;
 
@@ -447,13 +448,15 @@ function main()
     first_line_reverse=true;
     show_x_min=1;
     show_x_max=x_size;
-    show_y_min=0;
-    show_y_max=y_size;
+    show_y_min=0.5;
+    show_y_max=y_size+0.5;
     y_tick_step=1;
     x_tick_step=40;
     show_colorbar = 1;
     type_of_M='double'; 
     type_of_A='double'; % can be uint32 & double() below.. but not much speed increased
+
+    replace_to=100; % replace "overflow/bad_data" because of bad connecton
 
     %X1
     maximum_x_points_1= x_size; % make it bigger 5% 
@@ -501,12 +504,12 @@ function main()
     % MATRIX which will be plotted
     M_2_backup=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M); 
 
-    M_1=matrix_default_value*ones(maximum_y_points_1,maximum_x_points_1,type_of_M); % uint8 is fine
-    M_2=matrix_default_value*ones(maximum_y_points_2,maximum_x_points_2,type_of_M);
-    M_3=matrix_default_value*ones(maximum_y_points_3,maximum_x_points_3,type_of_M);
-    M_4=matrix_default_value*ones(maximum_y_points_4,maximum_x_points_4,type_of_M); 
-    M_5=matrix_default_value*ones(maximum_y_points_5,maximum_x_points_5,type_of_M);
-    M_6=matrix_default_value*ones(maximum_y_points_6,maximum_x_points_6,type_of_M);
+    M_1=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M); % uint8 is fine
+    M_2=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M);
+    M_3=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M);
+    M_4=zeros(maximum_y_points_4,maximum_x_points_4,type_of_M); 
+    M_5=zeros(maximum_y_points_5,maximum_x_points_5,type_of_M);
+    M_6=zeros(maximum_y_points_6,maximum_x_points_6,type_of_M);
     % all flow separated by this array, A_1 for X1 and so on..
     A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array. Don't forget about x4;
     A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % uint32 is fine. CALIB2 is ~32000
@@ -813,20 +816,18 @@ function main()
     frame_reversed_5=first_frame_reverse;
     frame_reversed_6=first_frame_reverse;
 
-    M_1_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_1_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);1
-    M_2_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_2_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_3_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_3_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_4_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_4_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_5_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_5_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_6_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_6_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-
-
+    M_1_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+    M_1_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);1
+    M_2_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+    M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+    M_3_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+    M_3_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+    M_4_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+    M_4_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+    M_5_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+    M_5_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+    M_6_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+    M_6_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
 
     left_new=uint16([]);
 
@@ -846,7 +847,7 @@ function main()
         s.BytesAvailableFcnMode = 'byte';
         s.BytesAvailableFcn = {@READY_TO_READ};
         fopen(s)
-        % delay_ms(100);
+        delay_ms(100);
         % send start command
         fwrite(s,uint8(start_command),'uint8')
     
@@ -868,121 +869,52 @@ function main()
             end
         end
 
-        % both of them 8 bit -> it also 8bit; PREALLOCATED for out can be done...
-        new = [left_new; uint8(fread(s,size_to_read,'uint8'))];
-        how_much_read_size_to_read=how_much_read_size_to_read+1;
+        try
+            % both of them 8 bit -> it also 8bit; PREALLOCATED for out can be done...
+            new = [left_new; uint16(fread(s,size_to_read,'uint8'))];
+            how_much_read_size_to_read=how_much_read_size_to_read+1;
 
-        zeros_amount=6;
-        idx_begin=find(new==0,zeros_amount,'first');
-        idx_last=find(new==0,zeros_amount,'last');
-        for i=1:zeros_amount
-            if (idx_begin(i)~=1 && ( new(idx_begin(i)-1)==1 || new(idx_begin(i)-1)==2 || new(idx_begin(i)-1)==3 || new(idx_begin(i)-1)==4 || new(idx_begin(i)-1)==5 || new(idx_begin(i)-1)==6  ) )
-                idx_begin=idx_begin(i);
-                for j=zeros_amount:-1:1
-                    if (idx_last(j)~=1 && ( new(idx_last(j)-1)==1 || new(idx_last(j)-1)==2 || new(idx_last(j)-1)==3 || new(idx_last(j)-1)==4 || new(idx_last(j)-1)==5 || new(idx_last(j)-1)==6  ) ) 
-                        idx_last=idx_last(j);
-                        break
+            zeros_amount=6;
+            idx_begin=find(new==0,zeros_amount,'first');
+            idx_last=find(new==0,zeros_amount,'last');
+            for i=1:zeros_amount
+                if (idx_begin(i)~=1 && ( new(idx_begin(i)-1)==1 || new(idx_begin(i)-1)==2 || new(idx_begin(i)-1)==3 || new(idx_begin(i)-1)==4 || new(idx_begin(i)-1)==5 || new(idx_begin(i)-1)==6  ) )
+                    idx_begin=idx_begin(i);
+
+                    for j=zeros_amount:-1:1
+                        if (idx_last(j)~=1 && ( new(idx_last(j)-1)==1 || new(idx_last(j)-1)==2 || new(idx_last(j)-1)==3 || new(idx_last(j)-1)==4 || new(idx_last(j)-1)==5 || new(idx_last(j)-1)==6  ) ) 
+                            idx_last=idx_last(j);
+                            break
+                        end
                     end
+                    break
                 end
-                break
             end
-        end
 
 
-        left_new=new(idx_last-1:end);
-        new = new(idx_begin-1:idx_last-2);
-        new_size=length(new);
-
-        if mod(new_size,6)==0
-            new_length=new_size/2;
+            left_new=new(idx_last-1:end);
+            new = new(idx_begin-1:idx_last-2);
+            % fprintf(fileID,'%d\n', new); 
+            new_length=length(new)/2;
             good_out=zeros(1,new_length,'uint16');
-
-            for i=1:new_length
-                good_out(i)=new(2*i-1)+new(2*i)*256;
-            end
-
-            % find all new frames for all subs
-            find_new_frames=find(good_out==14);
-        
-            %% WE ASUME ONLY 1 FRAME PER TIME !!! 
-            for i=1:2:length(find_new_frames) % here we skip 1 14 14.. just grab first one
-                switch good_out(find_new_frames(i)-1) % detect, which submodule
-                    case 1
-                        new_frame_1_idx=find_new_frames(i)-1;  % index (in good_out array) of submodule, which have next 14
-                    case 2
-                        new_frame_2_idx=find_new_frames(i)-1;
-                    case 3
-                        new_frame_3_idx=find_new_frames(i)-1;
-                    case 4
-                        new_frame_4_idx=find_new_frames(i)-1;
-                    case 5
-                        new_frame_5_idx=find_new_frames(i)-1;
-                    case 6
-                        new_frame_6_idx=find_new_frames(i)-1;
-                    otherwise
-                        disp('wrong submodule for new frame..')
-                end
-            end
-
-            try
-                X1();
-                X2();
-                X3();
-                X4();
-                X5();
-                X6();
-            catch
-                disp('smth wrong in X()..')
-                % flushinput(s)
-            end
-
-            % if (redraw_2==true)% &&  redraw_2==true ||redraw_4==true || redraw_5==true || redraw_6==true)
-            if (redraw_1==true && redraw_2==true  && redraw_3==true && redraw_4==true && redraw_5==true && redraw_6==true) 
-                how_much_read_size_to_read=0;
-                counter=counter+1;
-                redraw_1=false;
-                redraw_2=false;
-                redraw_3=false;
-                redraw_4=false;
-                redraw_5=false;
-                redraw_6=false;
-                drawnow nocallbacks %% more faster (25%) than just drawnow.
-            end
-        else
-            new_frame_counter=0;
-            % flushinput(s)
-            bad_counter=bad_counter+1;
-            disp(['how much read', num2str(how_much_read_size_to_read)]);
-            fileID = fopen('serial_checking.txt','w');
-            fprintf(fileID,'%d\n', new); 
+        catch
+            % fileID = fopen('serial_checking.txt','w');
+            % fprintf(fileID,'%d\n', new); 
             % delay_ms(10000);
 
-            disp('NEW?')
+            bad_counter=bad_counter+1;
+            disp('bad data..')
+            disp(['how much read', num2str(how_much_read_size_to_read)]);
+            if how_much_read_size_to_read>2
+                frame_reversed_1=~frame_reversed_1;
+                frame_reversed_2=~frame_reversed_2;
+                frame_reversed_3=~frame_reversed_3;
+                frame_reversed_4=~frame_reversed_4;
+                frame_reversed_5=~frame_reversed_5;
+                frame_reversed_6=~frame_reversed_6;
+            end
 
-            % possible_new_frame_idx=find(new==14);
-            % try
-            %     for i=1:1:length(possible_new_frame_idx)
-            %         if (new(possible_new_frame_idx(i)+1)==0 && new(possible_new_frame_idx(i)+2)==14)
-            %             new_frame_counter=new_frame_counter+1;
-            %         end
-            %     end
-            % catch
-            % end
-
-            % disp(new_frame_counter)
-            % if  new_frame_counter==6
-            %     frame_reversed_1=~frame_reversed_1;
-            %     frame_reversed_2=~frame_reversed_2;
-            %     frame_reversed_3=~frame_reversed_3;
-            %     frame_reversed_4=~frame_reversed_4;
-            %     frame_reversed_5=~frame_reversed_5;
-            %     frame_reversed_6=~frame_reversed_6;
-            %     disp('lets reverse')
-            % else
-            %     disp('NO reverse')    
-            % end
-
-
+            % flushinput(s)
             A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array. Don't forget about x4;
             A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % uint32 is fine. CALIB2 is ~32000
             A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % 
@@ -997,24 +929,93 @@ function main()
             len_5_before=0;
             len_6_before=0;
 
-            M_1_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_1_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_2_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_2_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_3_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_3_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_4_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_4_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_5_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_5_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_6_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-            M_6_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
+            M_1_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_1_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_2_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_3_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_3_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_4_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_4_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_5_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_5_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_6_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+            M_6_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
 
             left_new=uint16([]);
-            % return
+            return
         end
 
+        for i=1:new_length
+            good_out(i)=new(2*i-1)+new(2*i)*256;
+        end
 
+        % good_out(1:3)
+        % fprintf(fileID,'%d\n',good_out);   
+        
+        % find all new frames for all subs
+        find_new_frames=find(good_out==14);
+    
+        %% WE ASUME ONLY 1 FRAME PER TIME !!! 
+        for i=1:2:length(find_new_frames) % here we skip 1 14 14.. just grab first one
+            switch good_out(find_new_frames(i)-1) % detect, which submodule
+                case 1
+                    new_frame_1_idx=find_new_frames(i)-1;  % index (in good_out array) of submodule, which have next 14
+                case 2
+                    new_frame_2_idx=find_new_frames(i)-1;
+                case 3
+                    new_frame_3_idx=find_new_frames(i)-1;
+                case 4
+                    new_frame_4_idx=find_new_frames(i)-1;
+                case 5
+                    new_frame_5_idx=find_new_frames(i)-1;
+                case 6
+                    new_frame_6_idx=find_new_frames(i)-1;
+                otherwise
+                    disp('wrong submodule for new frame..')
+            end
+        end
+
+        % for parallel processing, 4 pool at least.
+        % F(2) = parfeval(p,@X2,0);
+        % F(3) = parfeval(p,@X3,0);
+        % F(4) = parfeval(p,@X4,0);
+        % F(5) = parfeval(p,@X5,0);
+        % F(6) = parfeval(p,@X6,0);
+        % fetchOutputs(F)
+        % completedIdx = fetchNext(F)
+
+        try
+            X1();
+            X2();
+            X3();
+            X4();
+            X5();
+            X6();
+        catch
+            disp('smth wrong in X()..')
+            flushinput(s)
+        end
+
+        if (redraw_2==true ||  redraw_2==true ||redraw_4==true || redraw_5==true || redraw_6==true)
+        % if (redraw_1==true && redraw_2==true  && redraw_3==true && redraw_4==true && redraw_5==true && redraw_6==true) 
+            how_much_read_size_to_read=0;
+            counter=counter+1;
+            redraw_1=false;
+            redraw_2=false;
+            redraw_3=false;
+            redraw_4=false;
+            redraw_5=false;
+            redraw_6=false;
+
+            drawnow nocallbacks %% more faster (25%) than just drawnow.
+
+
+
+
+
+
+        end
 
 
 
@@ -1080,18 +1081,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_1(temp_row_1,j)=M_1(temp_row_1, replace_idx);
-                                            % else 
-                                                % j
-                                                % disp('no place bigger ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 1')
                                             end
                                         elseif (M_1(temp_row_1, j) == 0)
                                             replace_idx=find(M_1(temp_row_1,j-1:-1:1) ~= 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_1(temp_row_1,j)=M_1(temp_row_1, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 1')
                                             end
                                         end
                                     end
@@ -1105,18 +1106,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_1(temp_row_1,size_A_sepi+1-j)=M_1(temp_row_1, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 2')
                                             end
                                         elseif (M_1(temp_row_1, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_1(temp_row_1, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_1(temp_row_1,size_A_sepi+1-j)=M_1(temp_row_1, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 2')
                                             end
                                         end
                                     end
@@ -1147,18 +1148,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_1(temp_row_1,j)=M_1(temp_row_1, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 1')
+                                            else 
+                                                j
+                                                disp('no place bigger - 1')
                                             end
                                         elseif  (M_1(temp_row_1, j) == 0)
                                             replace_idx=find(M_1(temp_row_1, j-1:-1:1) > 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_1(temp_row_1,j)=M_1(temp_row_1, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 1')
+                                            else 
+                                                j
+                                                disp('no place 0 - 1')
                                             end
                                         end
                                     end
@@ -1172,18 +1173,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_1(temp_row_1,size_A_sepi+1-j)=M_1(temp_row_1, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 2')
+                                            else 
+                                                j
+                                                disp('no place bigger - 2')
                                             end
                                         elseif (M_1(temp_row_1, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_1(temp_row_1, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_1(temp_row_1,size_A_sepi+1-j)=M_1(temp_row_1, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 2')
+                                            else 
+                                                j
+                                                disp('no place 0 - 2')
                                             end
                                         end
                                     end
@@ -1219,8 +1220,8 @@ function main()
                 redraw_1=true;  
 
                 %% Previous frame is done -> A_1 is complete -> prcess it
-                M_1=matrix_default_value*ones(maximum_y_points_1,maximum_x_points_1,type_of_M);
-                A_1=matrix_default_value*ones(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array
+                M_1=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M);
+                A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array
 
                 % fill array, which after new frame
                 len_1_full=length(find_1_all_idx); % all points
@@ -1296,18 +1297,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_2(temp_row_2,j)=M_2(temp_row_2, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 1')
                                             end
                                         elseif (M_2(temp_row_2, j) == 0)
                                             replace_idx=find(M_2(temp_row_2,j-1:-1:1) ~= 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_2(temp_row_2,j)=M_2(temp_row_2, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 1')
                                             end
                                         end
                                     end
@@ -1321,18 +1322,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_2(temp_row_2,size_A_sepi+1-j)=M_2(temp_row_2, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 2')
                                             end
                                         elseif (M_2(temp_row_2, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_2(temp_row_2, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_2(temp_row_2,size_A_sepi+1-j)=M_2(temp_row_2, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 2')
                                             end
                                         end
                                     end
@@ -1363,18 +1364,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_2(temp_row_2,j)=M_2(temp_row_2, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 1')
+                                            else 
+                                                j
+                                                disp('no place bigger - 1')
                                             end
                                         elseif  (M_2(temp_row_2, j) == 0)
                                             replace_idx=find(M_2(temp_row_2, j-1:-1:1) > 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_2(temp_row_2,j)=M_2(temp_row_2, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 1')
+                                            else 
+                                                j
+                                                disp('no place 0 - 1')
                                             end
                                         end
                                     end
@@ -1388,18 +1389,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_2(temp_row_2,size_A_sepi+1-j)=M_2(temp_row_2, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 2')
+                                            else 
+                                                j
+                                                disp('no place bigger - 2')
                                             end
                                         elseif (M_2(temp_row_2, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_2(temp_row_2, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_2(temp_row_2,size_A_sepi+1-j)=M_2(temp_row_2, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 2')
+                                            else 
+                                                j
+                                                disp('no place 0 - 2')
                                             end
                                         end
                                     end
@@ -1486,8 +1487,8 @@ function main()
                 redraw_2=true;  
 
                 %% Previous frame is done -> A_2 is complete -> prcess it
-                M_2=matrix_default_value*ones(maximum_y_points_2,maximum_x_points_2,type_of_M);
-                A_2=matrix_default_value*ones(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % +1 since new line saved in this array
+                M_2=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M);
+                A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % +1 since new line saved in this array
 
                 % fill array, which after new frame
                 len_2_full=length(find_2_all_idx); % all points
@@ -1561,18 +1562,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_3(temp_row_3,j)=M_3(temp_row_3, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 1')
                                             end
                                         elseif (M_3(temp_row_3, j) == 0)
                                             replace_idx=find(M_3(temp_row_3,j-1:-1:1) ~= 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_3(temp_row_3,j)=M_3(temp_row_3, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 1')
                                             end
                                         end
                                     end
@@ -1586,18 +1587,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_3(temp_row_3,size_A_sepi+1-j)=M_3(temp_row_3, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 2')
                                             end
                                         elseif (M_3(temp_row_3, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_3(temp_row_3, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_3(temp_row_3,size_A_sepi+1-j)=M_3(temp_row_3, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 2')
                                             end
                                         end
                                     end
@@ -1628,18 +1629,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_3(temp_row_3,j)=M_3(temp_row_3, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 1')
+                                            else 
+                                                j
+                                                disp('no place bigger - 1')
                                             end
                                         elseif  (M_3(temp_row_3, j) == 0)
                                             replace_idx=find(M_3(temp_row_3, j-1:-1:1) > 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_3(temp_row_3,j)=M_3(temp_row_3, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 1')
+                                            else 
+                                                j
+                                                disp('no place 0 - 1')
                                             end
                                         end
                                     end
@@ -1653,18 +1654,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_3(temp_row_3,size_A_sepi+1-j)=M_3(temp_row_3, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 2')
+                                            else 
+                                                j
+                                                disp('no place bigger - 2')
                                             end
                                         elseif (M_3(temp_row_3, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_3(temp_row_3, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_3(temp_row_3,size_A_sepi+1-j)=M_3(temp_row_3, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 2')
+                                            else 
+                                                j
+                                                disp('no place 0 - 2')
                                             end
                                         end
                                     end
@@ -1700,8 +1701,8 @@ function main()
                 redraw_3=true;  
 
                 %% Previous frame is done -> A_3 is complete -> prcess it
-                M_3=matrix_default_value*ones(maximum_y_points_3,maximum_x_points_3,type_of_M);
-                A_3=matrix_default_value*ones(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % +1 since new line saved in this array
+                M_3=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M);
+                A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % +1 since new line saved in this array
 
                 % fill array, which after new frame
                 len_3_full=length(find_3_all_idx); % all points
@@ -1775,18 +1776,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_4(temp_row_4,j)=M_4(temp_row_4, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 1')
                                             end
                                         elseif (M_4(temp_row_4, j) == 0)
                                             replace_idx=find(M_4(temp_row_4,j-1:-1:1) ~= 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_4(temp_row_4,j)=M_4(temp_row_4, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 1')
                                             end
                                         end
                                     end
@@ -1800,18 +1801,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_4(temp_row_4,size_A_sepi+1-j)=M_4(temp_row_4, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 2')
                                             end
                                         elseif (M_4(temp_row_4, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_4(temp_row_4, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_4(temp_row_4,size_A_sepi+1-j)=M_4(temp_row_4, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 2')
                                             end
                                         end
                                     end
@@ -1842,18 +1843,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_4(temp_row_4,j)=M_4(temp_row_4, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 1')
+                                            else 
+                                                j
+                                                disp('no place bigger - 1')
                                             end
                                         elseif  (M_4(temp_row_4, j) == 0)
                                             replace_idx=find(M_4(temp_row_4, j-1:-1:1) > 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_4(temp_row_4,j)=M_4(temp_row_4, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 1')
+                                            else 
+                                                j
+                                                disp('no place 0 - 1')
                                             end
                                         end
                                     end
@@ -1867,18 +1868,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_4(temp_row_4,size_A_sepi+1-j)=M_4(temp_row_4, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 2')
+                                            else 
+                                                j
+                                                disp('no place bigger - 2')
                                             end
                                         elseif (M_4(temp_row_4, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_4(temp_row_4, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_4(temp_row_4,size_A_sepi+1-j)=M_4(temp_row_4, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 2')
+                                            else 
+                                                j
+                                                disp('no place 0 - 2')
                                             end
                                         end
                                     end
@@ -1914,8 +1915,8 @@ function main()
                 redraw_4=true;  
 
                 %% Previous frame is done -> A_4 is complete -> prcess it
-                M_4=matrix_default_value*ones(maximum_y_points_4,maximum_x_points_4,type_of_M);
-                A_4=matrix_default_value*ones(1,3*maximum_x_points_4*maximum_y_points_4,type_of_A); % +1 since new line saved in this array
+                M_4=zeros(maximum_y_points_4,maximum_x_points_4,type_of_M);
+                A_4=zeros(1,3*maximum_x_points_4*maximum_y_points_4,type_of_A); % +1 since new line saved in this array
 
                 % fill array, which after new frame
                 len_4_full=length(find_4_all_idx); % all points
@@ -1989,18 +1990,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_5(temp_row_5,j)=M_5(temp_row_5, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 1')
                                             end
                                         elseif (M_5(temp_row_5, j) == 0)
                                             replace_idx=find(M_5(temp_row_5,j-1:-1:1) ~= 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_5(temp_row_5,j)=M_5(temp_row_5, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 1')
                                             end
                                         end
                                     end
@@ -2014,18 +2015,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_5(temp_row_5,size_A_sepi+1-j)=M_5(temp_row_5, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 2')
                                             end
                                         elseif (M_5(temp_row_5, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_5(temp_row_5, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_5(temp_row_5,size_A_sepi+1-j)=M_5(temp_row_5, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 2')
                                             end
                                         end
                                     end
@@ -2056,18 +2057,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_5(temp_row_5,j)=M_5(temp_row_5, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 1')
+                                            else 
+                                                j
+                                                disp('no place bigger - 1')
                                             end
                                         elseif  (M_5(temp_row_5, j) == 0)
                                             replace_idx=find(M_5(temp_row_5, j-1:-1:1) > 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_5(temp_row_5,j)=M_5(temp_row_5, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 1')
+                                            else 
+                                                j
+                                                disp('no place 0 - 1')
                                             end
                                         end
                                     end
@@ -2081,18 +2082,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_5(temp_row_5,size_A_sepi+1-j)=M_5(temp_row_5, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 2')
+                                            else 
+                                                j
+                                                disp('no place bigger - 2')
                                             end
                                         elseif (M_5(temp_row_5, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_5(temp_row_5, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_5(temp_row_5,size_A_sepi+1-j)=M_5(temp_row_5, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 2')
+                                            else 
+                                                j
+                                                disp('no place 0 - 2')
                                             end
                                         end
                                     end
@@ -2128,8 +2129,8 @@ function main()
                 redraw_5=true;  
 
                 %% Previous frame is done -> A_5 is complete -> prcess it
-                M_5=matrix_default_value*ones(maximum_y_points_5,maximum_x_points_5,type_of_M);
-                A_5=matrix_default_value*ones(1,3*maximum_x_points_5*maximum_y_points_5,type_of_A); % +1 since new line saved in this array
+                M_5=zeros(maximum_y_points_5,maximum_x_points_5,type_of_M);
+                A_5=zeros(1,3*maximum_x_points_5*maximum_y_points_5,type_of_A); % +1 since new line saved in this array
 
                 % fill array, which after new frame
                 len_5_full=length(find_5_all_idx); % all points
@@ -2203,18 +2204,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_6(temp_row_6,j)=M_6(temp_row_6, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 1')
                                             end
                                         elseif (M_6(temp_row_6, j) == 0)
                                             replace_idx=find(M_6(temp_row_6,j-1:-1:1) ~= 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_6(temp_row_6,j)=M_6(temp_row_6, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 1')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 1')
                                             end
                                         end
                                     end
@@ -2228,18 +2229,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_6(temp_row_6,size_A_sepi+1-j)=M_6(temp_row_6, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place bigger ~reversed 2')
                                             end
                                         elseif (M_6(temp_row_6, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_6(temp_row_6, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_6(temp_row_6,size_A_sepi+1-j)=M_6(temp_row_6, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 ~reversed 2')
+                                            else 
+                                                j
+                                                disp('no place 0 ~reversed 2')
                                             end
                                         end
                                     end
@@ -2270,18 +2271,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_6(temp_row_6,j)=M_6(temp_row_6, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 1')
+                                            else 
+                                                j
+                                                disp('no place bigger - 1')
                                             end
                                         elseif  (M_6(temp_row_6, j) == 0)
                                             replace_idx=find(M_6(temp_row_6, j-1:-1:1) > 0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=j-replace_idx;
                                                 M_6(temp_row_6,j)=M_6(temp_row_6, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 1')
+                                            else 
+                                                j
+                                                disp('no place 0 - 1')
                                             end
                                         end
                                     end
@@ -2294,18 +2295,18 @@ function main()
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_6(temp_row_6,size_A_sepi+1-j)=M_6(temp_row_6, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place bigger - 2')
+                                            else 
+                                                j
+                                                disp('no place bigger - 2')
                                             end
                                         elseif (M_6(temp_row_6, size_A_sepi+1-j) == 0)
                                             replace_idx=find(M_6(temp_row_6, size_A_sepi+1-j:end)>0,1,'first');
                                             if replace_idx>0
                                                 replace_idx=replace_idx+size_A_sepi+1-j;
                                                 M_6(temp_row_6,size_A_sepi+1-j)=M_6(temp_row_6, replace_idx);
-                                            % else 
-                                            %     j
-                                            %     disp('no place 0 - 2')
+                                            else 
+                                                j
+                                                disp('no place 0 - 2')
                                             end
                                         end
                                     end
@@ -2341,8 +2342,8 @@ function main()
                 redraw_6=true;  
 
                 %% Previous frame is done -> A_6 is complete -> prcess it
-                M_6=matrix_default_value*ones(maximum_y_points_6,maximum_x_points_6,type_of_M);
-                A_6=matrix_default_value*ones(1,3*maximum_x_points_6*maximum_y_points_6,type_of_A); % +1 since new line saved in this array
+                M_6=zeros(maximum_y_points_6,maximum_x_points_6,type_of_M);
+                A_6=zeros(1,3*maximum_x_points_6*maximum_y_points_6,type_of_A); % +1 since new line saved in this array
 
                 % fill array, which after new frame
                 len_6_full=length(find_6_all_idx); % all points
@@ -2411,7 +2412,7 @@ function main()
         new_frame_1_idx=0;
         redraw_1=false;
 
-        M_1=matrix_default_value*ones(maximum_y_points_1,maximum_x_points_1,type_of_M);
+        M_1=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M);
         A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array
         M_1_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_1_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2424,10 +2425,10 @@ function main()
         new_frame_2_idx=0;
         redraw_2=false;
 
-        M_2=matrix_default_value*ones(maximum_y_points_2,maximum_x_points_2,type_of_M);
+        M_2=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M);
         A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % +1 since new line saved in this array
         M_2_reversed_frame_last_line=zeros(1,x_size,type_of_M);
-        M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
+        M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);1
 
         %X3
         maximum_x_points_3= x_size; % make it bigger 5% 
@@ -2437,7 +2438,7 @@ function main()
         new_frame_3_idx=0;
         redraw_3=false;
 
-        M_3=matrix_default_value*ones(maximum_y_points_3,maximum_x_points_3,type_of_M);
+        M_3=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M);
         A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % +1 since new line saved in this array
         M_3_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_3_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2451,7 +2452,7 @@ function main()
         new_frame_4_idx=0;
         redraw_4=false;
 
-        M_4=matrix_default_value*ones(maximum_y_points_4,maximum_x_points_4,type_of_M);
+        M_4=zeros(maximum_y_points_4,maximum_x_points_4,type_of_M);
         A_4=zeros(1,3*maximum_x_points_4*maximum_y_points_4,type_of_A); % +1 since new line saved in this array
         M_4_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_4_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2464,7 +2465,7 @@ function main()
         new_frame_5_idx=0;
         redraw_5=false;
 
-        M_5=matrix_default_value*ones(maximum_y_points_5,maximum_x_points_5,type_of_M);
+        M_5=zeros(maximum_y_points_5,maximum_x_points_5,type_of_M);
         A_5=zeros(1,3*maximum_x_points_5*maximum_y_points_5,type_of_A); % +1 since new line saved in this array
         M_5_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_5_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2478,7 +2479,7 @@ function main()
         new_frame_6_idx=0;
         redraw_6=false;
 
-        M_6=matrix_default_value*ones(maximum_y_points_6,maximum_x_points_6,type_of_M);
+        M_6=zeros(maximum_y_points_6,maximum_x_points_6,type_of_M);
         A_6=zeros(1,3*maximum_x_points_6*maximum_y_points_6,type_of_A); % +1 since new line saved in this array
         M_6_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_6_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2518,7 +2519,7 @@ function main()
         new_frame_1_idx=0;
         redraw_1=false;
 
-        M_1=matrix_default_value*ones(maximum_y_points_1,maximum_x_points_1,type_of_M);
+        M_1=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M);
         A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array
         M_1_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_1_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2531,7 +2532,7 @@ function main()
         new_frame_2_idx=0;
         redraw_2=false;
 
-        M_2=matrix_default_value*ones(maximum_y_points_2,maximum_x_points_2,type_of_M);
+        M_2=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M);
         A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % +1 since new line saved in this array
         M_2_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2544,7 +2545,7 @@ function main()
         new_frame_3_idx=0;
         redraw_3=false;
 
-        M_3=matrix_default_value*ones(maximum_y_points_3,maximum_x_points_3,type_of_M);
+        M_3=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M);
         A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % +1 since new line saved in this array
         M_3_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_3_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2557,7 +2558,7 @@ function main()
         new_frame_4_idx=0;
         redraw_4=false;
 
-        M_4=matrix_default_value*ones(maximum_y_points_4,maximum_x_points_4,type_of_M);
+        M_4=zeros(maximum_y_points_4,maximum_x_points_4,type_of_M);
         A_4=zeros(1,3*maximum_x_points_4*maximum_y_points_4,type_of_A); % +1 since new line saved in this array
         M_4_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_4_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2570,7 +2571,7 @@ function main()
         new_frame_5_idx=0;
         redraw_5=false;
 
-        M_5=matrix_default_value*ones(maximum_y_points_5,maximum_x_points_5,type_of_M);
+        M_5=zeros(maximum_y_points_5,maximum_x_points_5,type_of_M);
         A_5=zeros(1,3*maximum_x_points_5*maximum_y_points_5,type_of_A); % +1 since new line saved in this array
         M_5_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_5_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2584,7 +2585,7 @@ function main()
         new_frame_6_idx=0;
         redraw_6=false;
 
-        M_6=matrix_default_value*ones(maximum_y_points_6,maximum_x_points_6,type_of_M);
+        M_6=zeros(maximum_y_points_6,maximum_x_points_6,type_of_M);
         A_6=zeros(1,3*maximum_x_points_6*maximum_y_points_6,type_of_A); % +1 since new line saved in this array
         M_6_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_6_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2622,7 +2623,7 @@ function main()
         new_frame_1_idx=0;
         redraw_1=false;
 
-        M_1=matrix_default_value*ones(maximum_y_points_1,maximum_x_points_1,type_of_M);
+        M_1=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M);
         A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array
         M_1_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_1_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2635,7 +2636,7 @@ function main()
         new_frame_2_idx=0;
         redraw_2=false;
 
-        M_2=matrix_default_value*ones(maximum_y_points_2,maximum_x_points_2,type_of_M);
+        M_2=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M);
         A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % +1 since new line saved in this array
         M_2_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_2_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2648,7 +2649,7 @@ function main()
         new_frame_3_idx=0;
         redraw_3=false;
 
-        M_3=matrix_default_value*ones(maximum_y_points_3,maximum_x_points_3,type_of_M);
+        M_3=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M);
         A_3=zeros(1,3*maximum_x_points_3*maximum_y_points_3,type_of_A); % +1 since new line saved in this array
         M_3_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_3_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2661,7 +2662,7 @@ function main()
         new_frame_4_idx=0;
         redraw_4=false;
 
-        M_4=matrix_default_value*ones(maximum_y_points_4,maximum_x_points_4,type_of_M);
+        M_4=zeros(maximum_y_points_4,maximum_x_points_4,type_of_M);
         A_4=zeros(1,3*maximum_x_points_4*maximum_y_points_4,type_of_A); % +1 since new line saved in this array
         M_4_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_4_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2674,7 +2675,7 @@ function main()
         new_frame_5_idx=0;
         redraw_5=false;
 
-        M_5=matrix_default_value*ones(maximum_y_points_5,maximum_x_points_5,type_of_M);
+        M_5=zeros(maximum_y_points_5,maximum_x_points_5,type_of_M);
         A_5=zeros(1,3*maximum_x_points_5*maximum_y_points_5,type_of_A); % +1 since new line saved in this array
         M_5_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_5_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);
@@ -2688,7 +2689,7 @@ function main()
         new_frame_6_idx=0;
         redraw_6=false;
 
-        M_6=matrix_default_value*ones(maximum_y_points_6,maximum_x_points_6,type_of_M);
+        M_6=zeros(maximum_y_points_6,maximum_x_points_6,type_of_M);
         A_6=zeros(1,3*maximum_x_points_6*maximum_y_points_6,type_of_A); % +1 since new line saved in this array
         M_6_reversed_frame_last_line=zeros(1,x_size,type_of_M);
         M_6_not_reversed_frame_last_line=zeros(1,x_size,type_of_M);

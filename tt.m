@@ -1,15 +1,22 @@
 clear; clc
 
 % dfdfd
+baud_rate=4000000;
+buffer_size=5000000;
 
 delete(instrfindall);
 if(~exist('s','Var'))
-    ser_list=seriallist()
-    serial_port=ser_list(1)
-    % getting data by bytes, so 8 bits
-    % 3.5Mhz is working!!
-    s = serial(serial_port,'BaudRate',1000000,'DataBits',8,'InputBufferSize',4800000); %20k is 1250points * 4 byte each, so take 40k.
-    fopen(s);     
+        ser_list=seriallist()
+        for i=1:1:length(ser_list)
+            if (contains(ser_list(i), '/dev/ttyUSB'))
+                ser_number=i;
+            end
+        end
+        serial_port=ser_list(ser_number)
+        s = serial(serial_port,'BaudRate',baud_rate,'DataBits',8,'InputBufferSize',buffer_size); 
+        fopen(s);     
+        fwrite(s,uint8('d'),'uint8')  % send start command
+
 end
 
 flushinput(s);
@@ -21,14 +28,17 @@ left_out=[]
 start_ok=false;
 
 fileID = fopen('serial_checking_tt.txt','w');
-while 1
-     if (s.BytesAvailable>7)
+start=tic;
+N=20;
+
+while toc(start)<10
+     if (s.BytesAvailable>N)
           % [out, count] = fread(s,s.BytesAvailable,'uint16')
             % out = [left_out; fread(s,s.BytesAvailable,'uint16')]; % both of them 16 bit -> it also 16bit; PREALLOCATED is not needed in such cases
 
-            out=fread(s,s.BytesAvailable,'uint16')
+            out=fread(s,s.BytesAvailable,'uint8')
             % find(out==0)
-            out(1:3)
+            % out(1:12)
             % find(out==1792)
 
 
@@ -57,29 +67,29 @@ while 1
             % % A(1)
      end
 
-     delay_ms(100);
+     % delay_ms(100);
 end
 
-
+% fclose(fileID)
     
-function TOF_AR = TOF(A)%,CLK_PERIOD,CALIB_PERIODS)
-    % try
-        % size_B=length(A)/4;
-        size_B=length(A)/3;
-        TOF_AR=zeros(1,size_B);
-        for i=1:1:size_B
-            disp('mesurement')
-            TOF_AR(i)=(A(3*(i-1)+2)*80*(10-1))/(A(3*(i-1)+3)); % time offset & 0.15m
-% (A(3*(i-1)+2)*80*(10-1))/(A(3*(i-1)+3))
-           % TOF_AR(i)=(A(4*(i-1)+2)*80*(10-1))/(A(4*(i-1)+4)-A(4*(i-1)+3)); % time offset & 0.15m
-             % 10^9*(A(4*(i-1)+2)*125*10^-9*(10-1)/(A(4*(i-1)+4)-A(4*(i-1)+3)))*0.15-2.9
-        end
+% function TOF_AR = TOF(A)%,CLK_PERIOD,CALIB_PERIODS)
+%     % try
+%         % size_B=length(A)/4;
+%         size_B=length(A)/3;
+%         TOF_AR=zeros(1,size_B);
+%         for i=1:1:size_B
+%             disp('mesurement')
+%             TOF_AR(i)=(A(3*(i-1)+2)*80*(10-1))/(A(3*(i-1)+3)); % time offset & 0.15m
+% % (A(3*(i-1)+2)*80*(10-1))/(A(3*(i-1)+3))
+%            % TOF_AR(i)=(A(4*(i-1)+2)*80*(10-1))/(A(4*(i-1)+4)-A(4*(i-1)+3)); % time offset & 0.15m
+%              % 10^9*(A(4*(i-1)+2)*125*10^-9*(10-1)/(A(4*(i-1)+4)-A(4*(i-1)+3)))*0.15-2.9
+%         end
     
-    % catch
-        % disp('size error')
-        % TOF_AR=fliplr(TOF_AR)
-    % end
-end
+%     % catch
+%         % disp('size error')
+%         % TOF_AR=fliplr(TOF_AR)
+%     % end
+% end
 
 
 function delay_ms(seconds)

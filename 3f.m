@@ -2,9 +2,34 @@ clear; clc
 delete(instrfindall); % remove already opened serial
 
 main();
-
 function main()
-    % cmaps
+
+
+number_of_sub=6;
+
+number_of_lines=30; % +1 will be
+number_of_rows=250*number_of_sub; % +1 will be
+
+VFOV=14;
+VFOV_ADD=90;
+
+HFOV=-30*number_of_sub;
+
+theta=[VFOV_ADD-VFOV/2:VFOV/(number_of_lines-1):VFOV_ADD+VFOV/2]*pi/180;
+phi=[HFOV:HFOV/(number_of_rows-1):HFOV+HFOV]*pi/180;
+
+sin_theta=sin(theta);
+cos_theta=cos(theta);
+sin_phi=sin(phi);
+cos_phi=cos(phi);
+
+
+x=zeros(1,number_of_lines*number_of_rows);
+y=zeros(1,number_of_lines*number_of_rows);
+z=zeros(1,number_of_lines*number_of_rows);
+
+col=x;
+
     mine=[
         1.0000         0         0
         1.0000    0.0572         0
@@ -403,47 +428,39 @@ function main()
     ];
 
     cd('/home/delkov/mojo/SIMPLE/txt');
-    % % parallel processing initialization
-    % if ~exist('p','Var')   
-    %     p = gcp();
-    % end
 
     %% CONSTANT
     counter=0; % for FPS checking
-
-    % for serial
+    % SERIAL
     baud_rate=4000000;
     buffer_size=1000000; % in bytes
-    % VERY IMPORTANT PARAM! should be num_of_frames*size_of_frame*~0.8
-    size_to_read=15000; % read when reached in buffer. the bigger -> the bigger chance to get 2 error -  even/odd elements after reading
-    how_much_read_size_to_read=0;
+    size_to_read=25000; % read when reached in buffer
 
+    % PROFILING
     profile_on=0;
-    record_time=300; % profile time
+    record_time=60; % profile time
     
     % GLOBAL
     start_command='f';
 
-    x_size=140;
-    y_size=10;
+    x_size=240;
+    y_size=30;
  
-    % image_correction
+
+    % IMAGE CORRECTIONS
     filter_data=0;
     corr_on=0;
-
-
     max_shift=35;
     replace_if_bigger_than=60; 
 
-    % plot settings
-    cmap_name=jet; % mine, parula_black, jet_black, jet_black_end, jet_white, hot
-    matrix_default_value=0;
+    % PLOT
     number_of_sub=6;
-    color=[0 7];
+    show_colorbar = 1;
+    cmap_name=jet_black; % mine, parula_black, jet_black, jet_black_end, jet_white, hot
+    matrix_default_value=100;
+    color=[1.5 40];
 
     show_separated_lines = 0;
-
-    first_frame_reverse=false;
     first_line_reverse=true;
     show_x_min=1;
     show_x_max=x_size;
@@ -451,9 +468,9 @@ function main()
     show_y_max=y_size;
     y_tick_step=1;
     x_tick_step=40;
-    show_colorbar = 1;
     type_of_M='double'; 
     type_of_A='double'; % can be uint32 & double() below.. but not much speed increased
+
 
     %X1
     maximum_x_points_1= x_size; % make it bigger 5% 
@@ -498,15 +515,20 @@ function main()
     new_frame_6_idx=0;
     redraw_6=false;
 
-    % MATRIX which will be plotted
-    M_2_backup=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M); 
+    M_1_backup=zeros(maximum_y_points_1,maximum_x_points_1,type_of_M); 
+    M_2_backup=zeros(maximum_y_points_2,maximum_x_points_2,type_of_M); 
+    M_3_backup=zeros(maximum_y_points_3,maximum_x_points_3,type_of_M); 
+    M_4_backup=zeros(maximum_y_points_4,maximum_x_points_4,type_of_M); 
+    M_5_backup=zeros(maximum_y_points_5,maximum_x_points_5,type_of_M); 
+    M_6_backup=zeros(maximum_y_points_6,maximum_x_points_6,type_of_M); 
 
-    M_1=matrix_default_value*ones(maximum_y_points_1,maximum_x_points_1,type_of_M); % uint8 is fine
+    M_1=matrix_default_value*ones(maximum_y_points_1,maximum_x_points_1,type_of_M); % uint8 is fine, but will be rough
     M_2=matrix_default_value*ones(maximum_y_points_2,maximum_x_points_2,type_of_M);
     M_3=matrix_default_value*ones(maximum_y_points_3,maximum_x_points_3,type_of_M);
     M_4=matrix_default_value*ones(maximum_y_points_4,maximum_x_points_4,type_of_M); 
     M_5=matrix_default_value*ones(maximum_y_points_5,maximum_x_points_5,type_of_M);
     M_6=matrix_default_value*ones(maximum_y_points_6,maximum_x_points_6,type_of_M);
+
     % all flow separated by this array, A_1 for X1 and so on..
     A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array. Don't forget about x4;
     A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % uint32 is fine. CALIB2 is ~32000
@@ -515,15 +537,12 @@ function main()
     A_5=zeros(1,3*maximum_x_points_5*maximum_y_points_5,type_of_A); % 
     A_6=zeros(1,3*maximum_x_points_6*maximum_y_points_6,type_of_A); % 
              
-
     if profile_on
         profile on;
         start_time=tic;
     end
 
 
-
-    % fileID = fopen('serial_checking.txt','w');
     if ~exist('h','Var')   
         % h=figure('Name','LViewer','NumberTitle','off','MenuBar', 'none', 'ToolBar','none','units','normalized','outerposition',[0 0 1 1], 'color', 'black');
         h=figure('MenuBar', 'none', 'ToolBar','none','units','normalized','outerposition',[0 0 1 1], 'color', 'black');
@@ -533,23 +552,24 @@ function main()
                   'HandleVisibility','off');
         S.r1 = uicontrol(bg,'Style',...
                           'radiobutton',...
-                          'String','Option 1',...
+                          'String','RFP (1800x4)',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.05 0 0.5 0.8],...
                           'HandleVisibility','off',...
                           'Callback', @r1_callback);
         S.r2 = uicontrol(bg,'Style','radiobutton',...
-                          'String','Option 2',...
+                          'String','CAR (760x8)',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.15 0 0.5 0.8],...
-                          'Value',1,...
+                          'Value',0,...
                           'HandleVisibility','off',...
                           'Callback', @r2_callback);
         S.r3 = uicontrol(bg,'Style','radiobutton',...
-                          'String','Option 3',...
+                          'String','HR (1440x30)',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.25 0 0.5 0.8],...
                           'HandleVisibility','off',...
+                          'Value',1,...
                           'Callback', @r3_callback);
         S.sl = uicontrol(bg,'Style','slider',...
                           'String','Distance range',...
@@ -565,11 +585,11 @@ function main()
                           'Units', 'normalized',...
                           'InnerPosition',[0.55 0.2 0.05 0.4],...
                           'HandleVisibility','on');
-        S.btn = uicontrol(bg, 'Style', 'pushbutton', 'String', 'Flip',...
-                          'Units', 'normalized',...
-                          'OuterPosition',[0.62 0.2 0.05 0.4],...
-                          'HandleVisibility','on',...
-                          'Callback', @reverse_image);      
+        % S.btn = uicontrol(bg, 'Style', 'pushbutton', 'String', 'Flip',...
+        %                   'Units', 'normalized',...
+        %                   'OuterPosition',[0.62 0.2 0.05 0.4],...
+        %                   'HandleVisibility','on',...
+        %                   'Callback', @reverse_image);      
         S.btn2 = uicontrol(bg, 'Style', 'checkbox', 'String', 'Filter',...
                           'Units', 'normalized',...
                           'OuterPosition',[0.68 0.2 0.05 0.4],...
@@ -615,181 +635,9 @@ function main()
         set(gcf,'RendererMode','manual'); % already setted because of OpenGl, just keep it..
 
         % cla
-        ax = axes('Parent', h);        
-        [ha, pos] = tight_subplot(1,number_of_sub,[0 0],[.1 0.01],[.01 .04]);
-
-
-        colormap(ha(1), cmap_name);
-        colormap(ha(2), cmap_name);
-        colormap(ha(3), cmap_name);
-        colormap(ha(4), cmap_name);
-        colormap(ha(5), cmap_name);
-        colormap(ha(6), cmap_name);
-
-        % colormap(ha(:), parula)
-
-
-        % F1
-        axes(ha(1));
-        pl(1)=image(M_1,'CDataMapping','scaled');
-        ax=gca;
-        if (~show_separated_lines)
-            ax.XTick=[];
-            ax.YTick=[];
-            axis off
-        else
-            ax.XTick = [0:x_tick_step:show_x_max];
-            ax.YTick = [0:y_tick_step:show_y_max];
-        end
-        % to make drawnow faster, since defined already
-        set(ax, 'xlimmode','manual',...
-           'ylimmode','manual',...
-           'zlimmode','manual',...
-           'climmode','manual',...
-           'alimmode','manual');
-        ax.CLim = [color(1) color(2)]; % color limit
-        ax.Color=[0 0 0];
-        ax.YAxisLocation = 'left';
-        ax.XColor=[1,1,1];
-        ax.YColor=[1,1,1];
-        ax.XLim=[show_x_min, show_x_max];
-        ax.YLim=[show_y_min, show_y_max];
-        % set(ha,'YTickLabel',[]) 
-
-        % F2
-        axes(ha(2));
-        pl(2)=image(M_2,'CDataMapping','scaled');
-        ax=gca;
-        if (~show_separated_lines)
-            ax.XTick=[];
-            ax.YTick=[];
-            axis off
-        else
-            ax.XTick = [0:x_tick_step:show_x_max];
-            ax.YTick = [0:y_tick_step:show_y_max];
-        end
-        % to make drawnow faster, since defined already
-        set(ax, 'xlimmode','manual',...
-           'ylimmode','manual',...
-           'zlimmode','manual',...
-           'climmode','manual',...
-           'alimmode','manual');
-        ax.CLim = [color(1) color(2)]; % color limit
-        ax.Color=[0 0 0];
-        ax.YAxisLocation = 'left';
-        ax.XColor=[1,1,1];
-        ax.YColor=[1,1,1];
-        ax.XLim=[show_x_min, show_x_max];
-        ax.YLim=[show_y_min, show_y_max];
-        % set(ha,'YTickLabel',[]) 
-
-        % % F3
-        axes(ha(3));
-        pl(3)=image(M_3,'CDataMapping','scaled');
-        ax=gca;
-        if (~show_separated_lines)
-            ax.XTick=[];
-            ax.YTick=[];
-            axis off
-        else
-            ax.XTick = [0:x_tick_step:show_x_max];
-            ax.YTick = [0:y_tick_step:show_y_max];
-        end
-        % to make drawnow faster, since defined already
-        set(ax, 'xlimmode','manual',...
-           'ylimmode','manual',...
-           'zlimmode','manual',...
-           'climmode','manual',...
-           'alimmode','manual');
-        ax.CLim = [color(1) color(2)]; % color limit
-        ax.Color=[0 0 0];
-        ax.YAxisLocation = 'left';
-        ax.XColor=[1,1,1];
-        ax.YColor=[1,1,1];
-        ax.XLim=[show_x_min, show_x_max];
-        ax.YLim=[show_y_min, show_y_max];
-        % set(ha,'YTickLabel',[]) 
-        % F4
-        axes(ha(4));
-        pl(4)=image(M_4,'CDataMapping','scaled');
-        ax=gca;
-        if (~show_separated_lines)
-            ax.XTick=[];
-            ax.YTick=[];
-            axis off
-        else
-            ax.XTick = [0:x_tick_step:show_x_max];
-            ax.YTick = [0:y_tick_step:show_y_max];
-        end
-        % to make drawnow faster, since defined already
-        set(ax, 'xlimmode','manual',...
-           'ylimmode','manual',...
-           'zlimmode','manual',...
-           'climmode','manual',...
-           'alimmode','manual');
-        ax.CLim = [color(1) color(2)]; % color limit
-        ax.Color=[0 0 0];
-        ax.YAxisLocation = 'left';
-        ax.XColor=[1,1,1];
-        ax.YColor=[1,1,1];
-        ax.XLim=[show_x_min, show_x_max];
-        ax.YLim=[show_y_min, show_y_max];
-        % % set(ha,'YTickLabel',[]) 
-
-        % F5
-        axes(ha(5));
-        pl(5)=image(M_5,'CDataMapping','scaled');
-        ax=gca;
-        if (~show_separated_lines)
-            ax.XTick=[];
-            ax.YTick=[];
-            axis off
-        else
-            ax.XTick = [0:x_tick_step:show_x_max];
-            ax.YTick = [0:y_tick_step:show_y_max];
-        end
-        % to make drawnow faster, since defined already
-        set(ax, 'xlimmode','manual',...
-           'ylimmode','manual',...
-           'zlimmode','manual',...
-           'climmode','manual',...
-           'alimmode','manual');
-        ax.CLim = [color(1) color(2)]; % color limit
-        ax.Color=[0 0 0];
-        ax.YAxisLocation = 'left';
-        ax.XColor=[1,1,1];
-        ax.YColor=[1,1,1];
-        ax.XLim=[show_x_min, show_x_max];
-        ax.YLim=[show_y_min, show_y_max];
-        % % set(ha,'YTickLabel',[]) /
-
-        % F6
-        axes(ha(6));
-        pl(6)=image(M_6,'CDataMapping','scaled');
-        ax=gca;
-        if (~show_separated_lines)0
-            ax.XTick=[];
-            ax.YTick=[];
-            axis off
-        else
-            ax.XTick = [0:x_tick_step:show_x_max];
-            ax.YTick = [0:y_tick_step:show_y_max];
-        end
-        % to make drawnow faster, since defined already
-        set(ax, 'xlimmode','manual',...
-           'ylimmode','manual',...
-           'zlimmode','manual',...
-           'climmode','manual',...
-           'alimmode','manual');
-        ax.CLim = [color(1) color(2)]; % color limit
-        ax.Color=[0 0 0];
-        ax.YAxisLocation = 'left';
-        ax.XColor=[1,1,1];
-        ax.YColor=[1,1,1];
-        ax.XLim=[show_x_min, show_x_max];
-        ax.YLim=[show_y_min, show_y_max];
-        % % % set(ha,'YTickLabel',[]) 
-        
+        % ax = axes('Parent', h);        
+ 
+        h=scatter3(x,y,z,2.5,col,'filled')        
 
         colormap('jet');
     end
@@ -801,20 +649,12 @@ function main()
         end
     % wait initialization of frames % co.
     % delay_ms(1000);
-    % flush serial to avoid overflow
-    % flushinput(s);
     
     drawnow;
     bad_counter=0;
-    frame_reversed_1=first_frame_reverse;
-    frame_reversed_2=first_frame_reverse;
-    frame_reversed_3=first_frame_reverse;
-    frame_reversed_4=first_frame_reverse;
-    frame_reversed_5=first_frame_reverse;
-    frame_reversed_6=first_frame_reverse;
 
     M_1_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
-    M_1_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);1
+    M_1_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
     M_2_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
     M_2_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
     M_3_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
@@ -826,29 +666,25 @@ function main()
     M_6_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
     M_6_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
 
-
-
     left_new=uint16([]);
 
 
     if(~exist('s','Var'))
-        ser_list=seriallist()
+        ser_list=seriallist();
         for i=1:1:length(ser_list)
             if (contains(ser_list(i), '/dev/ttyUSB'))
                 ser_number=i;
             end
         end
         serial_port=ser_list(ser_number)
-        s = serial(serial_port,'BaudRate',baud_rate,'DataBits',8,'InputBufferSize',buffer_size); 
-        % callback genetration
+        s = serial(serial_port,'BaudRate',baud_rate,'DataBits',8,'InputBufferSize',buffer_size);
         s.ByteOrder = 'littleEndian';
         s.BytesAvailableFcnCount = size_to_read;
         s.BytesAvailableFcnMode = 'byte';
         s.BytesAvailableFcn = {@READY_TO_READ};
-        fopen(s)
+        fopen(s);
         % delay_ms(100);
-        % send start command
-        fwrite(s,uint8(start_command),'uint8')
+        fwrite(s,uint8(start_command),'uint8')  % send start command
     
     end
     
@@ -856,7 +692,6 @@ function main()
     %% NESTED to MAIN %%
     function READY_TO_READ(~,~)
 
-        % fileID = fopen('serial_checking.txt','w');
         if profile_on
             if (toc(start_time) > record_time)
                 disp(['FPS is ', num2str(counter/toc(start_time))]);
@@ -870,7 +705,6 @@ function main()
 
         % both of them 8 bit -> it also 8bit; PREALLOCATED for out can be done...
         new = [left_new; uint8(fread(s,size_to_read,'uint8'))];
-        how_much_read_size_to_read=how_much_read_size_to_read+1;
 
         zeros_amount=6;
         idx_begin=find(new==0,zeros_amount,'first');
@@ -896,15 +730,30 @@ function main()
         if mod(new_size,6)==0
             new_length=new_size/2;
             good_out=zeros(1,new_length,'uint16');
-
             for i=1:new_length
                 good_out(i)=new(2*i-1)+new(2*i)*256;
             end
 
             % find all new frames for all subs
             find_new_frames=find(good_out==14);
-        
-            %% WE ASUME ONLY 1 FRAME PER TIME !!! 
+            if isempty(find_new_frames)
+                find_new_frames=find(good_out==15);
+                frame_reversed_1=true;
+                frame_reversed_2=true;
+                frame_reversed_3=true;
+                frame_reversed_4=true;
+                frame_reversed_5=true;
+                frame_reversed_6=true;
+            else
+                frame_reversed_1=false;
+                frame_reversed_2=false;
+                frame_reversed_3=false;
+                frame_reversed_4=false;
+                frame_reversed_5=false;
+                frame_reversed_6=false;
+            end
+
+            %% WE ASUME ONLY 1 FRAME PER TIME, since its real-time so no lags.
             for i=1:2:length(find_new_frames) % here we skip 1 14 14.. just grab first one
                 switch good_out(find_new_frames(i)-1) % detect, which submodule
                     case 1
@@ -924,6 +773,8 @@ function main()
                 end
             end
 
+
+
             try
                 X1();
                 X2();
@@ -931,14 +782,17 @@ function main()
                 X4();
                 X5();
                 X6();
+
+
+
+
             catch
-                disp('smth wrong in X()..')
-                % flushinput(s)
+                disp('catch X()..')
+            %     % flushinput(s)
             end
 
-            % if (redraw_2==true)% &&  redraw_2==true ||redraw_4==true || redraw_5==true || redraw_6==true)
-            if (redraw_1==true && redraw_2==true  && redraw_3==true && redraw_4==true && redraw_5==true && redraw_6==true) 
-                how_much_read_size_to_read=0;
+            if (redraw_2==true)% &&  redraw_2==true ||redraw_4==true || redraw_5==true || redraw_6==true)
+            % if (redraw_1==true && redraw_2==true  && redraw_3==true && redraw_4==true && redraw_5==true && redraw_6==true) 
                 counter=counter+1;
                 redraw_1=false;
                 redraw_2=false;
@@ -946,42 +800,34 @@ function main()
                 redraw_4=false;
                 redraw_5=false;
                 redraw_6=false;
+
+                % R=ones(number_of_lines,number_of_rows);
+
+                R=[M_1_backup M_2_backup M_3_backup M_4_backup M_5_backup M_6_backup]
+                for i=1:number_of_lines
+                    for j=1:number_of_rows
+                        x((i-1)*number_of_rows+j)=R(i,j)*cos_phi(j)*sin_theta(i);
+                        y((i-1)*number_of_rows+j)=R(i,j)*sin_phi(j)*sin_theta(i);
+                        z((i-1)*number_of_rows+j)=R(i,j)*cos_theta(i);
+                    end
+                end
+
+
+                set(h,'XData',x)
+                set(h,'YData',y)
+                set(h,'ZData',z)
+                set(h,'CData',reshape(R',[1 numel(R)]));
+
                 drawnow nocallbacks %% more faster (25%) than just drawnow.
             end
         else
-            new_frame_counter=0;
+            disp('bad data occur')
             % flushinput(s)
             bad_counter=bad_counter+1;
-            disp(['how much read', num2str(how_much_read_size_to_read)]);
-            fileID = fopen('serial_checking.txt','w');
-            fprintf(fileID,'%d\n', new); 
+            % disp(['how much read', num2str(how_much_read_size_to_read)]);
+            % fileID = fopen('serial_checking.txt','w');
+            % fprintf(fileID,'%d\n', new); 
             % delay_ms(10000);
-
-            disp('NEW?')
-
-            % possible_new_frame_idx=find(new==14);
-            % try
-            %     for i=1:1:length(possible_new_frame_idx)
-            %         if (new(possible_new_frame_idx(i)+1)==0 && new(possible_new_frame_idx(i)+2)==14)
-            %             new_frame_counter=new_frame_counter+1;
-            %         end
-            %     end
-            % catch
-            % end
-
-            % disp(new_frame_counter)
-            % if  new_frame_counter==6
-            %     frame_reversed_1=~frame_reversed_1;
-            %     frame_reversed_2=~frame_reversed_2;
-            %     frame_reversed_3=~frame_reversed_3;
-            %     frame_reversed_4=~frame_reversed_4;
-            %     frame_reversed_5=~frame_reversed_5;
-            %     frame_reversed_6=~frame_reversed_6;
-            %     disp('lets reverse')
-            % else
-            %     disp('NO reverse')    
-            % end
-
 
             A_1=zeros(1,3*maximum_x_points_1*maximum_y_points_1,type_of_A); % +1 since new line saved in this array. Don't forget about x4;
             A_2=zeros(1,3*maximum_x_points_2*maximum_y_points_2,type_of_A); % uint32 is fine. CALIB2 is ~32000
@@ -1011,9 +857,7 @@ function main()
             M_6_not_reversed_frame_last_line=matrix_default_value*ones(1,x_size,type_of_M);
 
             left_new=uint16([]);
-            % return
         end
-
 
 
 
@@ -1058,7 +902,6 @@ function main()
                     [~,size_asep]=size(A_sep{len});
                     zero_index = clean_new_lines(len)+size_asep;
                     A_sep{len+1}=A_1(clean_new_lines(len)+2:zero_index);  % outside for, since end.. 
-
 
                     if (~frame_reversed_1) % we dont need to reverse frame..
                         M_1(1,:)=M_1_reversed_frame_last_line;
@@ -1194,7 +1037,7 @@ function main()
                         end  % for i
                         M_1_reversed_frame_last_line=M_1(1,:);
                     end % frame reversed
-                    frame_reversed_1=~frame_reversed_1;
+                    % frame_reversed_1=~frame_reversed_1;
                 end % len ~=0
                 %%% END SEPARATION %%%
 
@@ -1208,13 +1051,14 @@ function main()
                         [lags,c]=CXCORR(M_1(i,start_from:finish_to), M_1(i+1,start_from:finish_to));
                         [~,idx]=max(c); %% can analyze only half, or even only first 10.. (in case of HR).
                         % lags(idx)
-                        % disp('CORR')
                         if (    (lags(idx)<max_shift) || (finish_to-lags(idx)<max_shift)    )
                             M_1(i+1,start_from:finish_to)=circshift(M_1(i+1,start_from:finish_to),[0 lags(idx)]);
                         end
                     end
                 end
 
+
+                M_1_backup=M_1;
                 set(pl(1),'CData',M_1);
                 redraw_1=true;  
 
@@ -1410,7 +1254,7 @@ function main()
                         end  % for i
                         M_2_reversed_frame_last_line=M_2(1,:);
                     end % frame reversed
-                    frame_reversed_2=~frame_reversed_2;
+                    % frame_reversed_2=~frame_reversed_2;
                 end % len ~=0
                 %%% END SEPARATION %%%
 
@@ -1450,8 +1294,12 @@ function main()
                 %     disp('done')
                 %     % find(M_2_backup(2,:)==0,5,'first')
                 % end
-
-
+        
+                % if (counter==200)
+                %     name=strcat(strrep(datestr(now,'dd-mmm-yyyy-hh-MM-ss'),'-','_'),'.txt');
+                %     dlmwrite(name, [M_1_backup M_2_backup M_3_backup M_4_backup M_5_backup M_6_backup]);
+                %     disp('SCREEN IS DONE')
+                % end
                 % txt=[]
                 % total_points=0;
                 % for i=2:30
@@ -1675,7 +1523,7 @@ function main()
                         end  % for i
                         M_3_reversed_frame_last_line=M_3(1,:);
                     end % frame reversed
-                    frame_reversed_3=~frame_reversed_3;
+                    % frame_reversed_3=~frame_reversed_3;
                 end % len ~=0
                 %%% END SEPARATION %%%
 
@@ -1696,6 +1544,8 @@ function main()
                     end
                 end
 
+
+                M_3_backup=M_3;
                 set(pl(3),'CData',M_3);
                 redraw_3=true;  
 
@@ -1889,7 +1739,7 @@ function main()
                         end  % for i
                         M_4_reversed_frame_last_line=M_4(1,:);
                     end % frame reversed
-                    frame_reversed_4=~frame_reversed_4;
+                    % frame_reversed_4=~frame_reversed_4;
                 end % len ~=0
                 %%% END SEPARATION %%%
 
@@ -1910,6 +1760,8 @@ function main()
                     end
                 end
 
+
+                M_4_backup=M_4;
                 set(pl(4),'CData',M_4);
                 redraw_4=true;  
 
@@ -2103,7 +1955,7 @@ function main()
                         end  % for i
                         M_5_reversed_frame_last_line=M_5(1,:);
                     end % frame reversed
-                    frame_reversed_5=~frame_reversed_5;
+                    % frame_reversed_5=~frame_reversed_5;
                 end % len ~=0
                 %%% END SEPARATION %%%
 
@@ -2124,6 +1976,8 @@ function main()
                     end
                 end
 
+
+                M_5_backup=M_5;
                 set(pl(5),'CData',M_5);
                 redraw_5=true;  
 
@@ -2316,7 +2170,7 @@ function main()
                         end  % for i
                         M_6_reversed_frame_last_line=M_6(1,:);
                     end % frame reversed
-                    frame_reversed_6=~frame_reversed_6;
+                    % frame_reversed_6=~frame_reversed_6;
                 end % len ~=0
                 %%% END SEPARATION %%%
 
@@ -2337,6 +2191,8 @@ function main()
                     end
                 end
 
+
+                M_6_backup=M_6;
                 set(pl(6),'CData',M_6);
                 redraw_6=true;  
 
@@ -2387,7 +2243,7 @@ function main()
     end % function
 
 
-    function r1_callback(source, event)
+    function r1_callback(~, event)
         left_new=uint16([]);
         disp('mode 1');
 
@@ -2493,7 +2349,7 @@ function main()
     end
 
 
-    function r2_callback(source, event)
+    function r2_callback(~, event)
         left_new=uint16([]);
         disp('mode 2');
 
@@ -2597,12 +2453,12 @@ function main()
     end
 
 
-    function r3_callback(source, event)
+    function r3_callback(~, event)
         left_new=uint16([]);
         disp('mode 3');
 
-        x_size=140;
-        y_size=10;
+        x_size=250;
+        y_size=30;
 
         show_x_min=1;
         show_x_max=x_size;
@@ -2700,14 +2556,14 @@ function main()
         fwrite(s,uint8('g'),'uint8');
     end
 
-    function reverse_image(source, event)
-        frame_reversed_1=~frame_reversed_1;
-        frame_reversed_2=~frame_reversed_2;
-        frame_reversed_3=~frame_reversed_3;
-        frame_reversed_4=~frame_reversed_4;
-        frame_reversed_5=~frame_reversed_5;
-        frame_reversed_6=~frame_reversed_6;
-    end
+    % function reverse_image(source, event)
+    %     frame_reversed_1=~frame_reversed_1;
+    %     frame_reversed_2=~frame_reversed_2;
+    %     frame_reversed_3=~frame_reversed_3;
+    %     frame_reversed_4=~frame_reversed_4;
+    %     frame_reversed_5=~frame_reversed_5;
+    %     frame_reversed_6=~frame_reversed_6;
+    % end
 
 
     function corr_on_callback(source,event)
@@ -2756,7 +2612,12 @@ function main()
 
     function screen_callback(source,event)
         name=strcat(strrep(datestr(now,'dd-mmm-yyyy-hh-MM-ss'),'-','_'),'.txt');
-        dlmwrite(name, M_2_backup);
+        dlmwrite(name, [M_1_backup M_2_backup M_3_backup M_4_backup M_5_backup M_6_backup]);
+
+
+        % dlmwrite(name, [M_1 M_2 M_3 M_4 M_5 M_6]);
+
+
         disp('SCREEN IS DONE')
     end
 
@@ -2811,13 +2672,13 @@ function main()
         if nargin<4 || isempty(marg_h); marg_h = .05; end
         if nargin<5; marg_w = .05; end
 
-        if numel(gap)==1; 
+        if numel(gap)==1
             gap = [gap gap];
         end
-        if numel(marg_w)==1; 
+        if numel(marg_w)==1
             marg_w = [marg_w marg_w];
         end
-        if numel(marg_h)==1; 
+        if numel(marg_h)==1
             marg_h = [marg_h marg_h];
         end
 
