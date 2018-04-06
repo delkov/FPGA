@@ -8,9 +8,14 @@ function main()
 
     pixels_row=130; % +1 will be
 
+    % pixels_row=240; % +1 will be
+
+
     number_of_rows_fake=pixels_row*6;
 
     number_of_lines=8; % +1 will be
+
+    % number_of_lines=30; % +1 will be
 
 
     number_of_rows=pixels_row*number_of_sub; % +1 will be
@@ -51,6 +56,8 @@ function main()
     record_time=300; % profile time
     
     % GLOBAL
+    % start_command='g';
+
     start_command='f';
 
  
@@ -234,12 +241,12 @@ function main()
     pl= line([test,test], [test,test], [test,test], 'LineStyle','none', 'Marker','o', 'Color','b','MarkerSize', 1, 'MarkerEdgeColor', 'none','MarkerFaceColor', marker_color);
 
     % pl=plot3(test,test,test,'Marker','o','LineStyle','none','MarkerSize',1);
-    view([0,27])
+    view([-15,61])
     
-    x_lim=6;
-    y_lim=6;
+    x_lim=4;
+    y_lim=15;
     z_lim=2;
-    OVERFLOW=10;
+    OVERFLOW=50;
 
 
     ax=gca;
