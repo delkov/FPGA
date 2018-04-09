@@ -3,19 +3,19 @@ function main()
     delete(instrfindall); % remove already opened serial
     clear; clc
     
+    filename=datestr( datevec( now ), 'yyyy-mm-dd HH:MM:SS' );
+    filename=char(strcat('3d_',strrep(filename,':','_')));
+
+
     number_of_sub=6;
 
 
+    number_of_lines=8; % +1 will be
+    % number_of_lines=30; % +1 will be
     pixels_row=130; % +1 will be
-
     % pixels_row=240; % +1 will be
 
-
     number_of_rows_fake=pixels_row*6;
-
-    number_of_lines=8; % +1 will be
-
-    % number_of_lines=30; % +1 will be
 
 
     number_of_rows=pixels_row*number_of_sub; % +1 will be
@@ -41,6 +41,10 @@ function main()
     cos_phi=cos(phi);
 
     R=zeros(number_of_lines, number_of_rows);
+    % x=zeros(number_of_linesnumber_of_rows);
+    % y=zeros(number_of_lines, number_of_rows);
+    % z=zeros(number_of_lines, number_of_rows);
+
 
     cd('/home/delkov/mojo/SIMPLE/txt');
 
@@ -67,18 +71,18 @@ function main()
     % color=[1.5 40];
 
     % IMAGE CORRECTIONS
-    filter_data=0;
+    filter_data=1;
     corr_on=0;
     max_shift=35;
-    replace_if_bigger_than=50; 
+    replace_if_bigger_than=40; 
 
     first_line_reverse=true;
-    show_x_min=1;
-    show_x_max=5000;
-    show_y_min=0;
-    show_y_max=5000;
-    y_tick_step=1;
-    x_tick_step=40;
+    % show_x_min=1;
+    % show_x_max=5000;
+    % show_y_min=0;
+    % show_y_max=5000;
+    % y_tick_step=1;
+    % x_tick_step=40;
     type_of_M='double'; 
     type_of_A='double'; % can be uint32 & double() below.. but not much speed increased
 
@@ -199,6 +203,7 @@ function main()
                       'Units', 'normalized',...
                       'Position',[0.68 0.2 0.05 0.4],...
                       'HandleVisibility','on',...
+                      'Value',1,...
                       'Callback', @filter_data_callback);    
     S.btn3 = uicontrol(bg, 'Style', 'checkbox', 'String', 'CORR',...
                       'Units', 'normalized',...
@@ -238,21 +243,22 @@ function main()
     % set(gcf,'RendererMode','manual'); % already setted because of OpenGl, just keep it..
     
     test=ones(1,number_of_lines*number_of_rows);
+
+
     pl= line([test,test], [test,test], [test,test], 'LineStyle','none', 'Marker','o', 'Color','b','MarkerSize', 1, 'MarkerEdgeColor', 'none','MarkerFaceColor', marker_color);
 
-    % pl=plot3(test,test,test,'Marker','o','LineStyle','none','MarkerSize',1);
-    view([-15,61])
+
+    view([32,50])
     
-    x_lim=4;
-    y_lim=15;
-    z_lim=2;
+    x_lim=10;
+    y_lim=35;
+    z_lim=6;
     OVERFLOW=50;
 
 
-    ax=gca;
-
-    set(ax, 'Units', 'pixels', 'Position', [100, 150, 1700, 800],'XLimMode','manual','Xlim',[-x_lim x_lim],'YLimMode','manual','Ylim',[-0.2 y_lim],'ZLimMode','manual','Zlim',[-z_lim z_lim],'Visible','off');
-    % set(ax, 'Units', 'pixels', 'Position', [100, 150, 1700, 800],'XLimMode','manual','Xlim',[-x_lim x_lim],'YLimMode','manual','Ylim',[-0.2 y_lim],'ZLimMode','manual','Zlim',[-z_lim z_lim],'Visible','on');
+    
+    set(gca, 'Units', 'pixels', 'Position', [100, 150, 1700, 800],'XLimMode','manual','Xlim',[-x_lim x_lim],'YLimMode','manual','Ylim',[-0.2 y_lim],'ZLimMode','manual','Zlim',[-z_lim z_lim],'Visible','off');
+    % set(ax, 'Units', 'pixels', 'Position', [50, 150, 1800, 850],'XLimMode','manual','Xlim',[-x_lim x_lim],'YLimMode','manual','Ylim',[-0.2 y_lim],'ZLimMode','manual','Zlim',[-z_lim z_lim],'Visible','on');
 
 
     % get(gca)
@@ -454,7 +460,7 @@ function main()
                 % disp('azaza')
 
                 R=R(1:number_of_lines,1:number_of_rows);
-                R(R>OVERFLOW)=1;
+                R(R>OVERFLOW)=0;
 
                 for i=1:number_of_lines
                     for j=1:number_of_rows_fake
@@ -464,6 +470,10 @@ function main()
                     end
                 end
 
+                % filename=strsplit(string(datetime('now')),' ');
+
+
+                dlmwrite(filename, R,'-append')
                 set(pl,{'XData','YData','ZData'},{x,y,z});
 
                 drawnow  %% more faster (25%) than just drawnow.

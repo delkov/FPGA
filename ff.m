@@ -408,31 +408,35 @@ function main()
     % SERIAL
     baud_rate=4000000;
     buffer_size=1000000; % in bytes
-    size_to_read=25000; % read when reached in buffer
+    size_to_read=25000; % read when reached in bufferW
 
     % PROFILING
     profile_on=0;
     record_time=60; % profile time
     
     % GLOBAL
-    start_command='f';
+    start_command='g';
 
     x_size=240;
     y_size=30;
  
 
+    name=strsplit(string(datetime('now')),' ');
+    filename=char(strcat('2d_',strrep(name(2),':','_')));
+
+
     % IMAGE CORRECTIONS
-    filter_data=0;
+    filter_data=1;
     corr_on=0;
     max_shift=35;
-    replace_if_bigger_than=60; 
+    replace_if_bigger_than=50; 
 
     % PLOT
     number_of_sub=6;
     show_colorbar = 1;
     cmap_name=jet_black; % mine, parula_black, jet_black, jet_black_end, jet_white, hot
     matrix_default_value=100;
-    color=[1.5 40];
+    color=[1.5 12];
 
     show_separated_lines = 0;
     first_line_reverse=true;
@@ -568,6 +572,7 @@ function main()
                           'Units', 'normalized',...
                           'OuterPosition',[0.68 0.2 0.05 0.4],...
                           'HandleVisibility','on',...
+                          'Value',1,...
                           'Callback', @filter_data_callback);    
         S.btn3 = uicontrol(bg, 'Style', 'checkbox', 'String', 'CORR',...
                           'Units', 'normalized',...
@@ -937,7 +942,10 @@ function main()
                 redraw_4=false;
                 redraw_5=false;
                 redraw_6=false;
+
+                dlmwrite(filename, [M_1_backup M_2_backup M_3_backup M_4_backup M_5_backup M_6_backup],'-append');
                 drawnow nocallbacks %% more faster (25%) than just drawnow.
+
             end
         else
             disp('bad data occur')
@@ -1414,11 +1422,7 @@ function main()
                 %     % find(M_2_backup(2,:)==0,5,'first')
                 % end
         
-                if (counter==200)
-                    name=strcat(strrep(datestr(now,'dd-mmm-yyyy-hh-MM-ss'),'-','_'),'.txt');
-                    dlmwrite(name, [M_1_backup M_2_backup M_3_backup M_4_backup M_5_backup M_6_backup]);
-                    disp('SCREEN IS DONE')
-                end
+     
                 % txt=[]
                 % total_points=0;
                 % for i=2:30
